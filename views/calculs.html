@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Ligne</label>
+      <div class="col-lg-2">
+        <input type="text" class="form-control" ng-model="ligne">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Classe économique</label>
+      <div class="col-lg-2">
+        <input type="number" class="form-control" ng-model="eco" min=0>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Classe affaire</label>
+      <div class="col-lg-2">
+        <input type="number" class="form-control" ng-model="business" min=0>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Première classe</label>
+      <div class="col-lg-2">
+        <input type="number" class="form-control" ng-model="first" min=0>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-1">
+        <input class="btn btn-primary" type="button" value="Calculer" ng-click="optimize()">
+      </div>
+      <div class="col-lg-1">
+        <input class="btn btn-primary" type="button" value="Sauver" ng-click="optimize()">
+      </div>
+    </div>
+  </form>
+
+  <label class="control-label">Select File</label>
+  <input id="input-1a" type="file" class="file" data-show-preview="false">
+
+  <div class="container-fluid">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Appareil</th>
+          <th>Classe éco</th>
+          <th>Classe affaire</th>
+          <th>Première classe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="answer in answers">
+          <td>{{answer.type}}</td>
+          <td>{{answer.optiEco}}</td>
+          <td>{{answer.optiBusiness}}</td>
+          <td>{{answer.optiFirst}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
