@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <form>
+    <line-select></line-select>
+  </form>
+</div>
+
+
+
+<div class="container-fluid">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th><select>
+              <option>LHR</option>
+            </select>
+        </th>
+        <th><type-select></type-select></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Hihi</th>
+      </tr>
+      <tr>
+        <th>Origine</th>
+        <th>Destination</th>
+        <th>Distance</th>
+        <th>Éco</th>
+        <th>Affaire</th>
+        <th>Première</th>
+        <th>Avions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="line in lines">
+        <td>{{line.from}}</td>
+        <td>{{line.to}}</td>
+        <td>{{line.distance}}</td>
+        <td>{{line.demand.eco}}</td>
+        <td>{{line.demand.business}}</td>
+        <td>{{line.demand.first}}</td>
+        <td>
+          <div ng-repeat="plane in line.planes">
+            <span class="label label-default">{{plane}}</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

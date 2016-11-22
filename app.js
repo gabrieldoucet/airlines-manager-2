@@ -34,8 +34,25 @@ $urlRouterProvider.otherwise("/accueil");
       url: '/flotte',
       views: {
         '@': {
-          templateUrl: 'views/flotte.html'
+          templateUrl: 'views/flotte.html',
+          controller: 'fleetController'
+        }
+      }
+    })
+    .state('root.lines', {
+      url: '/lines',
+      views: {
+        '@': {
+          templateUrl: 'views/lines.html',
+          controller: 'linesController'
         }
       }
     })
 }]);
+
+am2App
+  .factory('loader', ['$http', function($http) {
+    return function(path, callback) {
+      var myPromise = $http.get(path).then(callback);
+    }
+  }]);

@@ -1,0 +1,343 @@
+[
+  {
+  "name": "JFK-77W-0001",
+  "type": "777-300ER",
+  "hub": "JFK",
+  "lines": ["GRU", "NRT"],
+  "configuration": {
+      "eco": 187,
+      "business": 101, 
+      "first": 43
+    }
+  },
+  {
+  "name": "JFK-77W-0002",
+  "type": "777-300ER",
+  "hub": "JFK",
+  "lines": ["ATH", "DTW"],
+  "configuration": {
+      "eco": 211,
+      "business": 115, 
+      "first": 31
+    }
+  },
+  {
+  "name": "JFK-77W-0003",
+  "type": "777-300ER",
+  "hub": "JFK",
+  "lines": ["GRU", "LIM", "LHR"],
+  "configuration": {
+      "eco": 359,
+      "business": 61, 
+      "first": 19
+    }
+  },
+  {
+  "name": "JFK-77W-0004",
+  "type": "777-300ER",
+  "hub": "JFK",
+  "lines": ["MAD"],
+  "configuration": {
+      "eco": 281,
+      "business": 77, 
+      "first": 31
+    }
+  },
+  {
+  "name": "JFK-77W-0005",
+  "type": "777-300ER",
+  "hub": "JFK",
+  "lines": ["LAX", "BOM"],
+  "configuration": {
+      "eco": 407,
+      "business": 310, 
+      "first": 27
+    }
+  },
+  {
+  "name": "JFK-77W-0006",
+  "type": "777-300ER",
+  "hub": "JFK",
+  "lines": ["EZE"],
+  "configuration": {
+      "eco": 310,
+      "business": 70, 
+      "first": 27
+    }
+  },
+  {
+  "name": "JFK-77W-0007",
+  "type": "777-300ER",
+  "hub": "JFK",
+  "lines": ["EZE", "ATH"],
+  "configuration": {
+      "eco": 310,
+      "business": 70, 
+      "first": 27
+    }
+  },
+  {
+  "name": "JFK-77W-0008",
+  "type": "777-300ER",
+  "hub": "JFK",
+  "lines": ["DXB"],
+  "configuration": {
+      "eco": 280,
+      "business": 75, 
+      "first": 32
+    }
+  },
+  {
+    "name": "JFK-CONC-1",
+    "type": "Concorde",
+    "hub": "JFK",
+    "lines": ["SFO"],
+    "configuration": {
+      "eco": 44,
+      "business": 23, 
+      "first": 10
+    }
+  },
+  {
+    "name": "JFK-320-0001",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["LAX", "SFO"],
+    "configuration": {
+      "eco": 33,
+      "business": 36, 
+      "first": 23
+    }
+  },
+  {
+    "name": "JFK-320-0002",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["SFO"],
+    "configuration": {
+      "eco": 33,
+      "business": 36, 
+      "first": 23
+    }
+  },
+  {
+    "name": "JFK-320-0003",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["SFO"],
+    "configuration": {
+      "eco": 33,
+      "business": 36, 
+      "first": 23
+    }
+  },
+  {
+    "name": "JFK-320-0004",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["LAX"],
+    "configuration": {
+      "eco": 33,
+      "business": 36, 
+      "first": 23
+    }
+  },
+  {
+    "name": "JFK-320-0005",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["LAX"],
+    "configuration": {
+      "eco": 47,
+      "business": 37, 
+      "first": 19
+    }
+  },
+  {
+    "name": "JFK-320-0006",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["LAX", "ATL"],
+    "configuration": {
+      "eco": 48,
+      "business": 37, 
+      "first": 19
+    }
+  },
+  {
+    "name": "JFK-320-0007",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["MIA", "LIM"],
+    "configuration": {
+      "eco": 48,
+      "business": 37, 
+      "first": 19
+    }
+  },
+  {
+    "name": "JFK-320-0008",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["ATL", "LAX"],
+    "configuration": {
+      "eco": 48,
+      "business": 37, 
+      "first": 19
+    }
+  },
+  {
+    "name": "JFK-320-0009",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["ATL", "MIA"],
+    "configuration": {
+      "eco": 48,
+      "business": 37, 
+      "first": 19
+    }
+  },
+  {
+    "name": "JFK-320-00010",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["ORD"],
+    "configuration": {
+      "eco": 67,
+      "business": 35, 
+      "first": 15
+    }
+  },
+  {
+    "name": "JFK-320-00011",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["DTW"],
+    "configuration": {
+      "eco": 41,
+      "business": 36, 
+      "first": 21
+    }
+  },
+  {
+    "name": "JFK-320-00012",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["MIA", "UIO", "LIM", "MAD"],
+    "configuration": {
+      "eco": 90,
+      "business": 35, 
+      "first": 10
+    }
+  },
+  {
+    "name": "JFK-UIO",
+    "type": "A320-NEO",
+    "hub": "JFK",
+    "lines": ["UIO"],
+    "configuration": {
+      "eco": 112,
+      "business": 25, 
+      "first": 9
+    }
+  },
+  {
+    "name": "JFK-359-0001",
+    "type": "A350-900XWB",
+    "hub": "JFK",
+    "lines": ["NRT"],
+    "configuration": {
+      "eco": 163,
+      "business": 87, 
+      "first": 37
+    }
+  },
+  {
+    "name": "JFK-359-0004",
+    "type": "A350-900XWB",
+    "hub": "JFK",
+    "lines": ["LIM"],
+    "configuration": {
+      "eco": 282,
+      "business": 76, 
+      "first": 13
+    }
+  },
+  {
+    "name": "JFK-359-0007",
+    "type": "A350-900XWB",
+    "hub": "JFK",
+    "lines": ["LAX", "ATH"],
+    "configuration": {
+      "eco": 213,
+      "business": 73, 
+      "first": 31
+    }
+  },
+ {
+    "name": "JFK-388-0001",
+    "type": "A380-800",
+    "hub": "JFK",
+    "lines": ["CDG"],
+    "configuration": {
+      "eco": 288,
+      "business": 157, 
+      "first": 67
+    }
+  },
+ {
+    "name": "JFK-388-0002",
+    "type": "A380-800",
+    "hub": "JFK",
+    "lines": ["ZRH"],
+    "configuration": {
+      "eco": 288,
+      "business": 157, 
+      "first": 67
+    }
+  },
+  {
+    "name": "JFK-388-0006",
+    "type": "A380-800",
+    "hub": "JFK",
+    "lines": ["BOM", "MAD"],
+    "configuration": {
+      "eco": 288,
+      "business": 157, 
+      "first": 67
+    }
+  },
+  {
+    "name": "JFK-388-0007",
+    "type": "A380-800",
+    "hub": "JFK",
+    "lines": ["LHR"],
+    "configuration": {
+      "eco": 288,
+      "business": 157, 
+      "first": 67
+    }
+  },
+ {
+    "name": "JFK-77L-0001",
+    "type": "777-200LR",
+    "hub": "JFK",
+    "lines": ["SYD", "MAD"],
+    "configuration": {
+      "eco": 257,
+      "business": 62, 
+      "first": 17
+    }
+  },
+ {
+    "name": "JFK-77L-0002",
+    "type": "777-200LR",
+    "hub": "JFK",
+    "lines": ["SYD", "LIM"],
+    "configuration": {
+      "eco": 151,
+      "business": 81, 
+      "first": 34
+    }
+  }
+]
