@@ -3,8 +3,8 @@
   "name": "JFK-77W-0001",
   "type": "777-300ER",
   "hub": "JFK",
-  "lines": ["GRU", "NRT"],
-  "configuration": {
+  "dests": ["GRU", "NRT"],
+  "config": {
       "eco": 187,
       "business": 101, 
       "first": 43
@@ -14,8 +14,8 @@
   "name": "JFK-77W-0002",
   "type": "777-300ER",
   "hub": "JFK",
-  "lines": ["ATH", "DTW"],
-  "configuration": {
+  "dests": ["ATH", "DTW"],
+  "config": {
       "eco": 211,
       "business": 115, 
       "first": 31
@@ -25,8 +25,8 @@
   "name": "JFK-77W-0003",
   "type": "777-300ER",
   "hub": "JFK",
-  "lines": ["GRU", "LIM", "LHR"],
-  "configuration": {
+  "dests": ["GRU", "LIM", "LHR"],
+  "config": {
       "eco": 359,
       "business": 61, 
       "first": 19
@@ -36,8 +36,8 @@
   "name": "JFK-77W-0004",
   "type": "777-300ER",
   "hub": "JFK",
-  "lines": ["MAD"],
-  "configuration": {
+  "dests": ["MAD"],
+  "config": {
       "eco": 281,
       "business": 77, 
       "first": 31
@@ -47,8 +47,8 @@
   "name": "JFK-77W-0005",
   "type": "777-300ER",
   "hub": "JFK",
-  "lines": ["LAX", "BOM"],
-  "configuration": {
+  "dests": ["LAX", "BOM"],
+  "config": {
       "eco": 407,
       "business": 310, 
       "first": 27
@@ -58,8 +58,8 @@
   "name": "JFK-77W-0006",
   "type": "777-300ER",
   "hub": "JFK",
-  "lines": ["EZE"],
-  "configuration": {
+  "dests": ["EZE"],
+  "config": {
       "eco": 310,
       "business": 70, 
       "first": 27
@@ -69,8 +69,8 @@
   "name": "JFK-77W-0007",
   "type": "777-300ER",
   "hub": "JFK",
-  "lines": ["EZE", "ATH"],
-  "configuration": {
+  "dests": ["EZE", "ATH"],
+  "config": {
       "eco": 310,
       "business": 70, 
       "first": 27
@@ -80,19 +80,19 @@
   "name": "JFK-77W-0008",
   "type": "777-300ER",
   "hub": "JFK",
-  "lines": ["DXB"],
-  "configuration": {
+  "dests": ["DXB"],
+  "config": {
       "eco": 280,
       "business": 75, 
       "first": 32
     }
   },
   {
-    "name": "JFK-CONC-1",
+    "name": "N73063",
     "type": "Concorde",
     "hub": "JFK",
-    "lines": ["SFO"],
-    "configuration": {
+    "dests": ["SFO"],
+    "config": {
       "eco": 44,
       "business": 23, 
       "first": 10
@@ -102,8 +102,8 @@
     "name": "JFK-320-0001",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["LAX", "SFO"],
-    "configuration": {
+    "dests": ["LAX", "SFO"],
+    "config": {
       "eco": 33,
       "business": 36, 
       "first": 23
@@ -113,8 +113,8 @@
     "name": "JFK-320-0002",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["SFO"],
-    "configuration": {
+    "dests": ["SFO"],
+    "config": {
       "eco": 33,
       "business": 36, 
       "first": 23
@@ -124,8 +124,8 @@
     "name": "JFK-320-0003",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["SFO"],
-    "configuration": {
+    "dests": ["SFO"],
+    "config": {
       "eco": 33,
       "business": 36, 
       "first": 23
@@ -135,8 +135,8 @@
     "name": "JFK-320-0004",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["LAX"],
-    "configuration": {
+    "dests": ["LAX"],
+    "config": {
       "eco": 33,
       "business": 36, 
       "first": 23
@@ -146,8 +146,8 @@
     "name": "JFK-320-0005",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["LAX"],
-    "configuration": {
+    "dests": ["LAX"],
+    "config": {
       "eco": 47,
       "business": 37, 
       "first": 19
@@ -157,8 +157,8 @@
     "name": "JFK-320-0006",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["LAX", "ATL"],
-    "configuration": {
+    "dests": ["LAX", "ATL"],
+    "config": {
       "eco": 48,
       "business": 37, 
       "first": 19
@@ -168,8 +168,8 @@
     "name": "JFK-320-0007",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["MIA", "LIM"],
-    "configuration": {
+    "dests": ["MIA", "LIM"],
+    "config": {
       "eco": 48,
       "business": 37, 
       "first": 19
@@ -179,8 +179,8 @@
     "name": "JFK-320-0008",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["ATL", "LAX"],
-    "configuration": {
+    "dests": ["ATL", "LAX"],
+    "config": {
       "eco": 48,
       "business": 37, 
       "first": 19
@@ -190,52 +190,52 @@
     "name": "JFK-320-0009",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["ATL", "MIA"],
-    "configuration": {
+    "dests": ["ATL", "MIA"],
+    "config": {
       "eco": 48,
       "business": 37, 
       "first": 19
     }
   },
   {
-    "name": "JFK-320-00010",
+    "name": "N23TZ",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["ORD"],
-    "configuration": {
+    "dests": ["ORD"],
+    "config": {
       "eco": 67,
       "business": 35, 
       "first": 15
     }
   },
   {
-    "name": "JFK-320-00011",
+    "name": "JFK-320-0011",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["DTW"],
-    "configuration": {
+    "dests": ["DTW"],
+    "config": {
       "eco": 41,
       "business": 36, 
       "first": 21
     }
   },
   {
-    "name": "JFK-320-00012",
+    "name": "JFK-320-0012",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["MIA", "UIO", "LIM", "MAD"],
-    "configuration": {
+    "dests": ["MIA", "UIO", "LIM", "MAD"],
+    "config": {
       "eco": 90,
       "business": 35, 
       "first": 10
     }
   },
   {
-    "name": "JFK-UIO",
+    "name": "N532DA",
     "type": "A320-NEO",
     "hub": "JFK",
-    "lines": ["UIO"],
-    "configuration": {
+    "dests": ["UIO"],
+    "config": {
       "eco": 112,
       "business": 25, 
       "first": 9
@@ -245,8 +245,8 @@
     "name": "JFK-359-0001",
     "type": "A350-900XWB",
     "hub": "JFK",
-    "lines": ["NRT"],
-    "configuration": {
+    "dests": ["NRT"],
+    "config": {
       "eco": 163,
       "business": 87, 
       "first": 37
@@ -256,8 +256,8 @@
     "name": "JFK-359-0004",
     "type": "A350-900XWB",
     "hub": "JFK",
-    "lines": ["LIM"],
-    "configuration": {
+    "dests": ["LIM"],
+    "config": {
       "eco": 282,
       "business": 76, 
       "first": 13
@@ -267,8 +267,8 @@
     "name": "JFK-359-0007",
     "type": "A350-900XWB",
     "hub": "JFK",
-    "lines": ["LAX", "ATH"],
-    "configuration": {
+    "dests": ["LAX", "ATH"],
+    "config": {
       "eco": 213,
       "business": 73, 
       "first": 31
@@ -278,30 +278,30 @@
     "name": "JFK-388-0001",
     "type": "A380-800",
     "hub": "JFK",
-    "lines": ["CDG"],
-    "configuration": {
+    "dests": ["CDG"],
+    "config": {
       "eco": 288,
       "business": 157, 
       "first": 67
     }
   },
  {
-    "name": "JFK-388-0002",
+    "name": "N847R",
     "type": "A380-800",
     "hub": "JFK",
-    "lines": ["ZRH"],
-    "configuration": {
-      "eco": 288,
-      "business": 157, 
-      "first": 67
+    "dests": ["ZRH"],
+    "config": {
+      "eco": 319,
+      "business": 147, 
+      "first": 64
     }
   },
   {
     "name": "JFK-388-0006",
     "type": "A380-800",
     "hub": "JFK",
-    "lines": ["BOM", "MAD"],
-    "configuration": {
+    "dests": ["BOM", "MAD"],
+    "config": {
       "eco": 288,
       "business": 157, 
       "first": 67
@@ -311,8 +311,8 @@
     "name": "JFK-388-0007",
     "type": "A380-800",
     "hub": "JFK",
-    "lines": ["LHR"],
-    "configuration": {
+    "dests": ["LHR"],
+    "config": {
       "eco": 288,
       "business": 157, 
       "first": 67
@@ -322,8 +322,8 @@
     "name": "JFK-77L-0001",
     "type": "777-200LR",
     "hub": "JFK",
-    "lines": ["SYD", "MAD"],
-    "configuration": {
+    "dests": ["SYD", "MAD"],
+    "config": {
       "eco": 257,
       "business": 62, 
       "first": 17
@@ -333,11 +333,319 @@
     "name": "JFK-77L-0002",
     "type": "777-200LR",
     "hub": "JFK",
-    "lines": ["SYD", "LIM"],
-    "configuration": {
+    "dests": ["SYD", "LIM"],
+    "config": {
       "eco": 151,
       "business": 81, 
       "first": 34
+    }
+  },
+  {
+    "name": "DXB-359-0002",
+    "type": "A350-900XWB",
+    "hub": "DXB",
+    "dests": ["SYD", "ICN"],
+    "config": {
+      "eco": 268,
+      "business": 66, 
+      "first": 21
+    }
+  },
+  {
+    "name": "DXB-359-0003",
+    "type": "A350-900XWB",
+    "hub": "DXB",
+    "dests": ["JFK"],
+    "config": {
+      "eco": 163,
+      "business": 87, 
+      "first": 37
+    }
+  },
+  {
+    "name": "DXB-359-0005",
+    "type": "A350-900XWB",
+    "hub": "DXB",
+    "dests": ["HEL"],
+    "config": {
+      "eco": 248,
+      "business": 77, 
+      "first": 21
+    }
+  },
+  {
+    "name": "DXB-359-0006",
+    "type": "A350-900XWB",
+    "hub": "DXB",
+    "dests": ["ARN"],
+    "config": {
+      "eco": 248,
+      "business": 77, 
+      "first": 21
+    }
+  },
+  {
+    "name": "A6-FET",
+    "type": "A380-800",
+    "hub": "DXB",
+    "dests": ["FCO"],
+    "config": {
+      "eco": 473,
+      "business": 113, 
+      "first": 42
+    }
+  },
+  {
+    "name": "A6-UQU",
+    "type": "A380-800",
+    "hub": "DXB",
+    "dests": ["HND"],
+    "config": {
+      "eco": 505,
+      "business": 107, 
+      "first": 37
+    }
+  },
+  {
+    "name": "A6-RST",
+    "type": "A380-800",
+    "hub": "DXB",
+    "dests": ["HND"],
+    "config": {
+      "eco": 506,
+      "business": 107, 
+      "first": 36
+    }
+  },
+  {
+    "name": "DXB-789-0001",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["SYD", "ICN"],
+    "config": {
+      "eco": 142,
+      "business": 77, 
+      "first": 33
+    }
+  },
+  {
+    "name": "DXB-789-0002",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["VIE"],
+    "config": {
+      "eco": 142,
+      "business": 77, 
+      "first": 33
+    }
+  },
+  {
+    "name": "DXB-789-0003",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["SYD", "HND"],
+    "config": {
+      "eco": 142,
+      "business": 77, 
+      "first": 33
+    }
+  },
+  {
+    "name": "DXB-789-0004",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["SYD", "HKG"],
+    "config": {
+      "eco": 142,
+      "business": 77, 
+      "first": 33
+    }
+  },
+  {
+    "name": "A6-BEE",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["DEL"],
+    "config": {
+      "eco": 336,
+      "business": 30, 
+      "first": 7
+    }
+  },
+  {
+    "name": "DXB-789-0006",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["JFK"],
+    "config": {
+      "eco": 142,
+      "business": 77, 
+      "first": 33
+    }
+  },
+ {
+    "name": "DXB-789-0007",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["ICN", "JNB", "VIE", "HKG"],
+    "config": {
+      "eco": 209,
+      "business": 68, 
+      "first": 21
+    }
+  },
+  {
+    "name": "DXB-789-0008",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["DRW", "ICN"],
+    "config": {
+      "eco": 249,
+      "business": 53, 
+      "first": 18
+    }
+  },
+  {
+    "name": "DXB-789-0009",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["CPH"],
+    "config": {
+      "eco": 254,
+      "business": 59, 
+      "first": 14
+    }
+  },
+  {
+    "name": "DXB-789-0010",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["SIN"],
+    "config": {
+      "eco": 202,
+      "business": 60, 
+      "first": 26
+    }
+  },
+  {
+    "name": "DXB-789-0011",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["JNB"],
+    "config": {
+      "eco": 181,
+      "business": 72, 
+      "first": 26
+    }
+  },
+  {
+    "name": "DXB-789-0012",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["HKG"],
+    "config": {
+      "eco": 181,
+      "business": 72, 
+      "first": 26
+    }
+  },
+  {
+    "name": "DXB-789-0013",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["SIN"],
+    "config": {
+      "eco": 181,
+      "business": 72, 
+      "first": 26
+    }
+  },
+  {
+    "name": "DXB-789-0014",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["HKG"],
+    "config": {
+      "eco": 174,
+      "business": 71, 
+      "first": 28
+    }
+  },
+ {
+    "name": "A6-MMK",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["TLL"],
+    "config": {
+      "eco": 260,
+      "business": 49, 
+      "first": 17
+    }
+  },
+  {
+    "name": "DXB-789-0016",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["VIE", "ARN", "SIN", "DRW", "CDG"],
+    "config": {
+      "eco": 201,
+      "business": 63, 
+      "first": 25
+    }
+  },
+  {
+    "name": "DXB-789-0017",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["DRW"],
+    "config": {
+      "eco": 174,
+      "business": 71, 
+      "first": 28
+    }
+  },
+  {
+    "name": "DXB-789-0018",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["JFK"],
+    "config": {
+      "eco": 174,
+      "business": 71, 
+      "first": 28
+    }
+  },
+  {
+    "name": "DXB-789-0019",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["JED", "HEL"],
+    "config": {
+      "eco": 174,
+      "business": 71, 
+      "first": 28
+    }
+  },
+  {
+    "name": "DXB-789-0020",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["ICN", "CPH", "SYD"],
+    "config": {
+      "eco": 230,
+      "business": 68, 
+      "first": 16
+    }
+  },
+  {
+    "name": "DXB-789-0021",
+    "type": "787-9",
+    "hub": "DXB",
+    "dests": ["ARN", "DRW", "SYD"],
+    "config": {
+      "eco": 230,
+      "business": 68, 
+      "first": 16
     }
   }
 ]

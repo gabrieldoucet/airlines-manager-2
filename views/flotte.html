@@ -74,12 +74,12 @@
           <td>{{plane.name}}</td>
           <td>{{plane.hub}}</td>
           <td>{{plane.type}}</td>
-          <td>{{plane.configuration.eco}}</td>
-          <td>{{plane.configuration.business}}</td>
-          <td>{{plane.configuration.first}}</td>
+          <td>{{plane.config.eco}}</td>
+          <td>{{plane.config.business}}</td>
+          <td>{{plane.config.first}}</td>
           <td>
-            <div ng-repeat="line in plane.lines">
-              <span class="label label-default">{{line}}</span>
+            <div ng-repeat="dest in plane.dests">
+              <span ng-class="getClass(dest, plane)">{{dest}}</span>
             </div>
           </td>
         </tr>

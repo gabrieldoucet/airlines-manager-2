@@ -10,7 +10,6 @@ am2App.directive('typeSelect', function () {
     controller: ['$scope', 'loader', function ($scope, loader) {
       $scope.planes = [];
       loader('planes.json', function(res) {
-        console.log(res.data);
         $scope.planes = res.data;
       });
     }]

@@ -30,7 +30,7 @@
       "business": 373,
       "first": 132
     },
-    "planes": ["JFK-UIO", "JFK-320-0012"]
+    "planes": ["N532DA", "JFK-320-0012"]
   },
   {
     "from": "DXB",
@@ -52,7 +52,7 @@
       "business": 285,
       "first": 65
     },
-    "planes": ["DXB-789-0005"]
+    "planes": ["A6-BEE"]
   },
   {
     "from": "DXB",
@@ -118,7 +118,7 @@
       "business": 668,
       "first": 292
     },
-    "planes": ["JFK-320-0001", "JFK-320-0003", "JFK-320-0002", "JFK-CONC-1"]
+    "planes": ["JFK-320-0001", "JFK-320-0003", "JFK-320-0002", "N73063"]
   },
   {
     "from": "DXB",
@@ -140,7 +140,7 @@
       "business": 633,
       "first": 279
     },
-    "planes": ["JFK-320-0010"]
+    "planes": ["N23TZ"]
   },
   {
     "from": "DXB",
@@ -151,7 +151,7 @@
       "business": 475,
       "first": 164
     },
-    "planes": ["DXB-388-0004", "DXB-388-0005", "DXB-789-0003"]
+    "planes": ["A6-UQU", "A6-RST", "DXB-789-0003"]
   },
   {
     "from": "DXB",
@@ -162,7 +162,7 @@
       "business": 402,
       "first": 128
     },
-    "planes": ["DXB-789-0004", "DXB-789-0007", "DXB-789-00014", "DXB-789-0012"]
+    "planes": ["DXB-789-0004", "DXB-789-0007", "DXB-789-0014", "DXB-789-0012"]
   },
   {
     "from": "DXB",
@@ -315,7 +315,6 @@
     },
     "planes": [
       "DXB-789-0020",
-      "DXB-789-0020",
       "DXB-789-0007",
       "DXB-789-0001",
       "DXB-789-0008",
@@ -331,94 +330,110 @@
       "business": 498,
       "first": 183
     },
-    "planes": ["DXB-388-0003"]
+    "planes": ["A6-FET"]
   },
   {
     "from": "DXB",
     "to": "CDG",
     "distance": 5238,
     "demand": {
-      "eco": 1692,
-      "business": 373,
-      "first": 132
+      "eco": 1793,
+      "business": 566,
+      "first": 226
     },
-    "planes": []
+    "planes": ["DXB-789-0016"]
   },
   {
     "from": "JFK",
     "to": "ZRH",
     "distance": 6311,
     "demand": {
-      "eco": 1692,
-      "business": 373,
-      "first": 132
+      "eco": 1288,
+      "business": 591,
+      "first": 257
     },
-    "planes": []
+    "planes": ["N847R"]
   },
   {
     "from": "JFK",
     "to": "ATH",
     "distance": 7934,
     "demand": {
-      "eco": 1692,
-      "business": 373,
-      "first": 132
+      "eco": 1414,
+      "business": 562,
+      "first": 228
     },
-    "planes": []
+    "planes": [
+      "JFK-77W-0002",
+      "JFK-359-0007",
+      "JFK-77W-0007"
+    ]
   },
   {
     "from": "DXB",
     "to": "TLL",
     "distance": 4474,
     "demand": {
-      "eco": 1692,
-      "business": 373,
-      "first": 132
+      "eco": 1821,
+      "business": 346,
+      "first": 117
     },
-    "planes": []
+    "planes": ["A6-MMK"]
   },
   {
     "from": "JFK",
     "to": "SYD",
     "distance": 16018,
     "demand": {
-      "eco": 1692,
-      "business": 373,
-      "first": 132
+      "eco": 1583,
+      "business": 596,
+      "first": 245
     },
-    "planes": []
+    "planes": [
+      "JFK-77L-0001",
+      "JFK-77L-0002"
+    ]
   }, 
   {
     "from": "JFK",
     "to": "GRU",
     "distance": 7666,
     "demand": {
-      "eco": 1692,
-      "business": 373,
-      "first": 132
+      "eco": 1915,
+      "business": 475,
+      "first": 174
     },
-    "planes": []
+    "planes": [
+      "JFK-77W-0003",
+      "JFK-77W-0001"
+    ]
   },
   {
     "from": "DXB",
     "to": "JNB",
     "distance": 6414,
     "demand": {
-      "eco": 1692,
-      "business": 373,
-      "first": 132
+      "eco": 2880,
+      "business": 309,
+      "first": 80
     },
-    "planes": []
+    "planes": [
+      "DXB-789-0007",
+      "DXB-789-0011"
+    ]
   },
   {
     "from": "JFK",
     "to": "EZE",
     "distance": 8537,
     "demand": {
-      "eco": 1692,
-      "business": 373,
-      "first": 132
+      "eco": 1620,
+      "business": 436,
+      "first": 165
     },
-    "planes": []
+    "planes": [
+      "JFK-77W-0007",
+      "JFK-77W-0006"
+    ]
   }
 ]

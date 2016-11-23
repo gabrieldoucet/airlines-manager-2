@@ -1,16 +1,27 @@
 <div class="container-fluid">
   <form>
     <line-select></line-select>
+    <button ng-click="removeFirst()">Test</button>
   </form>
 </div>
 
 
 
-<div class="container-fluid">
+<div class="container-fuild">
+  <h4>Toutes les lignes
+    <span ng-class="getGlyphiconClass()" aria-hidden="true" ng-click="headerClick()"></span>
+  </h4>
+</div>
+
+<div class="container-fluid" ng-if="open">
   <table class="table table-striped">
     <thead>
       <tr>
-        <th></th>
+        <th>
+          <label>Sélection
+            <span class="badge">{{lines.length}}</span>
+          </label>
+        </th>
         <th><select>
               <option>LHR</option>
             </select>
@@ -40,8 +51,8 @@
         <td>{{line.demand.business}}</td>
         <td>{{line.demand.first}}</td>
         <td>
-          <div ng-repeat="plane in line.planes">
-            <span class="label label-default">{{plane}}</span>
+          <div ng-repeat="planeName in line.planes">
+            <span ng-class="getClass(line, planeName)">{{planeName}}</span>
           </div>
         </td>
       </tr>

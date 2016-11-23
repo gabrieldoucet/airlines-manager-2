@@ -1,29 +1,25 @@
 var am2App = angular.module('am2App');
 
-am2App.controller('fleetController', ['$scope', 'loader', function fleetController($scope, loader) {
-  $scope.fleet = [];
-
-  $scope.loadFleet = function () {
-    loader('flotte.json', function(res) {
-      var fleet = res.data;
-
-      // Sorting lines by alphabetical order
-      _.forEach(fleet, function (plane) {
-        var lines = _.get(plane, 'lines');
-        _.set(plane, 'lines', _.sortBy(lines));
-      })
-      $scope.fleet = fleet;
-    });
-  }
+am2App.controller('fleetController', ['$scope', 'fleetService', 'linesService', 'calc',
+  function fleetController($scope, fleetService, linesService, calc) {
+  $scope.fleet = fleetService.getFleet();
 
   $scope.addToFleet = function () {
-    console.log($scope.avion);
+    // console.log($scope.avion);
     $scope.fleet.push($scope.avion);
   }
 
   $scope.$watch($scope.fleet, function () {
-    console.log($scope.fleet);
   }, true);
 
-  $scope.loadFleet();
+  $scope.getClass = function (dest, plane) {
+    var line = linesService.getLinesFromTo(plane.hub, dest);
+    var opti = calc.getOptimisation(plane, line);
+    var isOptimised = calc.isOptimised(opti, plane);
+    if (isOptimised) {
+      return "label label-success";      
+    } else {
+      return "label label-danger";      
+    }
+  }
 }]);

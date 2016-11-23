@@ -10,7 +10,6 @@ am2App.directive('lineSelect', function () {
     controller: ['$scope', 'loader', function ($scope, loader) {
       $scope.lines = [];
       loader('lines.json', function(res) {
-        console.log(res.data);
         $scope.lines = res.data;
       });
     }]

@@ -1,7 +1,25 @@
 var am2App = angular.module('am2App');
 
-am2App.controller('linesController', ['$scope', 'loader', function linesController($scope, loader) {
-  $scope.lines = [];
+am2App.controller('linesController', ['$scope', 'loader', 'linesService', 'fleetService', 'planesRefService', 'calc',
+  function linesController($scope, loader, linesService, fleetService, planesRefService, calc) {
+
+  $scope.lines = linesService.getLines();
+
+  // Table show or hide
+  $scope.open = true;
+
+  $scope.headerClick = function () {
+    $scope.open = !$scope.open;
+  };
+
+  $scope.getGlyphiconClass = function () {
+    if ($scope.open) {
+      return "glyphicon glyphicon-chevron-down";
+    } else {
+      return "glyphicon glyphicon-chevron-right";
+    }
+  }
+
   $scope.line = {
     "from": "JFK",
     "to": "ATL",
@@ -32,28 +50,32 @@ am2App.controller('linesController', ['$scope', 'loader', function linesControll
       var similarEco = similar(proportions.eco, line.demand.eco / targetDemand);
       var similarBusiness = similar(proportions.business, line.demand.business / targetDemand);
       var similarFirst = similar(proportions.first, line.demand.first / targetDemand);
-      if (similarEco && similarBusiness && similarFirst) {
-        console.log(proportions.eco, proportions.business, proportions.first);
-        console.log(line.demand.eco / targetDemand, line.demand.business / targetDemand, line.demand.first / targetDemand);
-      }
       return similarEco && similarBusiness && similarFirst;
     });
-//    $scope.lines = similarLines;
-    console.log(similarLines);
+    // $scope.lines = similarLines;
+    // console.log(similarLines);
   };
 
-  $scope.loadLines = function () {
-    loader('lines.json', function(res) {
-      var lines = res.data;
-      $scope.lines = lines;
-      $scope.getSimilarLines();
-    });
-  }
-
   $scope.$watch($scope.lines, function () {
-    console.log($scope.lines);
+    // console.log($scope.lines);
   }, true);
 
-  $scope.loadLines();
+  $scope.removeFirst = function(){
+    $scope.lines = _.slice($scope.lines, 1);
+    linesService.setLines($scope.lines);
+  }
+
+  $scope.getClass = function (line, planeName) {
+    var plane = fleetService.getPlaneFromName(planeName);
+    var opti = calc.getOptimisation(plane, line);
+    //console.log(opti);
+    var isOptimised = calc.isOptimised(opti, plane);
+    if (isOptimised) {
+      return "label label-success";      
+    } else {
+      return "label label-danger";      
+    }
+  }
+
   $scope.getSimilarLines();
 }]);
