@@ -40,6 +40,14 @@ am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 
     }
   }
 
+  $scope.getLineLabelClass = function (line) {
+    if (_.isEqual($scope.selectedLine.from, line.from)) {
+      return "label label-primary";      
+    } else {
+      return "label label-default";      
+    }
+  }
+
   $scope.selectLine = function (line) {
     $scope.selectedLine = line;
     $scope.similarLines = linesService.getSimilarLines($scope.selectedLine);
