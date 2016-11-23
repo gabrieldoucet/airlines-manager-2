@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <form class="form-horizontal">
     <div class="form-group">
-      <h3 class="col-sm-3">Ajouter un avion</h3>
+      <h4 class="col-lg-3">Ajouter un avion</h4>
     </div>
     <div class="form-group">
       <label class="col-sm-1 control-label">Nom</label>
@@ -38,52 +38,4 @@
       </div>
     </div>
   </form>
-
-  <div class="container-fluid">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>
-            <label>Sélection
-              <span class="badge">{{fleet.length}}</span>
-            </label>
-          </th>
-          <th>
-            <select>
-              <option>LHR</option>
-            </select>
-          </th>
-          <th><type-select></type-select></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th>Hihi</th>
-        </tr>
-        <tr>
-          <th>Avion</th>
-          <th>Hub</th>
-          <th>Type</th>
-          <th>Éco</th>
-          <th>Affaire</th>
-          <th>Première</th>
-          <th>Lignes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="plane in fleet">
-          <td>{{plane.name}}</td>
-          <td>{{plane.hub}}</td>
-          <td>{{plane.type}}</td>
-          <td>{{plane.config.eco}}</td>
-          <td>{{plane.config.business}}</td>
-          <td>{{plane.config.first}}</td>
-          <td>
-            <div ng-repeat="dest in plane.dests">
-              <span ng-class="getClass(dest, plane)">{{dest}}</span>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </div>

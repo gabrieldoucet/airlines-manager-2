@@ -7,11 +7,8 @@ am2App.directive('typeSelect', function () {
     scope: {
       expenses: '='
     },
-    controller: ['$scope', 'loader', function ($scope, loader) {
-      $scope.planes = [];
-      loader('planes.json', function(res) {
-        $scope.planes = res.data;
-      });
+    controller: ['$scope', 'planesRefService', function ($scope, planesRefService) {
+      $scope.planes = planesRefService.getPlanesRef();
     }]
   };
 });

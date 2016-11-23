@@ -7,11 +7,8 @@ am2App.directive('lineSelect', function () {
     scope: {
       expenses: '='
     },
-    controller: ['$scope', 'loader', function ($scope, loader) {
-      $scope.lines = [];
-      loader('lines.json', function(res) {
-        $scope.lines = res.data;
-      });
+    controller: ['$scope', 'linesService', function ($scope, linesService) {
+      $scope.lines = linesService.getLines();
     }]
   };
 });

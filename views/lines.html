@@ -1,11 +1,17 @@
 <div class="container-fluid">
+
+ <ul class="nav nav-tabs">
+    <li role="presentation" ui-sref-active="active" ui-sref="root.lines.detail"><a>Détail d'une ligne</a></li>
+    <li role="presentation" ui-sref-active="active" ui-sref="root.lines.add"><a>Ajouter une ligne</a></li>
+  </ul>
+
+  <div ui-view="tabviewLines">
+  </div>
+
   <form>
     <line-select></line-select>
     <button ng-click="removeFirst()">Test</button>
   </form>
-</div>
-
-
 
 <div class="container-fuild">
   <h4>Toutes les lignes
@@ -44,7 +50,12 @@
     </thead>
     <tbody>
       <tr ng-repeat="line in lines">
-        <td>{{line.from}}</td>
+        <td>
+          <div>
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true" ng-click="selectLine(line)"></span>
+          {{line.from}}
+          </div>
+        </td>
         <td>{{line.to}}</td>
         <td>{{line.distance}}</td>
         <td>{{line.demand.eco}}</td>

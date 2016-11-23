@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <h4>Detail d'une ligne</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Origine</th>
+        <th>Destination</th>
+        <th>Distance</th>
+        <th>Éco</th>
+        <th>Affaire</th>
+        <th>Première</th>
+        <th>Avions</th>
+        <th>Lignes similaires</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{selectedLine.from}}</td>
+        <td>{{selectedLine.to}}</td>
+        <td>{{selectedLine.distance}}</td>
+        <td>{{selectedLine.demand.eco}}</td>
+        <td>{{selectedLine.demand.business}}</td>
+        <td>{{selectedLine.demand.first}}</td>
+        <td>
+          <div ng-repeat="planeName in selectedLine.planes">
+            <span ng-class="getClass(selectedLine, planeName)">{{planeName}}</span>
+          </div>
+        </td>
+        <td>
+            <span class="label label-default" ng-repeat="line in similarLines">{{line.from}} - {{line.to}}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
