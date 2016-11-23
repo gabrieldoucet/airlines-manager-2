@@ -80,12 +80,19 @@ am2App
           business: sourceLine.demand.business / sourceDemand,
           first: sourceLine.demand.first / sourceDemand
         };
-        var similarLines = _.filter(lines, function (line) {
+        var similarLines = {hub: [], others: []};
+        _.forEach(lines, function (line) {
           var targetDemand = line.demand.eco + line.demand.business + line.demand.first;
           var similarEco = isSimilar(proportions.eco, line.demand.eco / targetDemand);
           var similarBusiness = isSimilar(proportions.business, line.demand.business / targetDemand);
           var similarFirst = isSimilar(proportions.first, line.demand.first / targetDemand);
-          return !_.isEqual(line, sourceLine) && similarEco && similarBusiness && similarFirst;
+          if (!_.isEqual(line, sourceLine) && similarEco && similarBusiness && similarFirst) {
+            if (_.isEqual(line.from, sourceLine.from)) {
+              similarLines.hub.push(line);
+            } else {
+              similarLines.others.push(line);
+            }
+          }
         });
         return similarLines;
       }

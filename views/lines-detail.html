@@ -10,7 +10,8 @@
         <th>Affaire</th>
         <th>Première</th>
         <th>Avions</th>
-        <th>Lignes similaires</th>
+        <th>Lignes similaires sur le hub</th>
+        <th>Lignes similaires sur d'autres hubs</th>
       </tr>
     </thead>
     <tbody>
@@ -27,7 +28,10 @@
           </div>
         </td>
         <td>
-            <span class="label label-default" ng-repeat="line in similarLines">{{line.from}} - {{line.to}}</span>
+          <span class="label label-default" ng-repeat="line in similarLines.hub">{{line.from}} - {{line.to}}</span>
+        </td>
+        <td>
+          <span class="label label-default" ng-repeat="line in similarLines.others">{{line.from}} - {{line.to}}</span>
         </td>
       </tr>
     </tbody>
