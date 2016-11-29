@@ -56,7 +56,7 @@ $urlRouterProvider.when('/tools','/tools/name');
       url: '/optim',
       views: {
         'tabviewFleet': {
-          templateUrl: 'views/tools-optiPlane.html'
+          templateUrl: 'views/fleet-optim.html'
         }
       }
     })

@@ -2,18 +2,7 @@ var am2App = angular.module('am2App');
 
 am2App.controller('toolsController', ['$scope', 'calc', function toolsController($scope, calc) {
 //  $scope.coeffs = {eco: 1, business: 1.8, first: 4.23};
-  $scope.plane = new Plane();
-
-  $scope.getOptimisedLines = function () {
-    console.log($scope.plane);
-    $scope.lines = calc.getOptiLines($scope.plane);
-  };
-
-
-
-  
-
- 
+  $scope.plane = new Plane(); 
 }]);
 
 

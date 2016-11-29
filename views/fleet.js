@@ -1,8 +1,15 @@
 var am2App = angular.module('am2App');
 
-am2App.controller('fleetController', ['$scope', 'fleetService', 'linesService', 'hubsService',
-  function fleetController($scope, fleetService, linesService, hubsService) {
+am2App.controller('fleetController', ['$scope', 'fleetService', 'linesService', 'hubsService', 'calc',
+  function fleetController($scope, fleetService, linesService, hubsService, calc) {
   
+  $scope.optiPlane = new Plane();
+
+  $scope.$watch('optiPlane.type', function (newVal) {
+    if (!_.isNil(newVal)) {
+      $scope.optiLines = calc.getOptiLines($scope.optiPlane);
+    }
+  });
   /*
   $scope.toggleLabelClass = function (dest) {
     if (_.includes($scope.newPlane.destinations, dest)) {
