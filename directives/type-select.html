@@ -1,6 +1,5 @@
-<select>
-  <option>Choisissez un type</option>
-  <option ng-repeat="plane in planes">
+<select ng-model="ngModel">
+  <option ng-repeat="plane in planes" value="{{plane.type}}">
     {{plane.type}}
   </option>
 </select>

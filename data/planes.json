@@ -48,14 +48,6 @@
     "tonnage": 42
   },
   {
-    "type": "787-9",
-    "seats": 420,
-    "rayon": 15556,
-    "conso": 2.12,
-    "vitesse": 911,
-    "tonnage": 42
-  },
-  {
     "type": "Concorde",
     "seats": 128,
     "rayon": 6222,

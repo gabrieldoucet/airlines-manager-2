@@ -3,6 +3,7 @@
  <ul class="nav nav-tabs">
     <li role="presentation" ui-sref-active="active" ui-sref="root.lines.detail"><a>Détail d'une ligne</a></li>
     <li role="presentation" ui-sref-active="active" ui-sref="root.lines.add"><a>Ajouter une ligne</a></li>
+    <li role="presentation" ui-sref-active="active" ui-sref="root.lines.optim"><a>Optimiser</a></li>
   </ul>
 
   <div ui-view="tabviewLines">
@@ -12,61 +13,3 @@
     <line-select></line-select>
     <button ng-click="removeFirst()">Test</button>
   </form>
-
-<div class="container-fuild">
-  <h4>Toutes les lignes
-    <span ng-class="getGlyphiconClass()" aria-hidden="true" ng-click="headerClick()"></span>
-  </h4>
-</div>
-
-<div class="container-fluid" ng-if="open">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>
-          <label>Sélection
-            <span class="badge">{{lines.length}}</span>
-          </label>
-        </th>
-        <th><select>
-              <option>LHR</option>
-            </select>
-        </th>
-        <th><type-select></type-select></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th>Hihi</th>
-      </tr>
-      <tr>
-        <th>Origine</th>
-        <th>Destination</th>
-        <th>Distance</th>
-        <th>Éco</th>
-        <th>Affaire</th>
-        <th>Première</th>
-        <th>Avions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="line in lines">
-        <td>
-          <div>
-          <span class="glyphicon glyphicon-eye-open" aria-hidden="true" ng-click="selectLine(line)"></span>
-          {{line.from}}
-          </div>
-        </td>
-        <td>{{line.to}}</td>
-        <td>{{line.distance}}</td>
-        <td>{{line.demand.eco}}</td>
-        <td>{{line.demand.business}}</td>
-        <td>{{line.demand.first}}</td>
-        <td>
-          <div ng-repeat="planeName in line.planes">
-            <span ng-class="getClass(line, planeName)">{{planeName}}</span>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>

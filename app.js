@@ -5,6 +5,7 @@ am2App.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
 $urlRouterProvider.otherwise('/accueil');
 $urlRouterProvider.when('/fleet','/fleet/detail');
 $urlRouterProvider.when('/lines','/lines/detail');
+$urlRouterProvider.when('/tools','/tools/name');
 
   $stateProvider
     .state('root', {
@@ -20,15 +21,6 @@ $urlRouterProvider.when('/lines','/lines/detail');
       views: {
         '@': {
            templateUrl: 'views/accueil.html'
-        }
-      }
-    })
-    .state('root.calculs', {
-      url: '/calculs',
-      views: {
-        '@': {
-          templateUrl: 'views/calculs.html',
-          controller: 'calculsController'
         }
       }
     })
@@ -60,6 +52,14 @@ $urlRouterProvider.when('/lines','/lines/detail');
         }
       }
     })
+    .state('root.fleet.optim', {
+      url: '/optim',
+      views: {
+        'tabviewFleet': {
+          templateUrl: 'views/tools-optiPlane.html'
+        }
+      }
+    })
     .state('root.lines', {
       url: '/lines',
       views: {
@@ -85,6 +85,34 @@ $urlRouterProvider.when('/lines','/lines/detail');
       views: {
         'tabviewLines': {
           templateUrl: 'views/lines-detail.html'
+        }
+      }
+    })
+    .state('root.lines.optim', {
+      url: '/optim',
+      views: {
+        'tabviewLines': {
+          templateUrl: 'views/lines-optim.html'
+        }
+      }
+    })
+    .state('root.tools', {
+      url: '/tools',
+      views: {
+        '@': {
+          templateUrl: 'views/tools.html',
+          controller: 'toolsController'
+        }
+      },
+      resolve: {
+        promiseObj: 'dataLoader'
+      }
+    })
+    .state('root.tools.name', {
+      url: '/name',
+      views: {
+        'tabviewTools': {
+          templateUrl: 'views/tools-name.html'
         }
       }
     })

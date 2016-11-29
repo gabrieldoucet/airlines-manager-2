@@ -195,7 +195,7 @@
       "business": 499,
       "first": 176
     },
-    "planes": ["DXB-789-0016", "DXB-789-0013", "DXB-789-0010"]
+    "planes": ["DXB-789-0016", "A6-KOH"]
   },
   {
     "from": "DXB",
@@ -302,7 +302,7 @@
       "business": 654,
       "first": 286
     },
-    "planes": ["JFK-388-0001"]
+    "planes": ["N59D"]
   },
   {
     "from": "DXB",
@@ -341,7 +341,7 @@
       "business": 566,
       "first": 226
     },
-    "planes": ["DXB-789-0016"]
+    "planes": ["DXB-789-0016", "A6-RXP"]
   },
   {
     "from": "JFK",

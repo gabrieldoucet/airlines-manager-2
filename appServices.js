@@ -16,6 +16,22 @@ am2App
           }
         });
         return isHub;
+      },
+      randomName: function(iataCode) {
+        var regexArray;
+        _.forEach(hubs, function (hub) {
+          if (_.isEqual(hub.code, iataCode)) {
+            regexArray = _.get(hub, 'immat');
+          }
+        })
+        var regex;
+        if (regexArray.length > 1) {
+          var index = Math.floor(regexArray.length * Math.random());
+          regex = new RegExp(regexArray[index])
+        } else if (regexArray.length === 1) {
+          regex = new RegExp(regexArray[0]);
+        }
+        return new RandExp(regex).gen();
       }
     }
   });
@@ -42,14 +58,30 @@ am2App
 am2App
   .factory('linesService', ['hubsService', function (hubsService) {
     var lines;
+
+    var similarProportions = function (x, y) {
+      var variation = (x - y) / x * 100;
+      return Math.abs(variation) <= 5;
+    };
+
+    var isSimilar = function(line1, line2) {
+      var demand1 = line1.demand.eco + line1.demand.business + line1.demand.first;
+      var demand2 = line2.demand.eco + line2.demand.business + line2.demand.first;
+      var similarEco = similarProportions(line1.demand.eco / demand1, line2.demand.eco / demand2);
+      var similarBusiness = similarProportions(line1.demand.business / demand1, line2.demand.business / demand2);
+      var similarFirst = similarProportions(line1.demand.first / demand1, line2.demand.first / demand2);
+      return !_.isEqual(line1, line2) && similarEco && similarBusiness && similarFirst;
+    };
+
     return {
       setLines: function (data) {
+        data = _.sortBy(data, [function (line) {return line.from;}, function(line) {return line.to;}])
         lines = data;
       },
       getLines: function () {
         return lines;
       },
-      getLinesFromTo: function (origin, dest) {
+      getLineFromTo: function (origin, dest) {
         var resultLine;
         var originIsHub = hubsService.isHub(origin);
         var destIsHub = hubsService.isHub(dest);
@@ -69,27 +101,13 @@ am2App
         return resultLine;
       },
       getSimilarLines: function (sourceLine) {
-        var isSimilar = function (x, y) {
-          var variation = (x - y) / x * 100;
-          return Math.abs(variation) <= 5;
-        };
-
-        var sourceDemand = sourceLine.demand.eco + sourceLine.demand.business + sourceLine.demand.first;
-        var proportions = {
-          eco: sourceLine.demand.eco / sourceDemand,
-          business: sourceLine.demand.business / sourceDemand,
-          first: sourceLine.demand.first / sourceDemand
-        };
         var similarLines = _.filter(lines, function (line) {
-          var targetDemand = line.demand.eco + line.demand.business + line.demand.first;
-          var similarEco = isSimilar(proportions.eco, line.demand.eco / targetDemand);
-          var similarBusiness = isSimilar(proportions.business, line.demand.business / targetDemand);
-          var similarFirst = isSimilar(proportions.first, line.demand.first / targetDemand);
-          return !_.isEqual(line, sourceLine) && similarEco && similarBusiness && similarFirst;
+          return isSimilar(sourceLine, line);
         });
         return similarLines;
-      }
-    }
+      },
+      isSimilar: isSimilar
+    };
   }])
 
 am2App
@@ -115,29 +133,89 @@ am2App
   })
 
 am2App
-  .factory('calc', ['planesRefService', function(planesRefService) {
+  .factory('calc', ['planesRefService', 'linesService', 'fleetService',
+   function(planesRefService, linesService, fleetService) {
     var coeffs = {eco: 1, business: 1.8, first: 4.23};
+
+    var getOptimisation = function (plane, line) {
+      var demand = line.demand.eco + line.demand.business + line.demand.first;
+      var pEco = line.demand.eco / demand;
+      var pBusiness = line.demand.business / demand;
+      var pFirst = line.demand.first / demand;
+      var seats = planesRefService.getSeatsFromType(plane.type);
+      var optiSeats = seats / (pEco + pBusiness * coeffs.business + pFirst * coeffs.first);
+      var optiEco = _.round(pEco * optiSeats);
+      var optiBusiness = _.round(pBusiness * optiSeats);
+      var optiFirst = _.round(pFirst * optiSeats);
+      var maxRotations = Math.floor(line.demand.eco / optiEco);
+      return {type: plane.type, eco: optiEco, business: optiBusiness, first: optiFirst, maxRotations: maxRotations};
+    };
+
+    var isOptimised = function (plane, line) {
+      var opti = getOptimisation(plane, line);
+      var isOptiEco = Math.abs(opti.eco - plane.config.eco) <= 2;
+      var isOptiBusiness = Math.abs(opti.business - plane.config.business) <= 2;
+      var isOptiFirst = Math.abs(opti.first - plane.config.first) <= 2;
+      return isOptiEco && isOptiBusiness && isOptiFirst;
+    };
+
     return {
-      getOptimisation: function (plane, line) {
-        var demand = line.demand.eco + line.demand.business + line.demand.first;
-        var pEco = line.demand.eco / demand;
-        var pBusiness = line.demand.business / demand;
-        var pFirst = line.demand.first / demand;
-        var seats = planesRefService.getSeatsFromType(plane.type);
-        var optiSeats = seats / (pEco + pBusiness * coeffs.business + pFirst * coeffs.first);
-        var optiEco = _.round(pEco * optiSeats);
-        var optiBusiness = _.round(pBusiness * optiSeats);
-        var optiFirst = _.round(pFirst * optiSeats);
-        return {eco: optiEco, business: optiBusiness, first: optiFirst};
+      getOptimisation: getOptimisation,
+      isOptimised: isOptimised,
+      getOptiLines: function (plane) {
+        var optiLines = [];
+        _.forEach(linesService.getLines(), function(line) {
+          if (isOptimised(plane, line)) {
+            optiLines.push(line);
+          }
+        });
+        return optiLines;
       },
-      isOptimised: function (opti, plane) {
-        var isOptiEco = Math.abs(opti.eco - plane.config.eco) <= 3;
-        var isOptiBusiness = Math.abs(opti.business - plane.config.business) <= 3;
-        var isOptiFirst = Math.abs(opti.first - plane.config.first) <= 3;
-        return isOptiEco && isOptiBusiness && isOptiFirst;
+      getOptiPlanes: function (line) {
+        var optiPlanes = [];
+        _.forEach(fleetService.getFleet(), function(plane) {
+          if (isOptimised(plane, line)) {
+            optiPlanes.push(plane);
+          }
+        });
+        return optiPlanes;
+      },
+      getAllOptis: function (line) {
+        var allOptis = [];
+        _.forEach(planesRefService.getPlanesRef(), function (plane) {
+          allOptis.push(getOptimisation(plane, line));
+        })
+        return allOptis;
       }
     }
   }]);
+
+am2App
+  .factory('classService', ['calc', 'linesService', function (calc, linesService) {
+    var getPlaneLineLabelClass = function (plane, line) {
+      if (calc.isOptimised(plane, line)) {
+        return "label label-success";
+      } else {
+        return "label label-danger";
+      }
+    };
+
+    var getLineLineLabelClass = function (line1, line2) {
+      if (linesService.isSimilar(line1, line2)) {
+        return "label label-primary";
+      } else {
+        return "label label-default"
+      }
+    };
+
+    var getPlanePlaneLabelClass = function (plane1, plane2) {};
+
+    return {
+      getPlaneLineLabelClass: getPlaneLineLabelClass,
+      getLineLineLabelClass: getLineLineLabelClass
+    };
+  }]);
+
 
 am2App
   .factory('dataLoader', ['$http', 'fleetService', 'linesService', 'planesRefService', 'hubsService', 

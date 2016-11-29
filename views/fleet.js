@@ -1,42 +1,47 @@
 var am2App = angular.module('am2App');
 
-am2App.controller('fleetController', ['$scope', 'fleetService', 'linesService', 'calc',
-  function fleetController($scope, fleetService, linesService, calc) {
+am2App.controller('fleetController', ['$scope', 'fleetService', 'linesService', 'hubsService',
+  function fleetController($scope, fleetService, linesService, hubsService) {
   
-  // Table show or hide
-  $scope.open = true;
-
-  $scope.headerClick = function () {
-    $scope.open = !$scope.open;
-  };
-
-  $scope.getGlyphiconClass = function () {
-    if ($scope.open) {
-      return "glyphicon glyphicon-chevron-down";
+  /*
+  $scope.toggleLabelClass = function (dest) {
+    if (_.includes($scope.newPlane.destinations, dest)) {
+      return "label label-primary";
     } else {
-      return "glyphicon glyphicon-chevron-right";
+      return "label label-default";
     }
   }
 
-  $scope.fleet = fleetService.getFleet();
+  $scope.selectLine = function (dest) {
+    if (!_.includes($scope.newPlane.destinations, dest)) {
+      $scope.newPlane.destinations.push(dest);
+    } else {
+      $scope.newPlane.destinations = _.filter($scope.newPlane.destinations, function (planeDest) {
+        return !_.isEqual(planeDest, dest);
+      });
+    }
+  } */
 
+  // Adding a plane
+  $scope.newPlane = new Plane();
+  $scope.$watch('newPlane.hub', function (newValue) {
+    if (hubsService.isHub($scope.newPlane.hub)) {
+      console.log($scope.newPlane);
+      $scope.newPlane.availableLines = _.filter(linesService.getLines(), function (line) {
+        return _.isEqual(line.from, newValue);
+      });
+    }
+  }, true);
+
+  // The whole fleet
+  $scope.fleet = fleetService.getFleet();
 
   $scope.addToFleet = function () {
     // console.log($scope.avion);
-    $scope.fleet.push($scope.avion);
+    $scope.fleet.push($scope.newPlane);
   }
 
   $scope.$watch($scope.fleet, function () {
   }, true);
 
-  $scope.getClass = function (plane, dest) {
-    var line = linesService.getLinesFromTo(plane.hub, dest);
-    var opti = calc.getOptimisation(plane, line);
-    var isOptimised = calc.isOptimised(opti, plane);
-    if (isOptimised) {
-      return "label label-success";      
-    } else {
-      return "label label-danger";      
-    }
-  }
 }]);

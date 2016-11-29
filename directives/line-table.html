@@ -1,0 +1,59 @@
+<div class="container-fuild">
+  <h4>
+    {{header}}
+    <span ng-class="getArrowClass()" aria-hidden="true" ng-click="headerClick()"></span>
+  </h4>
+</div>
+
+<div class="container-fluid" ng-if="open">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>
+          <label>Sélection
+            <span class="badge">{{lines.length}}</span>
+          </label>
+        </th>
+        <th>
+          <select>
+            <option>LHR</option>
+          </select>
+        </th>
+        <th><type-select></type-select></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <th>Origine</th>
+        <th>Destination</th>
+        <th>Distance</th>
+        <th>Éco</th>
+        <th>Affaire</th>
+        <th>Première</th>
+        <th>Avions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="line in lines">
+        <td>
+          <div>
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true" ng-click="selectLine(line)"></span>
+          {{line.from}}
+          </div>
+        </td>
+        <td>{{line.to}}</td>
+        <td>{{line.distance}}</td>
+        <td>{{line.demand.eco}}</td>
+        <td>{{line.demand.business}}</td>
+        <td>{{line.demand.first}}</td>
+        <td>
+          <div ng-repeat="planeName in line.planes">
+            <span ng-class="getPlaneLineLabelClass(planeName, line)">{{planeName}}</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

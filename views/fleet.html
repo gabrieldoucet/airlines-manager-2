@@ -3,65 +3,9 @@
   <ul class="nav nav-tabs">
     <li role="presentation" ui-sref-active="active" ui-sref="root.fleet.detail"><a>Détail d'un avion</a></li>
     <li role="presentation" ui-sref-active="active" ui-sref="root.fleet.add"><a>Ajouter un avion</a></li>
+    <li role="presentation" ui-sref-active="active" ui-sref="root.fleet.optim"><a>Optimiser</a></li>
   </ul>
 
   <div ui-view="tabviewFleet">
-  </div>
-
-  <div class="container-fuild">
-    <h4>Tous les avions
-      <span ng-class="getGlyphiconClass()" aria-hidden="true" ng-click="headerClick()"></span>
-    </h4>
-  </div>
-
-  <div class="container-fluid" ng-if="open">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>
-            <label>Sélection
-              <span class="badge">{{fleet.length}}</span>
-            </label>
-          </th>
-          <th>
-            <select>
-              <option>LHR</option>
-            </select>
-          </th>
-          <th><type-select></type-select></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th>Hihi</th>
-        </tr>
-        <tr>
-          <th>Avion</th>
-          <th>Hub</th>
-          <th>Type</th>
-          <th>Éco</th>
-          <th>Affaire</th>
-          <th>Première</th>
-          <th>Lignes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="plane in fleet">
-          <td><div>
-          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-          {{plane.name}}
-          </div></td>
-          <td>{{plane.hub}}</td>
-          <td>{{plane.type}}</td>
-          <td>{{plane.config.eco}}</td>
-          <td>{{plane.config.business}}</td>
-          <td>{{plane.config.first}}</td>
-          <td>
-            <div ng-repeat="dest in plane.dests">
-              <span ng-class="getClass(plane, dest)">{{dest}}</span>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>

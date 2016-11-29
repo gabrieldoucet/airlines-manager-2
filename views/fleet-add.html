@@ -1,41 +1,62 @@
 <div class="container-fluid">
-  <form class="form-horizontal">
-    <div class="form-group">
-      <h4 class="col-lg-3">Ajouter un avion</h4>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="form-horizontal">
+        <div class="form-group">
+          <h4 class="col-lg-12">Détails</h4>
+        </div>
+        <div class="form-group has-feedback has-feedback-left">
+          <label class="control-label col-lg-3">Nom</label>
+          <div class="col-lg-6">
+            <input type="text" class="form-control" ng-model="newPlane.name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label name="typeSelect" class="control-label col-lg-3">Hub</label>
+          <div class="col-lg-3">
+            <hub-select ng-model="newPlane.hub"></hub-select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-lg-3">Type</label>
+          <div class="col-lg-3">
+            <type-select ng-model="newPlane.type"></type-select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-lg-3">Éco</label>
+          <div class="col-lg-4">
+            <input type="number" class="form-control" ng-model="newPlane.config.eco" min=0>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-lg-3">Affaire</label>
+          <div class="col-lg-4">
+            <input type="number" class="form-control" ng-model="newPlane.config.business" min=0>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-lg-3">Première</label>
+          <div class="col-lg-4">
+            <input type="number" class="form-control" ng-model="newPlane.config.first" min=0>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-4">
+            <input class="btn btn-primary" type="button" value="Ajouter" ng-click="addToFleet()">
+          </div>
+        </div>
+      </div> <!-- end of form-horizontal -->
     </div>
-    <div class="form-group">
-      <label class="col-sm-1 control-label">Nom</label>
-      <div class="col-sm-2">
-        <input type="text" class="form-control" ng-model="avion.name">
-      </div>
+    
+    <div class="container-fluid col-lg-12">
+      <h4>Sélectionnez les destinations</h4>
+      <form class="form-horizontal" ng-repeat="line in newPlane.availableLines">
+        <div class="form-group">
+          <label class="control-label">{{line.to}}</label>
+          <input type="checkbox">
+        </div>
+      </form>
     </div>
-    <div class="form-group">
-      <label class="col-sm-1 control-label">Économique</label>
-      <div class="col-sm-2">
-        <input type="number" class="form-control" ng-model="avion.configuration.eco" min=0>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-1 control-label">Affaire</label>
-      <div class="col-sm-2">
-        <input type="number" class="form-control" ng-model="avion.configuration.business" min=0>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-1 control-label">Première</label>
-      <div class="col-sm-2">
-        <input type="number" class="form-control" ng-model="avion.configuration.first" min=0>
-      </div>
-      <line-select>
-      </line-select>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-1 col-lg-1">
-        <input class="btn btn-primary" type="button" value="Sauver" ng-click="addToFleet()">
-      </div>
-      <div class="col-lg-1">
-        <input class="btn btn-primary" type="button" value="Sauver" ng-click="loadFleet()">
-      </div>
-    </div>
-  </form>
+  </div>
 </div>

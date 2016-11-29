@@ -1,24 +1,55 @@
 var am2App = angular.module('am2App');
 
-am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 'planesRefService', 'calc',
-  function linesController($scope, linesService, fleetService, planesRefService, calc) {
+am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 'planesRefService', 'calc', 'classService',
+  function linesController($scope, linesService, fleetService, planesRefService, calc, classService) {
 
   $scope.lines = linesService.getLines();
 
-  // Table show or hide
-  $scope.open = true;
+  // Get data back from children directives
+  $scope.selects = {};
+  $scope.$watch('selects.lineOptim', function (newVal) {
+    if (!_.isNil(newVal)) {
+      $scope.planes = calc.getOptiPlanes($scope.selects.lineOptim);      
+      $scope.allOptis = calc.getAllOptis($scope.selects.lineOptim);
+    }
+  }, true);
 
-  $scope.headerClick = function () {
-    $scope.open = !$scope.open;
+  $scope.$watch('selects.lineDetail', function (newVal) {
+    if (!_.isNil(newVal)) {
+      $scope.similarLines = linesService.getSimilarLines($scope.selects.lineDetail);
+    }
+  }, true);
+
+  $scope.getPlaneLineLabelClass = function (planeIn, lineIn) {
+    var plane = planeIn;
+    var line = lineIn;
+    if (!_.isObject(planeIn)) {
+      plane = fleetService.getPlaneFromName(planeIn);
+    }
+    if (!_.isObject(lineIn)) {
+      line = linesService.getLineFromTo(plane.hub, lineIn);
+    }
+    return classService.getPlaneLineLabelClass(plane, line);
   };
 
-  $scope.getGlyphiconClass = function () {
-    if ($scope.open) {
+  $scope.getLineLineLabelClass = function(line1, line2) {
+    return classService.getLineLineLabelClass(line1, line2);
+  };
+
+  $scope.showConfigs = false;
+
+  $scope.configsHeaderClick = function () {
+    $scope.showConfigs = !$scope.showConfigs;
+  };
+
+  $scope.getArrowClass = function () {
+    if ($scope.showConfigs) {
       return "glyphicon glyphicon-chevron-down";
     } else {
       return "glyphicon glyphicon-chevron-right";
     }
-  }
+  };
+
 
   $scope.$watch($scope.lines, function () {
     // console.log($scope.lines);
@@ -27,42 +58,5 @@ am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 
   $scope.removeFirst = function(){
     $scope.lines = _.slice($scope.lines, 1);
     linesService.setLines($scope.lines);
-  }
-
-  $scope.getClass = function (line, planeName) {
-    var plane = fleetService.getPlaneFromName(planeName);
-    var opti = calc.getOptimisation(plane, line);
-    var isOptimised = calc.isOptimised(opti, plane);
-    if (isOptimised) {
-      return "label label-success";      
-    } else {
-      return "label label-danger";      
-    }
-  }
-
-  $scope.getLineLabelClass = function (line) {
-    if (_.isEqual($scope.selectedLine.from, line.from)) {
-      return "label label-primary";      
-    } else {
-      return "label label-default";      
-    }
-  }
-
-  $scope.selectLine = function (line) {
-    $scope.selectedLine = line;
-    $scope.similarLines = linesService.getSimilarLines($scope.selectedLine);
-  }
-/*
-  $scope.selectedLine = {
-    "from": "JFK",
-    "to": "ATL",
-    "distance": 1222,
-    "demand": {
-      "eco": 1231,
-      "business": 640,
-      "first": 283
-    },
-    "planes": ["JFK-320-0009", "JFK-320-0008", "JFK-320-0006"]
-  }; */
-
+  };
 }]);

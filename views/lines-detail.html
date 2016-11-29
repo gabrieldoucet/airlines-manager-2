@@ -15,23 +15,28 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{selectedLine.from}}</td>
-        <td>{{selectedLine.to}}</td>
-        <td>{{selectedLine.distance}}</td>
-        <td>{{selectedLine.demand.eco}}</td>
-        <td>{{selectedLine.demand.business}}</td>
-        <td>{{selectedLine.demand.first}}</td>
+        <td>{{selects.lineDetail.from}}</td>
+        <td>{{selects.lineDetail.to}}</td>
+        <td>{{selects.lineDetail.distance}}</td>
+        <td>{{selects.lineDetail.demand.eco}}</td>
+        <td>{{selects.lineDetail.demand.business}}</td>
+        <td>{{selects.lineDetail.demand.first}}</td>
         <td>
-          <div ng-repeat="planeName in selectedLine.planes">
-            <span ng-class="getClass(selectedLine, planeName)">{{planeName}}</span>
+          <div ng-repeat="planeName in selects.lineDetail.planes">
+            <span ng-class="getPlaneLineLabelClass(planeName, selects.lineDetail)">{{planeName}}</span>
           </div>
         </td>
         <td>
           <div ng-repeat="line in similarLines">
-            <span ng-class="getLineLabelClass(line)" >{{line.from}} - {{line.to}}</span>
+            <span ng-class="getLineLineLabelClass(selects.lineDetail, line)">{{line.from}} - {{line.to}}</span>
           </div>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
+
+<div class="container-fluid">
+  <line-table header="Toutes les lignes" lines="lines" ng-model="selects.lineDetail">
+  </line-table>
 </div>

@@ -1,7 +1,6 @@
-
   <div class="container">
     <div class="row">
-      <div class="container col-lg-6">
+      <div class="container col-lg-3">
         <form class="form-horizontal">
           <div class="form-group">
             <h4 class="col-lg-3">Ajouter un avion</h4>
@@ -10,6 +9,7 @@
             <label class="col-sm-1 control-label">Nom</label>
             <div class="col-sm-2">
               <input type="text" class="form-control" ng-model="avion.name">
+                          <span class="form-control-feedback glyphicon glyphicon-random" ng-if="selectedHub" ng-click="randomName()"></span>
             </div>
           </div>
           <div class="form-group">
@@ -48,3 +48,6 @@
       </div>
     </div>
   </div>
+
+   <label class="control-label">Select File</label>
+  <input id="input-1a" type="file" class="file" data-show-preview="false">

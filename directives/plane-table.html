@@ -1,0 +1,53 @@
+<div class="container-fluid">
+
+    <h4>{{header}}
+      <span ng-class="getArrowClass()" aria-hidden="true" ng-click="headerClick()"></span>
+    </h4>
+
+  <table class="table table-striped" ng-if="open">
+    <thead>
+      <tr>
+        <th>
+          <label>Filtres
+            <span class="badge">{{results.length}}</span>
+          </label>
+        </th>
+        <th>
+          <hub-select ng-model="filterHub"></hub-select>
+        </th>
+        <th><type-select ng-model="filterType"></type-select></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <th>Avion</th>
+        <th>Hub</th>
+        <th>Type</th>
+        <th>Éco</th>
+        <th>Affaire</th>
+        <th>Première</th>
+        <th>Lignes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="plane in planes | filter:filterHub:strict | filter:filterType | filter:query as results">
+        <td><div>
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        {{plane.name}}
+        </div></td>
+        <td>{{plane.hub}}</td>
+        <td>{{plane.type}}</td>
+        <td>{{plane.config.eco}}</td>
+        <td>{{plane.config.business}}</td>
+        <td>{{plane.config.first}}</td>
+        <td>
+          <div ng-repeat="dest in plane.dests">
+            <span ng-class="getPlaneLineLabelClass(plane, dest)">{{plane.hub + ' - ' + dest}}</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

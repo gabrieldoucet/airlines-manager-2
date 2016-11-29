@@ -5,7 +5,7 @@ am2App.directive('typeSelect', function () {
     templateUrl: './directives/type-select.html',
     transclude: true,
     scope: {
-      expenses: '='
+      ngModel: '='
     },
     controller: ['$scope', 'planesRefService', function ($scope, planesRefService) {
       $scope.planes = planesRefService.getPlanesRef();
