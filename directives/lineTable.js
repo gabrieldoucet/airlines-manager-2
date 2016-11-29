@@ -11,7 +11,7 @@ am2App.directive('lineTable', function () {
     },
     controller: ['$scope', 'fleetService', 'linesService', 'calc', 'classService',
       function ($scope, fleetService, linesService, calc, classService) {
-        $scope.open = true;
+        $scope.open = true; 
 
         $scope.headerClick = function () {
           $scope.open = !$scope.open;
