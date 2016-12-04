@@ -2,6 +2,8 @@
 <html ng-app="am2App">
 <head>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -15,7 +17,14 @@
   <script src="lib/randexp.min.js"></script>
 
   <script src="app.js"></script>
-  <script src="appServices.js"></script>
+
+  <script src="services/calc.js"></script>
+  <script src="services/classService.js"></script>
+  <script src="services/dataLoader.js"></script>
+  <script src="services/fleetService.js"></script>
+  <script src="services/hubsService.js"></script>
+  <script src="services/linesService.js"></script>
+  <script src="services/planesService.js"></script>
 
   <script src="directives/hubSelect.js"></script>
   <script src="directives/lineSelect.js"></script>
@@ -33,6 +42,6 @@
 </head>
 
 <body>
-<div ui-view="header"></div>
-<div ui-view></div>
+  <div ui-view="header"></div>
+  <div ui-view></div>
 </body>

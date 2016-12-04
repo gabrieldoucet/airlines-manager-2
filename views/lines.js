@@ -14,6 +14,14 @@ am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 
     }
   }, true);
 
+  $scope.optiLine = {};
+  $scope.lineOptim = function () {
+    $scope.showConfigs = true;
+    console.log($scope.optiLine);
+    $scope.planes = calc.getOptiPlanes($scope.optiLine);      
+    $scope.allOptis = calc.getAllOptis($scope.optiLine);
+  };
+
   $scope.$watch('selects.lineDetail', function (newVal) {
     if (!_.isNil(newVal)) {
       $scope.similarLines = linesService.getSimilarLines($scope.selects.lineDetail);
