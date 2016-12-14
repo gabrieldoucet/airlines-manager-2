@@ -2,9 +2,8 @@ var am2App = angular.module('am2App', ['ui.router']);
 
 am2App.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
-$urlRouterProvider.otherwise('/accueil');
+$urlRouterProvider.otherwise('/lines');
 $urlRouterProvider.when('/fleet','/fleet/detail');
-$urlRouterProvider.when('/lines','/lines/detail');
 $urlRouterProvider.when('/tools','/tools/name');
 
   $stateProvider
@@ -70,30 +69,6 @@ $urlRouterProvider.when('/tools','/tools/name');
       },
       resolve: {
         promiseObj: 'dataLoader'
-      }
-    })
-   .state('root.lines.add', {
-      url: '/add',
-      views: {
-        'tabviewLines': {
-          templateUrl: 'views/lines-add.html'
-        }
-      }
-    })
-    .state('root.lines.detail', {
-      url: '/detail',
-      views: {
-        'tabviewLines': {
-          templateUrl: 'views/lines-detail.html'
-        }
-      }
-    })
-    .state('root.lines.optim', {
-      url: '/optim',
-      views: {
-        'tabviewLines': {
-          templateUrl: 'views/lines-optim.html'
-        }
       }
     })
     .state('root.tools', {

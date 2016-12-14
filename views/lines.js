@@ -6,7 +6,7 @@ am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 
   $scope.lines = linesService.getLines();
   $scope.selects = {};
   $scope.manualLine = {};
-  
+
   $scope.$watch('manualLine', function (newVal) {
     if (!_.isEmpty(newVal)) {
       $scope.selects.manual = true;
@@ -27,6 +27,7 @@ am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 
   // Monitor changes on line detail
   $scope.$watch('selects.lineDetail', function (newVal) {
     if (!_.isNil(newVal) && !_.isEmpty(newVal)) {
+      $scope.manualLine = $scope.selects.lineDetail;
       $scope.lineDetail = [$scope.selects.lineDetail];
       $scope.similarLines = linesService.getSimilarLines($scope.selects.lineDetail);
       $scope.optiConfigs = calc.getAllOptis($scope.selects.lineDetail);
@@ -45,8 +46,6 @@ am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 
       return "glyphicon glyphicon-chevron-right";
     }
   };
-
-
 
   $scope.$watch('lines', function () {
     // console.log($scope.lines);

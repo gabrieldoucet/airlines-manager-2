@@ -1,6 +1,6 @@
 <div class="panel panel-default">
-  <div class="panel-heading" ng-click="headerClick()">{{header}}
-    <span ng-class="getArrowClass()" aria-hidden="true"></span>
+  <div class="panel-heading">{{header}}
+    <span ng-class="getArrowClass()" aria-hidden="true" ng-click="headerClick()"></span>
   </div>
 
   <div class="panel-body" ng-if="open && (planes.length == 0 || planes === undefined)">

@@ -8,7 +8,8 @@ am2App.directive('lineTable', function () {
       lines: '=',
       header: '@',
       ngModel: '=',
-      enableSelect: '='
+      enableSelect: '=',
+      enableAdd: '='
     },
     controller: ['$scope', 'fleetService', 'linesService', 'calc', 'classService',
       function ($scope, fleetService, linesService, calc, classService) {
@@ -16,6 +17,11 @@ am2App.directive('lineTable', function () {
 
         $scope.headerClick = function () {
           $scope.open = !$scope.open;
+        };
+
+        $scope.showAdd = function () {
+          $scope.open = $scope.open;
+          console.log('add clicked');
         };
 
         $scope.getArrowClass = function () {
