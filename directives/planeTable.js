@@ -6,7 +6,9 @@ am2App.directive('planeTable', function () {
     transclude: true,
     scope: {
       planes: '=',
-      header: '@'
+      header: '@',
+      ngModel: '=',
+      enableSelect: '='
     },
     controller: ['$scope', 'linesService', 'calc', 'classService',
       function ($scope, linesService, calc, classService) {
@@ -33,6 +35,11 @@ am2App.directive('planeTable', function () {
           return classService.getPlaneLineLabelClass(plane, line);
         };
 
+        $scope.selectPlane = function (plane) {
+          if ($scope.enableSelect) {
+            $scope.ngModel = plane;
+          }
+        };
         /*
         $scope.getPlaneLineLabelClass = function(plane, dest) {
           var line = linesService.getLineFromTo(plane.hub, dest);

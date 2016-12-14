@@ -3,6 +3,14 @@ am2App
    function(planesRefService, linesService, fleetService) {
     var coeffs = {eco: 1, business: 1.8, first: 4.23};
 
+    var decimalToHours = function(hoursDecimal) {
+      var hours = Math.floor(hoursDecimal);
+      var minutesDecimal = ((hoursDecimal - hours) * 60);
+      var minutes = Math.floor(minutesDecimal);
+      var seconds = Math.floor( (minutesDecimal - minutes) * 60);
+      return hours + 'h ' + minutes + 'min ' + seconds + 's';
+    };
+
     var getOptimisation = function (plane, line) {
       var demand = line.demand.eco + line.demand.business + line.demand.first;
       var pEco = line.demand.eco / demand;
@@ -18,22 +26,29 @@ am2App
       var maxRotations = Math.floor(line.demand.eco / (2 * optiEco));
 
       var speed = planesRefService.getSpeedFromType(plane.type);
-      var duration = 2 * line.distance / speed;
+      var duration = 2 * line.distance / speed + 2;
       return {
         type: plane.type,
-        eco: optiEco,
-        business: optiBusiness,
-        first: optiFirst,
+        config: {
+          eco: optiEco,
+          business: optiBusiness,
+          first: optiFirst
+        },
+        remainingDemand: {
+          eco: line.demand.eco - 2 * maxRotations * optiEco,
+          business: line.demand.business - 2 * maxRotations * optiBusiness,
+          first: line.demand.first - 2 * maxRotations * optiFirst
+        },
         maxRotations: maxRotations,
-        duration: duration
+        duration: decimalToHours(duration)
       };
     };
 
     var isOptimised = function (plane, line) {
       var opti = getOptimisation(plane, line);
-      var isOptiEco = Math.abs(opti.eco - plane.config.eco) <= 2;
-      var isOptiBusiness = Math.abs(opti.business - plane.config.business) <= 2;
-      var isOptiFirst = Math.abs(opti.first - plane.config.first) <= 2;
+      var isOptiEco = Math.abs(opti.config.eco - plane.config.eco) <= 2;
+      var isOptiBusiness = Math.abs(opti.config.business - plane.config.business) <= 2;
+      var isOptiFirst = Math.abs(opti.config.first - plane.config.first) <= 2;
       return isOptiEco && isOptiBusiness && isOptiFirst;
     };
 
@@ -61,7 +76,9 @@ am2App
       getAllOptis: function (line) {
         var allOptis = [];
         _.forEach(planesRefService.getPlanesRef(), function (plane) {
-          allOptis.push(getOptimisation(plane, line));
+          if (plane.rayon > line.distance) {
+            allOptis.push(getOptimisation(plane, line));
+          }
         })
         return allOptis;
       }

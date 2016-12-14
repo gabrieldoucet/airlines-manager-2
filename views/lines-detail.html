@@ -1,42 +1,68 @@
 <div class="container-fluid">
-  <h4>Detail d'une ligne</h4>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Origine</th>
-        <th>Destination</th>
-        <th>Distance</th>
-        <th>Éco</th>
-        <th>Affaire</th>
-        <th>Première</th>
-        <th>Avions</th>
-        <th>Lignes similaires</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{selects.lineDetail.from}}</td>
-        <td>{{selects.lineDetail.to}}</td>
-        <td>{{selects.lineDetail.distance}}</td>
-        <td>{{selects.lineDetail.demand.eco}}</td>
-        <td>{{selects.lineDetail.demand.business}}</td>
-        <td>{{selects.lineDetail.demand.first}}</td>
-        <td>
-          <div ng-repeat="planeName in selects.lineDetail.planes">
-            <span ng-class="getPlaneLineLabelClass(planeName, selects.lineDetail)">{{planeName}}</span>
-          </div>
-        </td>
-        <td>
-          <div ng-repeat="line in similarLines">
-            <span ng-class="getLineLineLabelClass(selects.lineDetail, line)">{{line.from}} - {{line.to}}</span>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
-<div class="container-fluid">
-  <line-table header="Toutes les lignes" lines="lines" ng-model="selects.lineDetail">
-  </line-table>
+  <div class="row">
+    <div class="col-lg-offset-1 container-fluid col-lg-10">
+      <div class="panel panel-default">
+        <div class="panel-heading">Sélection</div>
+        <div class="panel-body">
+          <div class="container-fluid col-lg-4">
+            <div class="form">
+              <label class="control-label">Sélectionner la ligne</label>
+              <line-select disabled="selects.manual" select="selects.lineDetail"></line-select>
+            </div>
+          </div>
+
+          <div class="container-fluid col-lg-8">
+            <div class="form-horizontal">
+              <div class="form-group">
+                <label class="control-label">Saisie manuelle demande/distance</label>
+              </div>
+              <div class="form-group">
+                <input type="number" ng-model="manualLine.demand.eco" placeholder="Éco">
+                <input type="number" ng-model="manualLine.demand.business" placeholder="Affaire">
+                <input type="number" ng-model="manualLine.demand.first" placeholder="Première">
+              </div>
+              <div class="form-group">
+                <input type="number" ng-model="manualLine.distance" placeholder="Distance">
+              </div>
+              <div class="form-group">
+                <span class="btn btn-default" ng-click="submitManual()">Valider</span>
+                <span class="btn btn-default" ng-click="resetManual()">Effacer</span>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end of row -->
+
+  <div class="row">
+    <div class="container-fluid col-lg-6">
+      <line-table header="Détail" lines="lineDetail" enable-select="false">
+      </line-table>
+    </div>
+
+    <div class="container-fluid col-lg-6">
+      <line-table header="Lignes similaires" lines="similarLines" ng-model="selects.lineDetail" enable-select="true">
+      </line-table>
+    </div>
+  </div> <!-- end of row -->
+
+  <div class="row">
+    <div class="container-fluid col-lg-6">
+      <line-configs data="optiConfigs"></line-configs>
+    </div>
+
+    <div class="container-fluid col-lg-6">
+      <plane-table planes="optiPlanes" header="Avions compatibles" enable-select="false"></plane-table>
+    </div>
+  </div> <!-- end of row -->
+
+  <div class="row">
+    <div class="container-fluid col-lg-12">
+      <line-table header="Toutes les lignes" lines="lines" ng-model="selects.lineDetail" enable-select="true">
+      </line-table>
+    </div>
+  </div> <!-- end of row -->
 </div>

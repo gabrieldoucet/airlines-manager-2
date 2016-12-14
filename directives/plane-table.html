@@ -1,47 +1,42 @@
-<div class="container-fluid">
+<div class="panel panel-default">
+  <div class="panel-heading" ng-click="headerClick()">{{header}}
+    <span ng-class="getArrowClass()" aria-hidden="true"></span>
+  </div>
 
-    <h4>{{header}}
-      <span ng-class="getArrowClass()" aria-hidden="true" ng-click="headerClick()"></span>
-    </h4>
+  <div class="panel-body" ng-if="open && (planes.length == 0 || planes === undefined)">
+    <p>Aucun résultat</p>
+  </div>
 
-  <table class="table table-striped" ng-if="open">
+  <div class="panel-body" ng-if="open && planes.length > 0">
+    <h5>Filtres <span class="badge">{{results.length}}</span></h5>
+    <input type=text>
+    <hub-select ng-model="filterHub"></hub-select>
+    <type-select ng-model="filterType"></type-select>
+  </div>
+
+  <table class="table table-striped" ng-if="open && planes.length > 0">
     <thead>
-      <tr>
-        <th>
-          <label>Filtres
-            <span class="badge">{{results.length}}</span>
-          </label>
-        </th>
-        <th>
-          <hub-select ng-model="filterHub"></hub-select>
-        </th>
-        <th><type-select ng-model="filterType"></type-select></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
       <tr>
         <th>Avion</th>
         <th>Hub</th>
         <th>Type</th>
-        <th>Éco</th>
-        <th>Affaire</th>
-        <th>Première</th>
+        <th>Configuration</th>
         <th>Lignes</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="plane in planes | filter:filterHub:strict | filter:filterType | filter:query as results">
         <td><div>
-        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-eye-open"
+              aria-hidden="true"
+              ngClick="selectPlane(plane)"
+              ng-if="enableSelect">
+        </span>
         {{plane.name}}
         </div></td>
         <td>{{plane.hub}}</td>
         <td>{{plane.type}}</td>
-        <td>{{plane.config.eco}}</td>
-        <td>{{plane.config.business}}</td>
-        <td>{{plane.config.first}}</td>
+        <td>{{plane.config.eco}} / {{plane.config.business}} / {{plane.config.first}}</td>
         <td>
           <div ng-repeat="dest in plane.dests">
             <span ng-class="getPlaneLineLabelClass(plane, dest)">{{plane.hub + ' - ' + dest}}</span>

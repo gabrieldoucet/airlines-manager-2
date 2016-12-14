@@ -4,50 +4,38 @@ am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 
   function linesController($scope, linesService, fleetService, planesRefService, calc, classService) {
 
   $scope.lines = linesService.getLines();
-
-  // Get data back from children directives
   $scope.selects = {};
-  $scope.$watch('selects.lineOptim', function (newVal) {
-    if (!_.isNil(newVal)) {
-      $scope.planes = calc.getOptiPlanes($scope.selects.lineOptim);      
-      $scope.allOptis = calc.getAllOptis($scope.selects.lineOptim);
+  $scope.manualLine = {};
+  
+  $scope.$watch('manualLine', function (newVal) {
+    if (!_.isEmpty(newVal)) {
+      $scope.selects.manual = true;
+    } else {
+      $scope.selects.manual = false;
     }
   }, true);
 
-  $scope.optiLine = {};
-  $scope.lineOptim = function () {
-    $scope.showConfigs = true;
-    console.log($scope.optiLine);
-    $scope.planes = calc.getOptiPlanes($scope.optiLine);      
-    $scope.allOptis = calc.getAllOptis($scope.optiLine);
+  $scope.submitManual = function () {
+    $scope.selects.lineDetail = $scope.manualLine;
   };
 
+  $scope.resetManual = function () {
+    $scope.manualLine = {};
+    $scope.selects.lineDetail = {};
+  };
+
+  // Monitor changes on line detail
   $scope.$watch('selects.lineDetail', function (newVal) {
-    if (!_.isNil(newVal)) {
+    if (!_.isNil(newVal) && !_.isEmpty(newVal)) {
+      $scope.lineDetail = [$scope.selects.lineDetail];
       $scope.similarLines = linesService.getSimilarLines($scope.selects.lineDetail);
+      $scope.optiConfigs = calc.getAllOptis($scope.selects.lineDetail);
+      $scope.optiPlanes = calc.getOptiPlanes($scope.selects.lineDetail);
     }
   }, true);
-
-  $scope.getPlaneLineLabelClass = function (planeIn, lineIn) {
-    var plane = planeIn;
-    var line = lineIn;
-    if (!_.isObject(planeIn)) {
-      plane = fleetService.getPlaneFromName(planeIn);
-    }
-    if (!_.isObject(lineIn)) {
-      line = linesService.getLineFromTo(plane.hub, lineIn);
-    }
-    return classService.getPlaneLineLabelClass(plane, line);
-  };
 
   $scope.getLineLineLabelClass = function(line1, line2) {
     return classService.getLineLineLabelClass(line1, line2);
-  };
-
-  $scope.showConfigs = false;
-
-  $scope.configsHeaderClick = function () {
-    $scope.showConfigs = !$scope.showConfigs;
   };
 
   $scope.getArrowClass = function () {
@@ -59,7 +47,8 @@ am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 
   };
 
 
-  $scope.$watch($scope.lines, function () {
+
+  $scope.$watch('lines', function () {
     // console.log($scope.lines);
   }, true);
 

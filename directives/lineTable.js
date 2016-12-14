@@ -7,7 +7,8 @@ am2App.directive('lineTable', function () {
     scope: {
       lines: '=',
       header: '@',
-      ngModel: '='
+      ngModel: '=',
+      enableSelect: '='
     },
     controller: ['$scope', 'fleetService', 'linesService', 'calc', 'classService',
       function ($scope, fleetService, linesService, calc, classService) {
@@ -32,14 +33,11 @@ am2App.directive('lineTable', function () {
           }
           return classService.getPlaneLineLabelClass(plane, line);
         };
-        /*
-        $scope.getPlaneLineLabelClass = function (planeName, line) {
-          var plane = fleetService.getPlaneFromName(planeName);
-          return classService.getPlaneLineLabelClass(plane, line);
-        }; */
 
         $scope.selectLine = function (line) {
-          $scope.ngModel = line;
+          if ($scope.enableSelect) {
+            $scope.ngModel = line;
+          }
         }
       }
     ]

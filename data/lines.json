@@ -8,7 +8,7 @@
       "business": 640,
       "first": 283
     },
-    "planes": ["N5882"]
+    "planes": ["N5882", "N26622"]
   },
   {
     "from": "DXB",
@@ -19,7 +19,7 @@
       "business": 350,
       "first": 125
     },
-    "planes": ["A6-PWL", "A6-FET", "A6-LVU", "A6-VRC"]
+    "planes": ["A6-PWL", "A6-FET"]
   },
   {
     "from": "JFK",
@@ -52,7 +52,7 @@
       "business": 285,
       "first": 65
     },
-    "planes": ["A6-BEE"]
+    "planes": ["A6-HQX"]
   },
   {
     "from": "DXB",
@@ -63,7 +63,7 @@
       "business": 481,
       "first": 172
     },
-    "planes": ["A6-FET", "A6-LVU", "A6-VRC"]
+    "planes": ["A6-LVU", "A6-VRC", "A6-SNB"]
   },
   {
     "from": "DXB",
@@ -74,7 +74,7 @@
       "business": 201,
       "first": 15
     },
-    "planes": ["A6-NNC"]
+    "planes": ["A6-NNC", "A6-BEE"]
   },
   {
     "from": "JFK",
@@ -86,17 +86,6 @@
       "first": 252
     },
     "planes": ["N96EA"]
-  },
-  {
-    "from": "JFK",
-    "to": "NRT",
-    "distance": 10833,
-    "demand": {
-      "eco": 1655,
-      "business": 574,
-      "first": 230
-    },
-    "planes": ["N30R"]
   },
   {
     "from": "JFK",
@@ -151,7 +140,7 @@
       "business": 475,
       "first": 164
     },
-    "planes": ["A6-UQU", "A6-SNB", "A6-MAD"]
+    "planes": ["A6-UQU", "A6-OSK"]
   },
   {
     "from": "DXB",
@@ -174,17 +163,6 @@
       "first": 153
     },
     "planes": ["A6-VLT", "A6-JRE"]
-  },
-  {
-    "from": "JFK",
-    "to": "MAD",
-    "distance": 5762,
-    "demand": {
-      "eco": 1563,
-      "business": 645,
-      "first": 274
-    },
-    "planes": ["N7B"]
   },
   {
     "from": "DXB",
@@ -224,16 +202,18 @@
     "to": "LAX",
     "distance": 3974,
     "demand": {
-      "eco": 1313,
+      "eco": 1312,
       "business": 678,
-      "first": 297
+      "first": 297,
+      "cargo": 46
     },
-    "planes": [
-      "N9478NG",
-      "N2337MC",
-      "N8K",
-      "N1043"
-    ]
+    "prices": {
+      "eco": 1331,
+      "business": 1770,
+      "first": 3061,
+      "cargo": 2391
+    },
+    "planes": ["N9478NG","N2337MC","N8K","N1043"]
   },
   {
     "from": "JFK",
@@ -245,17 +225,6 @@
       "first": 266
     },
     "planes": ["N5533ZU"]
-  },
-  {
-    "from": "JFK",
-    "to": "BOM",
-    "distance": 12535,
-    "demand": {
-      "eco": 2317,
-      "business": 352,
-      "first": 97
-    },
-    "planes": ["N31ML", "N55AD"]
   },
   {
     "from": "DXB",
@@ -310,7 +279,7 @@
       "business": 498,
       "first": 183
     },
-    "planes": ["A6-WKY"]
+    "planes": ["A6-WKY", "A6-SEW"]
   },
   {
     "from": "DXB",
@@ -325,17 +294,6 @@
   },
   {
     "from": "JFK",
-    "to": "ZRH",
-    "distance": 6311,
-    "demand": {
-      "eco": 1288,
-      "business": 591,
-      "first": 257
-    },
-    "planes": ["N847R"]
-  },
-  {
-    "from": "JFK",
     "to": "ATH",
     "distance": 7934,
     "demand": {
@@ -345,7 +303,7 @@
     },
     "planes": [
       "N56",
-      "N591PA",
+      "N7B",
       "N196"
     ]
   },
@@ -358,7 +316,7 @@
       "business": 346,
       "first": 117
     },
-    "planes": ["A6-MMK"]
+    "planes": ["A6-MMK", "A6-JCU"]
   },
   {
     "from": "JFK",
@@ -405,9 +363,7 @@
       "business": 436,
       "first": 165
     },
-    "planes": [
-      "N972V"
-    ]
+    "planes": ["N972V",  "N30R", "N591PA"]
   },
   {
     "from": "DXB",
@@ -441,5 +397,35 @@
       "first": 118
     },
     "planes": ["A6-OZU", "A6-PMQ"]
+  },
+  {
+    "from": "JFK",
+    "to": "IPC",
+    "distance": 8391,
+    "demand": {
+      "eco": 928,
+      "business": 340,
+      "first": 142,
+      "cargo": 27
+    },
+    "planes": ["N406AL", "N7U"]
+  },
+  {
+    "from": "DXB",
+    "to": "PER",
+    "distance": 9043,
+    "demand": {
+      "eco": 1725,
+      "business": 395,
+      "first": 140,
+      "cargo": 39
+    },
+    "prices": {
+      "eco": 2903,
+      "business": 3860,
+      "first": 6676,
+      "cargo": 4706
+    },
+    "planes": ["A6-WKY"]
   }
 ]
