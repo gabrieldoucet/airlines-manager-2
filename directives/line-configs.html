@@ -14,7 +14,8 @@
       <tr>
         <th>Type</th>
         <th>Configuration</th>
-        <th>Rotations max. par jour</th>
+        <th>% par rotation</th>
+        <th>% max (max. rotations)</th>
         <th>Demande restante</th>
       </tr>
     </thead>
@@ -22,7 +23,8 @@
       <tr ng-repeat="opti in optiConfigs">
         <td>{{opti.type}}</td>
         <td>{{opti.config.eco}} / {{opti.config.business}} / {{opti.config.first}}</td>
-        <td>{{opti.maxRotations}}</td>
+        <td>{{opti.percent}}</td>
+        <td>{{opti.maxRotations * opti.percent}} ({{opti.maxRotations}})</td>
         <td>{{opti.remainingDemand.eco}} / {{opti.remainingDemand.business}} / {{opti.remainingDemand.first}}</td>
       </tr>
     </tbody>

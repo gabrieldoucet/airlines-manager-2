@@ -4,7 +4,7 @@ am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 
   function linesController($scope, linesService, fleetService, planesRefService, calc, classService) {
 
   $scope.lines = linesService.getLines();
-  $scope.selects = {};
+  $scope.selects = {notManual: false};
   $scope.manualLine = {};
 
   $scope.$watch('manualLine', function (newVal) {
@@ -22,12 +22,13 @@ am2App.controller('linesController', ['$scope', 'linesService', 'fleetService', 
   $scope.resetManual = function () {
     $scope.manualLine = {};
     $scope.selects.lineDetail = {};
+    $scope.selects.notManual = false;
   };
 
   // Monitor changes on line detail
   $scope.$watch('selects.lineDetail', function (newVal) {
     if (!_.isNil(newVal) && !_.isEmpty(newVal)) {
-      $scope.manualLine = $scope.selects.lineDetail;
+      $scope.selects.notManual = true;
       $scope.lineDetail = [$scope.selects.lineDetail];
       $scope.similarLines = linesService.getSimilarLines($scope.selects.lineDetail);
       $scope.optiConfigs = calc.getAllOptis($scope.selects.lineDetail);

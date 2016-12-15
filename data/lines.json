@@ -195,7 +195,7 @@
       "business": 417,
       "first": 148
     },
-    "planes": ["A6-KIC", "A6-MAD"]
+    "planes": ["A6-KIC"]
   },
   {
     "from": "JFK",
@@ -279,7 +279,7 @@
       "business": 498,
       "first": 183
     },
-    "planes": ["A6-WKY", "A6-SEW"]
+    "planes": ["A6-SEW"]
   },
   {
     "from": "DXB",
@@ -359,9 +359,9 @@
     "to": "EZE",
     "distance": 8537,
     "demand": {
-      "eco": 1620,
-      "business": 436,
-      "first": 165
+      "eco": 1522,
+      "business": 408,
+      "first": 153
     },
     "planes": ["N972V",  "N30R", "N591PA"]
   },
@@ -426,6 +426,6 @@
       "first": 6676,
       "cargo": 4706
     },
-    "planes": ["A6-WKY"]
+    "planes": ["A6-WKY", "A6-MAD"]
   }
 ]

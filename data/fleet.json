@@ -344,11 +344,11 @@
     "name": "A6-MAD",
     "type": "A350-900XWB",
     "hub": "DXB",
-    "dests": ["ARN"],
+    "dests": ["PER"],
     "config": {
-      "eco": 280,
-      "business": 60, 
-      "first": 20
+      "eco": 271,
+      "business": 62, 
+      "first": 22
     }
   },
   {
@@ -597,7 +597,7 @@
     "name": "A6-WKY",
     "type": "787-9",
     "hub": "DXB",
-    "dests": ["FCO", "PER"],
+    "dests": ["PER"],
     "config": {
       "eco": 237,
       "business": 55, 

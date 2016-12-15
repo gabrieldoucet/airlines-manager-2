@@ -11,6 +11,22 @@ am2App
       return hours + 'h ' + minutes + 'min ' + seconds + 's';
     };
 
+    var round = function (num, precision) {
+      var intPart = Math.floor(num);
+      var decimalPart = num - intPart;
+      var mul = Math.pow(10, precision);
+      var lastDigit = Math.pow(10, precision + 1) *  decimalPart - Math.floor(mul * decimalPart) / mul * Math.pow(10, precision + 1);
+
+      var roundDecimalPart;
+      if (lastDigit <= 4) {
+        roundDecimalPart = Math.floor(mul * decimalPart) / mul;
+      } else {
+        roundDecimalPart = (Math.floor(mul * decimalPart) + 1) / mul;
+      }
+
+      return intPart + roundDecimalPart;
+    };
+
     var getOptimisation = function (plane, line) {
       var demand = line.demand.eco + line.demand.business + line.demand.first;
       var pEco = line.demand.eco / demand;
@@ -39,8 +55,9 @@ am2App
           business: line.demand.business - 2 * maxRotations * optiBusiness,
           first: line.demand.first - 2 * maxRotations * optiFirst
         },
+        percent: round(2 * optiEco / line.demand.eco * 100, 2),
         maxRotations: maxRotations,
-        duration: decimalToHours(duration)
+        duration: decimalToHours(duration),
       };
     };
 
