@@ -18,7 +18,7 @@ am2App
 
     return {
       setLines: function (data) {
-        data = _.sortBy(data, [function (line) {return line.from;}, function(line) {return line.to;}])
+        data = _.sortBy(data, [function (line) {return line.from;}, function(line) {return line.to;}]);
         lines = data;
       },
       getLines: function () {

@@ -3,6 +3,7 @@
     Configurations optimales
     <span ng-class="getArrowClass()" aria-hidden="true" ng-click="headerClick()">
     </span>
+    <span class="btn btn-default" aria-hidden="true" ng-click="optimise()">Optimiser</span>
   </div>
 
   <div class="panel-body" ng-if="open && (optiConfigs.length == 0 || optiConfigs === undefined)">
@@ -17,6 +18,7 @@
         <th>% par rotation</th>
         <th>% max (max. rotations)</th>
         <th>Demande restante</th>
+        <th>Durée<th>
       </tr>
     </thead>
     <tbody>
@@ -26,7 +28,13 @@
         <td>{{opti.percent}}</td>
         <td>{{opti.maxRotations * opti.percent}} ({{opti.maxRotations}})</td>
         <td>{{opti.remainingDemand.eco}} / {{opti.remainingDemand.business}} / {{opti.remainingDemand.first}}</td>
+        <td>{{opti.duration.hours}}h{{opti.duration.min}}</td>
+        <td><input type="checkbox" ng-model="opti.checked" ng-change="selectOpti()"></td>
       </tr>
     </tbody>
   </table>
+  <div class="container">
+    <h4>Meilleure combinaison</h4>
+    <span class="label label-primary" ng-repeat="coeff in bestCombi.coeffArr">{{coeff.count + ' ' + coeff.obj.type}}</span>
+  </div>
 </div>

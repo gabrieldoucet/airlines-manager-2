@@ -1,6 +1,6 @@
 [
   {
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "seats": 195,
     "rayon": 6482,
     "conso": 1.88,
@@ -62,5 +62,45 @@
     "conso": 2.77,
     "speed": 828,
     "tonnage": 16
+  },
+  {
+    "type": "ATR72-600",
+    "seats": 74,
+    "rayon": 1731,
+    "conso": 3.91,
+    "speed": 500,
+    "tonnage": 8
+  },
+  {
+    "type": "A330-300",
+    "seats": 440, 
+    "rayon": 10804,
+    "conso": "2.05",
+    "speed": 871,
+    "tonnage" : 45.9
+  },
+  {
+    "type": "737-700",
+    "seats": 149, 
+    "rayon": 6374,
+    "conso": "2.74",
+    "speed": 834,
+    "tonnage" : 17.5
+  },
+  {
+    "type": "EMB-120",
+    "seats": 30, 
+    "rayon": 2555,
+    "conso": "4.36",
+    "speed": 552,
+    "tonnage" : 3.3
+  },
+  {
+    "type": "ERJ-195",
+    "seats": 124, 
+    "rayon": 4077,
+    "conso": "3.17",
+    "speed": 828,
+    "tonnage" : 13.6
   }
 ]

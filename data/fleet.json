@@ -100,7 +100,7 @@
   },
   {
     "name": "N1043",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
     "dests": ["LAX"],
     "config": {
@@ -111,7 +111,7 @@
   },
   {
     "name": "N8039",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
     "dests": ["SFO"],
     "config": {
@@ -122,7 +122,7 @@
   },
   {
     "name": "N168TE",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
     "dests": ["SFO"],
     "config": {
@@ -133,7 +133,7 @@
   },
   {
     "name": "N8K",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
     "dests": ["LAX"],
     "config": {
@@ -144,7 +144,7 @@
   },
   {
     "name": "N2337MC",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
     "dests": ["LAX"],
     "config": {
@@ -155,7 +155,7 @@
   },
   {
     "name": "N9478NG",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
     "dests": ["LAX"],
     "config": {
@@ -166,9 +166,9 @@
   },
   {
     "name": "N436UE",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
-    "dests": ["MIA"],
+    "dests": ["MIA", "MCO"],
     "config": {
       "eco": 69,
       "business": 35, 
@@ -177,7 +177,7 @@
   },
   {
     "name": "N2077T",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
     "dests": ["SFO"],
     "config": {
@@ -188,9 +188,9 @@
   },
   {
     "name": "N5882",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
-    "dests": ["ATL"],
+    "dests": ["ATL", "ICT"],
     "config": {
       "eco": 69,
       "business": 35, 
@@ -199,20 +199,20 @@
   },
   {
     "name": "N23TZ",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
     "dests": ["ORD"],
     "config": {
-      "eco": 67,
+      "eco": 69,
       "business": 35, 
       "first": 15
     }
   },
   {
     "name": "N5533ZU",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
-    "dests": ["DTW"],
+    "dests": ["ISN", "DTW"],
     "config": {
       "eco": 69,
       "business": 35, 
@@ -221,9 +221,9 @@
   },
   {
     "name": "N4142",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
-    "dests": ["MIA"],
+    "dests": ["MIA", "MCO"],
     "config": {
       "eco": 69,
       "business": 35, 
@@ -232,7 +232,7 @@
   },
   {
     "name": "N532DA",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
     "dests": ["UIO"],
     "config": {
@@ -660,8 +660,19 @@
     }
   },
   {
+    "name": "A6-GLI",
+    "type": "A380-800",
+    "hub": "DXB",
+    "dests": ["ICN"],
+    "config": {
+      "eco": 551,
+      "business": 95, 
+      "first": 31
+    }
+  },
+  {
     "name": "A6-XIS",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "DXB",
     "dests": ["JED"],
     "config": {
@@ -694,13 +705,181 @@
   },
   {
     "name": "N26622",
-    "type": "A320-NEO",
+    "type": "A320-200NEO",
     "hub": "JFK",
-    "dests": ["ATL"],
+    "dests": ["ATL", "ICT"],
+    "config": {
+      "eco": 69,
+      "business": 35, 
+      "first": 15
+    }
+  },
+  {
+    "name": "N9JN",
+    "type": "A320-200NEO",
+    "hub": "JFK",
+    "dests": ["ATL", "ICT"],
+    "config": {
+      "eco": 69,
+      "business": 35, 
+      "first": 15
+    }
+  },
+  {
+    "name": "N86QQ",
+    "type": "A320-200NEO",
+    "hub": "JFK",
+    "dests": ["DFW", "CHS"],
+    "config": {
+      "eco": 69,
+      "business": 35,
+      "first": 15
+    }
+  },
+  {
+    "name": "KDO-CPN-202",
+    "type": "A320-200NEO",
+    "hub": "JFK",
+    "dests": ["DFW", "CHS"],
     "config": {
       "eco": 67,
       "business": 36, 
       "first": 15
     }
-  }  
+  },
+  {
+    "name": "N701FK",
+    "type": "A320-200NEO",
+    "hub": "JFK",
+    "dests": ["DFW", "CHS"],
+    "config": {
+      "eco": 69,
+      "business": 35, 
+      "first": 15
+    }
+  },
+  {
+    "name": "N118CD",
+    "type": "A320-200NEO",
+    "hub": "JFK",
+    "dests": ["MCO", "MIA"],
+    "config": {
+      "eco": 69,
+      "business": 35, 
+      "first": 15
+    }
+  },
+  {
+    "name": "N594",
+    "type": "A320-200NEO",
+    "hub": "JFK",
+    "dests": ["MCO", "MIA"],
+    "config": {
+      "eco": 69,
+      "business": 35, 
+      "first": 15
+    }
+  },
+  {
+    "name": "N9828PG",
+    "type": "777-300ER",
+    "hub": "JFK",
+    "dests": ["HNL"],
+    "config": {
+      "eco": 193,
+      "business": 98, 
+      "first": 43
+    }
+  },
+  {
+    "name": "N70",
+    "type": "777-300ER",
+    "hub": "JFK",
+    "dests": ["HNL"],
+    "config": {
+      "eco": 193,
+      "business": 98, 
+      "first": 43
+    }
+  },
+  {
+    "name": "N6E",
+    "type": "777-300ER",
+    "hub": "JFK",
+    "dests": ["HNL"],
+    "config": {
+      "eco": 193,
+      "business": 98, 
+      "first": 43
+    }
+  },
+  {
+    "name": "A6-EJB",
+    "type": "777-300ER",
+    "hub": "DXB",
+    "dests": ["PER"],
+    "config": {
+      "eco": 315,
+      "business": 72, 
+      "first": 25
+    }
+  },
+  {
+    "name": "N560E",
+    "type": "A320-200NEO",
+    "hub": "JFK",
+    "dests": ["ISN", "DTW"],
+    "config": {
+      "eco": 69,
+      "business": 35, 
+      "first": 15
+    }
+  },
+  {
+    "name": "N9130R",
+    "type": "A320-200NEO",
+    "hub": "JFK",
+    "dests": ["ISN", "DTW"],
+    "config": {
+      "eco": 69,
+      "business": 35, 
+      "first": 15
+    }
+  },
+  {
+    "name": "KDO-CPN-285",
+    "type": "737-700",
+    "hub": "JFK",
+    "dests": [],
+    "config": {
+      "eco": 54,
+      "business": 27, 
+      "first": 11,
+      "cargo": 0
+    }
+  },
+  {
+    "name": "KDO-CPN-283",
+    "type": "EMB-120",
+    "hub": "JFK",
+    "dests": [],
+    "config": {
+      "eco": 12,
+      "business": 5, 
+      "first": 2,
+      "cargo": 0
+    }
+  },
+  {
+    "name": "KDO-CPN-284",
+    "type": "ERJ-195",
+    "hub": "JFK",
+    "dests": [],
+    "config": {
+      "eco": 46,
+      "business": 22, 
+      "first": 9,
+      "cargo": 0
+    }
+  }
 ]

@@ -1,6 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{header}}
     <span ng-class="getArrowClass()" aria-hidden="true" ng-click="headerClick()"></span>
+    <span class="badge">{{lines.length}}</span>
     <span class="btn btn-default" aria-hidden="true" ng-click="showAdd()" ng-if="enableAdd">Ajouter</span>
   </div>
 

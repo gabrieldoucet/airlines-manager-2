@@ -96,16 +96,23 @@
       "business": 615,
       "first": 272
     },
-    "planes": ["N4142", "N436UE"]
+    "planes": ["N4142", "N436UE", "N118CD", "N594"]
   },
   {
     "from": "JFK",
     "to": "SFO",
     "distance": 4152,
     "demand": {
-      "eco": 1293,
-      "business": 668,
-      "first": 292
+      "eco": 1280,
+      "business": 661,
+      "first": 289,
+      "cargo": 45
+    },
+    "prices": {
+      "eco": 1387,
+      "business": 1844,
+      "first": 3190,
+      "cargo": 2489
     },
     "planes": ["N168TE", "N8039", "N73063", "N2077T"]
   },
@@ -224,7 +231,7 @@
       "business": 602,
       "first": 266
     },
-    "planes": ["N5533ZU"]
+    "planes": ["N5533ZU", "N560E", "N9130R"]
   },
   {
     "from": "DXB",
@@ -268,7 +275,7 @@
       "business": 382,
       "first": 125
     },
-    "planes": ["A6-PJS"]
+    "planes": ["A6-PJS", "A6-GLI"]
   },
   {
     "from": "DXB",
@@ -312,9 +319,16 @@
     "to": "TLL",
     "distance": 4474,
     "demand": {
-      "eco": 1821,
-      "business": 346,
-      "first": 117
+      "eco": 1718,
+      "business": 324,
+      "first": 109,
+      "cargo": 33
+    },
+     "prices": {
+      "eco": 1486,
+      "business": 1976,
+      "first": 3417,
+      "cargo": 2667
     },
     "planes": ["A6-MMK", "A6-JCU"]
   },
@@ -381,9 +395,16 @@
     "to": "PRG",
     "distance": 4465,
     "demand": {
-      "eco": 2168,
-      "business": 402,
-      "first": 136
+      "eco": 2040,
+      "business": 376,
+      "first": 126,
+      "cargo": 39
+    },
+    "prices": {
+      "eco": 1484,
+      "business": 1973,
+      "first": 3413,
+      "cargo": 2662
     },
     "planes": ["A6-IEZ", "A6-JCU"]
   },
@@ -403,10 +424,10 @@
     "to": "IPC",
     "distance": 8391,
     "demand": {
-      "eco": 928,
-      "business": 340,
-      "first": 142,
-      "cargo": 27
+      "eco": 876,
+      "business": 318,
+      "first": 132,
+      "cargo": 26
     },
     "planes": ["N406AL", "N7U"]
   },
@@ -426,6 +447,114 @@
       "first": 6676,
       "cargo": 4706
     },
-    "planes": ["A6-WKY", "A6-MAD"]
+    "planes": ["A6-WKY", "A6-MAD", "A6-EJB"]
+  },
+  {
+    "from": "JFK",
+    "to": "DFW",
+    "distance": 2235,
+    "demand": {
+      "eco": 1272,
+      "business": 657,
+      "first": 288,
+      "cargo": 46
+    },
+    "prices": {
+      "eco": 792,
+      "business": 1053,
+      "first": 1821,
+      "cargo": 1432
+    },
+    "planes": ["N86QQ", "KDO-CPN-202"]
+  },
+  {
+    "from": "JFK",
+    "to": "MCO",
+    "distance": 1521,
+    "demand": {
+      "eco": 1133,
+      "business": 585,
+      "first": 256,
+      "cargo": 44
+    },
+    "prices": {
+      "eco": 571,
+      "business": 759,
+      "first": 1313,
+      "cargo": 1103
+    },
+    "planes": ["N4142", "N436UE", "N118CD", "N594"]
+  },
+  {
+    "from": "JFK",
+    "to": "ICT",
+    "distance": 2060,
+    "demand": {
+      "eco": 900,
+      "business": 465,
+      "first": 204,
+      "cargo": 33
+    },
+    "prices": {
+      "eco": 738,
+      "business": 981,
+      "first": 1697,
+      "cargo": 1336
+    },
+    "planes": ["N26622", "N5882"]
+  },
+  {
+    "from": "JFK",
+    "to": "CHS",
+    "distance": 1025,
+    "demand": {
+      "eco": 850,
+      "business": 441,
+      "first": 193,
+      "cargo": 38
+    },
+    "prices": {
+      "eco": 417,
+      "business": 554,
+      "first": 959,
+      "cargo": 809
+    },
+    "planes": ["N86QQ", "KDO-CPN-202", "N701FK"]
+  },
+  {
+    "from": "JFK",
+    "to": "HNL",
+    "distance": 8009,
+    "demand": {
+      "eco": 1143,
+      "business": 580,
+      "first": 254,
+      "cargo": 41
+    },
+    "prices": {
+      "eco": 2582,
+      "business": 3434,
+      "first": 5938,
+      "cargo": 4191
+    },
+    "planes": ["N9828PG", "N70", "N6E"]
+  },
+  {
+    "from": "JFK",
+    "to": "ISN",
+    "distance": 2497,
+    "demand": {
+      "eco": 727,
+      "business": 375,
+      "first": 164,
+      "cargo": 26
+    },
+    "prices": {
+      "eco": 874,
+      "business": 1162,
+      "first": 2010,
+      "cargo": 1577
+    },
+    "planes": ["N5533ZU", "N560E", "N9130R"]
   }
 ]

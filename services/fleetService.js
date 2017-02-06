@@ -3,6 +3,7 @@ am2App
     var fleet;
     return {
       setFleet: function (data) {
+        data = _.sortBy(data, [function (plane) {return plane.name;}]);
         fleet = data;
       },
       getFleet: function () {

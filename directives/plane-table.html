@@ -1,6 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{header}}
     <span ng-class="getArrowClass()" aria-hidden="true" ng-click="headerClick()"></span>
+    <span class="badge">{{planes.length}}</span>
   </div>
 
   <div class="panel-body" ng-if="open && (planes.length == 0 || planes === undefined)">

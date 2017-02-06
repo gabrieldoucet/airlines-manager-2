@@ -3,14 +3,6 @@ am2App
    function(planesRefService, linesService, fleetService) {
     var coeffs = {eco: 1, business: 1.8, first: 4.23};
 
-    var decimalToHours = function(hoursDecimal) {
-      var hours = Math.floor(hoursDecimal);
-      var minutesDecimal = ((hoursDecimal - hours) * 60);
-      var minutes = Math.floor(minutesDecimal);
-      var seconds = Math.floor( (minutesDecimal - minutes) * 60);
-      return hours + 'h ' + minutes + 'min ' + seconds + 's';
-    };
-
     var round = function (num, precision) {
       var intPart = Math.floor(num);
       var decimalPart = num - intPart;
@@ -25,6 +17,37 @@ am2App
       }
 
       return intPart + roundDecimalPart;
+    };
+
+    var roundForDuration = function (num) {
+      var intPart = Math.floor(num);
+      var decimalPart = num - intPart;
+      if (decimalPart > 0 && decimalPart < 0.25) {
+        decimalPart = 0.25;
+      } else if (decimalPart > 0.25 && decimalPart < 0.50) {
+        decimalPart = 0.50;
+      } else if (decimalPart > 0.50 && decimalPart < 0.75) {
+        decimalPart = 0.75;
+      } else if (decimalPart > 0.75) {
+        decimalPart = 0;
+        intPart += 1;
+      }
+      return intPart + decimalPart;
+    };
+
+    var decimalToHours = function(hoursDecimal) {
+      hoursDecimal = roundForDuration(hoursDecimal);
+      var hours = Math.floor(hoursDecimal);
+      var minutesDecimal = ((hoursDecimal - hours) * 60);
+      var minutes = Math.floor(minutesDecimal);
+      var seconds = Math.floor( (minutesDecimal - minutes) * 60);
+      var decDuration = round(hoursDecimal, 3);
+      return {
+        hours: hours,
+        min: minutes,
+        sec: seconds,
+        dec: decDuration
+      };
     };
 
     var getOptimisation = function (plane, line) {
@@ -96,6 +119,10 @@ am2App
           if (plane.rayon > line.distance) {
             allOptis.push(getOptimisation(plane, line));
           }
+        })
+        allOptis = _.reverse(_.sortBy(allOptis, [function (opti) {return opti.percent * opti.maxRotations;}]));
+        _.forEach(allOptis, function (opti) {
+          console.log('"type":"' + opti.type+ '",' + '"weight":"' + opti.percent + '",' + '"value":0');
         })
         return allOptis;
       }

@@ -8,8 +8,9 @@ am2App.
       scope: {
         optiConfigs: '=data'
       },
-      controller: ['$scope', function ($scope) {
+      controller: ['$scope', '$filter', 'algo', function ($scope, $filter, algo) {
         $scope.open = true;
+        $scope.knapsackOptis = [];
 
         $scope.headerClick = function () {
           $scope.open = !$scope.open;
@@ -17,6 +18,21 @@ am2App.
 
         $scope.getArrowClass = function () {
           return $scope.open ? "glyphicon glyphicon-chevron-down" : "glyphicon glyphicon-chevron-right";
+        };
+
+        $scope.optimise = function () {
+          var objects = _.map($scope.knapsackOptis, function (opti) {
+            return {type: opti.type, weight: opti.percent, value: 1};
+          });
+          $scope.bestCombi = algo.algo(objects);
+        };
+
+        $scope.selectOpti = function() {
+          $scope.knapsackOptis = $filter('filter')($scope.optiConfigs, {checked: true});
+        };
+
+        $scope.headerClick = function () {
+          $scope.open = !$scope.open;
         };
       }]
     }; 
