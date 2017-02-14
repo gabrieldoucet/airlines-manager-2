@@ -737,13 +737,13 @@
     }
   },
   {
-    "name": "KDO-CPN-202",
+    "name": "N685",
     "type": "A320-200NEO",
     "hub": "JFK",
     "dests": ["DFW", "CHS"],
     "config": {
-      "eco": 67,
-      "business": 36, 
+      "eco": 69,
+      "business": 35, 
       "first": 15
     }
   },
@@ -859,27 +859,69 @@
     }
   },
   {
-    "name": "KDO-CPN-283",
-    "type": "EMB-120",
-    "hub": "JFK",
-    "dests": [],
+    "name": "N7182CY",
+    "type": "777-300ER",
+    "hub": "SFO",
+    "dests": ["GVA"],
     "config": {
-      "eco": 12,
-      "business": 5, 
-      "first": 2,
-      "cargo": 0
+      "eco": 206,
+      "business": 95, 
+      "first": 41
     }
   },
   {
-    "name": "KDO-CPN-284",
-    "type": "ERJ-195",
-    "hub": "JFK",
-    "dests": [],
+    "name": "N57412",
+    "type": "A350-900XWB",
+    "hub": "SFO",
+    "dests": ["GVA"],
     "config": {
-      "eco": 46,
-      "business": 22, 
-      "first": 9,
-      "cargo": 0
+      "eco": 180,
+      "business": 82, 
+      "first": 35
+    }
+  },
+  {
+    "name": "N690J",
+    "type": "777-300ER",
+    "hub": "SFO",
+    "dests": ["CDG"],
+    "config": {
+      "eco": 0,
+      "business": 0, 
+      "first": 0
+    }
+  },
+  {
+    "name": "N7X",
+    "type": "787-9",
+    "hub": "SFO",
+    "dests": ["CDG"],
+    "config": {
+      "eco": 146,
+      "business": 75, 
+      "first": 33
+    }
+  },
+  {
+    "name": "N67",
+    "type": "787-9",
+    "hub": "SFO",
+    "dests": ["CDG"],
+    "config": {
+      "eco": 146,
+      "business": 75, 
+      "first": 33
+    }
+  },
+  {
+    "name": "N3Q",
+    "type": "787-8",
+    "hub": "SFO",
+    "dests": ["CDG"],
+    "config": {
+      "eco": 132,
+      "business": 68, 
+      "first": 30
     }
   }
 ]

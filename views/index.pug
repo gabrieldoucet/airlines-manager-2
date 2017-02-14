@@ -1,0 +1,12 @@
+doctype html
+html(ng-app='am2App')
+head
+  title AM2 App
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel="icon", href="./favicon.ico", type="image/x-icon")
+  script(src='./js/main.js')
+body
+  div(ui-view="header")
+  div(ui-view)
+
+  block content

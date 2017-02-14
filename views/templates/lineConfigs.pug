@@ -1,0 +1,28 @@
+div(class="panel panel-default")
+  div(class="panel-heading") Configurations optimales
+    span(ng-class="getArrowClass()",
+     aria-hidden="true",
+    ng-click="headerClick()")
+    span(class="btn btn-default", aria-hidden="true", ng-click="optimise()") Optimiser
+
+  div(class="panel-body", ng-if="open && (optiConfigs.length == 0 || optiConfigs === undefined)")
+    p Aucune ligne sélectionnée
+
+  table(class="table table-striped", ng-if="open && optiConfigs.length > 0")
+    thead
+      tr
+        th Type
+        th Configuration
+        th % par rotation
+        th Durée
+        th Sélectionner
+        th(ng-if="optimised") Nombre
+    tbody
+      tr(ng-repeat="opti in optiConfigs")
+        td {{opti.type}}
+        td {{opti.config.eco}} / {{opti.config.business}} / {{opti.config.first}}
+        td {{opti.percent}}
+        td {{opti.duration.hours}}h{{opti.duration.min}}
+        td
+          input(type="checkbox", ng-model="opti.checked", ng-change="selectOpti()")
+        td(ng-if="optimised") {{opti.count}}
