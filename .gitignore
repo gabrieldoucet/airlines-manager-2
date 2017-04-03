@@ -6,3 +6,4 @@ db/**
 public/fonts/**
 public/js/**
 public/stylesheets/**
+npm-debug.log
