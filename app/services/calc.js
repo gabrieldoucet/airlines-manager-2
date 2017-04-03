@@ -37,15 +37,10 @@ angular.module('am2App')
     };
   };
 
-  var getDuration = function (plane, line) {
-    var speed = planesRefService.getSpeedFromType(plane.type);
-    return line.distance / speed;
-  }
-
   var getRotationDuration = function (plane, line) {
     var speed = planesRefService.getSpeedFromType(plane.type);
     return 2 * line.distance / speed + 2;
-  }
+  };
 
   var getOptimisation = function (plane, line) {
     var demand = line.demand.eco + line.demand.business + line.demand.first;
@@ -76,7 +71,7 @@ angular.module('am2App')
       },
       percent: _.round(2 * optiEco / line.demand.eco * 100, 2),
       maxRotations: maxRotations,
-      duration: decimalToHours(duration),
+      duration: decimalToHours(duration)
     };
   };
 
@@ -112,10 +107,10 @@ angular.module('am2App')
     getAllOptis: function (line) {
       var allOptis = [];
       _.forEach(planesRefService.getPlanesRef(), function (plane) {
-        if (plane.rayon > line.distance && plane.cat >= line.cat) {
+        if (plane.rayon > line.distance) {
           allOptis.push(getOptimisation(plane, line));
         }
-      })
+      });
       allOptis = _.reverse(_.sortBy(allOptis, [function (opti) {return opti.percent * opti.maxRotations;}]));
       return allOptis;
     }

@@ -1,5 +1,5 @@
 var path     = require('path');
-var dbHelper = require(path.join(__dirname, 'database', 'dbHelper'));
+var dbHelper = require(path.join(__dirname, 'dbHelper'));
 var async    = require('async');
 var _        = require('lodash');
 
@@ -12,6 +12,11 @@ process.on('SIGINT', function () {
   });
 });
 
+dbHelper.findOne('lines', {from : 'JFK', to : 'CDG'}, function(err, result) {
+  console.log(result);
+});
+
+/*
 async.series([
   // Get planes
   function (callback) {
@@ -99,4 +104,4 @@ var isHub = function (code) {
     }
   });
   return found;
-};
+}; */

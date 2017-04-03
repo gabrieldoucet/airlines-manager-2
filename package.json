@@ -4,7 +4,7 @@
   "scripts": {
     "build": "./node_modules/.bin/gulp",
     "start": "node ./bin/www",
-    "dev": "mongod --dbpath=./db & ./node_modules/.bin/gulp & ./node_modules/.bin/nodemon ./bin/www"
+    "dev": "./node_modules/.bin/nodemon ./bin/www"
   },
   "repository": {
     "type": "git",

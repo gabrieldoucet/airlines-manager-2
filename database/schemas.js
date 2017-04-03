@@ -24,12 +24,21 @@ var lineSchema = new mongoose.Schema({
   distance: Number,
   prices: {eco: Number, business: Number, first: Number, cargo: Number},
   demand: {eco: Number, business: Number, first: Number, cargo: Number},
-  cat: Number,
   planes: [String]
+});
+
+var planeSpecSchema = new mongoose.Schema({
+  type: String,
+  seats: Number,
+  rayon: Number,
+  conso: Number,
+  speed: Number,
+  tonnage: Number
 });
 
 module.exports = {
   hubSchema: hubSchema,
   lineSchema: lineSchema,
-  planeSchema: planeSchema
+  planeSchema: planeSchema,
+  planeSpecSchema: planeSpecSchema
 };

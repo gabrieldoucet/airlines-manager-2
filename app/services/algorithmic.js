@@ -32,7 +32,7 @@ angular.module('am2App')
     for (i = 0; i <= _.size(objects); i++){
       keep[i] = [];
       tab[i] = [];
-      for (w = 0; w <= maxWeight; w++) {
+      for (var w = 0; w <= maxWeight; w++) {
         keep[i][w] = false;
         tab[i][w] = 0; // includes the case tab[0][w] = 0
       }  

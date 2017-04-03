@@ -7,7 +7,7 @@ angular.module('am2App')
     this.hub = null;
     this.dests = [];
     this.type = null;
-  };
+  }
 
   return {
     Plane: Plane
