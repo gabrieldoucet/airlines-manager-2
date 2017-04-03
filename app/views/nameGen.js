@@ -10,8 +10,7 @@ angular.module('am2App')
     },
     controller: ['$scope', 'fleetService', 'hubsService', function ($scope, fleetService, hubsService) {
       $scope.$watch('hub', function (newValue) {
-        if (hubsService.isHub($scope.hub)) {
-          var occurrences = 0;
+        //if (hubsService.isHub($scope.hub)) {
           var nameAlreadyUsed = true;
           while (nameAlreadyUsed) {
             nameAlreadyUsed = false;
@@ -22,8 +21,9 @@ angular.module('am2App')
               }
             });
           }
+          console.log(name);
           $scope.name = name;
-        }
+        //}
       });
     }]
   };

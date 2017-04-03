@@ -16,7 +16,6 @@ div(class="panel panel-default")
         th % par rotation
         th Durée
         th Sélectionner
-        th(ng-if="optimised") Nombre
     tbody
       tr(ng-repeat="opti in optiConfigs")
         td {{opti.type}}
@@ -25,4 +24,7 @@ div(class="panel panel-default")
         td {{opti.duration.hours}}h{{opti.duration.min}}
         td
           input(type="checkbox", ng-model="opti.checked", ng-change="selectOpti()")
-        td(ng-if="optimised") {{opti.count}}
+  
+  div(class="container-fluid")
+    div(class="container-fluid", ng-repeat="combi in bestCombi.objects")
+      label(ng-class="{'label label-default': combi._count == 0, 'label label-primary': combi._count != 0}") {{ combi.key }} | {{ combi._count }}
