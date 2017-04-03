@@ -36,7 +36,7 @@ angular.module('am2App')
         }
         return ;
       }),
-    hubsPromise: $http({method: 'GET', url: './data/hubs.json'})
+    hubsPromise: $http({method: 'GET', url: 'http://localhost:3000/data2/hubs'})
       .then(function (res) {
         var hubs = hubsService.getHubs();
         if (_.isNil(hubs)) {

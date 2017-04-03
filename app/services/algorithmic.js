@@ -3,6 +3,7 @@ var _ = require('lodash');
 angular.module('am2App')
 .factory('algo', [ function() {
   var maxWeight = 100;
+  var tolerance = 0.01;
 
   var matrixGet = function (matrix, i, j) {
     return matrix[i][j];
@@ -90,7 +91,7 @@ angular.module('am2App')
         total += obj._weight * obj._count;
       });
 
-      if (total <= maxWeight) {
+      if (total <= maxWeight * (1 + tolerance)) {
         combinations.push({objects: _.cloneDeep(objects), total: total});          
       }
     }
