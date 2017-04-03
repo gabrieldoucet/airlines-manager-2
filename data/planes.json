@@ -9,6 +9,15 @@
     "cat": 2
   },
   {
+    "type": "A320-200",
+    "seats": 180,
+    "rayon": 6111,
+    "conso": 2.39,
+    "speed": 828,
+    "tonnage": 18.3,
+    "cat": 2
+  },
+  {
     "type": "A380-800",
     "seats": 853,
     "rayon": 15556,
@@ -60,33 +69,6 @@
     "conso": 15.05,
     "speed": 2145,
     "tonnage": 12.8,
-    "cat": 2
-  },
-  {
-    "type": "A319-100LR",
-    "seats": 160,
-    "rayon": 9250,
-    "conso": 2.77,
-    "speed": 828,
-    "tonnage": 16,
-    "cat": 3
-  },
-  {
-    "type": "A330-300",
-    "seats": 440, 
-    "rayon": 10804,
-    "conso": "2.05",
-    "speed": 871,
-    "tonnage" : 45.9,
-    "cat": 3
-  },
-  {
-    "type": "737-700",
-    "seats": 149, 
-    "rayon": 6374,
-    "conso": "2.74",
-    "speed": 834,
-    "tonnage" : 17.5,
     "cat": 2
   },
   {
