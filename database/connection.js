@@ -1,8 +1,10 @@
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
 
 // connect to database
-var connection = mongoose.connect('mongodb://127.0.0.1:27017/am2');
-
-module.exports = {
-  connection: connection
-}
+module.exports = mongoose.connect('mongodb://127.0.0.1:27017/am2Test', function(err) {
+  if (err) {
+    console.err(err);
+  } else {
+    console.log('Connected to mongodb');
+  }
+});
