@@ -3,4 +3,6 @@
 node_modules/**
 db/**
 .sass-cache/**
-public/**
+public/fonts/**
+public/js/**
+public/stylesheets/**
