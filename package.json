@@ -2,12 +2,18 @@
   "name": "airlines-manager-2",
   "version": "1.0.0",
   "scripts": {
-    "db": "mongod --dbpath=./db",
-    "start": "node ./bin/www"
+    "build": "./node_modules/.bin/gulp",
+    "start": "node ./bin/www",
+    "dev": "mongod --dbpath=./db & ./node_modules/.bin/gulp & ./node_modules/.bin/nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gdoucet-fr/am2.git"
   },
   "dependencies": {
     "angular": "^1.6.2",
     "angular-ui-router": "^0.4.2",
+    "async": "^2.2.0",
     "body-parser": "^1.16.1",
     "bootstrap-sass": "^3.3.7",
     "cookie-parser": "^1.4.3",
