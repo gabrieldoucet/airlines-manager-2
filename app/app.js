@@ -103,11 +103,11 @@ require('./services/algorithmic.js');
 require('./services/calc.js');
 require('./services/classService.js');
 require('./services/dataLoader.js');
-require('./services/fleetService.js');
+require('./services/planeService.js');
 require('./services/hubsService.js');
 require('./services/linesService.js');
 require('./services/models.js');
-require('./services/planesService.js');
+require('./services/planeSpecService.js');
 
 require('./views/fleet.js');
 require('./views/hubSelect.js');

@@ -24,7 +24,31 @@ gulp.task('watch', function () {
 // Fonts
 gulp.task('fonts', function() {
   return gulp.src(['./node_modules/bootstrap-sass/assets/fonts/**/*'])
-  .pipe(gulp.dest('public/fonts/'));
+    .pipe(gulp.dest('public/fonts/'));
+});
+
+gulp.task('browserify-mdl', function () {
+  return browserify('./app/app-mdl.js')
+    .bundle()
+    .pipe(source('main-mdl.js'))
+    .pipe(gulp.dest('./public/js/'));
+});
+
+gulp.task('sass-mdl', function () {
+  return sass('./stylesheets/style-mdl.scss')
+    .on('error', sass.logError)
+    .pipe(gulp.dest('./public/stylesheets'));
+});
+
+gulp.task('watch-mdl', function () {
+  gulp.watch('app/**/*.js', ['browserify-mdl']);
+  gulp.watch('stylesheets/**/*.scss', ['sass-mdl']);
+});
+
+gulp.task('fonts-mdl', function() {
+  return gulp.src(['./node_modules/bootstrap-sass/assets/fonts/**/*'])
+    .pipe(gulp.dest('public/fonts/'));
 });
 
 gulp.task('default', ['browserify', 'sass', 'fonts', 'watch']);
+gulp.task('mdl', ['browserify-mdl', 'sass-mdl', 'watch-mdl']);

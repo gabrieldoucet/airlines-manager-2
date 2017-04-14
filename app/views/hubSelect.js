@@ -7,7 +7,9 @@ angular.module('am2App')
       ngModel: '='
     },
     controller: ['$scope', 'hubsService', function ($scope, hubsService) {
-      $scope.hubs = hubsService.getHubs();
+      hubsService.getHubs().then(function (res) {
+        $scope.hubs = res.data;
+      });
     }]
   };
 });

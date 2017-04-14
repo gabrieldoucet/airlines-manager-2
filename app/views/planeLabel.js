@@ -9,9 +9,9 @@ angular.module('am2App')
       planeName: '=title',
       line: '='
     },
-    controller: ['$scope', 'fleetService', 'linesService', 'classService',
-    function ($scope, fleetService, linesService, classService) {
-      $scope.plane = fleetService.getPlaneFromName($scope.planeName);
+    controller: ['$scope', 'planeService', 'linesService', 'classService',
+    function ($scope, planeService, linesService, classService) {
+      $scope.plane = planeService.getPlaneFromName($scope.planeName);
 
       $scope.showDetail = false;
 
@@ -23,12 +23,13 @@ angular.module('am2App')
         var plane = planeIn;
         var line = lineIn;
         if (!_.isObject(planeIn)) {
-          plane = fleetService.getPlaneFromName(planeIn);
+          plane = planeService.getPlaneFromName(planeIn);
         }
         if (!_.isObject(lineIn)) {
           line = linesService.getLineFromTo(plane.hub, lineIn);
         }
-        return classService.getPlaneLineLabelClass(plane, line);
+        return 'label label-primary';
+//        return classService.getPlaneLineLabelClass(plane, line);
       };
     }]
   }; 

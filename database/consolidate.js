@@ -12,11 +12,10 @@ process.on('SIGINT', function () {
   });
 });
 
-dbHelper.findOne('lines', {from : 'JFK', to : 'CDG'}, function(err, result) {
-  console.log(result);
-});
+/*dbHelper.findOne('lines', {from : 'JFK', to : 'CDG'}, function(err, result) {
+ console.log(result);
+ });*/
 
-/*
 async.series([
   // Get planes
   function (callback) {
@@ -44,9 +43,12 @@ async.series([
 
   // Add planes to lines
   function (callback) {
+    // For all the planes
     async.each(planes, function (plane, callback) {
+      // For all the destinations of the plane
       async.each(plane.dests, function (dest, callback) {
         var query = {};
+        // Build the {to: , from: } query
         if (!isHub(dest)) {
           query.from = plane.hub;
           query.to   = dest;
@@ -54,8 +56,11 @@ async.series([
           query.from = plane.hub < dest ? plane.hub : dest;
           query.to   = plane.hub < dest ? dest : plane.hub;
         }
+
+        // Get corresponding line object
         dbHelper.find('lines', query, function (err, result) {
           var line = result[0];
+          // Fill a hash map {lineId: [planeNameArray]}
           if (_.isUndefined(_.get(map, line._id))) {
             _.set(map, line._id, []);
           }
@@ -73,28 +78,31 @@ async.series([
   // Update objects
   function (callback) {
     console.log('Updating lines');
+
+    // Async objects
     var objs = [];
     _.forEach(map, function (value, key) {
-      var obj = {id : key, planes : value};
+      var obj = {id: key, planes: value};
       objs.push(obj);
     });
 
+    // Updating the database for each line
     async.each(objs, function (obj, callback) {
-      dbHelper.update('lines', {_id : obj.id}, {planes : obj.planes}, {}, callback);
+      dbHelper.update('lines', {_id: obj.id}, {planes: obj.planes}, {}, callback);
     }, function (err) {
-      callback(err)
+      callback(err);
     });
   }], function (err) {
-    var returnCode = 0;
-    if (err) {
-      console.log('[error]', err);
-      returnCode = -1;
-    }
+  var returnCode = 0;
+  if (err) {
+    console.log('[error]', err);
+    returnCode = -1;
+  }
 
-    dbHelper.closeConnection(function () {
-      process.exit(returnCode);
-    });
+  dbHelper.closeConnection(function () {
+    process.exit(returnCode);
   });
+});
 
 var isHub = function (code) {
   var found = false;
@@ -104,4 +112,4 @@ var isHub = function (code) {
     }
   });
   return found;
-}; */
+};

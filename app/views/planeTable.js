@@ -28,7 +28,7 @@ angular.module('am2App')
           var plane = planeIn;
           var line = lineIn;
           if (!_.isObject(planeIn)) {
-            plane = fleetService.getPlaneFromName(planeIn);
+            plane = planeService.getPlaneFromName(planeIn);
           }
           if (!_.isObject(lineIn)) {
             line = linesService.getLineFromTo(plane.hub, lineIn);

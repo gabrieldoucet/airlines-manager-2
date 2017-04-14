@@ -6,8 +6,10 @@ angular.module('am2App')
     scope: {
       ngModel: '='
     },
-    controller: ['$scope', 'planesRefService', function ($scope, planesRefService) {
-      $scope.planes = planesRefService.getPlanesRef();
+    controller: ['$scope', 'planeSpecService', function ($scope, planeSpecService) {
+      planeSpecService.getPlanesRef().then(function (res) {
+        $scope.planes = res.data;
+      });
     }]
   };
 });

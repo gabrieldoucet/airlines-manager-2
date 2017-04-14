@@ -3,7 +3,8 @@ var _ = require('lodash');
 angular.module('am2App')
 .factory('classService', ['calc', 'linesService', function (calc, linesService) {
   var getPlaneLineLabelClass = function (plane, line) {
-    if (calc.isOptimised(plane, line)) {
+    //if (calc.isOptimised(plane, line)) {
+    if (true) {
       return "label label-success";
     } else {
       var planeDests = plane.dests;

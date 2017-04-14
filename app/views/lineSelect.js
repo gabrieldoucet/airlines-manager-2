@@ -8,7 +8,9 @@ angular.module('am2App')
       disabled: '='
     },
     controller: ['$scope', 'linesService', function ($scope, linesService) {
-      $scope.lines = linesService.getLines();
+      linesService.getLines().then(function (res) {
+        $scope.lines = res.data;
+      });
     }]
   };
 });

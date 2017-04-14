@@ -11,7 +11,7 @@ var getModel = function (collection) {
     Model = new connection.model('Plane', schemas.planeSchema);
   } else if (_.isEqual(collection, 'hubs')) {
     Model = new connection.model('Hub', schemas.hubSchema);
-  } else if (_.isEqual(collection, 'planeSpecs')) {
+  } else if (_.isEqual(collection, 'planespecs')) {
     Model = new connection.model('PlaneSpec', schemas.planeSpecSchema);
   }
   return Model;
@@ -20,6 +20,9 @@ var getModel = function (collection) {
 var find = function (collection, query, callback) {
   var Model = getModel(collection);
   Model.find(query, function (err, results) {
+    results = _.map(results, function (result) {
+      return _.get(result, '_doc');
+    });
     callback(err, results);
   });
 };

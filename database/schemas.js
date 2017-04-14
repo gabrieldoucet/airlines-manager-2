@@ -15,7 +15,25 @@ var planeSchema = new mongoose.Schema({
   type: String,
   hub: String,
   dests: [String],
-  config: { eco: Number, business: Number, first: Number }
+  config: {eco: Number, business: Number, first: Number}
+});
+
+var durationSchema = new mongoose.Schema({
+  hours: Number,
+  min: Number,
+  sec: Number,
+  dec: Number
+});
+
+var optiSchema = new mongoose.Schema({
+  type: String,
+  config: {
+    eco: Number,
+    business: Number,
+    first: Number
+  },
+  percent: Number,
+  duration: durationSchema
 });
 
 var lineSchema = new mongoose.Schema({
@@ -24,7 +42,8 @@ var lineSchema = new mongoose.Schema({
   distance: Number,
   prices: {eco: Number, business: Number, first: Number, cargo: Number},
   demand: {eco: Number, business: Number, first: Number, cargo: Number},
-  planes: [String]
+  planes: [String],
+  optis: [optiSchema]
 });
 
 var planeSpecSchema = new mongoose.Schema({

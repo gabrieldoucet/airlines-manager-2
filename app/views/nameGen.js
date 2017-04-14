@@ -8,14 +8,14 @@ angular.module('am2App')
     scope: {
       ngModel: '='
     },
-    controller: ['$scope', 'fleetService', 'hubsService', function ($scope, fleetService, hubsService) {
+    controller: ['$scope', 'planeService', 'hubsService', function ($scope, planeService, hubsService) {
       $scope.$watch('hub', function (newValue) {
         //if (hubsService.isHub($scope.hub)) {
           var nameAlreadyUsed = true;
           while (nameAlreadyUsed) {
             nameAlreadyUsed = false;
             var name = hubsService.randomName($scope.hub);
-            _.forEach(fleetService.getFleet(), function (plane) {
+            _.forEach(planeService.getFleet(), function (plane) {
               if (_.isEqual(plane.name, name)) {
                 nameAlreadyExists = true;
               }
