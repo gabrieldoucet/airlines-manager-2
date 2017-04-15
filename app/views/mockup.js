@@ -3,17 +3,17 @@
  */
 
 angular.module('am2App')
-  .controller('mockupController', ['$scope', 'calc', 'planeService', function ($scope, calc, planeService) {
-    $scope.selectedLine  = null;
-    $scope.selects       = {};
-    $scope.manualLine = {};
-    $scope.results = {};
+  .controller('mockupController', ['$scope', 'calc', 'planeService', 'linesService', function ($scope, calc, planeService, lineService) {
+    $scope.selectedLine = null;
+    $scope.selects      = {};
+    $scope.manualLine   = {};
+    $scope.results      = {};
+    $scope.similarLines = [];
 
     planeService.getPlanes().then(function (res) {
       $scope.planes = res.data;
     });
 
-    $scope.similarLines  = ['SFO-CDG', 'SFO-LHR', 'SFO-AMS', 'SFO-ATH', 'SFO-ORY'];
     $scope.selectedPlane = {
       name: 'N65748',
       type: '787-9',
@@ -21,12 +21,20 @@ angular.module('am2App')
       config: {eco: 180, business: 60, first: 20, cargo: 55},
       dests: ['LHR', 'DRW']
     };
+
     $scope.chooseLine    = function (line) {
-      console.log(line);
       $scope.selects.selectedLine = line;
+      lineService.getSimilarLines(line).then(function (data) {
+        $scope.similarLines = data;
+      });
+      calc.getOptiPlanes(line).then(function (data) {
+        $scope.optiPlanes = data
+      })
     };
 
-    $scope.lineChoices = ['SFO-JFK', 'SFO-LHR', 'SFO-GVA', 'SFO-YUL', 'SFO-JNB', 'SFO-ATH'];
+    lineService.getLines().then(function (res) {
+      $scope.selects.lineChoices = res.data;
+    });
 
     $scope.getAllOptis = function () {
       console.log($scope.manualLine);

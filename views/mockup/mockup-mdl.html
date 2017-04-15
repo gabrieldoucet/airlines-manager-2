@@ -56,11 +56,13 @@
           <h4>
             <span>Détail d'une ligne</span>
             <button id="menu-speed" class="mdl-button mdl-js-button--raised">
-              <span ng-if="selects.selectedLine">{{selects.selectedLine}}</span>
+              <span ng-if="selects.selectedLine">{{selects.selectedLine.from}} - {{selects.selectedLine.to}}</span>
               <span ng-if="!selects.selectedLine">Choisir la ligne</span></button>
           </h4>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-speed">
-            <li ng-repeat="line in lineChoices" class="mdl-menu__item" ng-click="chooseLine(line)">{{line}}</li>
+            <li ng-repeat="line in selects.lineChoices" class="mdl-menu__item" ng-click="chooseLine(line)">{{line.from}}
+              - {{line.to}}
+            </li>
           </ul>
 
 
@@ -79,20 +81,56 @@
                 </button>
               </div>
               <div class="mdl-tabs__panel" id="similar-lines-panel">
-                <button ng-repeat="line in similarLines" class="mdl-button mdl-js-button">
-                  {{line}}
+                <button ng-repeat="line in similarLines" class="mdl-button mdl-js-button" ng-click="chooseLine(line)">
+                  {{line.from}} - {{line.to}}
                 </button>
               </div>
               <div class="mdl-tabs__panel" id="compatible-planes-panel">
-                <ul>
-                  <li>Viserys</li>
-                  <li>Daenerys</li>
-                </ul>
+                <button ng-repeat="plane in optiPlanes" id="{{plane.name}}" class="mdl-button mdl-js-button">
+                  {{plane.name}}
+                  <span for="{{plane.name}}" class="mdl-tooltip">{{plane.type}}</span>
+                </button>
               </div>
               <div class="mdl-tabs__panel" id="opti-configs-panel">
                 <ul>
-                  <li ng-repeat="line in similarLines">{{line}}</li>
+                  <li ng-repeat="opti in selects.selectedLine.optis">{{opti}}</li>
                 </ul>
+                <table class="mdl-data-table mdl-js-data-table">
+                  <thead>
+                  <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+                    <th class="mdl-data-table__cell--non-numeric">Nickname</th>
+                    <th>Age</th>
+                    <th class="mdl-data-table__cell--non-numeric">Living?</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">John Lennon</td>
+                    <td class="mdl-data-table__cell--non-numeric">The smart one</td>
+                    <td>40</td>
+                    <td class="mdl-data-table__cell--non-numeric">No</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Paul McCartney</td>
+                    <td class="mdl-data-table__cell--non-numeric">The cute one</td>
+                    <td>73</td>
+                    <td class="mdl-data-table__cell--non-numeric">Yes</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">George Harrison</td>
+                    <td class="mdl-data-table__cell--non-numeric">The shy one</td>
+                    <td>58</td>
+                    <td class="mdl-data-table__cell--non-numeric">No</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Ringo Starr</td>
+                    <td class="mdl-data-table__cell--non-numeric">The funny one</td>
+                    <td>74</td>
+                    <td class="mdl-data-table__cell--non-numeric">Yes</td>
+                  </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
