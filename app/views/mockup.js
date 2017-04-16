@@ -10,20 +10,6 @@ angular.module('am2App')
     $scope.manualLine = {};
     $scope.results    = {};
 
-    var myMerge = function (arr1, arr2) {
-      if (arr1.length < arr2.length) {
-        _.forEach(arr1, function (elt) {
-          arr2.push(elt);
-        });
-        return arr2;
-      } else {
-        _.forEach(arr2, function (elt) {
-          arr1.push(elt);
-        });
-        return arr1;
-      }
-    };
-
     $scope.$watch('selects.selectedLine', function (line) {
       if (!_.isNil(line)) {
         lineService.getSimilarLines(line).then(function (data) {
@@ -37,14 +23,20 @@ angular.module('am2App')
 
     $scope.chooseLine = function (line) {
       $scope.selects.selectedLine = line;
+      return false;
     };
 
     $scope.choosePlane = function (plane) {
       $scope.selects.selectedPlane = plane;
+      return false;
     };
 
     lineService.getLines().then(function (res) {
       $scope.selects.lineChoices = res.data;
+    });
+
+    planeService.getPlanes().then(function (res) {
+      $scope.selects.planeChoices = res.data;
     });
 
     $scope.getPlaneIcon = function (plane) {

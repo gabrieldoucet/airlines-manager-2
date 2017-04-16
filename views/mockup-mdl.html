@@ -47,11 +47,11 @@
             <div class="mdl-cell--6-col">
               <h4>
                 <span>Détail d'une ligne</span>
-                <button id="menu-speed" class="mdl-button mdl-js-button--raised">
+                <button id="menu-lines" class="mdl-button mdl-js-button--raised">
                   <span ng-if="selects.selectedLine">{{selects.selectedLine.from}} - {{selects.selectedLine.to}}</span>
                   <span ng-if="!selects.selectedLine">Choisir la ligne</span></button>
               </h4>
-              <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-speed">
+              <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-lines">
                 <li ng-repeat="line in selects.lineChoices" class="mdl-menu__item" ng-click="chooseLine(line)">
                   {{line.from}}
                   - {{line.to}}
@@ -90,32 +90,32 @@
             <div class="mdl-grid">
               <div class="mdl-cell--3-col">
                 <h5>Avions affectés</h5>
-                <button ng-repeat="plane in selects.selectedLine.planes" id="plane-{{plane.name}}"
-                        class="mdl-button mdl-js-button"
+                <button ng-repeat="plane in selects.selectedLine.planes" id="lineplane-{{plane.name}}"
+                        class="mdl-chip" type="button"
                         ng-click="choosePlane(plane)">
-                  {{plane.name}}
-                  <span for="plane-{{plane.name}}" class="mdl-tooltip">{{plane.type}}
-                    </span>
-                  <i class="material-icons">{{getPlaneIcon(plane)}}</i>
+                  <span class="mdl-chip__text">{{plane.name}}
+                    <i class="material-icons">{{getPlaneIcon(plane)}}</i>
+                  </span>
+                  <span for="lineplane-{{plane.name}}" class="mdl-tooltip">{{plane.type}}</span>
                 </button>
               </div>
 
               <div class="mdl-cell--6-col">
                 <h5>Avions compatibles</h5>
-                <button ng-repeat="plane in results.optiPlanes" id="plane-{{plane.name}}"
-                        class="mdl-button mdl-js-button"
+                <button ng-repeat="plane in results.optiPlanes" id="optiplane-{{plane.name}}"
+                        class="mdl-chip" type="button"
                         ng-click="choosePlane(plane)">
-                  {{plane.name}}
-                  <span for="plane-{{plane.name}}" class="mdl-tooltip">{{plane.type}}
+                  <span class="mdl-chip__text">{{plane.name}}</span>
+                  <span for="optiplane-{{plane.name}}" class="mdl-tooltip">{{plane.type}}
                   </span>
                 </button>
               </div>
 
               <div class="mdl-cell--3-col">
                 <h5>Lignes similaires</h5>
-                <button ng-repeat="line in results.similarLines" class="mdl-button mdl-js-button"
+                <button ng-repeat="line in results.similarLines" class="mdl-chip" type="button"
                         ng-click="chooseLine(line)">
-                  {{line.from}} - {{line.to}}
+                  <span class="mdl-chip__text">{{line.from}} - {{line.to}}</span>
                 </button>
               </div>
 
@@ -161,7 +161,7 @@
         </div>
 
 
-        <div class="mdl-cell--12-col">
+        <div class="mdl-cell--12-col" ng-if="false">
           <div>
             <form>
               <div class="mdl-textfield mdl-js-textfield">
@@ -198,34 +198,54 @@
     <div class="mdl-cell--12-col">
       <h4>
         <span>Détail d'un avion</span>
-        <button id="menu-speed" class="mdl-button mdl-js-button--raised">
-          <span ng-if="selects.selectedLine">{{selects.selectedLine.from}}</span>
-          <span ng-if="!selects.selectedLine">Choisir l'appareil</span></button>
+        <button id="menu-planes" class="mdl-button mdl-js-button--raised">
+          <span ng-if="selects.selectedPlane">{{selects.selectedPlane.name}}</span>
+          <span ng-if="!selects.selectedPlane">Choisir l'appareil</span></button>
       </h4>
-      <select ng-disabled="false" ng-model="selects.selectedLine"
-              ng-options="line.from + ' - ' + line.to for line in lineChoices">
-      </select>
-      <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-        <div class="mdl-tabs__tab-bar">
-          <a href="#config-panel" class="mdl-tabs__tab is-active">Configuration</a>
-          <a href="#destinations-panel" class="mdl-tabs__tab">Destinations</a>
-        </div>
-        <div class="mdl-tabs__panel is-active" id="config-panel">
-        </div>
-        <div class="mdl-tabs__panel" id="destinations-panel">
-          <ul>
-            <li class="col-lg-3" ng-repeat="dest in selectedPlane.dests">{{dest}}</li>
-          </ul>
-        </div>
-      </div>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-planes">
+        <li ng-repeat="plane in selects.planeChoices" class="mdl-menu__item" ng-click="choosePlane(plane)">
+          {{plane.name}}
+        </li>
+      </ul>
     </div>
 
-    <div class="mdl-cell--4-col">
-      <h5>Configuration</h5>
-      <span class="mdl-chip mdl-chip--contact">
+    <div class="mdl-card mdl-shadow--4dp" ng-if="selects.selectedPlane">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">{{selects.selectedPlane.name}} ({{selects.selectedPlane.hub}})</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <img src="../public/images/{{selects.selectedPlane.type}}.png" border="0"
+                                        alt="" style="padding:10px;">
+      </div>
+      <div class="mdl-card__supporting-text">
+        <h6>Configuration</h6>
+        <span class="mdl-chip mdl-chip--contact">
         <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">E</span>
         <span class="mdl-chip__text">{{selects.selectedPlane.config.eco}} pax</span>
       </span>
+        <span class="mdl-chip mdl-chip--contact">
+        <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">B</span>
+        <span class="mdl-chip__text">{{selects.selectedPlane.config.business}} pax</span>
+      </span>
+        <span class="mdl-chip mdl-chip--contact">
+        <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">F</span>
+        <span class="mdl-chip__text">{{selects.selectedPlane.config.first}} pax</span>
+      </span>
+        <span class="mdl-chip mdl-chip--contact">
+        <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">C</span>
+        <span class="mdl-chip__text">{{selects.selectedPlane.config.cargo}} T</span>
+      </span>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <h6>Destinations</h6>
+        <button type="button" class="mdl-chip" ng-repeat="dest in selects.selectedPlane.dests">
+          <span class="mdl-chip__text">{{dest}}</button>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+          <i class="material-icons">settings</i>
+        </button>
+      </div>
     </div>
 
   </main>
