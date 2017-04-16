@@ -30,7 +30,6 @@ angular.module('am2App')
 
       var getOptiPlanes = function (line) {
         return planeService.getPlanes().then(function (res) {
-          var optiPlanes = [];
 
           // Filter the compatible planes for a line
           var planes     = _.filter(res.data, function (plane) {
@@ -40,12 +39,14 @@ angular.module('am2App')
             return _.includes(compatiblePlaneTypes, plane.type);
           });
 
-          _.forEach(planes, function (plane) {
-            if (isOptimised(plane, line)) {
-              optiPlanes.push(plane);
-            }
+          var linePlaneNames = _.map(_.get(line, 'planes'), function (plane) {
+            return _.get(plane, 'name');
           });
-          return optiPlanes;
+
+          var optiPlanes = _.filter(planes, function (plane) {
+            return isOptimised(plane, line) && !_.includes(linePlaneNames, _.get(plane, 'name'));
+          });
+          return _.sortBy(optiPlanes, ['name']);
         });
       };
 

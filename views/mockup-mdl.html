@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="am2App">
+<head>
+  <meta charset="UTF-8">
+  <title>AM2 App - MDL</title>
+  <link rel='icon' href='../public/favicon.ico' type="image/x-icon">
+
+  <!-- Material Design Lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link rel="stylesheet" href="../public/stylesheets/style-mdl.css"/>
+  <script src="../public/js/main-mdl.js"></script>
+</head>
+<body ng-controller="mockupController">
+<div class="mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">AM2 App</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="mdl-grid">
+        <div class="mdl-cell--12-col">
+          <div class="mdl-grid">
+            <!--    <h4 ng-if="false">Aucune ligne sélectionnée</h4> -->
+            <!-- Simple Textfield -->
+            <div class="mdl-cell--6-col">
+              <h4>
+                <span>Détail d'une ligne</span>
+                <button id="menu-speed" class="mdl-button mdl-js-button--raised">
+                  <span ng-if="selects.selectedLine">{{selects.selectedLine.from}} - {{selects.selectedLine.to}}</span>
+                  <span ng-if="!selects.selectedLine">Choisir la ligne</span></button>
+              </h4>
+              <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-speed">
+                <li ng-repeat="line in selects.lineChoices" class="mdl-menu__item" ng-click="chooseLine(line)">
+                  {{line.from}}
+                  - {{line.to}}
+                </li>
+              </ul>
+            </div>
+            <div class="mdl-cell--6-col" ng-if="selects.selectedLine">
+              <h5>Demande</h5>
+              <span class="mdl-chip mdl-chip--contact">
+            <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">E</span>
+            <span class="mdl-chip__text">{{selects.selectedLine.demand.eco}} pax</span>
+          </span>
+              <span class="mdl-chip mdl-chip--contact">
+            <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">B</span>
+            <span class="mdl-chip__text">{{selects.selectedLine.demand.business}} pax</span>
+          </span>
+              <span class="mdl-chip mdl-chip--contact">
+            <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">F</span>
+            <span class="mdl-chip__text">{{selects.selectedLine.demand.first}} pax</span>
+          </span>
+              <span class="mdl-chip mdl-chip--contact">
+            <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">C</span>
+            <span class="mdl-chip__text">{{selects.selectedLine.demand.cargo}} T</span>
+          </span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+          <div class="mdl-tabs__tab-bar">
+            <a href="#line-detail" class="mdl-tabs__tab is-active">Informations sur la ligne</a>
+            <a href="#line-config" class="mdl-tabs__tab">Configurations des appareils</a>
+          </div>
+          <div class="mdl-tabs__panel is-active" id="line-detail">
+            <div class="mdl-grid">
+              <div class="mdl-cell--3-col">
+                <h5>Avions affectés</h5>
+                <button ng-repeat="plane in selects.selectedLine.planes" id="plane-{{plane.name}}"
+                        class="mdl-button mdl-js-button"
+                        ng-click="choosePlane(plane)">
+                  {{plane.name}}
+                  <span for="plane-{{plane.name}}" class="mdl-tooltip">{{plane.type}}
+                    </span>
+                  <i class="material-icons">{{getPlaneIcon(plane)}}</i>
+                </button>
+              </div>
+
+              <div class="mdl-cell--6-col">
+                <h5>Avions compatibles</h5>
+                <button ng-repeat="plane in results.optiPlanes" id="plane-{{plane.name}}"
+                        class="mdl-button mdl-js-button"
+                        ng-click="choosePlane(plane)">
+                  {{plane.name}}
+                  <span for="plane-{{plane.name}}" class="mdl-tooltip">{{plane.type}}
+                  </span>
+                </button>
+              </div>
+
+              <div class="mdl-cell--3-col">
+                <h5>Lignes similaires</h5>
+                <button ng-repeat="line in results.similarLines" class="mdl-button mdl-js-button"
+                        ng-click="chooseLine(line)">
+                  {{line.from}} - {{line.to}}
+                </button>
+              </div>
+
+            </div>
+          </div>
+          <div class="mdl-tabs__panel" id="line-config">
+            <div class="mdl-cell--6-col">
+              <h5>Configurations optimales</h5>
+              <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                <tr>
+                  <th class="mdl-data-table__cell--non-numeric">Type</th>
+                  <th class="mdl-data-table__cell--non-numeric">Config</th>
+                  <th>Durée</th>
+                  <th>% demande</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="opti in selects.selectedLine.optis">
+                  <td class="mdl-data-table__cell--non-numeric">{{opti.type}}</td>
+                  <td>
+                <span class="mdl-chip mdl-chip--contact">
+                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">E</span>
+                  <span class="mdl-chip__text">{{opti.config.eco}} pax</span>
+                </span>
+                    <span class="mdl-chip mdl-chip--contact">
+                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">B</span>
+                  <span class="mdl-chip__text">{{opti.config.business}} pax</span>
+                </span>
+                    <span class="mdl-chip mdl-chip--contact">
+                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">F</span>
+                  <span class="mdl-chip__text">{{opti.config.first}} pax</span>
+                </span>
+                  </td>
+                  <td class="mdl-data-table__cell--non-numeric">{{opti.duration.asString}}</td>
+                  <td class="mdl-data-table__cell--non-numeric">{{opti.percent}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="mdl-cell--12-col">
+          <div>
+            <form>
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2"
+                       ng-model="manualLine.eco">
+                <label class="mdl-textfield__label" for="sample2">Éco</label>
+                <span class="mdl-textfield__error">Input is not a number!</span>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2"
+                       ng-model="manualLine.business">
+                <label class="mdl-textfield__label" for="sample2">Business</label>
+                <span class="mdl-textfield__error">Input is not a number!</span>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2"
+                       ng-model="manualLine.first">
+                <label class="mdl-textfield__label" for="sample2">First</label>
+                <span class="mdl-textfield__error">Input is not a number!</span>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2"
+                       ng-model="manualLine.distance">
+                <label class="mdl-textfield__label" for="sample2">Distance de la ligne</label>
+                <span class="mdl-textfield__error">Input is not a number!</span>
+              </div>
+              <button id="menu-speed" class="mdl-button mdl-js-button--raised" ng-click="getAllOptis()">Ok</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mdl-cell--12-col">
+      <h4>
+        <span>Détail d'un avion</span>
+        <button id="menu-speed" class="mdl-button mdl-js-button--raised">
+          <span ng-if="selects.selectedLine">{{selects.selectedLine.from}}</span>
+          <span ng-if="!selects.selectedLine">Choisir l'appareil</span></button>
+      </h4>
+      <select ng-disabled="false" ng-model="selects.selectedLine"
+              ng-options="line.from + ' - ' + line.to for line in lineChoices">
+      </select>
+      <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar">
+          <a href="#config-panel" class="mdl-tabs__tab is-active">Configuration</a>
+          <a href="#destinations-panel" class="mdl-tabs__tab">Destinations</a>
+        </div>
+        <div class="mdl-tabs__panel is-active" id="config-panel">
+        </div>
+        <div class="mdl-tabs__panel" id="destinations-panel">
+          <ul>
+            <li class="col-lg-3" ng-repeat="dest in selectedPlane.dests">{{dest}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mdl-cell--4-col">
+      <h5>Configuration</h5>
+      <span class="mdl-chip mdl-chip--contact">
+        <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">E</span>
+        <span class="mdl-chip__text">{{selects.selectedPlane.config.eco}} pax</span>
+      </span>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>

@@ -8,13 +8,19 @@ angular.module('am2App')
       return Math.abs(variation) <= 5;
     };
 
+    var isEqual = function (line1, line2) {
+      var obj1 = _.pick(line1, ['from', 'to']);
+      var obj2 = _.pick(line2, ['from', 'to']);
+      return _.isEqual(obj1, obj2);
+    };
+
     var isSimilar = function (line1, line2) {
       var demand1         = line1.demand.eco + line1.demand.business + line1.demand.first;
       var demand2         = line2.demand.eco + line2.demand.business + line2.demand.first;
       var similarEco      = similarProportions(line1.demand.eco / demand1, line2.demand.eco / demand2);
       var similarBusiness = similarProportions(line1.demand.business / demand1, line2.demand.business / demand2);
       var similarFirst    = similarProportions(line1.demand.first / demand1, line2.demand.first / demand2);
-      return !_.isEqual(line1, line2) && similarEco && similarBusiness && similarFirst;
+      return !isEqual(line1, line2) && similarEco && similarBusiness && similarFirst;
     };
 
     var setLines = function (data) {
@@ -26,8 +32,8 @@ angular.module('am2App')
       lines = data;
     };
 
-    var getLines = function () {
-      return $http({method: 'POST', url: 'http://localhost:3000/data/lines'});
+    var getLines = function (query) {
+      return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query});
     };
 
     var getLinesFromTo = function (origin, dest) {

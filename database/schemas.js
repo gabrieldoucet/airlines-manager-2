@@ -22,7 +22,8 @@ var durationSchema = new mongoose.Schema({
   hours: Number,
   min: Number,
   sec: Number,
-  dec: Number
+  dec: Number,
+  asString: String
 });
 
 var optiSchema = new mongoose.Schema({
@@ -42,7 +43,7 @@ var lineSchema = new mongoose.Schema({
   distance: Number,
   prices: {eco: Number, business: Number, first: Number, cargo: Number},
   demand: {eco: Number, business: Number, first: Number, cargo: Number},
-  planes: [String],
+  planes: [planeSchema],
   optis: [optiSchema]
 });
 

@@ -20,8 +20,8 @@ angular.module('am2App')
     return selection[0];
   };
 
-  var getPlanes = function () {
-    return $http({method: 'POST', url: 'http://localhost:3000/data/planes'});
+  var getPlanes = function (query) {
+    return $http({method: 'POST', url: 'http://localhost:3000/data/planes', data: query});
   };
 
   return {

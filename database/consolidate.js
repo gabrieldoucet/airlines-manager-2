@@ -60,11 +60,12 @@ async.series([
         // Get corresponding line object
         dbHelper.find('lines', query, function (err, result) {
           var line = result[0];
-          // Fill a hash map {lineId: [planeNameArray]}
+
+          // Populate a hash map {lineId: [plane]}
           if (_.isUndefined(_.get(map, line._id))) {
             _.set(map, line._id, []);
           }
-          map[line._id].push(plane.name);
+          map[line._id].push(plane);
           callback(err);
         });
       }, function (err) {
@@ -81,8 +82,9 @@ async.series([
 
     // Async objects
     var objs = [];
-    _.forEach(map, function (value, key) {
-      var obj = {id: key, planes: value};
+    _.forEach(map, function (planes, lineId) {
+      planes  = _.sortBy(planes, ['name']);
+      var obj = {id: lineId, planes: planes};
       objs.push(obj);
     });
 

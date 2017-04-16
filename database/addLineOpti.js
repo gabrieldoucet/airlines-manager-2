@@ -35,6 +35,14 @@ var roundForDuration = function (num) {
   return intPart + decimalPart;
 };
 
+var stringFormatNumber = function (num) {
+  if (num < 10) {
+    return '0' + num.toString();
+  } else {
+    return num.toString();
+  }
+};
+
 var decimalToHours = function (hoursDecimal) {
   hoursDecimal       = roundForDuration(hoursDecimal);
   var hours          = Math.floor(hoursDecimal);
@@ -42,11 +50,13 @@ var decimalToHours = function (hoursDecimal) {
   var minutes        = Math.floor(minutesDecimal);
   var seconds        = Math.floor((minutesDecimal - minutes) * 60);
   var decDuration    = _.round(hoursDecimal, 3);
+  var asString         = hours + 'h' + stringFormatNumber(minutes);
   return {
     hours: hours,
     min: minutes,
     sec: seconds,
-    dec: decDuration
+    dec: decDuration,
+    asString: asString
   };
 };
 
@@ -55,7 +65,7 @@ var getRotationDuration = function (speed, line) {
 };
 
 var getOptimisation = function (planeSpec, line) {
-  var seats = _.get(planeSpec, 'seats');
+  var seats      = _.get(planeSpec, 'seats');
   var planeSpeed = _.get(planeSpec, 'speed');
 
   var demand    = line.demand.eco + line.demand.business + line.demand.first;
@@ -108,6 +118,7 @@ async.series([
           optis.push(opti);
         }
       });
+      optis = _.sortBy(optis, ['percent']);
       var optiObj = {};
       _.set(optiObj, 'id', _.get(line, '_id'));
       _.set(optiObj, 'optis', optis);
