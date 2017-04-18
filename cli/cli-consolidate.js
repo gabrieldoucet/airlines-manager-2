@@ -1,12 +1,23 @@
-var async = require('async');
-var _     = require('lodash');
-var path  = require('path');
+/**
+ * Created by Gabriel on 17/04/2017.
+ */
 
-var calcHelper = require(path.join(__dirname, 'calculationHelper'));
-var dbHelper   = require(path.join(__dirname, 'dbHelper'));
+const async   = require('async');
+const program = require('commander');
+const _       = require('lodash');
+const path    = require('path');
 
-var planes, lines, hubs, planeSpecs;
-var map = {};
+const calcHelper = require(path.join(__dirname, '..', 'helpers', 'calculationHelper'));
+const dbHelper   = require(path.join(__dirname, '..', 'database', 'dbHelper'));
+
+let planes     = [];
+let lines      = [];
+let hubs       = [];
+let planeSpecs = [];
+let map        = {};
+
+program
+  .parse(process.argv);
 
 // Handles the ctrl+c in the terminal
 process.on('SIGINT', function () {
@@ -16,7 +27,7 @@ process.on('SIGINT', function () {
 });
 
 // Load all the collections into local variables
-var loadData = function (callback) {
+const loadData = function (callback) {
   async.series([
     // Get planes
     function (callback) {
@@ -53,14 +64,14 @@ var loadData = function (callback) {
 };
 
 // Consolidates the database by adding the missing objects in the collections
-var consolidate = function (callback) {
+const consolidate = function (callback) {
   async.series([
     loadData,
 
     // Initialise the map values
     function (callback) {
       _.forEach(lines, function (line) {
-        var lineId = _.get(line, '_id');
+        let lineId = _.get(line, '_id');
         _.set(map, lineId, {id: lineId, planes: [], optis: {}});
       });
       callback();
@@ -71,16 +82,16 @@ var consolidate = function (callback) {
       console.log('Computing the optimal configurations...');
       _.forEach(lines, function (line) {
         console.log('  -> ' + line.from + '-' + line.to);
-        var optis = [];
+        let optis = [];
         _.forEach(planeSpecs, function (planeSpec) {
           if (planeSpec.rayon > line.distance) {
             console.log('    + ' + planeSpec.type);
-            var opti = calcHelper.getOptimisation(planeSpec, line);
+            let opti = calcHelper.getOptimisation(planeSpec, line);
             optis.push(opti);
           }
         });
         optis      = _.sortBy(optis, ['percent']);
-        var lineId = _.get(line, '_id');
+        let lineId = _.get(line, '_id');
         _.set(map, [lineId, 'optis'], optis);
       });
       callback();
@@ -96,7 +107,7 @@ var consolidate = function (callback) {
         async.each(plane.dests, function (dest, callback) {
 
           // Build a {to: XXX, from: XXX} query
-          var query = {};
+          let query = {};
           if (!calcHelper.isHub(hubs, dest)) {
             query.from = plane.hub;
             query.to   = dest;
@@ -107,12 +118,12 @@ var consolidate = function (callback) {
 
           // Get corresponding line object
           dbHelper.find('lines', query, function (err, result) {
-            var line = result[0];
+            let line = result[0];
             console.log('  -> ' + line.from + '-' + line.to);
             console.log('    + ' + plane.name);
 
             // Populate the hash map
-            var lineId = _.get(line, '_id');
+            let lineId = _.get(line, '_id');
             (_.get(map, [lineId, 'planes'])).push(plane);
             callback(err);
           });
@@ -135,7 +146,7 @@ var consolidate = function (callback) {
 
 // Entry point
 consolidate(function (err) {
-  var exitCode = 0;
+  let exitCode = 0;
   if (err) {
     exitCode = -1;
     console.log('[ERROR]', err);

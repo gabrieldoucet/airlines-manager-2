@@ -3,7 +3,7 @@
  */
 
 var path     = require('path');
-var dbHelper = require(path.join(__dirname, 'dbHelper'));
+//var dbHelper = require(path.join(__dirname, 'dbHelper'));
 var async    = require('async');
 var _        = require('lodash');
 
@@ -20,10 +20,12 @@ process.on('SIGINT', function () {
   });
 });
 
+
+/*
 dbHelper.find('lines', {}, function (err, results) {
   console.log(results);
 });
 
 dbHelper.find('lines', {to: 'SYD'}, function (err, results) {
   console.log(results);
-});
+});*/

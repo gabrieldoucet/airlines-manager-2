@@ -1,0 +1,30 @@
+[
+  {
+    "immat": [
+      "A6-[A-Z]{3}"
+    ],
+    "name": "Dubai International Airport",
+    "code": "DXB",
+    "_id": "58adfdced840e801925aa3fd"
+  },
+  {
+    "immat": [
+      "N[1-9][0-9]{4}",
+      "N[1-9][0-9]{3}[A-HJ-NP-Z]{1}",
+      "N[1-9][0-9]{2}[A-HJ-NP-Z]{2}"
+    ],
+    "name": "John F. Kennedy International Airport",
+    "code": "JFK",
+    "_id": "58adfde2d840e801925aa3fe"
+  },
+  {
+    "immat": [
+      "N[1-9][0-9]{4}",
+      "N[1-9][0-9]{3}[A-HJ-NP-Z]{1}",
+      "N[1-9][0-9]{2}[A-HJ-NP-Z]{2}"
+    ],
+    "name": "San Francisco International Airport",
+    "code": "SFO",
+    "_id": "58adfdefd840e801925aa3ff"
+  }
+]

@@ -1,23 +1,18 @@
 /**
  * Created by Gabriel on 12/04/2017.
  */
-var path     = require('path');
-var dbHelper = require(path.join(__dirname, 'dbHelper'));
-var async    = require('async');
 var _        = require('lodash');
-
 var coeffs = {eco: 1, business: 1.8, first: 4.23};
 
-var planeSpecs = [];
-var lines      = [];
-var lineObjs   = [];
-
-// Handle the ctrl+c un the terminal
-process.on('SIGINT', function () {
-  dbHelper.closeConnection(function () {
-    process.exit(0);
+var isHub = function (hubs, code) {
+  var found = false;
+  _.forEach(hubs, function (hub) {
+    if (_.isEqual(hub.code, code)) {
+      found = true;
+    }
   });
-});
+  return found;
+};
 
 var roundForDuration = function (num) {
   var intPart     = Math.floor(num);
@@ -91,54 +86,7 @@ var getOptimisation = function (planeSpec, line) {
   };
 };
 
-async.series([
-  // Get lines
-  function (callback) {
-    dbHelper.find('lines', {}, function (err, results) {
-      lines = results;
-      callback(err);
-    });
-  },
-
-  // Get the plane specifications
-  function (callback) {
-    dbHelper.find('planespecs', {}, function (err, results) {
-      planeSpecs = results;
-      callback(err);
-    });
-  },
-
-  // Compute the optimal configurations for each plane spec
-  function (callback) {
-    _.forEach(lines, function (line) {
-      var optis = [];
-      _.forEach(planeSpecs, function (planeSpec) {
-        if (planeSpec.rayon > line.distance) {
-          var opti = getOptimisation(planeSpec, line);
-          optis.push(opti);
-        }
-      });
-      optis = _.sortBy(optis, ['percent']);
-      var optiObj = {};
-      _.set(optiObj, 'id', _.get(line, '_id'));
-      _.set(optiObj, 'optis', optis);
-      lineObjs.push(optiObj);
-    });
-    callback();
-  },
-
-  function (callback) {
-    // Updating the database for each line
-    async.each(lineObjs, function (obj, callback) {
-      dbHelper.update('lines', {_id: obj.id}, {optis: obj.optis}, {}, callback);
-    }, function (err) {
-      callback(err);
-    });
-  }], function (err) {
-  if (err) {
-    console.log('Error:', err);
-  }
-  dbHelper.closeConnection(function () {
-    process.exit(0);
-  });
-});
+module.exports = {
+  getOptimisation: getOptimisation,
+  isHub: isHub
+};
