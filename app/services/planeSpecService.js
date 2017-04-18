@@ -1,19 +1,25 @@
-var _ = require('lodash');
+const _ = require('lodash');
 
 angular.module('am2App')
   .factory('planeSpecService', ['$http', function ($http) {
-    var planesRef;
+    let planesRef;
 
-    var setPlanesRef = function (data) {
+    const setPlanesRef = function (data) {
       planesRef = data;
     };
 
-    var getPlaneSpecs = function (query) {
-      return $http({method: 'POST', url: 'http://localhost:3000/data/planespecs', data: query});
+    const getPlaneSpecs = function (query) {
+      return $http({method: 'POST', url: 'http://localhost:3000/data/planespecs', data: query})
+        .then(function (res) {
+          return res;
+        })
+        .catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/public/data/lines.json');
+        });
     };
 
-    var getSeatsFromType = function (type) {
-      var seats = 0;
+    const getSeatsFromType = function (type) {
+      let seats = 0;
       _.forEach(planesRef, function (plane) {
         if (_.isEqual(plane.type, type)) {
           seats = plane.seats;
@@ -22,8 +28,8 @@ angular.module('am2App')
       return seats;
     };
 
-    var getSpeedFromType = function (type) {
-      var speed = 0;
+    const getSpeedFromType = function (type) {
+      let speed = 0;
       _.forEach(planesRef, function (plane) {
         if (_.isEqual(plane.type, type)) {
           speed = plane.speed;

@@ -309,54 +309,60 @@ angular.module('am2App')
       };
     }]);
 },{"lodash":28}],7:[function(require,module,exports){
-var _ = require('lodash');
+const _ = require('lodash');
 
 angular.module('am2App')
-.factory('hubsService', ['$http', function ($http) {
-  var hubs;
+  .factory('hubsService', ['$http', function ($http) {
+    let hubs;
 
-  var getHubs = function () {
-    return $http({method: 'POST', url: 'http://localhost:3000/data/hubs'});
-  };
+    const getHubs = function () {
+      return $http({method: 'POST', url: 'http://localhost:3000/data/hubs'})
+        .then(function (res) {
+          return res;
+        })
+        .catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/public/data/hubs.json');
+        });
+    };
 
-  var setHubs = function (data) {
-    hubs = data;
-  };
+    const setHubs = function (data) {
+      hubs = data;
+    };
 
-  var isHub = function (iataCode) {
-    var isHub = false;
-    _.forEach(hubs, function (hub) {
-      if (_.isEqual(hub.code, iataCode)) {
-        isHub = true;
+    const isHub = function (iataCode) {
+      let isHub = false;
+      _.forEach(hubs, function (hub) {
+        if (_.isEqual(hub.code, iataCode)) {
+          isHub = true;
+        }
+      });
+      return isHub;
+    };
+
+    const randomName = function (iataCode) {
+      let regexArray = [];
+      _.forEach(hubs, function (hub) {
+        if (_.isEqual(hub.code, iataCode)) {
+          regexArray = _.get(hub, 'immat');
+        }
+      });
+      let regex;
+      if (regexArray.length > 1) {
+        const index = Math.floor(regexArray.length * Math.random());
+        regex       = new RegExp(regexArray[index]);
+      } else if (regexArray.length === 1) {
+        regex = new RegExp(regexArray[0]);
       }
-    });
-    return isHub;
-  };
+      return new RandExp(regex).gen();
+    };
 
-  var randomName = function(iataCode) {
-    var regexArray = [];
-    _.forEach(hubs, function (hub) {
-      if (_.isEqual(hub.code, iataCode)) {
-        regexArray = _.get(hub, 'immat');
-      }
-    });
-    var regex;
-    if (regexArray.length > 1) {
-      var index = Math.floor(regexArray.length * Math.random());
-      regex = new RegExp(regexArray[index])
-    } else if (regexArray.length === 1) {
-      regex = new RegExp(regexArray[0]);
-    }
-    return new RandExp(regex).gen();
-  };
-
-  return {
-    setHubs: setHubs,
-    getHubs: getHubs,
-    isHub: isHub,
-    randomName: randomName
-  }
-}]);
+    return {
+      setHubs: setHubs,
+      getHubs: getHubs,
+      isHub: isHub,
+      randomName: randomName
+    };
+  }]);
 },{"lodash":28}],8:[function(require,module,exports){
 const _ = require('lodash');
 
@@ -457,56 +463,70 @@ angular.module('am2App')
   };
 }]);
 },{}],10:[function(require,module,exports){
-var _ = require('lodash');
+const _ = require('lodash');
 
 angular.module('am2App')
-.factory('planeService', ['$http', function ($http) {
-  var fleet;
+  .factory('planeService', ['$http', function ($http) {
+    let fleet;
 
-  var setFleet = function (data) {
-    data = _.sortBy(data, [function (plane) {return plane.name;}]);
-    fleet = data;
-  };
+    const setFleet = function (data) {
+      data  = _.sortBy(data, [function (plane) {
+        return plane.name;
+      }]);
+      fleet = data;
+    };
 
-  var getFleet = function () {
-    return fleet;
-  };
+    const getFleet = function () {
+      return fleet;
+    };
 
-  var getPlaneFromName =  function (planeName) {
-    var selection = _.filter(fleet, function (plane) {
-      return _.isEqual(plane.name, planeName);
-    });
-    return selection[0];
-  };
+    const getPlaneFromName = function (planeName) {
+      const selection = _.filter(fleet, function (plane) {
+        return _.isEqual(plane.name, planeName);
+      });
+      return selection[0];
+    };
 
-  var getPlanes = function (query) {
-    return $http({method: 'POST', url: 'http://localhost:3000/data/planes', data: query});
-  };
+    const getPlanes = function (query) {
+      return $http({method: 'POST', url: 'http://localhost:3000/data/planes', data: query})
+        .then(function (res) {
+          return res;
+        })
+        .catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/public/data/planes.json');
+        });
+    };
 
-  return {
-    setFleet: setFleet,
-    getFleet: getFleet,
-    getPlaneFromName: getPlaneFromName,
-    getPlanes: getPlanes
-  }
-}]);
+    return {
+      setFleet: setFleet,
+      getFleet: getFleet,
+      getPlaneFromName: getPlaneFromName,
+      getPlanes: getPlanes
+    };
+  }]);
 },{"lodash":28}],11:[function(require,module,exports){
-var _ = require('lodash');
+const _ = require('lodash');
 
 angular.module('am2App')
   .factory('planeSpecService', ['$http', function ($http) {
-    var planesRef;
+    let planesRef;
 
-    var setPlanesRef = function (data) {
+    const setPlanesRef = function (data) {
       planesRef = data;
     };
 
-    var getPlaneSpecs = function (query) {
-      return $http({method: 'POST', url: 'http://localhost:3000/data/planespecs', data: query});
+    const getPlaneSpecs = function (query) {
+      return $http({method: 'POST', url: 'http://localhost:3000/data/planespecs', data: query})
+        .then(function (res) {
+          return res;
+        })
+        .catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/public/data/lines.json');
+        });
     };
 
-    var getSeatsFromType = function (type) {
-      var seats = 0;
+    const getSeatsFromType = function (type) {
+      let seats = 0;
       _.forEach(planesRef, function (plane) {
         if (_.isEqual(plane.type, type)) {
           seats = plane.seats;
@@ -515,8 +535,8 @@ angular.module('am2App')
       return seats;
     };
 
-    var getSpeedFromType = function (type) {
-      var speed = 0;
+    const getSpeedFromType = function (type) {
+      let speed = 0;
       _.forEach(planesRef, function (plane) {
         if (_.isEqual(plane.type, type)) {
           speed = plane.speed;

@@ -1,48 +1,54 @@
-var _ = require('lodash');
+const _ = require('lodash');
 
 angular.module('am2App')
-.factory('hubsService', ['$http', function ($http) {
-  var hubs;
+  .factory('hubsService', ['$http', function ($http) {
+    let hubs;
 
-  var getHubs = function () {
-    return $http({method: 'POST', url: 'http://localhost:3000/data/hubs'});
-  };
+    const getHubs = function () {
+      return $http({method: 'POST', url: 'http://localhost:3000/data/hubs'})
+        .then(function (res) {
+          return res;
+        })
+        .catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/public/data/hubs.json');
+        });
+    };
 
-  var setHubs = function (data) {
-    hubs = data;
-  };
+    const setHubs = function (data) {
+      hubs = data;
+    };
 
-  var isHub = function (iataCode) {
-    var isHub = false;
-    _.forEach(hubs, function (hub) {
-      if (_.isEqual(hub.code, iataCode)) {
-        isHub = true;
+    const isHub = function (iataCode) {
+      let isHub = false;
+      _.forEach(hubs, function (hub) {
+        if (_.isEqual(hub.code, iataCode)) {
+          isHub = true;
+        }
+      });
+      return isHub;
+    };
+
+    const randomName = function (iataCode) {
+      let regexArray = [];
+      _.forEach(hubs, function (hub) {
+        if (_.isEqual(hub.code, iataCode)) {
+          regexArray = _.get(hub, 'immat');
+        }
+      });
+      let regex;
+      if (regexArray.length > 1) {
+        const index = Math.floor(regexArray.length * Math.random());
+        regex       = new RegExp(regexArray[index]);
+      } else if (regexArray.length === 1) {
+        regex = new RegExp(regexArray[0]);
       }
-    });
-    return isHub;
-  };
+      return new RandExp(regex).gen();
+    };
 
-  var randomName = function(iataCode) {
-    var regexArray = [];
-    _.forEach(hubs, function (hub) {
-      if (_.isEqual(hub.code, iataCode)) {
-        regexArray = _.get(hub, 'immat');
-      }
-    });
-    var regex;
-    if (regexArray.length > 1) {
-      var index = Math.floor(regexArray.length * Math.random());
-      regex = new RegExp(regexArray[index])
-    } else if (regexArray.length === 1) {
-      regex = new RegExp(regexArray[0]);
-    }
-    return new RandExp(regex).gen();
-  };
-
-  return {
-    setHubs: setHubs,
-    getHubs: getHubs,
-    isHub: isHub,
-    randomName: randomName
-  }
-}]);
+    return {
+      setHubs: setHubs,
+      getHubs: getHubs,
+      isHub: isHub,
+      randomName: randomName
+    };
+  }]);
