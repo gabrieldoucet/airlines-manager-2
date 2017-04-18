@@ -4,6 +4,3 @@ npm-debug.log
 .sass-cache/
 db/
 node_modules/
-public/fonts/
-public/js/
-public/stylesheets/
