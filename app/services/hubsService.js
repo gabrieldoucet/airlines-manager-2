@@ -10,7 +10,7 @@ angular.module('am2App')
           return res;
         })
         .catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/public/data/hubs.json');
+          return $http.get('https://gdoucet-fr.github.io/am2/data/hubs.json');
         });
     };
 

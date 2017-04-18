@@ -266,7 +266,7 @@ angular.module('am2App')
           return res;
         })
         .catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/public/data/hubs.json');
+          return $http.get('https://gdoucet-fr.github.io/am2/data/hubs.json');
         });
     };
 
@@ -349,7 +349,7 @@ angular.module('am2App')
           return res;
         })
         .catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/public/data/lines.json');
+          return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
         });
     };
 
@@ -438,7 +438,7 @@ angular.module('am2App')
           return res;
         })
         .catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/public/data/planes.json');
+          return $http.get('https://gdoucet-fr.github.io/am2/data/planes.json');
         });
     };
 
@@ -466,7 +466,7 @@ angular.module('am2App')
           return res;
         })
         .catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/public/data/lines.json');
+          return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
         });
     };
 
