@@ -38,7 +38,7 @@ angular.module('am2App')
           return res;
         })
         .catch(function (data) {
-          return $http.get('https://gdoucet-fr.hithub.io/am2/public/data/lines.json');
+          return $http.get('https://gdoucet-fr.github.io/am2/public/data/lines.json');
         });
     };
 
