@@ -4,7 +4,7 @@ require('angular');
 require('angular-ui-router');
 require('material-design-lite');
 
-var _ = require('lodash');
+const _ = require('lodash');
 
 angular.module('am2App', []);
 
@@ -13,14 +13,13 @@ require('./lib/randexp.min.js');
 require('./services/algorithmic.js');
 require('./services/calc.js');
 require('./services/classService.js');
-require('./services/dataLoader.js');
 require('./services/planeService.js');
 require('./services/hubsService.js');
 require('./services/linesService.js');
 require('./services/models.js');
 require('./services/planeSpecService.js');
 
-require('./views/fleet.js');
+/*require('./views/fleet.js');
 require('./views/hubSelect.js');
 require('./views/lineConfigs.js');
 require('./views/lines.js');
@@ -30,10 +29,10 @@ require('./views/nameGen.js');
 require('./views/planeLabel.js');
 require('./views/planeTable.js');
 require('./views/tools.js');
-require('./views/typeSelect.js');
+require('./views/typeSelect.js');*/
 
 require('./views/mockup.js');
-},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/classService.js":5,"./services/dataLoader.js":6,"./services/hubsService.js":7,"./services/linesService.js":8,"./services/models.js":9,"./services/planeService.js":10,"./services/planeSpecService.js":11,"./views/fleet.js":12,"./views/hubSelect.js":13,"./views/lineConfigs.js":14,"./views/lineSelect.js":15,"./views/lineTable.js":16,"./views/lines.js":17,"./views/mockup.js":18,"./views/nameGen.js":19,"./views/planeLabel.js":20,"./views/planeTable.js":21,"./views/tools.js":22,"./views/typeSelect.js":23,"angular":26,"angular-ui-router":24,"jquery":27,"lodash":28,"material-design-lite":29}],2:[function(require,module,exports){
+},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/classService.js":5,"./services/hubsService.js":6,"./services/linesService.js":7,"./services/models.js":8,"./services/planeService.js":9,"./services/planeSpecService.js":10,"./views/mockup.js":11,"angular":14,"angular-ui-router":12,"jquery":15,"lodash":16,"material-design-lite":17}],2:[function(require,module,exports){
 //
 // randexp v0.4.3
 // Create random strings that match a given regular expression.
@@ -155,7 +154,7 @@ angular.module('am2App')
     algo: algo
   };
 }]);
-},{"lodash":28}],4:[function(require,module,exports){
+},{"lodash":16}],4:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -215,7 +214,7 @@ angular.module('am2App')
       };
     }])
 ;
-},{"lodash":28}],5:[function(require,module,exports){
+},{"lodash":16}],5:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -254,61 +253,7 @@ angular.module('am2App')
     getLineLineLabelClass: getLineLineLabelClass
   };
 }]);
-},{"lodash":28}],6:[function(require,module,exports){
-var _ = require('lodash');
-
-angular.module('am2App')
-  .factory('dataLoader', ['$http', 'planeService', 'linesService', 'planeSpecService', 'hubsService',
-    function ($http, planeService, linesService, planeSpecService, hubsService) {
-
-      var linesPromise = $http({method: 'POST', url: 'http://localhost:3000/data/lines'})
-        .then(function (res) {
-          var lines = linesService.getLines();
-          if (_.isNil(lines)) {
-            lines = res.data;
-            linesService.setLines(lines);
-          }
-        });
-
-      var planeSpecPromise = $http({method: 'POST', url: 'http://localhost:3000/data/planespecs'})
-        .then(function (res) {
-          var planesRef = planeSpecService.getPlanesRef();
-          if (_.isNil(planesRef)) {
-            planeSpecService.setPlanesRef(res.data);
-          }
-        });
-
-      var planesPromise = $http({method: 'POST', url: 'http://localhost:3000/data/planes'})
-        .then(function (res) {
-          var fleet = planeService.getFleet();
-          if (_.isNil(fleet)) {
-            fleet = res.data;
-            // Sorting lines by alphabetical order
-            _.forEach(fleet, function (plane) {
-              var lines = _.get(plane, 'lines');
-              _.set(plane, 'lines', _.sortBy(lines));
-            });
-            planeService.setFleet(fleet);
-          }
-        });
-
-      var hubsPromise = $http({method: 'POST', url: 'http://localhost:3000/data/hubs'})
-        .then(function (res) {
-          var hubs = hubsService.getHubs();
-          if (_.isNil(hubs)) {
-            hubs = res.data;
-            hubsService.setHubs(hubs);
-          }
-        });
-
-      return {
-        linesPromise: linesPromise,
-        planesRefPromise: planeSpecPromise,
-        fleetPromise: planesPromise,
-        hubsPromise: hubsPromise
-      };
-    }]);
-},{"lodash":28}],7:[function(require,module,exports){
+},{"lodash":16}],6:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -363,7 +308,7 @@ angular.module('am2App')
       randomName: randomName
     };
   }]);
-},{"lodash":28}],8:[function(require,module,exports){
+},{"lodash":16}],7:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -446,7 +391,7 @@ angular.module('am2App')
       isSimilar: isSimilar
     };
   }]);
-},{"lodash":28}],9:[function(require,module,exports){
+},{"lodash":16}],8:[function(require,module,exports){
 angular.module('am2App')
 .factory('models', [function () {
   
@@ -462,7 +407,7 @@ angular.module('am2App')
     Plane: Plane
   };
 }]);
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -504,7 +449,7 @@ angular.module('am2App')
       getPlanes: getPlanes
     };
   }]);
-},{"lodash":28}],11:[function(require,module,exports){
+},{"lodash":16}],10:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -552,276 +497,7 @@ angular.module('am2App')
       getSpeedFromType: getSpeedFromType
     };
   }]);
-},{"lodash":28}],12:[function(require,module,exports){
-var _ = require('lodash');
-
-angular.module('am2App')
-  .controller('fleetController', ['$scope', 'planeService', 'linesService', 'hubsService', 'calc', 'models',
-    function fleetController($scope, planeService, linesService, hubsService, calc, models) {
-      $scope.optiPlane = new models.Plane();
-
-      $scope.$watch('optiPlane.type', function (newVal) {
-        if (!_.isNil(newVal)) {
-//      $scope.optiLines = calc.getOptiLines($scope.optiPlane);
-          calc.getOptiLines($scope.optiPlane).then(function (data) {
-            $scope.optiLines = data;
-            console.log(data);
-          });
-        }
-      });
-
-      /*
-       $scope.toggleLabelClass = function (dest) {
-       if (_.includes($scope.newPlane.destinations, dest)) {
-       return "label label-primary";
-       } else {
-       return "label label-default";
-       }
-       }
-
-       $scope.selectLine = function (dest) {
-       if (!_.includes($scope.newPlane.destinations, dest)) {
-       $scope.newPlane.destinations.push(dest);
-       } else {
-       $scope.newPlane.destinations = _.filter($scope.newPlane.destinations, function (planeDest) {
-       return !_.isEqual(planeDest, dest);
-       });
-       }
-       } */
-
-      // Adding a plane
-      $scope.newPlane = new models.Plane();
-      /*  $scope.$watch('newPlane.hub', function (newValue) {
-       if (hubsService.isHub($scope.newPlane.hub)) {
-       console.log($scope.newPlane);
-       $scope.newPlane.availableLines = _.filter(linesService.getLines(), function (line) {
-       return _.isEqual(line.from, newValue);
-       });
-       }
-       }, true);*/
-
-      // Get the whole fleet
-      planeService.getPlanes().then(function (res) {
-        $scope.fleet = res.data;
-      });
-
-      $scope.addToFleet = function () {
-        // console.log($scope.avion);
-        $scope.fleet.push($scope.newPlane);
-      };
-
-      $scope.$watch($scope.fleet, function () {
-      }, true);
-
-    }]);
-},{"lodash":28}],13:[function(require,module,exports){
-angular.module('am2App')
-.directive('hubSelect', function () {
-  return {
-    templateUrl: './templates/hubSelect',
-    transclude: true,
-    scope: {
-      ngModel: '='
-    },
-    controller: ['$scope', 'hubsService', function ($scope, hubsService) {
-      hubsService.getHubs().then(function (res) {
-        $scope.hubs = res.data;
-      });
-    }]
-  };
-});
-},{}],14:[function(require,module,exports){
-var _ = require('lodash');
-
-angular.module('am2App')
-.directive('lineConfigs', function () {
-  return {
-    templateUrl: './templates/lineConfigs',
-    transclude: true,
-    scope: {
-      optiConfigs: '=data'
-    },
-    controller: ['$scope', '$filter', 'algo', function ($scope, $filter, algo) {
-      $scope.open = true;
-      $scope.optimised = false;
-      $scope.optiObjects = [];
-
-      $scope.headerClick = function () {
-        $scope.open = !$scope.open;
-      };
-
-      $scope.getArrowClass = function () {
-        return $scope.open ? "glyphicon glyphicon-chevron-down" : "glyphicon glyphicon-chevron-right";
-      };
-
-      $scope.optimise = function () {
-        var objects = _.map($scope.optiObjects, function (obj) {
-          return {_weight: obj.percent, _value: 1, key: obj.type};
-        });
-        $scope.bestCombi = algo.algo(objects);
-
-        _.forEach($scope.bestCombi.objects, function (obj) {
-          _.forEach($scope.optiConfigs, function (optiConfig) {
-            if (_.isEqual(optiConfig.type, obj.key)) {
-              optiConfig.count = obj._count;
-            }
-          });
-        });
-        console.log($scope.bestCombi);
-        $scope.optimised = true;
-      };
-
-      $scope.selectOpti = function() {
-        $scope.optiObjects = $filter('filter')($scope.optiConfigs, {checked: true});
-      };
-
-      $scope.headerClick = function () {
-        $scope.open = !$scope.open;
-      };
-    }]
-  }; 
-});
-},{"lodash":28}],15:[function(require,module,exports){
-angular.module('am2App')
-.directive('lineSelect', function () {
-  return {
-    templateUrl: './templates/lineSelect',
-    transclude: true,
-    scope: {
-      select: '=',
-      disabled: '='
-    },
-    controller: ['$scope', 'linesService', function ($scope, linesService) {
-      linesService.getLines().then(function (res) {
-        $scope.lines = res.data;
-      });
-    }]
-  };
-});
-},{}],16:[function(require,module,exports){
-var _ = require('lodash');
-
-angular.module('am2App')
-.directive('lineTable', function () {
-  return {
-    templateUrl: './templates/lineTable',
-    transclude: true,
-    scope: {
-      lines: '=',
-      header: '@',
-      ngModel: '=',
-      enableSelect: '=',
-      enableAdd: '='
-    },
-    controller: ['$scope', 'planeService', 'linesService', 'calc', 'classService',
-      function ($scope, planeService, linesService, calc, classService) {
-        $scope.open = true; 
-
-        $scope.headerClick = function () {
-          $scope.open = !$scope.open;
-        };
-
-        $scope.showAdd = function () {
-          console.log('add clicked');
-        };
-
-        $scope.getArrowClass = function () {
-          return $scope.open ? "glyphicon glyphicon-chevron-down" : "glyphicon glyphicon-chevron-right";
-        };
-
-        $scope.getPlaneLineLabelClass = function (planeIn, lineIn) {
-          var plane = planeIn;
-          var line = lineIn;
-          if (!_.isObject(planeIn)) {
-            plane = planeService.getPlaneFromName(planeIn);
-          }
-          if (!_.isObject(lineIn)) {
-            line = linesService.getLineFromTo(plane.hub, lineIn);
-          }
-          return classService.getPlaneLineLabelClass(plane, line);
-        };
-
-        $scope.selectLine = function (line) {
-          if ($scope.enableSelect) {
-            $scope.ngModel = line;
-          }
-        }
-      }
-    ]
-  };
-});
-},{"lodash":28}],17:[function(require,module,exports){
-var _ = require('lodash');
-
-angular.module('am2App')
-  .controller('linesController', ['$scope', 'linesService', 'planeService', 'planeSpecService', 'calc', 'classService',
-    function linesController($scope, linesService, planeService, planeSpecService, calc, classService) {
-
-      linesService.getLines().then(function (res) {
-        $scope.lines = res.data;
-      });
-
-      $scope.selects    = {notManual: false};
-      $scope.manualLine = {};
-
-      $scope.$watch('manualLine', function (newVal) {
-        if (!_.isEmpty(newVal)) {
-          $scope.selects.manual = true;
-        } else {
-          $scope.selects.manual = false;
-        }
-      }, true);
-
-      $scope.submitManual = function () {
-        $scope.selects.lineDetail = $scope.manualLine;
-      };
-
-      $scope.resetManual = function () {
-        $scope.manualLine         = {};
-        $scope.selects.lineDetail = {};
-        $scope.selects.notManual  = false;
-      };
-
-      // Monitor changes on line detail
-      $scope.$watch('selects.lineDetail', function (newVal) {
-        if (!_.isNil(newVal) && !_.isEmpty(newVal)) {
-          $scope.selects.notManual = true;
-          $scope.lineDetail        = [$scope.selects.lineDetail];
-
-          linesService.getSimilarLines($scope.selects.lineDetail).then(function (data) {
-            $scope.similarLines = data;
-          });
-
-          $scope.optiConfigs = _.get(newVal, 'optis');
-
-          calc.getOptiPlanes($scope.selects.lineDetail).then(function (data) {
-            $scope.optiPlanes = data;
-          });
-        }
-      }, true);
-
-      $scope.getLineLineLabelClass = function (line1, line2) {
-        return classService.getLineLineLabelClass(line1, line2);
-      };
-
-      $scope.getArrowClass = function () {
-        if ($scope.showConfigs) {
-          return 'glyphicon glyphicon-chevron-down';
-        } else {
-          return 'glyphicon glyphicon-chevron-right';
-        }
-      };
-
-      $scope.$watch('lines', function () {
-        // console.log($scope.lines);
-      }, true);
-
-      $scope.removeFirst = function () {
-        $scope.lines = _.slice($scope.lines, 1);
-        linesService.setLines($scope.lines);
-      };
-    }]);
-},{"lodash":28}],18:[function(require,module,exports){
+},{"lodash":16}],11:[function(require,module,exports){
 /**
  * Created by Gabriel on 05/04/2017.
  */
@@ -879,149 +555,7 @@ angular.module('am2App')
       console.log($scope.results.optis);
     };
   }]);
-},{"lodash":28}],19:[function(require,module,exports){
-var _ = require('lodash');
-
-angular.module('am2App')
-.directive('nameGen', function () {
-  return {
-    templateUrl: './templates/nameGen',
-    transclude: true,
-    scope: {
-      ngModel: '='
-    },
-    controller: ['$scope', 'planeService', 'hubsService', function ($scope, planeService, hubsService) {
-      $scope.$watch('hub', function (newValue) {
-        //if (hubsService.isHub($scope.hub)) {
-          var nameAlreadyUsed = true;
-          while (nameAlreadyUsed) {
-            nameAlreadyUsed = false;
-            var name = hubsService.randomName($scope.hub);
-            _.forEach(planeService.getFleet(), function (plane) {
-              if (_.isEqual(plane.name, name)) {
-                nameAlreadyExists = true;
-              }
-            });
-          }
-          console.log(name);
-          $scope.name = name;
-        //}
-      });
-    }]
-  };
-});
-},{"lodash":28}],20:[function(require,module,exports){
-var _ = require('lodash');
-
-angular.module('am2App')
-.directive('planeLabel', function () {
-  return {
-    templateUrl: './templates/planeLabel',
-    transclude: true,
-    scope: {
-      planeName: '=title',
-      line: '='
-    },
-    controller: ['$scope', 'planeService', 'linesService', 'classService',
-    function ($scope, planeService, linesService, classService) {
-      $scope.plane = planeService.getPlaneFromName($scope.planeName);
-
-      $scope.showDetail = false;
-
-      $scope.toggleDetail = function () {
-        $scope.showDetail = !$scope.showDetail;
-      };
-
-      $scope.getPlaneLineLabelClass = function (planeIn, lineIn) {
-        var plane = planeIn;
-        var line = lineIn;
-        if (!_.isObject(planeIn)) {
-          plane = planeService.getPlaneFromName(planeIn);
-        }
-        if (!_.isObject(lineIn)) {
-          line = linesService.getLineFromTo(plane.hub, lineIn);
-        }
-        return 'label label-primary';
-//        return classService.getPlaneLineLabelClass(plane, line);
-      };
-    }]
-  }; 
-});
-},{"lodash":28}],21:[function(require,module,exports){
-var _ = require('lodash');
-
-angular.module('am2App')
-.directive('planeTable', function () {
-  return {
-    templateUrl: './templates/planeTable',
-    transclude: true,
-    scope: {
-      planes: '=',
-      header: '@',
-      ngModel: '=',
-      enableSelect: '='
-    },
-    controller: ['$scope', 'linesService', 'calc', 'classService',
-      function ($scope, linesService, calc, classService) {
-
-        $scope.open = true;
-
-        $scope.headerClick = function () {
-          $scope.open = !$scope.open;
-        };
-
-        $scope.getArrowClass = function () {
-          return $scope.open ? "glyphicon glyphicon-chevron-down" : "glyphicon glyphicon-chevron-right";
-        };
-
-        $scope.getPlaneLineLabelClass = function (planeIn, lineIn) {
-          var plane = planeIn;
-          var line = lineIn;
-          if (!_.isObject(planeIn)) {
-            plane = planeService.getPlaneFromName(planeIn);
-          }
-          if (!_.isObject(lineIn)) {
-            line = linesService.getLineFromTo(plane.hub, lineIn);
-          }
-          return classService.getPlaneLineLabelClass(plane, line);
-        };
-
-        $scope.selectPlane = function (plane) {
-          if ($scope.enableSelect) {
-            $scope.ngModel = plane;
-          }
-        };
-        /*
-        $scope.getPlaneLineLabelClass = function(plane, dest) {
-          var line = linesService.getLineFromTo(plane.hub, dest);
-          return classService.getPlaneLineLabelClass(plane, line);
-        } */
-      }
-    ]
-  };
-});
-},{"lodash":28}],22:[function(require,module,exports){
-angular.module('am2App')
-.controller('toolsController', ['$scope', function toolsController($scope) {
-
-}]);
-},{}],23:[function(require,module,exports){
-angular.module('am2App')
-.directive('typeSelect', function () {
-  return {
-    templateUrl: './templates/typeSelect',
-    transclude: true,
-    scope: {
-      ngModel: '='
-    },
-    controller: ['$scope', 'planeSpecService', function ($scope, planeSpecService) {
-      planeSpecService.getPlanesRef().then(function (res) {
-        $scope.planes = res.data;
-      });
-    }]
-  };
-});
-},{}],24:[function(require,module,exports){
+},{"lodash":16}],12:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.4.2
@@ -5706,7 +5240,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],25:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.2
  * (c) 2010-2017 Google, Inc. http://angularjs.org
@@ -38841,11 +38375,11 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],26:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":25}],27:[function(require,module,exports){
+},{"./angular":13}],15:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.1.1
  * https://jquery.com/
@@ -49067,7 +48601,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],28:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -66155,7 +65689,7 @@ return jQuery;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],29:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 /**
  * material-design-lite - Material Design Components in CSS, JS and HTML
  * @version v1.3.0

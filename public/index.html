@@ -90,6 +90,7 @@
             <div class="mdl-grid">
               <div class="mdl-cell--3-col">
                 <h5>Avions affectés</h5>
+                <h6 ng-if="!selects.selectedLine"><i>Aucune ligne sélectionnée</i></h6>
                 <button ng-repeat="plane in selects.selectedLine.planes" id="lineplane-{{plane.name}}"
                         class="mdl-chip" type="button"
                         ng-click="choosePlane(plane)">
@@ -102,6 +103,7 @@
 
               <div class="mdl-cell--6-col">
                 <h5>Avions compatibles</h5>
+                <h6 ng-if="!selects.selectedLine"><i>Aucune ligne sélectionnée</i></h6>
                 <button ng-repeat="plane in results.optiPlanes" id="optiplane-{{plane.name}}"
                         class="mdl-chip" type="button"
                         ng-click="choosePlane(plane)">
@@ -113,6 +115,7 @@
 
               <div class="mdl-cell--3-col">
                 <h5>Lignes similaires</h5>
+                <h6 ng-if="!selects.selectedLine"><i>Aucune ligne sélectionnée</i></h6>
                 <button ng-repeat="line in results.similarLines" class="mdl-chip" type="button"
                         ng-click="chooseLine(line)">
                   <span class="mdl-chip__text">{{line.from}} - {{line.to}}</span>
@@ -157,7 +160,6 @@
               </table>
             </div>
           </div>
-
         </div>
 
 
@@ -215,7 +217,7 @@
       </div>
       <div class="mdl-card__supporting-text">
         <img src="./images/{{selects.selectedPlane.type}}.png" border="0"
-                                        alt="Picture not available" style="padding:10px;">
+             alt="Picture not available" style="padding:10px;">
       </div>
       <div class="mdl-card__supporting-text">
         <h6>Configuration</h6>
