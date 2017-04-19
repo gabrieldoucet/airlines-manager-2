@@ -1,92 +1,11 @@
 require('jquery');
 require('angular');
 require('angular-ui-router');
-var _ = require('lodash');
+require('material-design-lite');
 
-angular.module('am2App', ['ui.router'])
-.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+const _ = require('lodash');
 
-  $urlRouterProvider.otherwise('/lines');
-  $urlRouterProvider.when('/fleet','/fleet/detail');
-  $urlRouterProvider.when('/tools','/tools/name');
-
-  $stateProvider
-    .state('root', {
-      abstract: true,
-      views: {
-        'header': {
-          templateUrl: 'templates/header'
-        }
-      }
-    })
-    .state('root.accueil', {
-      url: '/accueil',
-      views: {
-        '@': {
-           templateUrl: 'templates/accueil'
-        }
-      }
-    })
-    .state('root.fleet', {
-      url: '/fleet',
-      views: {
-        '@': {
-          templateUrl: 'templates/fleet',
-          controller: 'fleetController'
-        }
-      }
-    })
-    .state('root.fleet.add', {
-      url: '/add',
-      views: {
-        'tabviewFleet': {
-          templateUrl: 'templates/fleetAdd'
-        }
-      }
-    })
-    .state('root.fleet.detail', {
-      url: '/detail',
-      views: {
-        'tabviewFleet': {
-          templateUrl: 'templates/fleetDetail'
-        }
-      }
-    })
-    .state('root.fleet.optim', {
-      url: '/optim',
-      views: {
-        'tabviewFleet': {
-          templateUrl: 'templates/fleetOptim'
-        }
-      }
-    })
-    .state('root.lines', {
-      url: '/lines',
-      views: {
-        '@': {
-          templateUrl: 'templates/lines',
-          controller: 'linesController'
-        }
-      }
-    })
-    .state('root.tools', {
-      url: '/tools',
-      views: {
-        '@': {
-          templateUrl: 'templates/tools',
-          controller: 'toolsController'
-        }
-      }
-    })
-    .state('root.tools.name', {
-      url: '/name',
-      views: {
-        'tabviewTools': {
-          templateUrl: 'templates/toolsName'
-        }
-      }
-    })
-}]);
+angular.module('am2App', []);
 
 require('./lib/randexp.min.js');
 
@@ -99,14 +18,4 @@ require('./services/linesService.js');
 require('./services/models.js');
 require('./services/planeSpecService.js');
 
-require('./views/fleet.js');
-require('./views/hubSelect.js');
-require('./views/lineConfigs.js');
-require('./views/lines.js');
-require('./views/lineSelect.js');
-require('./views/lineTable.js');
-require('./views/nameGen.js');
-require('./views/planeLabel.js');
-require('./views/planeTable.js');
-require('./views/tools.js');
-require('./views/typeSelect.js');
+require('./views/mockup.js');

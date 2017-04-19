@@ -7,28 +7,33 @@ const pug        = require('gulp-pug');
 
 // 'dist-mdl' task for the mdl version of the application
 gulp.task('browserify', function () {
-  return browserify('./app/app-mdl.js')
+  return browserify('./app/app.js')
     .bundle()
-    .pipe(source('main-mdl.js'))
+    .pipe(source('main.js'))
     .pipe(gulp.dest('./dist/js/'));
 });
 
-gulp.task('views', function buildHTML() {
+gulp.task('index', function () {
+  return gulp.src('views/index.pug')
+    .pipe(pug())
+    .pipe(gulp.dest('dist/')); // tell gulp our output folder
+});
+
+gulp.task('views', function () {
   return gulp.src('views/templates/*.pug')
     .pipe(pug())
     .pipe(gulp.dest('dist/views/')); // tell gulp our output folder
 });
 
 gulp.task('sass', function () {
-  return sass('./stylesheets/style-mdl.scss')
+  return sass('./stylesheets/style.scss')
     .on('error', sass.logError)
     .pipe(gulp.dest('./dist/stylesheets'));
 });
 
 gulp.task('watch', function () {
-  gulp.watch('app/**/*.js', ['browserify-mdl']);
-  gulp.watch('stylesheets/**/*.scss', ['sass-mdl']);
+  gulp.watch('app/**/*.js', ['browserify']);
+  gulp.watch('stylesheets/**/*.scss', ['sass']);
 });
 
-
-gulp.task('dist', ['browserify', 'views', 'sass', 'watch']);
+gulp.task('dist', ['browserify', 'index', 'views', 'sass', 'watch']);
