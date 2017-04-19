@@ -34,6 +34,7 @@ gulp.task('sass', function () {
 gulp.task('watch', function () {
   gulp.watch('app/**/*.js', ['browserify']);
   gulp.watch('stylesheets/**/*.scss', ['sass']);
+  gulp.watch('views/index.pug', ['index']);
 });
 
 gulp.task('dist', ['browserify', 'index', 'views', 'sass', 'watch']);
