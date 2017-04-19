@@ -28,31 +28,16 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('dist/fonts/'));
 });
 
-// 'dist-mdl' task for the mdl version of the application
-gulp.task('browserify-mdl', function () {
-  return browserify('./app/app-mdl.js')
-    .bundle()
-    .pipe(source('main-mdl.js'))
-    .pipe(gulp.dest('./dist/js/'));
+gulp.task('index', function buildHTML() {
+  return gulp.src('views/index.pug')
+    .pipe(pug())
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('views', function buildHTML() {
   return gulp.src('views/templates/*.pug')
     .pipe(pug())
-    .pipe(gulp.dest('dist/views/')); // tell gulp our output folder
+    .pipe(gulp.dest('dist/views/'));
 });
 
-gulp.task('sass-mdl', function () {
-  return sass('./stylesheets/style-mdl.scss')
-    .on('error', sass.logError)
-    .pipe(gulp.dest('./dist/stylesheets'));
-});
-
-gulp.task('watch-mdl', function () {
-  gulp.watch('app/**/*.js', ['browserify-mdl']);
-  gulp.watch('stylesheets/**/*.scss', ['sass-mdl']);
-});
-
-
-gulp.task('dist', ['browserify', 'sass', 'fonts', 'views', 'watch']);
-gulp.task('dist-mdl', ['browserify-mdl', 'views', 'sass-mdl', 'watch-mdl']);
+gulp.task('dist', ['browserify', 'sass', 'fonts', 'index', 'views', 'watch']);
