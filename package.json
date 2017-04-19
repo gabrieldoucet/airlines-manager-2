@@ -2,7 +2,7 @@
   "name": "airlines-manager-2",
   "version": "1.0.0",
   "scripts": {
-    "build": "./node_modules/.bin/gulp",
+    "build": "./node_modules/.bin/gulp dist",
     "start": "node ./bin/www",
     "dev": "./node_modules/.bin/nodemon ./bin/www"
   },
