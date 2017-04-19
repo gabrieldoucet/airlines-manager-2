@@ -1,11 +1,12 @@
 /**
  * Created by Gabriel on 12/04/2017.
  */
-var _        = require('lodash');
-var coeffs = {eco: 1, business: 1.8, first: 4.23};
+const _      = require('lodash');
+const coeffs = {eco: 1, business: 1.8, first: 4.23};
 
-var isHub = function (hubs, code) {
-  var found = false;
+const isHub = function (hubs, code) {
+  'use strict';
+  let found = false;
   _.forEach(hubs, function (hub) {
     if (_.isEqual(hub.code, code)) {
       found = true;
@@ -14,9 +15,10 @@ var isHub = function (hubs, code) {
   return found;
 };
 
-var roundForDuration = function (num) {
-  var intPart     = Math.floor(num);
-  var decimalPart = num - intPart;
+const roundForDuration = function (num) {
+  'use strict';
+  let intPart     = Math.floor(num);
+  let decimalPart = num - intPart;
   if (decimalPart > 0 && decimalPart < 0.25) {
     decimalPart = 0.25;
   } else if (decimalPart > 0.25 && decimalPart < 0.50) {
@@ -30,7 +32,7 @@ var roundForDuration = function (num) {
   return intPart + decimalPart;
 };
 
-var stringFormatNumber = function (num) {
+const stringFormatNumber = function (num) {
   if (num < 10) {
     return '0' + num.toString();
   } else {
@@ -38,14 +40,15 @@ var stringFormatNumber = function (num) {
   }
 };
 
-var decimalToHours = function (hoursDecimal) {
+const decimalToHours = function (hoursDecimal) {
+  'use strict';
   hoursDecimal       = roundForDuration(hoursDecimal);
-  var hours          = Math.floor(hoursDecimal);
-  var minutesDecimal = ((hoursDecimal - hours) * 60);
-  var minutes        = Math.floor(minutesDecimal);
-  var seconds        = Math.floor((minutesDecimal - minutes) * 60);
-  var decDuration    = _.round(hoursDecimal, 3);
-  var asString         = hours + 'h' + stringFormatNumber(minutes);
+  let hours          = Math.floor(hoursDecimal);
+  let minutesDecimal = ((hoursDecimal - hours) * 60);
+  let minutes        = Math.floor(minutesDecimal);
+  let seconds        = Math.floor((minutesDecimal - minutes) * 60);
+  let decDuration    = _.round(hoursDecimal, 3);
+  let asString       = hours + 'h' + stringFormatNumber(minutes);
   return {
     hours: hours,
     min: minutes,
@@ -55,25 +58,25 @@ var decimalToHours = function (hoursDecimal) {
   };
 };
 
-var getRotationDuration = function (speed, line) {
+const getRotationDuration = function (speed, line) {
   return 2 * line.distance / speed + 2;
 };
 
-var getOptimisation = function (planeSpec, line) {
-  var seats      = _.get(planeSpec, 'seats');
-  var planeSpeed = _.get(planeSpec, 'speed');
+const getOptimisation = function (planeSpec, line) {
+  const seats      = _.get(planeSpec, 'seats');
+  const planeSpeed = _.get(planeSpec, 'speed');
 
-  var demand    = line.demand.eco + line.demand.business + line.demand.first;
-  var pEco      = line.demand.eco / demand;
-  var pBusiness = line.demand.business / demand;
-  var pFirst    = line.demand.first / demand;
+  const demand    = line.demand.eco + line.demand.business + line.demand.first;
+  const pEco      = line.demand.eco / demand;
+  const pBusiness = line.demand.business / demand;
+  const pFirst    = line.demand.first / demand;
 
-  var optiSeats    = seats / (pEco + pBusiness * coeffs.business + pFirst * coeffs.first);
-  var optiEco      = _.round(pEco * optiSeats);
-  var optiBusiness = _.round(pBusiness * optiSeats);
-  var optiFirst    = _.round(pFirst * optiSeats);
+  const optiSeats    = seats / (pEco + pBusiness * coeffs.business + pFirst * coeffs.first);
+  const optiEco      = _.round(pEco * optiSeats);
+  const optiBusiness = _.round(pBusiness * optiSeats);
+  const optiFirst    = _.round(pFirst * optiSeats);
 
-  var duration = getRotationDuration(planeSpeed, line);
+  const duration = getRotationDuration(planeSpeed, line);
   return {
     type: _.get(planeSpec, 'type'),
     config: {

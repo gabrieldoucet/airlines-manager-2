@@ -35,16 +35,13 @@ angular.module('am2App', ['ui.router'])
           templateUrl: 'templates/fleet',
           controller: 'fleetController'
         }
-      },
-      resolve: {
-        promiseObj: 'dataLoader'
       }
     })
     .state('root.fleet.add', {
       url: '/add',
       views: {
         'tabviewFleet': {
-          templateUrl: 'views/fleet-add.html'
+          templateUrl: 'templates/fleetAdd'
         }
       }
     })
@@ -60,7 +57,7 @@ angular.module('am2App', ['ui.router'])
       url: '/optim',
       views: {
         'tabviewFleet': {
-          templateUrl: 'views/fleet-optim.html'
+          templateUrl: 'templates/fleetOptim'
         }
       }
     })
@@ -71,9 +68,6 @@ angular.module('am2App', ['ui.router'])
           templateUrl: 'templates/lines',
           controller: 'linesController'
         }
-      },
-      resolve: {
-        promiseObj: 'dataLoader'
       }
     })
     .state('root.tools', {
@@ -83,9 +77,6 @@ angular.module('am2App', ['ui.router'])
           templateUrl: 'templates/tools',
           controller: 'toolsController'
         }
-      },
-      resolve: {
-        promiseObj: 'dataLoader'
       }
     })
     .state('root.tools.name', {
@@ -103,7 +94,6 @@ require('./lib/randexp.min.js');
 require('./services/algorithmic.js');
 require('./services/calc.js');
 require('./services/classService.js');
-require('./services/dataLoader.js');
 require('./services/planeService.js');
 require('./services/hubsService.js');
 require('./services/linesService.js');
@@ -121,7 +111,7 @@ require('./views/planeLabel.js');
 require('./views/planeTable.js');
 require('./views/tools.js');
 require('./views/typeSelect.js');
-},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/classService.js":5,"./services/dataLoader.js":6,"./services/hubsService.js":7,"./services/linesService.js":8,"./services/models.js":9,"./services/planeService.js":10,"./services/planeSpecService.js":11,"./views/fleet.js":12,"./views/hubSelect.js":13,"./views/lineConfigs.js":14,"./views/lineSelect.js":15,"./views/lineTable.js":16,"./views/lines.js":17,"./views/nameGen.js":18,"./views/planeLabel.js":19,"./views/planeTable.js":20,"./views/tools.js":21,"./views/typeSelect.js":22,"angular":25,"angular-ui-router":23,"jquery":26,"lodash":27}],2:[function(require,module,exports){
+},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/classService.js":5,"./services/hubsService.js":6,"./services/linesService.js":7,"./services/models.js":8,"./services/planeService.js":9,"./services/planeSpecService.js":10,"./views/fleet.js":11,"./views/hubSelect.js":12,"./views/lineConfigs.js":13,"./views/lineSelect.js":14,"./views/lineTable.js":15,"./views/lines.js":16,"./views/nameGen.js":17,"./views/planeLabel.js":18,"./views/planeTable.js":19,"./views/tools.js":20,"./views/typeSelect.js":21,"angular":24,"angular-ui-router":22,"jquery":25,"lodash":26}],2:[function(require,module,exports){
 //
 // randexp v0.4.3
 // Create random strings that match a given regular expression.
@@ -243,7 +233,7 @@ angular.module('am2App')
     algo: algo
   };
 }]);
-},{"lodash":27}],4:[function(require,module,exports){
+},{"lodash":26}],4:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -276,7 +266,6 @@ angular.module('am2App')
 
       var getOptiPlanes = function (line) {
         return planeService.getPlanes().then(function (res) {
-          var optiPlanes = [];
 
           // Filter the compatible planes for a line
           var planes     = _.filter(res.data, function (plane) {
@@ -286,12 +275,14 @@ angular.module('am2App')
             return _.includes(compatiblePlaneTypes, plane.type);
           });
 
-          _.forEach(planes, function (plane) {
-            if (isOptimised(plane, line)) {
-              optiPlanes.push(plane);
-            }
+          var linePlaneNames = _.map(_.get(line, 'planes'), function (plane) {
+            return _.get(plane, 'name');
           });
-          return optiPlanes;
+
+          var optiPlanes = _.filter(planes, function (plane) {
+            return isOptimised(plane, line) && !_.includes(linePlaneNames, _.get(plane, 'name'));
+          });
+          return _.sortBy(optiPlanes, ['name']);
         });
       };
 
@@ -302,7 +293,7 @@ angular.module('am2App')
       };
     }])
 ;
-},{"lodash":27}],5:[function(require,module,exports){
+},{"lodash":26}],5:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -341,130 +332,88 @@ angular.module('am2App')
     getLineLineLabelClass: getLineLineLabelClass
   };
 }]);
-},{"lodash":27}],6:[function(require,module,exports){
-var _ = require('lodash');
+},{"lodash":26}],6:[function(require,module,exports){
+const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('dataLoader', ['$http', 'planeService', 'linesService', 'planeSpecService', 'hubsService',
-    function ($http, planeService, linesService, planeSpecService, hubsService) {
+  .factory('hubsService', ['$http', function ($http) {
+    let hubs;
 
-      var linesPromise = $http({method: 'POST', url: 'http://localhost:3000/data/lines'})
+    const getHubs = function () {
+      return $http({method: 'POST', url: 'http://localhost:3000/data/hubs'})
         .then(function (res) {
-          var lines = linesService.getLines();
-          if (_.isNil(lines)) {
-            lines = res.data;
-            linesService.setLines(lines);
-          }
+          return res;
+        })
+        .catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/data/hubs.json');
         });
+    };
 
-      var planeSpecPromise = $http({method: 'POST', url: 'http://localhost:3000/data/planespecs'})
-        .then(function (res) {
-          var planesRef = planeSpecService.getPlanesRef();
-          if (_.isNil(planesRef)) {
-            planeSpecService.setPlanesRef(res.data);
-          }
-        });
+    const setHubs = function (data) {
+      hubs = data;
+    };
 
-      var planesPromise = $http({method: 'POST', url: 'http://localhost:3000/data/planes'})
-        .then(function (res) {
-          var fleet = planeService.getFleet();
-          if (_.isNil(fleet)) {
-            fleet = res.data;
-            // Sorting lines by alphabetical order
-            _.forEach(fleet, function (plane) {
-              var lines = _.get(plane, 'lines');
-              _.set(plane, 'lines', _.sortBy(lines));
-            });
-            planeService.setFleet(fleet);
-          }
-        });
+    const isHub = function (iataCode) {
+      let isHub = false;
+      _.forEach(hubs, function (hub) {
+        if (_.isEqual(hub.code, iataCode)) {
+          isHub = true;
+        }
+      });
+      return isHub;
+    };
 
-      var hubsPromise = $http({method: 'POST', url: 'http://localhost:3000/data/hubs'})
-        .then(function (res) {
-          var hubs = hubsService.getHubs();
-          if (_.isNil(hubs)) {
-            hubs = res.data;
-            hubsService.setHubs(hubs);
-          }
-        });
-
-      return {
-        linesPromise: linesPromise,
-        planesRefPromise: planeSpecPromise,
-        fleetPromise: planesPromise,
-        hubsPromise: hubsPromise
-      };
-    }]);
-},{"lodash":27}],7:[function(require,module,exports){
-var _ = require('lodash');
-
-angular.module('am2App')
-.factory('hubsService', ['$http', function ($http) {
-  var hubs;
-
-  var getHubs = function () {
-    return $http({method: 'POST', url: 'http://localhost:3000/data/hubs'});
-  };
-
-  var setHubs = function (data) {
-    hubs = data;
-  };
-
-  var isHub = function (iataCode) {
-    var isHub = false;
-    _.forEach(hubs, function (hub) {
-      if (_.isEqual(hub.code, iataCode)) {
-        isHub = true;
+    const randomName = function (iataCode) {
+      let regexArray = [];
+      _.forEach(hubs, function (hub) {
+        if (_.isEqual(hub.code, iataCode)) {
+          regexArray = _.get(hub, 'immat');
+        }
+      });
+      let regex;
+      if (regexArray.length > 1) {
+        const index = Math.floor(regexArray.length * Math.random());
+        regex       = new RegExp(regexArray[index]);
+      } else if (regexArray.length === 1) {
+        regex = new RegExp(regexArray[0]);
       }
-    });
-    return isHub;
-  };
+      return new RandExp(regex).gen();
+    };
 
-  var randomName = function(iataCode) {
-    var regexArray = [];
-    _.forEach(hubs, function (hub) {
-      if (_.isEqual(hub.code, iataCode)) {
-        regexArray = _.get(hub, 'immat');
-      }
-    });
-    var regex;
-    if (regexArray.length > 1) {
-      var index = Math.floor(regexArray.length * Math.random());
-      regex = new RegExp(regexArray[index])
-    } else if (regexArray.length === 1) {
-      regex = new RegExp(regexArray[0]);
-    }
-    return new RandExp(regex).gen();
-  };
-
-  return {
-    setHubs: setHubs,
-    getHubs: getHubs,
-    isHub: isHub,
-    randomName: randomName
-  }
-}]);
-},{"lodash":27}],8:[function(require,module,exports){
-var _ = require('lodash');
+    return {
+      setHubs: setHubs,
+      getHubs: getHubs,
+      isHub: isHub,
+      randomName: randomName
+    };
+  }]);
+},{"lodash":26}],7:[function(require,module,exports){
+const _ = require('lodash');
 
 angular.module('am2App')
   .factory('linesService', ['$http', 'hubsService', function ($http, hubsService) {
-    var lines;
-    var similarProportions = function (x, y) {
-      var variation = (x - y) / x * 100;
+    let lines;
+    const similarProportions = function (x, y) {
+      const variation = (x - y) / x * 100;
       return Math.abs(variation) <= 5;
     };
 
-    var isSimilar = function (line1, line2) {
-      var demand1         = line1.demand.eco + line1.demand.business + line1.demand.first;
-      var demand2         = line2.demand.eco + line2.demand.business + line2.demand.first;
-      var similarEco      = similarProportions(line1.demand.eco / demand1, line2.demand.eco / demand2);
-      var similarBusiness = similarProportions(line1.demand.business / demand1, line2.demand.business / demand2);
-      var similarFirst    = similarProportions(line1.demand.first / demand1, line2.demand.first / demand2);
-      return !_.isEqual(line1, line2) && similarEco && similarBusiness && similarFirst;
+    const isEqual = function (line1, line2) {
+      const obj1 = _.pick(line1, ['from', 'to']);
+      const obj2 = _.pick(line2, ['from', 'to']);
+      return _.isEqual(obj1, obj2);
     };
 
-    var setLines = function (data) {
+    const isSimilar = function (line1, line2) {
+      const demand1         = line1.demand.eco + line1.demand.business + line1.demand.first;
+      const demand2         = line2.demand.eco + line2.demand.business + line2.demand.first;
+      const similarEco      = similarProportions(line1.demand.eco / demand1, line2.demand.eco / demand2);
+      const similarBusiness = similarProportions(line1.demand.business / demand1, line2.demand.business / demand2);
+      const similarFirst    = similarProportions(line1.demand.first / demand1, line2.demand.first / demand2);
+      return !isEqual(line1, line2) && similarEco && similarBusiness && similarFirst;
+    };
+
+    const setLines = function (data) {
       data  = _.sortBy(data, [function (line) {
         return line.from;
       }, function (line) {
@@ -473,14 +422,20 @@ angular.module('am2App')
       lines = data;
     };
 
-    var getLines = function () {
-      return $http({method: 'POST', url: 'http://localhost:3000/data/lines'});
+    const getLines = function (query) {
+      return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
+        .then(function (res) {
+          return res;
+        })
+        .catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
+        });
     };
 
-    var getLinesFromTo = function (origin, dest) {
-      var resultLine  = null;
-      var originIsHub = hubsService.isHub(origin);
-      var destIsHub   = hubsService.isHub(dest);
+    const getLinesFromTo = function (origin, dest) {
+      let resultLine  = null;
+      const originIsHub = hubsService.isHub(origin);
+      const destIsHub   = hubsService.isHub(dest);
       //console.log(origin, hubsService.isHub(origin));
       _.forEach(lines, function (line) {
         if (originIsHub && destIsHub) {
@@ -497,14 +452,14 @@ angular.module('am2App')
       return resultLine;
     };
 
-    var getSimilarLines = function (sourceLine) {
+    const getSimilarLines = function (sourceLine) {
       return getLines().then(function (res) {
-        var lines = res.data;
-        var similarLines = _.filter(lines, function (line) {
+        const lines        = res.data;
+        const similarLines = _.filter(lines, function (line) {
           return isSimilar(sourceLine, line);
         });
         return similarLines;
-      })
+      });
     };
 
     return {
@@ -515,7 +470,7 @@ angular.module('am2App')
       isSimilar: isSimilar
     };
   }]);
-},{"lodash":27}],9:[function(require,module,exports){
+},{"lodash":26}],8:[function(require,module,exports){
 angular.module('am2App')
 .factory('models', [function () {
   
@@ -531,57 +486,71 @@ angular.module('am2App')
     Plane: Plane
   };
 }]);
-},{}],10:[function(require,module,exports){
-var _ = require('lodash');
+},{}],9:[function(require,module,exports){
+const _ = require('lodash');
 
 angular.module('am2App')
-.factory('planeService', ['$http', function ($http) {
-  var fleet;
+  .factory('planeService', ['$http', function ($http) {
+    let fleet;
 
-  var setFleet = function (data) {
-    data = _.sortBy(data, [function (plane) {return plane.name;}]);
-    fleet = data;
-  };
+    const setFleet = function (data) {
+      data  = _.sortBy(data, [function (plane) {
+        return plane.name;
+      }]);
+      fleet = data;
+    };
 
-  var getFleet = function () {
-    return fleet;
-  };
+    const getFleet = function () {
+      return fleet;
+    };
 
-  var getPlaneFromName =  function (planeName) {
-    var selection = _.filter(fleet, function (plane) {
-      return _.isEqual(plane.name, planeName);
-    });
-    return selection[0];
-  };
+    const getPlaneFromName = function (planeName) {
+      const selection = _.filter(fleet, function (plane) {
+        return _.isEqual(plane.name, planeName);
+      });
+      return selection[0];
+    };
 
-  var getPlanes = function () {
-    return $http({method: 'POST', url: 'http://localhost:3000/data/planes'});
-  };
+    const getPlanes = function (query) {
+      return $http({method: 'POST', url: 'http://localhost:3000/data/planes', data: query})
+        .then(function (res) {
+          return res;
+        })
+        .catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/data/planes.json');
+        });
+    };
 
-  return {
-    setFleet: setFleet,
-    getFleet: getFleet,
-    getPlaneFromName: getPlaneFromName,
-    getPlanes: getPlanes
-  }
-}]);
-},{"lodash":27}],11:[function(require,module,exports){
-var _ = require('lodash');
+    return {
+      setFleet: setFleet,
+      getFleet: getFleet,
+      getPlaneFromName: getPlaneFromName,
+      getPlanes: getPlanes
+    };
+  }]);
+},{"lodash":26}],10:[function(require,module,exports){
+const _ = require('lodash');
 
 angular.module('am2App')
   .factory('planeSpecService', ['$http', function ($http) {
-    var planesRef;
+    let planesRef;
 
-    var setPlanesRef = function (data) {
+    const setPlanesRef = function (data) {
       planesRef = data;
     };
 
-    var getPlaneSpecs = function (query) {
-      return $http({method: 'POST', url: 'http://localhost:3000/data/planespecs', data: query});
+    const getPlaneSpecs = function (query) {
+      return $http({method: 'POST', url: 'http://localhost:3000/data/planespecs', data: query})
+        .then(function (res) {
+          return res;
+        })
+        .catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
+        });
     };
 
-    var getSeatsFromType = function (type) {
-      var seats = 0;
+    const getSeatsFromType = function (type) {
+      let seats = 0;
       _.forEach(planesRef, function (plane) {
         if (_.isEqual(plane.type, type)) {
           seats = plane.seats;
@@ -590,8 +559,8 @@ angular.module('am2App')
       return seats;
     };
 
-    var getSpeedFromType = function (type) {
-      var speed = 0;
+    const getSpeedFromType = function (type) {
+      let speed = 0;
       _.forEach(planesRef, function (plane) {
         if (_.isEqual(plane.type, type)) {
           speed = plane.speed;
@@ -607,7 +576,7 @@ angular.module('am2App')
       getSpeedFromType: getSpeedFromType
     };
   }]);
-},{"lodash":27}],12:[function(require,module,exports){
+},{"lodash":26}],11:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -669,7 +638,7 @@ angular.module('am2App')
       }, true);
 
     }]);
-},{"lodash":27}],13:[function(require,module,exports){
+},{"lodash":26}],12:[function(require,module,exports){
 angular.module('am2App')
 .directive('hubSelect', function () {
   return {
@@ -685,7 +654,7 @@ angular.module('am2App')
     }]
   };
 });
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -736,7 +705,7 @@ angular.module('am2App')
     }]
   }; 
 });
-},{"lodash":27}],15:[function(require,module,exports){
+},{"lodash":26}],14:[function(require,module,exports){
 angular.module('am2App')
 .directive('lineSelect', function () {
   return {
@@ -753,7 +722,7 @@ angular.module('am2App')
     }]
   };
 });
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -805,7 +774,7 @@ angular.module('am2App')
     ]
   };
 });
-},{"lodash":27}],17:[function(require,module,exports){
+},{"lodash":26}],16:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -876,7 +845,7 @@ angular.module('am2App')
         linesService.setLines($scope.lines);
       };
     }]);
-},{"lodash":27}],18:[function(require,module,exports){
+},{"lodash":26}],17:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -907,7 +876,7 @@ angular.module('am2App')
     }]
   };
 });
-},{"lodash":27}],19:[function(require,module,exports){
+},{"lodash":26}],18:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -944,7 +913,7 @@ angular.module('am2App')
     }]
   }; 
 });
-},{"lodash":27}],20:[function(require,module,exports){
+},{"lodash":26}],19:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -997,12 +966,12 @@ angular.module('am2App')
     ]
   };
 });
-},{"lodash":27}],21:[function(require,module,exports){
+},{"lodash":26}],20:[function(require,module,exports){
 angular.module('am2App')
 .controller('toolsController', ['$scope', function toolsController($scope) {
 
 }]);
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 angular.module('am2App')
 .directive('typeSelect', function () {
   return {
@@ -1018,7 +987,7 @@ angular.module('am2App')
     }]
   };
 });
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.4.2
@@ -5703,7 +5672,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.2
  * (c) 2010-2017 Google, Inc. http://angularjs.org
@@ -38838,11 +38807,11 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],25:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":24}],26:[function(require,module,exports){
+},{"./angular":23}],25:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.1.1
  * https://jquery.com/
@@ -49064,7 +49033,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],27:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 (function (global){
 /**
  * @license

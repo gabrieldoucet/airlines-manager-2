@@ -31,5 +31,5 @@ div(class="panel panel-default")
         td {{line.distance}}
         td {{line.demand.eco}} / {{line.demand.business}} / {{line.demand.first}} / {{line.demand.cargo}}
         td 
-          div(ng-repeat="planeName in line.planes")
-            plane-label(title="planeName", line="line")
+          div(ng-repeat="plane in line.planes")
+            plane-label(title="plane.name", line="line")

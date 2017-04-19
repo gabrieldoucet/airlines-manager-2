@@ -34,16 +34,13 @@ angular.module('am2App', ['ui.router'])
           templateUrl: 'templates/fleet',
           controller: 'fleetController'
         }
-      },
-      resolve: {
-        promiseObj: 'dataLoader'
       }
     })
     .state('root.fleet.add', {
       url: '/add',
       views: {
         'tabviewFleet': {
-          templateUrl: 'views/fleet-add.html'
+          templateUrl: 'templates/fleetAdd'
         }
       }
     })
@@ -59,7 +56,7 @@ angular.module('am2App', ['ui.router'])
       url: '/optim',
       views: {
         'tabviewFleet': {
-          templateUrl: 'views/fleet-optim.html'
+          templateUrl: 'templates/fleetOptim'
         }
       }
     })
@@ -70,9 +67,6 @@ angular.module('am2App', ['ui.router'])
           templateUrl: 'templates/lines',
           controller: 'linesController'
         }
-      },
-      resolve: {
-        promiseObj: 'dataLoader'
       }
     })
     .state('root.tools', {
@@ -82,9 +76,6 @@ angular.module('am2App', ['ui.router'])
           templateUrl: 'templates/tools',
           controller: 'toolsController'
         }
-      },
-      resolve: {
-        promiseObj: 'dataLoader'
       }
     })
     .state('root.tools.name', {
@@ -102,7 +93,6 @@ require('./lib/randexp.min.js');
 require('./services/algorithmic.js');
 require('./services/calc.js');
 require('./services/classService.js');
-require('./services/dataLoader.js');
 require('./services/planeService.js');
 require('./services/hubsService.js');
 require('./services/linesService.js');

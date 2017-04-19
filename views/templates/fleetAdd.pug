@@ -1,0 +1,44 @@
+//
+   Created by Gabriel on 19/04/2017.
+
+.container-fluid
+  .row
+    .col-lg-3
+      .form-horizontal
+        .form-group
+          h4.col-lg-12 Détails
+        .form-group.has-feedback.has-feedback-left
+          label.control-label.col-lg-3 Nom
+          .col-lg-6
+            input.form-control(type='text', ng-model='newPlane.name')
+        .form-group
+          label.control-label.col-lg-3(name='typeSelect') Hub
+          .col-lg-3
+            hub-select(ng-model='newPlane.hub')
+        .form-group
+          label.control-label.col-lg-3 Type
+          .col-lg-3
+            type-select(ng-model='newPlane.type')
+        .form-group
+          label.control-label.col-lg-3 Éco
+          .col-lg-4
+            input.form-control(type='number', ng-model='newPlane.config.eco', min='0')
+        .form-group
+          label.control-label.col-lg-3 Affaire
+          .col-lg-4
+            input.form-control(type='number', ng-model='newPlane.config.business', min='0')
+        .form-group
+          label.control-label.col-lg-3 Première
+          .col-lg-4
+            input.form-control(type='number', ng-model='newPlane.config.first', min='0')
+        .form-group
+          .col-lg-4
+            input.btn.btn-primary(type='button', value='Ajouter', ng-click='addToFleet()')
+      // end of form-horizontal
+    .container-fluid.col-lg-12
+      h4 Sélectionnez les destinations
+      form.form-horizontal(ng-repeat='line in newPlane.availableLines')
+        .form-group
+          label.control-label {{line.to}}
+          input(type='checkbox')
+

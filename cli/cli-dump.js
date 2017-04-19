@@ -16,7 +16,7 @@ program
 
 async.series([
   function (callback) {
-    fs.mkdir(path.join(__dirname, '..', 'data'), callback);
+    fs.mkdir(path.join(__dirname, '..', 'dist', 'data'), callback);
   },
 
   function (callback) {
