@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 angular.module('am2App')
 .directive('lineSelect', function () {
   return {
@@ -9,7 +11,7 @@ angular.module('am2App')
     },
     controller: ['$scope', 'linesService', function ($scope, linesService) {
       linesService.getLines().then(function (res) {
-        $scope.lines = res.data;
+        $scope.lines = _.sortBy(res.data, ['from', 'to']);
       });
     }]
   };
