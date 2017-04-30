@@ -1,10 +1,10 @@
 {
   "name": "airlines-manager-2",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
+    "dev": "./node_modules/.bin/nodemon ./bin/www",
     "build": "./node_modules/.bin/gulp dist",
-    "start": "node ./bin/www",
-    "dev": "./node_modules/.bin/nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",

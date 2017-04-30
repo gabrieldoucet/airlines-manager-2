@@ -60,6 +60,6 @@ gulp.task('dbdump', function () {
   });
 });
 
-gulp.task('default', ['browserify', 'index', 'views', 'sass', 'watch']);
-gulp.task('dev', ['browserify', 'views', 'sass', 'watch']);
+gulp.task('default', ['browserify', 'views', 'sass', 'watch']);
+gulp.task('dev', ['default']);
 gulp.task('dist', ['dbdump', 'browserify', 'views', 'sass']);
