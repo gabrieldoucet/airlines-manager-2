@@ -5,3 +5,5 @@ then
   exit 1
 fi
 git subtree push --prefix $1 origin gh-pages
+
+#git push origin `git subtree split --prefix dist 2.0.0`:gh-pages --force

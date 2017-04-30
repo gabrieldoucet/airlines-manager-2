@@ -36,10 +36,9 @@ angular.module('am2App')
       return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
         .then(function (res) {
           return res;
-        });
-      /*        .catch(function (data) {
-       return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
-       });*/
+        }).catch(function (data) {
+        return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
+      });
     };
 
     const getLinesFromTo = function (origin, dest) {
