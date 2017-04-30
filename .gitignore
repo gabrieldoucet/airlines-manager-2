@@ -4,4 +4,4 @@ npm-debug.log
 .sass-cache/
 db/
 node_modules/
-dist/
+views/templates/
