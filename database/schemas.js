@@ -2,23 +2,23 @@
  * Created by Gabriel on 30/03/2017.
  */
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var hubSchema = new mongoose.Schema({
+const hubSchema = new mongoose.Schema({
   code: String,
   name: String,
   immat: [String]
 });
 
-var planeSchema = new mongoose.Schema({
+const planeSchema = new mongoose.Schema({
   name: String,
   type: String,
   hub: String,
   dests: [String],
-  config: {eco: Number, business: Number, first: Number}
+  config: {eco: Number, business: Number, first: Number, cargo: Number}
 });
 
-var durationSchema = new mongoose.Schema({
+const durationSchema = new mongoose.Schema({
   hours: Number,
   min: Number,
   sec: Number,
@@ -26,18 +26,19 @@ var durationSchema = new mongoose.Schema({
   asString: String
 });
 
-var optiSchema = new mongoose.Schema({
+const optiSchema = new mongoose.Schema({
   type: String,
   config: {
     eco: Number,
     business: Number,
-    first: Number
+    first: Number,
+    cargo: Number
   },
   percent: Number,
   duration: durationSchema
 });
 
-var lineSchema = new mongoose.Schema({
+const lineSchema = new mongoose.Schema({
   from: String,
   to: String,
   distance: Number,
@@ -47,7 +48,7 @@ var lineSchema = new mongoose.Schema({
   optis: [optiSchema]
 });
 
-var planeSpecSchema = new mongoose.Schema({
+const planeSpecSchema = new mongoose.Schema({
   type: String,
   seats: Number,
   rayon: Number,

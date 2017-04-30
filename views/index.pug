@@ -49,6 +49,7 @@ html(lang='en', ng-app='am2App')
                     li.mdl-menu__item(ng-repeat='line in selects.lineChoices', ng-click='chooseLine(line)')
                       | {{line.from}}
                       | - {{line.to}}
+
                 .mdl-cell--6-col(ng-if='selects.selectedLine')
                   h5 Demande
                   span.mdl-chip.mdl-chip--contact
@@ -117,7 +118,7 @@ html(lang='en', ng-app='am2App')
                             span.mdl-chip__text {{opti.config.first}} pax
                         td.mdl-data-table__cell--non-numeric {{opti.duration.asString}}
                         td.mdl-data-table__cell--non-numeric {{opti.percent}}
-            .mdl-cell--12-col(ng-if='false')
+            .mdl-cell--12-col(ng-if='true')
               div
                 form
                   .mdl-textfield.mdl-js-textfield

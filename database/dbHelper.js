@@ -1,10 +1,11 @@
-const async      = require('async');
-const _          = require('lodash');
-const path       = require('path');
-const schemas    = require(path.join(__dirname, 'schemas'));
-const connection = require(path.join(__dirname, 'connection'));
-
-const calcHelper = require(path.join(__dirname, '..', 'helpers', 'calculationHelper'));
+const async         = require('async');
+const fs            = require('fs');
+const _             = require('lodash');
+const path          = require('path');
+const schemas       = require(path.join(__dirname, 'schemas'));
+const connection    = require(path.join(__dirname, 'connection'));
+const dbDescription = require(path.join(__dirname, 'description'));
+const calcHelper    = require(path.join(__dirname, '..', 'helpers', 'calculationHelper'));
 
 const getModel = function (collection) {
   'use strict';
@@ -160,6 +161,36 @@ const consolidate = function (callback) {
     }], callback);
 };
 
+const dumpCollections = function (callback) {
+  'use strict';
+  async.each(dbDescription, function (collectionDescription, callback) {
+    let collection = _.get(collectionDescription, 'name');
+    let file       = _.get(collectionDescription, 'file');
+    find(collection, {}, function (err, results) {
+      if (err) {
+        callback(err);
+      }
+      let strResults = JSON.stringify(results, null, 2);
+      let filePath   = path.join(__dirname, '..', 'dist', 'data', file);
+      fs.writeFile(filePath, strResults, function (err) {
+        if (err) {
+          callback(err);
+        } else {
+          console.log([collection, 'has been written to', filePath].join(' '));
+          callback();
+        }
+      });
+    });
+  }, callback);
+};
+
+const dump = function (callback) {
+  async.series([
+    consolidate,
+    dumpCollections
+  ], callback);
+};
+
 const closeConnection = function (callback) {
   console.log('Closing connection');
   connection.disconnect(callback);
@@ -169,5 +200,6 @@ module.exports = {
   find: find,
   closeConnection: closeConnection,
   update: update,
-  consolidate: consolidate
+  consolidate: consolidate,
+  dump: dump
 };

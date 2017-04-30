@@ -2,56 +2,83 @@
  * Created by Gabriel on 05/04/2017.
  */
 
-var _ = require('lodash');
+const _ = require('lodash');
 
 angular.module('am2App')
-  .controller('mockupController', ['$scope', 'calc', 'planeService', 'linesService', function ($scope, calc, planeService, lineService) {
-    $scope.selects    = {};
-    $scope.manualLine = {};
-    $scope.results    = {};
+  .controller('mockupController', ['$scope', 'calc', 'planeService', 'linesService', 'planeSpecService',
+    function ($scope, calc, planeService, lineService, planeSpecService) {
+      $scope.selects = {manualInput: false};
+      $scope.results = {};
 
-    $scope.$watch('selects.selectedLine', function (line) {
-      if (!_.isNil(line)) {
-        lineService.getSimilarLines(line).then(function (data) {
-          $scope.results.similarLines = data;
+      $scope.$watch('selects.selectedLine', function (line) {
+        if (!_.isNil(line)) {
+          lineService.getSimilarLines(line).then(function (data) {
+            $scope.results.similarLines = data;
+          });
+          calc.getOptiPlanes(line).then(function (data) {
+            $scope.results.optiPlanes = data;
+          });
+        }
+      }, true);
+
+      $scope.chooseLine = function (line) {
+        $scope.selects.selectedLine = line;
+        $scope.selects.manualLine   = line;
+        return false;
+      };
+
+      $scope.choosePlane = function (plane) {
+        $scope.selects.selectedPlane = plane;
+        return false;
+      };
+
+      lineService.getLines().then(function (res) {
+        $scope.selects.lineChoices = _.sortBy(res.data, ['from', 'to']);
+      });
+
+      planeService.getPlanes().then(function (res) {
+        $scope.selects.planeChoices = _.sortBy(res.data, ['name']);
+      });
+
+      $scope.getPlaneIcon = function (plane) {
+        if (calc.isOptimised(plane, $scope.selects.selectedLine)) {
+          return 'done';
+        } else {
+          return '';
+        }
+      };
+
+      $scope.getPlaneClass = function (plane) {
+        let defaultClass = 'mdl-button mdl-js-button mdl-js-ripple-effect';
+        if (calc.isOptimised(plane, $scope.selects.selectedLine)) {
+          return [defaultClass, 'mdl-button--primary'].join(' ');
+        } else {
+          return defaultClass;
+        }
+      };
+
+
+      $scope.getAllOptis = function () {
+        planeSpecService.getPlanesRef().then(function (res) {
+          const planeSpecs = res.data;
+          let optis        = _.map(planeSpecs, function (planeSpec) {
+            return calc.getOptimisation(planeSpec, $scope.selects.selectedLine);
+          });
+          optis            = _.sortBy(optis, ['percent']);
+          _.set($scope.selects.selectedLine, 'optis', optis);
         });
-        calc.getOptiPlanes(line).then(function (data) {
-          $scope.results.optiPlanes = data;
-        });
-      }
-    }, true);
+      };
 
-    $scope.chooseLine = function (line) {
-      $scope.selects.selectedLine = line;
-      return false;
-    };
+      $scope.toggleManual = function () {
+        if (!$scope.selects.manualInput) {
+          $scope.selects.selectedLineClone = _.cloneDeep($scope.selects.selectedLine);
+        } else {
+          $scope.selects.selectedLine = _.cloneDeep($scope.selects.selectedLineClone);
+        }
+        $scope.selects.manualInput = !$scope.selects.manualInput;
+      };
 
-    $scope.choosePlane = function (plane) {
-      $scope.selects.selectedPlane = plane;
-      return false;
-    };
-
-    lineService.getLines().then(function (res) {
-      $scope.selects.lineChoices = res.data;
-    });
-
-    planeService.getPlanes().then(function (res) {
-      $scope.selects.planeChoices = res.data;
-    });
-
-    $scope.getPlaneIcon = function (plane) {
-      if (calc.isOptimised(plane, $scope.selects.selectedLine)) {
-        return 'done';
-      } else {
-        return '';
-      }
-    };
-
-    $scope.getAllOptis = function () {
-      console.log($scope.manualLine);
-      var lala = calc.getAllOptis($scope.manualLine);
-      console.log(lala);
-      $scope.results.optis = lala;
-      console.log($scope.results.optis);
-    };
-  }]);
+      $scope.reset = function () {
+        $scope.selects.selectedLine = _.cloneDeep($scope.selects.selectedLineClone);
+      };
+    }]);

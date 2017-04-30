@@ -27,9 +27,9 @@ angular.module('am2App')
         .then(function (res) {
           return res;
         })
-        .catch(function (data) {
+/*        .catch(function (data) {
           return $http.get('https://gdoucet-fr.github.io/am2/data/planes.json');
-        });
+        });*/
     };
 
     return {

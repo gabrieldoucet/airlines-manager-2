@@ -36,14 +36,14 @@ angular.module('am2App')
       return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
         .then(function (res) {
           return res;
-        })
-        .catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
         });
+      /*        .catch(function (data) {
+       return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
+       });*/
     };
 
     const getLinesFromTo = function (origin, dest) {
-      let resultLine  = null;
+      let resultLine    = null;
       const originIsHub = hubsService.isHub(origin);
       const destIsHub   = hubsService.isHub(dest);
       //console.log(origin, hubsService.isHub(origin));

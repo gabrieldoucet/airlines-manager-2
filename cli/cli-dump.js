@@ -8,38 +8,25 @@ const fs      = require('fs');
 const _       = require('lodash');
 const path    = require('path');
 
-const dbDescription = require(path.join(__dirname, '..', 'database', 'description'));
-const dbHelper      = require(path.join(__dirname, '..', 'database', 'dbHelper'));
+const dbHelper = require(path.join(__dirname, '..', 'database', 'dbHelper'));
 
 program
   .parse(process.argv);
 
 async.series([
   function (callback) {
-    fs.mkdir(path.join(__dirname, '..', 'dist', 'data'), callback);
+    fs.mkdir(path.join(__dirname, '..', 'dist', 'data'), function (err) {
+      if (_.isEqual(err.code, 'EEXIST')) {
+        console.log('Directory already exists. Creation was ignored.');
+        callback();
+      } else {
+        callback(err);
+      }
+    });
   },
-
-  function (callback) {
-    async.each(dbDescription, function (collectionDescription, callback) {
-      let collection = _.get(collectionDescription, 'name');
-      let file       = _.get(collectionDescription, 'file');
-      dbHelper.find(collection, {}, function (err, results) {
-        if (err) {
-          callback(err);
-        }
-        let strResults = JSON.stringify(results, null, 2);
-        let filePath   = path.join(__dirname, '..', 'data', file);
-        fs.writeFile(filePath, strResults, function (err) {
-          if (err) {
-            callback(err);
-          } else {
-            console.log([collection, 'has been written to', filePath].join(' '));
-            callback();
-          }
-        });
-      });
-    }, callback);
-  }], function (err) {
+  dbHelper.dump
+], function (err) {
+  'use strict';
   let exitCode = 0;
   if (err) {
     exitCode = -1;
