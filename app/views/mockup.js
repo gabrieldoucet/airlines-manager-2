@@ -5,8 +5,8 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .controller('mockupController', ['$scope', 'calc', 'planeService', 'linesService', 'planeSpecService',
-    function ($scope, calc, planeService, lineService, planeSpecService) {
+  .controller('mockupController', ['$scope', 'calc', 'planeService', 'lineService', 'planeSpecService', 'hubService',
+    function ($scope, calc, planeService, lineService, planeSpecService, hubService) {
       $scope.selects = {manualInput: false};
       $scope.results = {};
 
@@ -38,6 +38,10 @@ angular.module('am2App')
 
       planeService.getPlanes().then(function (res) {
         $scope.selects.planeChoices = _.sortBy(res.data, ['name']);
+      });
+
+      hubService.getHubs().then(function (res) {
+        $scope.selects.hubChoices = _.sortBy(res.data, ['name']);
       });
 
       $scope.getPlaneIcon = function (plane) {
@@ -76,6 +80,22 @@ angular.module('am2App')
           $scope.selects.selectedLine = _.cloneDeep($scope.selects.selectedLineClone);
         }
         $scope.selects.manualInput = !$scope.selects.manualInput;
+      };
+
+      $scope.getPlaneName = function () {
+        console.log($scope.selects.hub);
+        let name;
+        let nameAlreadyUsed = true;
+        while (nameAlreadyUsed) {
+          nameAlreadyUsed = false;
+          name            = hubService.randomName($scope.selects.hub);
+          _.forEach($scope.selects.planeChoices, function (plane) {
+            if (_.isEqual(plane.name, name)) {
+              nameAlreadyExists = true;
+            }
+          });
+        }
+        $scope.results.planeName = name;
       };
 
       $scope.reset = function () {

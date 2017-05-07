@@ -1,7 +1,7 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('linesService', ['$http', 'hubsService', function ($http, hubsService) {
+  .factory('lineService', ['$http', function ($http) {
     let lines;
     const similarProportions = function (x, y) {
       const variation = (x - y) / x * 100;

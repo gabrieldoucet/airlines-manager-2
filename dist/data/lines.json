@@ -46,14 +46,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823604fa",
+        "_id": "5906fb655bb6b949863c304e",
         "duration": {
           "asString": "6h30",
           "dec": 6.5,
           "sec": 0,
           "min": 30,
           "hours": 6,
-          "_id": "5905cb88db1d941f823604fb"
+          "_id": "5906fb655bb6b949863c304f"
         },
         "percent": 6.62,
         "type": "Concorde",
@@ -65,14 +65,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823604f8",
+        "_id": "5906fb655bb6b949863c304c",
         "duration": {
           "asString": "13h30",
           "dec": 13.5,
           "sec": 0,
           "min": 30,
           "hours": 13,
-          "_id": "5905cb88db1d941f823604f9"
+          "_id": "5906fb655bb6b949863c304d"
         },
         "percent": 10.02,
         "type": "A320-200NEO",
@@ -84,14 +84,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823604f6",
+        "_id": "5906fb655bb6b949863c304a",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f823604f7"
+          "_id": "5906fb655bb6b949863c304b"
         },
         "percent": 19.6,
         "type": "787-8",
@@ -103,14 +103,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823604f4",
+        "_id": "5906fb655bb6b949863c3048",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f823604f5"
+          "_id": "5906fb655bb6b949863c3049"
         },
         "percent": 21.6,
         "type": "787-9",
@@ -122,14 +122,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823604f2",
+        "_id": "5906fb655bb6b949863c3046",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f823604f3"
+          "_id": "5906fb655bb6b949863c3047"
         },
         "percent": 22.65,
         "type": "777-200LR",
@@ -141,14 +141,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823604f0",
+        "_id": "5906fb655bb6b949863c3044",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f823604f1"
+          "_id": "5906fb655bb6b949863c3045"
         },
         "percent": 24.48,
         "type": "A350-900XWB",
@@ -160,14 +160,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823604ee",
+        "_id": "5906fb655bb6b949863c3042",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f823604ef"
+          "_id": "5906fb655bb6b949863c3043"
         },
         "percent": 28.31,
         "type": "777-300ER",
@@ -179,14 +179,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823604ec",
+        "_id": "5906fb655bb6b949863c3040",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f823604ed"
+          "_id": "5906fb655bb6b949863c3041"
         },
         "percent": 43.9,
         "type": "A380-800",
@@ -353,14 +353,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236050a",
+        "_id": "5906fb655bb6b949863c305e",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f8236050b"
+          "_id": "5906fb655bb6b949863c305f"
         },
         "percent": 5.89,
         "type": "Concorde",
@@ -372,14 +372,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360508",
+        "_id": "5906fb655bb6b949863c305c",
         "duration": {
           "asString": "14h30",
           "dec": 14.5,
           "sec": 0,
           "min": 30,
           "hours": 14,
-          "_id": "5905cb88db1d941f82360509"
+          "_id": "5906fb655bb6b949863c305d"
         },
         "percent": 8.93,
         "type": "A320-200NEO",
@@ -391,14 +391,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360506",
+        "_id": "5906fb655bb6b949863c305a",
         "duration": {
           "asString": "13h30",
           "dec": 13.5,
           "sec": 0,
           "min": 30,
           "hours": 13,
-          "_id": "5905cb88db1d941f82360507"
+          "_id": "5906fb655bb6b949863c305b"
         },
         "percent": 17.48,
         "type": "787-8",
@@ -410,14 +410,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360504",
+        "_id": "5906fb655bb6b949863c3058",
         "duration": {
           "asString": "13h30",
           "dec": 13.5,
           "sec": 0,
           "min": 30,
           "hours": 13,
-          "_id": "5905cb88db1d941f82360505"
+          "_id": "5906fb655bb6b949863c3059"
         },
         "percent": 19.29,
         "type": "787-9",
@@ -429,14 +429,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360502",
+        "_id": "5906fb655bb6b949863c3056",
         "duration": {
           "asString": "13h45",
           "dec": 13.75,
           "sec": 0,
           "min": 45,
           "hours": 13,
-          "_id": "5905cb88db1d941f82360503"
+          "_id": "5906fb655bb6b949863c3057"
         },
         "percent": 20.24,
         "type": "777-200LR",
@@ -448,14 +448,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360500",
+        "_id": "5906fb655bb6b949863c3054",
         "duration": {
           "asString": "13h30",
           "dec": 13.5,
           "sec": 0,
           "min": 30,
           "hours": 13,
-          "_id": "5905cb88db1d941f82360501"
+          "_id": "5906fb655bb6b949863c3055"
         },
         "percent": 21.85,
         "type": "A350-900XWB",
@@ -467,14 +467,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823604fe",
+        "_id": "5906fb655bb6b949863c3052",
         "duration": {
           "asString": "13h45",
           "dec": 13.75,
           "sec": 0,
           "min": 45,
           "hours": 13,
-          "_id": "5905cb88db1d941f823604ff"
+          "_id": "5906fb655bb6b949863c3053"
         },
         "percent": 25.27,
         "type": "777-300ER",
@@ -486,14 +486,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823604fc",
+        "_id": "5906fb655bb6b949863c3050",
         "duration": {
           "asString": "13h45",
           "dec": 13.75,
           "sec": 0,
           "min": 45,
           "hours": 13,
-          "_id": "5905cb88db1d941f823604fd"
+          "_id": "5906fb655bb6b949863c3051"
         },
         "percent": 39.14,
         "type": "A380-800",
@@ -543,14 +543,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236051a",
+        "_id": "5906fb655bb6b949863c306e",
         "duration": {
           "asString": "6h15",
           "dec": 6.25,
           "sec": 0,
           "min": 15,
           "hours": 6,
-          "_id": "5905cb88db1d941f8236051b"
+          "_id": "5906fb655bb6b949863c306f"
         },
         "percent": 7.23,
         "type": "Concorde",
@@ -562,14 +562,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360518",
+        "_id": "5906fb655bb6b949863c306c",
         "duration": {
           "asString": "13h00",
           "dec": 13,
           "sec": 0,
           "min": 0,
           "hours": 13,
-          "_id": "5905cb88db1d941f82360519"
+          "_id": "5906fb655bb6b949863c306d"
         },
         "percent": 11.04,
         "type": "A320-200NEO",
@@ -581,14 +581,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360516",
+        "_id": "5906fb655bb6b949863c306a",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360517"
+          "_id": "5906fb655bb6b949863c306b"
         },
         "percent": 21.53,
         "type": "787-8",
@@ -600,14 +600,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360514",
+        "_id": "5906fb655bb6b949863c3068",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360515"
+          "_id": "5906fb655bb6b949863c3069"
         },
         "percent": 23.79,
         "type": "787-9",
@@ -619,14 +619,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360512",
+        "_id": "5906fb655bb6b949863c3066",
         "duration": {
           "asString": "12h15",
           "dec": 12.25,
           "sec": 0,
           "min": 15,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360513"
+          "_id": "5906fb655bb6b949863c3067"
         },
         "percent": 24.87,
         "type": "777-200LR",
@@ -638,14 +638,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360510",
+        "_id": "5906fb655bb6b949863c3064",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360511"
+          "_id": "5906fb655bb6b949863c3065"
         },
         "percent": 26.89,
         "type": "A350-900XWB",
@@ -657,14 +657,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236050e",
+        "_id": "5906fb655bb6b949863c3062",
         "duration": {
           "asString": "12h15",
           "dec": 12.25,
           "sec": 0,
           "min": 15,
           "hours": 12,
-          "_id": "5905cb88db1d941f8236050f"
+          "_id": "5906fb655bb6b949863c3063"
         },
         "percent": 31.09,
         "type": "777-300ER",
@@ -676,14 +676,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236050c",
+        "_id": "5906fb655bb6b949863c3060",
         "duration": {
           "asString": "12h15",
           "dec": 12.25,
           "sec": 0,
           "min": 15,
           "hours": 12,
-          "_id": "5905cb88db1d941f8236050d"
+          "_id": "5906fb655bb6b949863c3061"
         },
         "percent": 48.27,
         "type": "A380-800",
@@ -733,14 +733,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236052a",
+        "_id": "5906fb655bb6b949863c307e",
         "duration": {
           "asString": "6h30",
           "dec": 6.5,
           "sec": 0,
           "min": 30,
           "hours": 6,
-          "_id": "5905cb88db1d941f8236052b"
+          "_id": "5906fb655bb6b949863c307f"
         },
         "percent": 6.61,
         "type": "Concorde",
@@ -752,14 +752,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360528",
+        "_id": "5906fb655bb6b949863c307c",
         "duration": {
           "asString": "13h30",
           "dec": 13.5,
           "sec": 0,
           "min": 30,
           "hours": 13,
-          "_id": "5905cb88db1d941f82360529"
+          "_id": "5906fb655bb6b949863c307d"
         },
         "percent": 10,
         "type": "A320-200NEO",
@@ -771,14 +771,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360526",
+        "_id": "5906fb655bb6b949863c307a",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360527"
+          "_id": "5906fb655bb6b949863c307b"
         },
         "percent": 19.64,
         "type": "787-8",
@@ -790,14 +790,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360524",
+        "_id": "5906fb655bb6b949863c3078",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360525"
+          "_id": "5906fb655bb6b949863c3079"
         },
         "percent": 21.66,
         "type": "787-9",
@@ -809,14 +809,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360522",
+        "_id": "5906fb655bb6b949863c3076",
         "duration": {
           "asString": "13h00",
           "dec": 13,
           "sec": 0,
           "min": 0,
           "hours": 13,
-          "_id": "5905cb88db1d941f82360523"
+          "_id": "5906fb655bb6b949863c3077"
         },
         "percent": 22.67,
         "type": "777-200LR",
@@ -828,14 +828,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360520",
+        "_id": "5906fb655bb6b949863c3074",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360521"
+          "_id": "5906fb655bb6b949863c3075"
         },
         "percent": 24.51,
         "type": "A350-900XWB",
@@ -847,14 +847,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236051e",
+        "_id": "5906fb655bb6b949863c3072",
         "duration": {
           "asString": "13h00",
           "dec": 13,
           "sec": 0,
           "min": 0,
           "hours": 13,
-          "_id": "5905cb88db1d941f8236051f"
+          "_id": "5906fb655bb6b949863c3073"
         },
         "percent": 28.36,
         "type": "777-300ER",
@@ -866,14 +866,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236051c",
+        "_id": "5906fb655bb6b949863c3070",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f8236051d"
+          "_id": "5906fb655bb6b949863c3071"
         },
         "percent": 43.97,
         "type": "A380-800",
@@ -923,14 +923,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236053a",
+        "_id": "5906fb655bb6b949863c308e",
         "duration": {
           "asString": "4h15",
           "dec": 4.25,
           "sec": 0,
           "min": 15,
           "hours": 4,
-          "_id": "5905cb88db1d941f8236053b"
+          "_id": "5906fb655bb6b949863c308f"
         },
         "percent": 6.14,
         "type": "Concorde",
@@ -942,14 +942,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360538",
+        "_id": "5906fb655bb6b949863c308c",
         "duration": {
           "asString": "7h15",
           "dec": 7.25,
           "sec": 0,
           "min": 15,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360539"
+          "_id": "5906fb655bb6b949863c308d"
         },
         "percent": 9.36,
         "type": "A320-200NEO",
@@ -961,14 +961,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360536",
+        "_id": "5906fb655bb6b949863c308a",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360537"
+          "_id": "5906fb655bb6b949863c308b"
         },
         "percent": 18.31,
         "type": "787-8",
@@ -980,14 +980,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360534",
+        "_id": "5906fb655bb6b949863c3088",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360535"
+          "_id": "5906fb655bb6b949863c3089"
         },
         "percent": 20.16,
         "type": "787-9",
@@ -999,14 +999,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360532",
+        "_id": "5906fb655bb6b949863c3086",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360533"
+          "_id": "5906fb655bb6b949863c3087"
         },
         "percent": 21.12,
         "type": "777-200LR",
@@ -1018,14 +1018,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360530",
+        "_id": "5906fb655bb6b949863c3084",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360531"
+          "_id": "5906fb655bb6b949863c3085"
         },
         "percent": 22.79,
         "type": "A350-900XWB",
@@ -1037,14 +1037,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236052e",
+        "_id": "5906fb655bb6b949863c3082",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f8236052f"
+          "_id": "5906fb655bb6b949863c3083"
         },
         "percent": 26.42,
         "type": "777-300ER",
@@ -1056,14 +1056,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236052c",
+        "_id": "5906fb655bb6b949863c3080",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f8236052d"
+          "_id": "5906fb655bb6b949863c3081"
         },
         "percent": 40.98,
         "type": "A380-800",
@@ -1130,14 +1130,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236054a",
+        "_id": "5906fb655bb6b949863c309e",
         "duration": {
           "asString": "5h30",
           "dec": 5.5,
           "sec": 0,
           "min": 30,
           "hours": 5,
-          "_id": "5905cb88db1d941f8236054b"
+          "_id": "5906fb655bb6b949863c309f"
         },
         "percent": 6.07,
         "type": "Concorde",
@@ -1149,14 +1149,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360548",
+        "_id": "5906fb655bb6b949863c309c",
         "duration": {
           "asString": "10h45",
           "dec": 10.75,
           "sec": 0,
           "min": 45,
           "hours": 10,
-          "_id": "5905cb88db1d941f82360549"
+          "_id": "5906fb655bb6b949863c309d"
         },
         "percent": 9.24,
         "type": "A320-200NEO",
@@ -1168,14 +1168,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360546",
+        "_id": "5906fb655bb6b949863c309a",
         "duration": {
           "asString": "10h00",
           "dec": 10,
           "sec": 0,
           "min": 0,
           "hours": 10,
-          "_id": "5905cb88db1d941f82360547"
+          "_id": "5906fb655bb6b949863c309b"
         },
         "percent": 18.01,
         "type": "787-8",
@@ -1187,14 +1187,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360544",
+        "_id": "5906fb655bb6b949863c3098",
         "duration": {
           "asString": "10h00",
           "dec": 10,
           "sec": 0,
           "min": 0,
           "hours": 10,
-          "_id": "5905cb88db1d941f82360545"
+          "_id": "5906fb655bb6b949863c3099"
         },
         "percent": 19.83,
         "type": "787-9",
@@ -1206,14 +1206,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360542",
+        "_id": "5906fb655bb6b949863c3096",
         "duration": {
           "asString": "10h15",
           "dec": 10.25,
           "sec": 0,
           "min": 15,
           "hours": 10,
-          "_id": "5905cb88db1d941f82360543"
+          "_id": "5906fb655bb6b949863c3097"
         },
         "percent": 20.78,
         "type": "777-200LR",
@@ -1225,14 +1225,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360540",
+        "_id": "5906fb655bb6b949863c3094",
         "duration": {
           "asString": "10h00",
           "dec": 10,
           "sec": 0,
           "min": 0,
           "hours": 10,
-          "_id": "5905cb88db1d941f82360541"
+          "_id": "5906fb655bb6b949863c3095"
         },
         "percent": 22.46,
         "type": "A350-900XWB",
@@ -1244,14 +1244,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236053e",
+        "_id": "5906fb655bb6b949863c3092",
         "duration": {
           "asString": "10h15",
           "dec": 10.25,
           "sec": 0,
           "min": 15,
           "hours": 10,
-          "_id": "5905cb88db1d941f8236053f"
+          "_id": "5906fb655bb6b949863c3093"
         },
         "percent": 25.97,
         "type": "777-300ER",
@@ -1263,14 +1263,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236053c",
+        "_id": "5906fb655bb6b949863c3090",
         "duration": {
           "asString": "10h15",
           "dec": 10.25,
           "sec": 0,
           "min": 15,
           "hours": 10,
-          "_id": "5905cb88db1d941f8236053d"
+          "_id": "5906fb655bb6b949863c3091"
         },
         "percent": 40.34,
         "type": "A380-800",
@@ -1335,14 +1335,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360556",
+        "_id": "5906fb655bb6b949863c30aa",
         "duration": {
           "asString": "22h15",
           "dec": 22.25,
           "sec": 0,
           "min": 15,
           "hours": 22,
-          "_id": "5905cb88db1d941f82360557"
+          "_id": "5906fb655bb6b949863c30ab"
         },
         "percent": 23.96,
         "type": "787-8",
@@ -1354,14 +1354,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360554",
+        "_id": "5906fb655bb6b949863c30a8",
         "duration": {
           "asString": "22h15",
           "dec": 22.25,
           "sec": 0,
           "min": 15,
           "hours": 22,
-          "_id": "5905cb88db1d941f82360555"
+          "_id": "5906fb655bb6b949863c30a9"
         },
         "percent": 26.48,
         "type": "787-9",
@@ -1373,14 +1373,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360552",
+        "_id": "5906fb655bb6b949863c30a6",
         "duration": {
           "asString": "22h45",
           "dec": 22.75,
           "sec": 0,
           "min": 45,
           "hours": 22,
-          "_id": "5905cb88db1d941f82360553"
+          "_id": "5906fb655bb6b949863c30a7"
         },
         "percent": 27.69,
         "type": "777-200LR",
@@ -1392,14 +1392,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360550",
+        "_id": "5906fb655bb6b949863c30a4",
         "duration": {
           "asString": "22h15",
           "dec": 22.25,
           "sec": 0,
           "min": 15,
           "hours": 22,
-          "_id": "5905cb88db1d941f82360551"
+          "_id": "5906fb655bb6b949863c30a5"
         },
         "percent": 29.89,
         "type": "A350-900XWB",
@@ -1411,14 +1411,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236054e",
+        "_id": "5906fb655bb6b949863c30a2",
         "duration": {
           "asString": "22h45",
           "dec": 22.75,
           "sec": 0,
           "min": 45,
           "hours": 22,
-          "_id": "5905cb88db1d941f8236054f"
+          "_id": "5906fb655bb6b949863c30a3"
         },
         "percent": 34.62,
         "type": "777-300ER",
@@ -1430,14 +1430,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236054c",
+        "_id": "5906fb655bb6b949863c30a0",
         "duration": {
           "asString": "22h30",
           "dec": 22.5,
           "sec": 0,
           "min": 30,
           "hours": 22,
-          "_id": "5905cb88db1d941f8236054d"
+          "_id": "5906fb655bb6b949863c30a1"
         },
         "percent": 53.74,
         "type": "A380-800",
@@ -1487,14 +1487,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360566",
+        "_id": "5906fb655bb6b949863c30ba",
         "duration": {
           "asString": "6h15",
           "dec": 6.25,
           "sec": 0,
           "min": 15,
           "hours": 6,
-          "_id": "5905cb88db1d941f82360567"
+          "_id": "5906fb655bb6b949863c30bb"
         },
         "percent": 5.98,
         "type": "Concorde",
@@ -1506,14 +1506,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360564",
+        "_id": "5906fb655bb6b949863c30b8",
         "duration": {
           "asString": "12h30",
           "dec": 12.5,
           "sec": 0,
           "min": 30,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360565"
+          "_id": "5906fb655bb6b949863c30b9"
         },
         "percent": 9.05,
         "type": "A320-200NEO",
@@ -1525,14 +1525,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360562",
+        "_id": "5906fb655bb6b949863c30b6",
         "duration": {
           "asString": "11h45",
           "dec": 11.75,
           "sec": 0,
           "min": 45,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360563"
+          "_id": "5906fb655bb6b949863c30b7"
         },
         "percent": 17.69,
         "type": "787-8",
@@ -1544,14 +1544,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360560",
+        "_id": "5906fb655bb6b949863c30b4",
         "duration": {
           "asString": "11h45",
           "dec": 11.75,
           "sec": 0,
           "min": 45,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360561"
+          "_id": "5906fb655bb6b949863c30b5"
         },
         "percent": 19.52,
         "type": "787-9",
@@ -1563,14 +1563,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236055e",
+        "_id": "5906fb655bb6b949863c30b2",
         "duration": {
           "asString": "11h45",
           "dec": 11.75,
           "sec": 0,
           "min": 45,
           "hours": 11,
-          "_id": "5905cb88db1d941f8236055f"
+          "_id": "5906fb655bb6b949863c30b3"
         },
         "percent": 20.43,
         "type": "777-200LR",
@@ -1582,14 +1582,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236055c",
+        "_id": "5906fb655bb6b949863c30b0",
         "duration": {
           "asString": "11h45",
           "dec": 11.75,
           "sec": 0,
           "min": 45,
           "hours": 11,
-          "_id": "5905cb88db1d941f8236055d"
+          "_id": "5906fb655bb6b949863c30b1"
         },
         "percent": 22.09,
         "type": "A350-900XWB",
@@ -1601,14 +1601,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236055a",
+        "_id": "5906fb655bb6b949863c30ae",
         "duration": {
           "asString": "11h45",
           "dec": 11.75,
           "sec": 0,
           "min": 45,
           "hours": 11,
-          "_id": "5905cb88db1d941f8236055b"
+          "_id": "5906fb655bb6b949863c30af"
         },
         "percent": 25.58,
         "type": "777-300ER",
@@ -1620,14 +1620,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360558",
+        "_id": "5906fb655bb6b949863c30ac",
         "duration": {
           "asString": "11h45",
           "dec": 11.75,
           "sec": 0,
           "min": 45,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360559"
+          "_id": "5906fb655bb6b949863c30ad"
         },
         "percent": 39.7,
         "type": "A380-800",
@@ -1693,14 +1693,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360576",
+        "_id": "5906fb655bb6b949863c30ca",
         "duration": {
           "asString": "7h15",
           "dec": 7.25,
           "sec": 0,
           "min": 15,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360577"
+          "_id": "5906fb655bb6b949863c30cb"
         },
         "percent": 6.81,
         "type": "Concorde",
@@ -1712,14 +1712,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360574",
+        "_id": "5906fb655bb6b949863c30c8",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f82360575"
+          "_id": "5906fb655bb6b949863c30c9"
         },
         "percent": 10.4,
         "type": "A320-200NEO",
@@ -1731,14 +1731,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360572",
+        "_id": "5906fb655bb6b949863c30c6",
         "duration": {
           "asString": "14h00",
           "dec": 14,
           "sec": 0,
           "min": 0,
           "hours": 14,
-          "_id": "5905cb88db1d941f82360573"
+          "_id": "5906fb655bb6b949863c30c7"
         },
         "percent": 20.24,
         "type": "787-8",
@@ -1750,14 +1750,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360570",
+        "_id": "5906fb655bb6b949863c30c4",
         "duration": {
           "asString": "14h00",
           "dec": 14,
           "sec": 0,
           "min": 0,
           "hours": 14,
-          "_id": "5905cb88db1d941f82360571"
+          "_id": "5906fb655bb6b949863c30c5"
         },
         "percent": 22.36,
         "type": "787-9",
@@ -1769,14 +1769,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236056e",
+        "_id": "5906fb655bb6b949863c30c2",
         "duration": {
           "asString": "14h15",
           "dec": 14.25,
           "sec": 0,
           "min": 15,
           "hours": 14,
-          "_id": "5905cb88db1d941f8236056f"
+          "_id": "5906fb655bb6b949863c30c3"
         },
         "percent": 23.37,
         "type": "777-200LR",
@@ -1788,14 +1788,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236056c",
+        "_id": "5906fb655bb6b949863c30c0",
         "duration": {
           "asString": "14h00",
           "dec": 14,
           "sec": 0,
           "min": 0,
           "hours": 14,
-          "_id": "5905cb88db1d941f8236056d"
+          "_id": "5906fb655bb6b949863c30c1"
         },
         "percent": 25.3,
         "type": "A350-900XWB",
@@ -1807,14 +1807,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236056a",
+        "_id": "5906fb655bb6b949863c30be",
         "duration": {
           "asString": "14h15",
           "dec": 14.25,
           "sec": 0,
           "min": 15,
           "hours": 14,
-          "_id": "5905cb88db1d941f8236056b"
+          "_id": "5906fb655bb6b949863c30bf"
         },
         "percent": 29.25,
         "type": "777-300ER",
@@ -1826,14 +1826,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360568",
+        "_id": "5906fb655bb6b949863c30bc",
         "duration": {
           "asString": "14h15",
           "dec": 14.25,
           "sec": 0,
           "min": 15,
           "hours": 14,
-          "_id": "5905cb88db1d941f82360569"
+          "_id": "5906fb655bb6b949863c30bd"
         },
         "percent": 45.35,
         "type": "A380-800",
@@ -1897,14 +1897,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360586",
+        "_id": "5906fb655bb6b949863c30da",
         "duration": {
           "asString": "7h45",
           "dec": 7.75,
           "sec": 0,
           "min": 45,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360587"
+          "_id": "5906fb655bb6b949863c30db"
         },
         "percent": 5.48,
         "type": "Concorde",
@@ -1916,14 +1916,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360584",
+        "_id": "5906fb655bb6b949863c30d8",
         "duration": {
           "asString": "16h15",
           "dec": 16.25,
           "sec": 0,
           "min": 15,
           "hours": 16,
-          "_id": "5905cb88db1d941f82360585"
+          "_id": "5906fb655bb6b949863c30d9"
         },
         "percent": 8.34,
         "type": "A320-200NEO",
@@ -1935,14 +1935,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360582",
+        "_id": "5906fb655bb6b949863c30d6",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f82360583"
+          "_id": "5906fb655bb6b949863c30d7"
         },
         "percent": 16.31,
         "type": "787-8",
@@ -1954,14 +1954,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360580",
+        "_id": "5906fb655bb6b949863c30d4",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f82360581"
+          "_id": "5906fb655bb6b949863c30d5"
         },
         "percent": 17.99,
         "type": "787-9",
@@ -1973,14 +1973,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236057e",
+        "_id": "5906fb655bb6b949863c30d2",
         "duration": {
           "asString": "15h30",
           "dec": 15.5,
           "sec": 0,
           "min": 30,
           "hours": 15,
-          "_id": "5905cb88db1d941f8236057f"
+          "_id": "5906fb655bb6b949863c30d3"
         },
         "percent": 18.86,
         "type": "777-200LR",
@@ -1992,14 +1992,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236057c",
+        "_id": "5906fb655bb6b949863c30d0",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f8236057d"
+          "_id": "5906fb655bb6b949863c30d1"
         },
         "percent": 20.35,
         "type": "A350-900XWB",
@@ -2011,14 +2011,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236057a",
+        "_id": "5906fb655bb6b949863c30ce",
         "duration": {
           "asString": "15h30",
           "dec": 15.5,
           "sec": 0,
           "min": 30,
           "hours": 15,
-          "_id": "5905cb88db1d941f8236057b"
+          "_id": "5906fb655bb6b949863c30cf"
         },
         "percent": 23.59,
         "type": "777-300ER",
@@ -2030,14 +2030,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360578",
+        "_id": "5906fb655bb6b949863c30cc",
         "duration": {
           "asString": "15h15",
           "dec": 15.25,
           "sec": 0,
           "min": 15,
           "hours": 15,
-          "_id": "5905cb88db1d941f82360579"
+          "_id": "5906fb655bb6b949863c30cd"
         },
         "percent": 36.54,
         "type": "A380-800",
@@ -2118,14 +2118,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360592",
+        "_id": "5906fb655bb6b949863c30e6",
         "duration": {
           "asString": "19h30",
           "dec": 19.5,
           "sec": 0,
           "min": 30,
           "hours": 19,
-          "_id": "5905cb88db1d941f82360593"
+          "_id": "5906fb655bb6b949863c30e7"
         },
         "percent": 17.37,
         "type": "787-8",
@@ -2137,14 +2137,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360590",
+        "_id": "5906fb655bb6b949863c30e4",
         "duration": {
           "asString": "19h30",
           "dec": 19.5,
           "sec": 0,
           "min": 30,
           "hours": 19,
-          "_id": "5905cb88db1d941f82360591"
+          "_id": "5906fb655bb6b949863c30e5"
         },
         "percent": 19.11,
         "type": "787-9",
@@ -2156,14 +2156,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236058e",
+        "_id": "5906fb655bb6b949863c30e2",
         "duration": {
           "asString": "20h00",
           "dec": 20,
           "sec": 0,
           "min": 0,
           "hours": 20,
-          "_id": "5905cb88db1d941f8236058f"
+          "_id": "5906fb655bb6b949863c30e3"
         },
         "percent": 20.02,
         "type": "777-200LR",
@@ -2175,14 +2175,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236058c",
+        "_id": "5906fb655bb6b949863c30e0",
         "duration": {
           "asString": "19h30",
           "dec": 19.5,
           "sec": 0,
           "min": 30,
           "hours": 19,
-          "_id": "5905cb88db1d941f8236058d"
+          "_id": "5906fb655bb6b949863c30e1"
         },
         "percent": 21.62,
         "type": "A350-900XWB",
@@ -2194,14 +2194,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236058a",
+        "_id": "5906fb655bb6b949863c30de",
         "duration": {
           "asString": "20h00",
           "dec": 20,
           "sec": 0,
           "min": 0,
           "hours": 20,
-          "_id": "5905cb88db1d941f8236058b"
+          "_id": "5906fb655bb6b949863c30df"
         },
         "percent": 25.03,
         "type": "777-300ER",
@@ -2213,14 +2213,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360588",
+        "_id": "5906fb655bb6b949863c30dc",
         "duration": {
           "asString": "19h45",
           "dec": 19.75,
           "sec": 0,
           "min": 45,
           "hours": 19,
-          "_id": "5905cb88db1d941f82360589"
+          "_id": "5906fb655bb6b949863c30dd"
         },
         "percent": 38.83,
         "type": "A380-800",
@@ -2285,14 +2285,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236059e",
+        "_id": "5906fb655bb6b949863c30f2",
         "duration": {
           "asString": "17h00",
           "dec": 17,
           "sec": 0,
           "min": 0,
           "hours": 17,
-          "_id": "5905cb88db1d941f8236059f"
+          "_id": "5906fb655bb6b949863c30f3"
         },
         "percent": 18.14,
         "type": "787-8",
@@ -2304,14 +2304,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236059c",
+        "_id": "5906fb655bb6b949863c30f0",
         "duration": {
           "asString": "17h00",
           "dec": 17,
           "sec": 0,
           "min": 0,
           "hours": 17,
-          "_id": "5905cb88db1d941f8236059d"
+          "_id": "5906fb655bb6b949863c30f1"
         },
         "percent": 19.96,
         "type": "787-9",
@@ -2323,14 +2323,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236059a",
+        "_id": "5906fb655bb6b949863c30ee",
         "duration": {
           "asString": "17h15",
           "dec": 17.25,
           "sec": 0,
           "min": 15,
           "hours": 17,
-          "_id": "5905cb88db1d941f8236059b"
+          "_id": "5906fb655bb6b949863c30ef"
         },
         "percent": 20.91,
         "type": "777-200LR",
@@ -2342,14 +2342,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360598",
+        "_id": "5906fb655bb6b949863c30ec",
         "duration": {
           "asString": "17h00",
           "dec": 17,
           "sec": 0,
           "min": 0,
           "hours": 17,
-          "_id": "5905cb88db1d941f82360599"
+          "_id": "5906fb655bb6b949863c30ed"
         },
         "percent": 22.6,
         "type": "A350-900XWB",
@@ -2361,14 +2361,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360596",
+        "_id": "5906fb655bb6b949863c30ea",
         "duration": {
           "asString": "17h15",
           "dec": 17.25,
           "sec": 0,
           "min": 15,
           "hours": 17,
-          "_id": "5905cb88db1d941f82360597"
+          "_id": "5906fb655bb6b949863c30eb"
         },
         "percent": 26.18,
         "type": "777-300ER",
@@ -2380,14 +2380,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360594",
+        "_id": "5906fb655bb6b949863c30e8",
         "duration": {
           "asString": "17h00",
           "dec": 17,
           "sec": 0,
           "min": 0,
           "hours": 17,
-          "_id": "5905cb88db1d941f82360595"
+          "_id": "5906fb655bb6b949863c30e9"
         },
         "percent": 40.59,
         "type": "A380-800",
@@ -2452,14 +2452,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823605ae",
+        "_id": "5906fb655bb6b949863c3102",
         "duration": {
           "asString": "3h45",
           "dec": 3.75,
           "sec": 0,
           "min": 45,
           "hours": 3,
-          "_id": "5905cb88db1d941f823605af"
+          "_id": "5906fb655bb6b949863c3103"
         },
         "percent": 7.97,
         "type": "Concorde",
@@ -2471,14 +2471,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605ac",
+        "_id": "5906fb655bb6b949863c3100",
         "duration": {
           "asString": "6h15",
           "dec": 6.25,
           "sec": 0,
           "min": 15,
           "hours": 6,
-          "_id": "5905cb88db1d941f823605ad"
+          "_id": "5906fb655bb6b949863c3101"
         },
         "percent": 12.14,
         "type": "A320-200NEO",
@@ -2490,14 +2490,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605aa",
+        "_id": "5906fb655bb6b949863c30fe",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f823605ab"
+          "_id": "5906fb655bb6b949863c30ff"
         },
         "percent": 23.62,
         "type": "787-8",
@@ -2509,14 +2509,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605a8",
+        "_id": "5906fb655bb6b949863c30fc",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f823605a9"
+          "_id": "5906fb655bb6b949863c30fd"
         },
         "percent": 26.03,
         "type": "787-9",
@@ -2528,14 +2528,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605a6",
+        "_id": "5906fb655bb6b949863c30fa",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f823605a7"
+          "_id": "5906fb655bb6b949863c30fb"
         },
         "percent": 27.33,
         "type": "777-200LR",
@@ -2547,14 +2547,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605a4",
+        "_id": "5906fb655bb6b949863c30f8",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f823605a5"
+          "_id": "5906fb655bb6b949863c30f9"
         },
         "percent": 29.46,
         "type": "A350-900XWB",
@@ -2566,14 +2566,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605a2",
+        "_id": "5906fb655bb6b949863c30f6",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f823605a3"
+          "_id": "5906fb655bb6b949863c30f7"
         },
         "percent": 34.18,
         "type": "777-300ER",
@@ -2585,14 +2585,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605a0",
+        "_id": "5906fb655bb6b949863c30f4",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f823605a1"
+          "_id": "5906fb655bb6b949863c30f5"
         },
         "percent": 52.99,
         "type": "A380-800",
@@ -2759,14 +2759,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823605ba",
+        "_id": "5906fb655bb6b949863c310e",
         "duration": {
           "asString": "26h15",
           "dec": 26.25,
           "sec": 0,
           "min": 15,
           "hours": 26,
-          "_id": "5905cb88db1d941f823605bb"
+          "_id": "5906fb655bb6b949863c310f"
         },
         "percent": 16.42,
         "type": "787-8",
@@ -2778,14 +2778,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605b8",
+        "_id": "5906fb655bb6b949863c310c",
         "duration": {
           "asString": "26h15",
           "dec": 26.25,
           "sec": 0,
           "min": 15,
           "hours": 26,
-          "_id": "5905cb88db1d941f823605b9"
+          "_id": "5906fb655bb6b949863c310d"
         },
         "percent": 18.12,
         "type": "787-9",
@@ -2797,14 +2797,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605b6",
+        "_id": "5906fb655bb6b949863c310a",
         "duration": {
           "asString": "26h45",
           "dec": 26.75,
           "sec": 0,
           "min": 45,
           "hours": 26,
-          "_id": "5905cb88db1d941f823605b7"
+          "_id": "5906fb655bb6b949863c310b"
         },
         "percent": 19.01,
         "type": "777-200LR",
@@ -2816,14 +2816,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605b4",
+        "_id": "5906fb655bb6b949863c3108",
         "duration": {
           "asString": "26h15",
           "dec": 26.25,
           "sec": 0,
           "min": 15,
           "hours": 26,
-          "_id": "5905cb88db1d941f823605b5"
+          "_id": "5906fb655bb6b949863c3109"
         },
         "percent": 20.53,
         "type": "A350-900XWB",
@@ -2835,14 +2835,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605b2",
+        "_id": "5906fb655bb6b949863c3106",
         "duration": {
           "asString": "26h45",
           "dec": 26.75,
           "sec": 0,
           "min": 45,
           "hours": 26,
-          "_id": "5905cb88db1d941f823605b3"
+          "_id": "5906fb655bb6b949863c3107"
         },
         "percent": 23.74,
         "type": "777-300ER",
@@ -2854,14 +2854,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605b0",
+        "_id": "5906fb655bb6b949863c3104",
         "duration": {
           "asString": "26h30",
           "dec": 26.5,
           "sec": 0,
           "min": 30,
           "hours": 26,
-          "_id": "5905cb88db1d941f823605b1"
+          "_id": "5906fb655bb6b949863c3105"
         },
         "percent": 36.77,
         "type": "A380-800",
@@ -2911,14 +2911,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823605c8",
+        "_id": "5906fb655bb6b949863c311c",
         "duration": {
           "asString": "17h30",
           "dec": 17.5,
           "sec": 0,
           "min": 30,
           "hours": 17,
-          "_id": "5905cb88db1d941f823605c9"
+          "_id": "5906fb655bb6b949863c311d"
         },
         "percent": 9.04,
         "type": "A320-200NEO",
@@ -2930,14 +2930,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605c6",
+        "_id": "5906fb655bb6b949863c311a",
         "duration": {
           "asString": "16h15",
           "dec": 16.25,
           "sec": 0,
           "min": 15,
           "hours": 16,
-          "_id": "5905cb88db1d941f823605c7"
+          "_id": "5906fb655bb6b949863c311b"
         },
         "percent": 17.6,
         "type": "787-8",
@@ -2949,14 +2949,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605c4",
+        "_id": "5906fb655bb6b949863c3118",
         "duration": {
           "asString": "16h15",
           "dec": 16.25,
           "sec": 0,
           "min": 15,
           "hours": 16,
-          "_id": "5905cb88db1d941f823605c5"
+          "_id": "5906fb655bb6b949863c3119"
         },
         "percent": 19.41,
         "type": "787-9",
@@ -2968,14 +2968,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605c2",
+        "_id": "5906fb655bb6b949863c3116",
         "duration": {
           "asString": "16h30",
           "dec": 16.5,
           "sec": 0,
           "min": 30,
           "hours": 16,
-          "_id": "5905cb88db1d941f823605c3"
+          "_id": "5906fb655bb6b949863c3117"
         },
         "percent": 20.37,
         "type": "777-200LR",
@@ -2987,14 +2987,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605c0",
+        "_id": "5906fb655bb6b949863c3114",
         "duration": {
           "asString": "16h15",
           "dec": 16.25,
           "sec": 0,
           "min": 15,
           "hours": 16,
-          "_id": "5905cb88db1d941f823605c1"
+          "_id": "5906fb655bb6b949863c3115"
         },
         "percent": 21.94,
         "type": "A350-900XWB",
@@ -3006,14 +3006,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605be",
+        "_id": "5906fb655bb6b949863c3112",
         "duration": {
           "asString": "16h30",
           "dec": 16.5,
           "sec": 0,
           "min": 30,
           "hours": 16,
-          "_id": "5905cb88db1d941f823605bf"
+          "_id": "5906fb655bb6b949863c3113"
         },
         "percent": 25.44,
         "type": "777-300ER",
@@ -3025,14 +3025,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605bc",
+        "_id": "5906fb655bb6b949863c3110",
         "duration": {
           "asString": "16h15",
           "dec": 16.25,
           "sec": 0,
           "min": 15,
           "hours": 16,
-          "_id": "5905cb88db1d941f823605bd"
+          "_id": "5906fb655bb6b949863c3111"
         },
         "percent": 39.42,
         "type": "A380-800",
@@ -3126,14 +3126,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823605d4",
+        "_id": "5906fb655bb6b949863c3128",
         "duration": {
           "asString": "22h00",
           "dec": 22,
           "sec": 0,
           "min": 0,
           "hours": 22,
-          "_id": "5905cb88db1d941f823605d5"
+          "_id": "5906fb655bb6b949863c3129"
         },
         "percent": 20.18,
         "type": "787-8",
@@ -3145,14 +3145,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605d2",
+        "_id": "5906fb655bb6b949863c3126",
         "duration": {
           "asString": "22h00",
           "dec": 22,
           "sec": 0,
           "min": 0,
           "hours": 22,
-          "_id": "5905cb88db1d941f823605d3"
+          "_id": "5906fb655bb6b949863c3127"
         },
         "percent": 22.3,
         "type": "787-9",
@@ -3164,14 +3164,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605d0",
+        "_id": "5906fb655bb6b949863c3124",
         "duration": {
           "asString": "22h30",
           "dec": 22.5,
           "sec": 0,
           "min": 30,
           "hours": 22,
-          "_id": "5905cb88db1d941f823605d1"
+          "_id": "5906fb655bb6b949863c3125"
         },
         "percent": 23.32,
         "type": "777-200LR",
@@ -3183,14 +3183,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605ce",
+        "_id": "5906fb655bb6b949863c3122",
         "duration": {
           "asString": "22h00",
           "dec": 22,
           "sec": 0,
           "min": 0,
           "hours": 22,
-          "_id": "5905cb88db1d941f823605cf"
+          "_id": "5906fb655bb6b949863c3123"
         },
         "percent": 25.17,
         "type": "A350-900XWB",
@@ -3202,14 +3202,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605cc",
+        "_id": "5906fb655bb6b949863c3120",
         "duration": {
           "asString": "22h30",
           "dec": 22.5,
           "sec": 0,
           "min": 30,
           "hours": 22,
-          "_id": "5905cb88db1d941f823605cd"
+          "_id": "5906fb655bb6b949863c3121"
         },
         "percent": 29.15,
         "type": "777-300ER",
@@ -3221,14 +3221,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605ca",
+        "_id": "5906fb655bb6b949863c311e",
         "duration": {
           "asString": "22h15",
           "dec": 22.25,
           "sec": 0,
           "min": 15,
           "hours": 22,
-          "_id": "5905cb88db1d941f823605cb"
+          "_id": "5906fb655bb6b949863c311f"
         },
         "percent": 45.26,
         "type": "A380-800",
@@ -3310,14 +3310,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823605e4",
+        "_id": "5906fb655bb6b949863c3138",
         "duration": {
           "asString": "6h15",
           "dec": 6.25,
           "sec": 0,
           "min": 15,
           "hours": 6,
-          "_id": "5905cb88db1d941f823605e5"
+          "_id": "5906fb655bb6b949863c3139"
         },
         "percent": 6.61,
         "type": "Concorde",
@@ -3329,14 +3329,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605e2",
+        "_id": "5906fb655bb6b949863c3136",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f823605e3"
+          "_id": "5906fb655bb6b949863c3137"
         },
         "percent": 10.04,
         "type": "A320-200NEO",
@@ -3348,14 +3348,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605e0",
+        "_id": "5906fb655bb6b949863c3134",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f823605e1"
+          "_id": "5906fb655bb6b949863c3135"
         },
         "percent": 19.68,
         "type": "787-8",
@@ -3367,14 +3367,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605de",
+        "_id": "5906fb655bb6b949863c3132",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f823605df"
+          "_id": "5906fb655bb6b949863c3133"
         },
         "percent": 21.64,
         "type": "787-9",
@@ -3386,14 +3386,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605dc",
+        "_id": "5906fb655bb6b949863c3130",
         "duration": {
           "asString": "12h15",
           "dec": 12.25,
           "sec": 0,
           "min": 15,
           "hours": 12,
-          "_id": "5905cb88db1d941f823605dd"
+          "_id": "5906fb655bb6b949863c3131"
         },
         "percent": 22.7,
         "type": "777-200LR",
@@ -3405,14 +3405,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605da",
+        "_id": "5906fb655bb6b949863c312e",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f823605db"
+          "_id": "5906fb655bb6b949863c312f"
         },
         "percent": 24.5,
         "type": "A350-900XWB",
@@ -3424,14 +3424,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605d8",
+        "_id": "5906fb655bb6b949863c312c",
         "duration": {
           "asString": "12h15",
           "dec": 12.25,
           "sec": 0,
           "min": 15,
           "hours": 12,
-          "_id": "5905cb88db1d941f823605d9"
+          "_id": "5906fb655bb6b949863c312d"
         },
         "percent": 28.34,
         "type": "777-300ER",
@@ -3443,14 +3443,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605d6",
+        "_id": "5906fb655bb6b949863c312a",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f823605d7"
+          "_id": "5906fb655bb6b949863c312b"
         },
         "percent": 44.02,
         "type": "A380-800",
@@ -3515,14 +3515,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823605f4",
+        "_id": "5906fb655bb6b949863c3148",
         "duration": {
           "asString": "6h15",
           "dec": 6.25,
           "sec": 0,
           "min": 15,
           "hours": 6,
-          "_id": "5905cb88db1d941f823605f5"
+          "_id": "5906fb655bb6b949863c3149"
         },
         "percent": 6.02,
         "type": "Concorde",
@@ -3534,14 +3534,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605f2",
+        "_id": "5906fb655bb6b949863c3146",
         "duration": {
           "asString": "12h30",
           "dec": 12.5,
           "sec": 0,
           "min": 30,
           "hours": 12,
-          "_id": "5905cb88db1d941f823605f3"
+          "_id": "5906fb655bb6b949863c3147"
         },
         "percent": 9.19,
         "type": "A320-200NEO",
@@ -3553,14 +3553,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605f0",
+        "_id": "5906fb655bb6b949863c3144",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f823605f1"
+          "_id": "5906fb655bb6b949863c3145"
         },
         "percent": 17.9,
         "type": "787-8",
@@ -3572,14 +3572,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605ee",
+        "_id": "5906fb655bb6b949863c3142",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f823605ef"
+          "_id": "5906fb655bb6b949863c3143"
         },
         "percent": 19.75,
         "type": "787-9",
@@ -3591,14 +3591,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605ec",
+        "_id": "5906fb655bb6b949863c3140",
         "duration": {
           "asString": "11h45",
           "dec": 11.75,
           "sec": 0,
           "min": 45,
           "hours": 11,
-          "_id": "5905cb88db1d941f823605ed"
+          "_id": "5906fb655bb6b949863c3141"
         },
         "percent": 20.7,
         "type": "777-200LR",
@@ -3610,14 +3610,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605ea",
+        "_id": "5906fb655bb6b949863c313e",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f823605eb"
+          "_id": "5906fb655bb6b949863c313f"
         },
         "percent": 22.33,
         "type": "A350-900XWB",
@@ -3629,14 +3629,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605e8",
+        "_id": "5906fb655bb6b949863c313c",
         "duration": {
           "asString": "11h45",
           "dec": 11.75,
           "sec": 0,
           "min": 45,
           "hours": 11,
-          "_id": "5905cb88db1d941f823605e9"
+          "_id": "5906fb655bb6b949863c313d"
         },
         "percent": 25.82,
         "type": "777-300ER",
@@ -3648,14 +3648,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605e6",
+        "_id": "5906fb655bb6b949863c313a",
         "duration": {
           "asString": "11h45",
           "dec": 11.75,
           "sec": 0,
           "min": 45,
           "hours": 11,
-          "_id": "5905cb88db1d941f823605e7"
+          "_id": "5906fb655bb6b949863c313b"
         },
         "percent": 40.07,
         "type": "A380-800",
@@ -3720,14 +3720,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360604",
+        "_id": "5906fb655bb6b949863c3158",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360605"
+          "_id": "5906fb655bb6b949863c3159"
         },
         "percent": 5.92,
         "type": "Concorde",
@@ -3739,14 +3739,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360602",
+        "_id": "5906fb655bb6b949863c3156",
         "duration": {
           "asString": "16h00",
           "dec": 16,
           "sec": 0,
           "min": 0,
           "hours": 16,
-          "_id": "5905cb88db1d941f82360603"
+          "_id": "5906fb655bb6b949863c3157"
         },
         "percent": 9,
         "type": "A320-200NEO",
@@ -3758,14 +3758,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360600",
+        "_id": "5906fb655bb6b949863c3154",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f82360601"
+          "_id": "5906fb655bb6b949863c3155"
         },
         "percent": 17.6,
         "type": "787-8",
@@ -3777,14 +3777,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605fe",
+        "_id": "5906fb655bb6b949863c3152",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f823605ff"
+          "_id": "5906fb655bb6b949863c3153"
         },
         "percent": 19.38,
         "type": "787-9",
@@ -3796,14 +3796,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605fc",
+        "_id": "5906fb655bb6b949863c3150",
         "duration": {
           "asString": "15h15",
           "dec": 15.25,
           "sec": 0,
           "min": 15,
           "hours": 15,
-          "_id": "5905cb88db1d941f823605fd"
+          "_id": "5906fb655bb6b949863c3151"
         },
         "percent": 20.36,
         "type": "777-200LR",
@@ -3815,14 +3815,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605fa",
+        "_id": "5906fb655bb6b949863c314e",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f823605fb"
+          "_id": "5906fb655bb6b949863c314f"
         },
         "percent": 21.98,
         "type": "A350-900XWB",
@@ -3834,14 +3834,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605f8",
+        "_id": "5906fb655bb6b949863c314c",
         "duration": {
           "asString": "15h15",
           "dec": 15.25,
           "sec": 0,
           "min": 15,
           "hours": 15,
-          "_id": "5905cb88db1d941f823605f9"
+          "_id": "5906fb655bb6b949863c314d"
         },
         "percent": 25.39,
         "type": "777-300ER",
@@ -3853,14 +3853,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823605f6",
+        "_id": "5906fb655bb6b949863c314a",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f823605f7"
+          "_id": "5906fb655bb6b949863c314b"
         },
         "percent": 39.42,
         "type": "A380-800",
@@ -3955,14 +3955,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360610",
+        "_id": "5906fb655bb6b949863c3164",
         "duration": {
           "asString": "28h30",
           "dec": 28.5,
           "sec": 0,
           "min": 30,
           "hours": 28,
-          "_id": "5905cb88db1d941f82360611"
+          "_id": "5906fb655bb6b949863c3165"
         },
         "percent": 16.86,
         "type": "787-8",
@@ -3974,14 +3974,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236060e",
+        "_id": "5906fb655bb6b949863c3162",
         "duration": {
           "asString": "28h30",
           "dec": 28.5,
           "sec": 0,
           "min": 30,
           "hours": 28,
-          "_id": "5905cb88db1d941f8236060f"
+          "_id": "5906fb655bb6b949863c3163"
         },
         "percent": 18.55,
         "type": "787-9",
@@ -3993,14 +3993,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236060c",
+        "_id": "5906fb655bb6b949863c3160",
         "duration": {
           "asString": "29h15",
           "dec": 29.25,
           "sec": 0,
           "min": 15,
           "hours": 29,
-          "_id": "5905cb88db1d941f8236060d"
+          "_id": "5906fb655bb6b949863c3161"
         },
         "percent": 19.48,
         "type": "777-200LR",
@@ -4012,14 +4012,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236060a",
+        "_id": "5906fb655bb6b949863c315e",
         "duration": {
           "asString": "28h30",
           "dec": 28.5,
           "sec": 0,
           "min": 30,
           "hours": 28,
-          "_id": "5905cb88db1d941f8236060b"
+          "_id": "5906fb655bb6b949863c315f"
         },
         "percent": 21.02,
         "type": "A350-900XWB",
@@ -4031,14 +4031,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360608",
+        "_id": "5906fb655bb6b949863c315c",
         "duration": {
           "asString": "29h15",
           "dec": 29.25,
           "sec": 0,
           "min": 15,
           "hours": 29,
-          "_id": "5905cb88db1d941f82360609"
+          "_id": "5906fb655bb6b949863c315d"
         },
         "percent": 24.33,
         "type": "777-300ER",
@@ -4050,14 +4050,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360606",
+        "_id": "5906fb655bb6b949863c315a",
         "duration": {
           "asString": "28h45",
           "dec": 28.75,
           "sec": 0,
           "min": 45,
           "hours": 28,
-          "_id": "5905cb88db1d941f82360607"
+          "_id": "5906fb655bb6b949863c315b"
         },
         "percent": 37.72,
         "type": "A380-800",
@@ -4124,14 +4124,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360620",
+        "_id": "5906fb655bb6b949863c3174",
         "duration": {
           "asString": "6h15",
           "dec": 6.25,
           "sec": 0,
           "min": 15,
           "hours": 6,
-          "_id": "5905cb88db1d941f82360621"
+          "_id": "5906fb655bb6b949863c3175"
         },
         "percent": 7.76,
         "type": "Concorde",
@@ -4143,14 +4143,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236061e",
+        "_id": "5906fb655bb6b949863c3172",
         "duration": {
           "asString": "12h45",
           "dec": 12.75,
           "sec": 0,
           "min": 45,
           "hours": 12,
-          "_id": "5905cb88db1d941f8236061f"
+          "_id": "5906fb655bb6b949863c3173"
         },
         "percent": 11.83,
         "type": "A320-200NEO",
@@ -4162,14 +4162,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236061c",
+        "_id": "5906fb655bb6b949863c3170",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f8236061d"
+          "_id": "5906fb655bb6b949863c3171"
         },
         "percent": 23.07,
         "type": "787-8",
@@ -4181,14 +4181,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236061a",
+        "_id": "5906fb655bb6b949863c316e",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f8236061b"
+          "_id": "5906fb655bb6b949863c316f"
         },
         "percent": 25.5,
         "type": "787-9",
@@ -4200,14 +4200,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360618",
+        "_id": "5906fb655bb6b949863c316c",
         "duration": {
           "asString": "12h15",
           "dec": 12.25,
           "sec": 0,
           "min": 15,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360619"
+          "_id": "5906fb655bb6b949863c316d"
         },
         "percent": 26.66,
         "type": "777-200LR",
@@ -4219,14 +4219,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360616",
+        "_id": "5906fb655bb6b949863c316a",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360617"
+          "_id": "5906fb655bb6b949863c316b"
         },
         "percent": 28.79,
         "type": "A350-900XWB",
@@ -4238,14 +4238,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360614",
+        "_id": "5906fb655bb6b949863c3168",
         "duration": {
           "asString": "12h15",
           "dec": 12.25,
           "sec": 0,
           "min": 15,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360615"
+          "_id": "5906fb655bb6b949863c3169"
         },
         "percent": 33.35,
         "type": "777-300ER",
@@ -4257,14 +4257,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360612",
+        "_id": "5906fb655bb6b949863c3166",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f82360613"
+          "_id": "5906fb655bb6b949863c3167"
         },
         "percent": 51.77,
         "type": "A380-800",
@@ -4346,14 +4346,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360630",
+        "_id": "5906fb655bb6b949863c3184",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f82360631"
+          "_id": "5906fb655bb6b949863c3185"
         },
         "percent": 6.38,
         "type": "Concorde",
@@ -4365,14 +4365,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236062e",
+        "_id": "5906fb655bb6b949863c3182",
         "duration": {
           "asString": "12h15",
           "dec": 12.25,
           "sec": 0,
           "min": 15,
           "hours": 12,
-          "_id": "5905cb88db1d941f8236062f"
+          "_id": "5906fb655bb6b949863c3183"
         },
         "percent": 9.75,
         "type": "A320-200NEO",
@@ -4384,14 +4384,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236062c",
+        "_id": "5906fb655bb6b949863c3180",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f8236062d"
+          "_id": "5906fb655bb6b949863c3181"
         },
         "percent": 19.06,
         "type": "787-8",
@@ -4403,14 +4403,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236062a",
+        "_id": "5906fb655bb6b949863c317e",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f8236062b"
+          "_id": "5906fb655bb6b949863c317f"
         },
         "percent": 20.96,
         "type": "787-9",
@@ -4422,14 +4422,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360628",
+        "_id": "5906fb655bb6b949863c317c",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360629"
+          "_id": "5906fb655bb6b949863c317d"
         },
         "percent": 21.99,
         "type": "777-200LR",
@@ -4441,14 +4441,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360626",
+        "_id": "5906fb655bb6b949863c317a",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360627"
+          "_id": "5906fb655bb6b949863c317b"
         },
         "percent": 23.72,
         "type": "A350-900XWB",
@@ -4460,14 +4460,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360624",
+        "_id": "5906fb655bb6b949863c3178",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360625"
+          "_id": "5906fb655bb6b949863c3179"
         },
         "percent": 27.43,
         "type": "777-300ER",
@@ -4479,14 +4479,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360622",
+        "_id": "5906fb655bb6b949863c3176",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360623"
+          "_id": "5906fb655bb6b949863c3177"
         },
         "percent": 42.6,
         "type": "A380-800",
@@ -4566,14 +4566,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236063c",
+        "_id": "5906fb655bb6b949863c3190",
         "duration": {
           "asString": "19h30",
           "dec": 19.5,
           "sec": 0,
           "min": 30,
           "hours": 19,
-          "_id": "5905cb88db1d941f8236063d"
+          "_id": "5906fb655bb6b949863c3191"
         },
         "percent": 19.77,
         "type": "787-8",
@@ -4585,14 +4585,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236063a",
+        "_id": "5906fb655bb6b949863c318e",
         "duration": {
           "asString": "19h30",
           "dec": 19.5,
           "sec": 0,
           "min": 30,
           "hours": 19,
-          "_id": "5905cb88db1d941f8236063b"
+          "_id": "5906fb655bb6b949863c318f"
         },
         "percent": 21.72,
         "type": "787-9",
@@ -4604,14 +4604,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360638",
+        "_id": "5906fb655bb6b949863c318c",
         "duration": {
           "asString": "20h00",
           "dec": 20,
           "sec": 0,
           "min": 0,
           "hours": 20,
-          "_id": "5905cb88db1d941f82360639"
+          "_id": "5906fb655bb6b949863c318d"
         },
         "percent": 22.82,
         "type": "777-200LR",
@@ -4623,14 +4623,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360636",
+        "_id": "5906fb655bb6b949863c318a",
         "duration": {
           "asString": "19h30",
           "dec": 19.5,
           "sec": 0,
           "min": 30,
           "hours": 19,
-          "_id": "5905cb88db1d941f82360637"
+          "_id": "5906fb655bb6b949863c318b"
         },
         "percent": 24.65,
         "type": "A350-900XWB",
@@ -4642,14 +4642,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360634",
+        "_id": "5906fb655bb6b949863c3188",
         "duration": {
           "asString": "20h00",
           "dec": 20,
           "sec": 0,
           "min": 0,
           "hours": 20,
-          "_id": "5905cb88db1d941f82360635"
+          "_id": "5906fb655bb6b949863c3189"
         },
         "percent": 28.43,
         "type": "777-300ER",
@@ -4661,14 +4661,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360632",
+        "_id": "5906fb655bb6b949863c3186",
         "duration": {
           "asString": "19h45",
           "dec": 19.75,
           "sec": 0,
           "min": 45,
           "hours": 19,
-          "_id": "5905cb88db1d941f82360633"
+          "_id": "5906fb655bb6b949863c3187"
         },
         "percent": 44.17,
         "type": "A380-800",
@@ -4768,14 +4768,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236064c",
+        "_id": "5906fb655bb6b949863c31a0",
         "duration": {
           "asString": "3h15",
           "dec": 3.25,
           "sec": 0,
           "min": 15,
           "hours": 3,
-          "_id": "5905cb88db1d941f8236064d"
+          "_id": "5906fb655bb6b949863c31a1"
         },
         "percent": 7.21,
         "type": "Concorde",
@@ -4787,14 +4787,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236064a",
+        "_id": "5906fb655bb6b949863c319e",
         "duration": {
           "asString": "5h00",
           "dec": 5,
           "sec": 0,
           "min": 0,
           "hours": 5,
-          "_id": "5905cb88db1d941f8236064b"
+          "_id": "5906fb655bb6b949863c319f"
         },
         "percent": 10.89,
         "type": "A320-200NEO",
@@ -4806,14 +4806,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360648",
+        "_id": "5906fb655bb6b949863c319c",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360649"
+          "_id": "5906fb655bb6b949863c319d"
         },
         "percent": 21.3,
         "type": "787-8",
@@ -4825,14 +4825,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360646",
+        "_id": "5906fb655bb6b949863c319a",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360647"
+          "_id": "5906fb655bb6b949863c319b"
         },
         "percent": 23.54,
         "type": "787-9",
@@ -4844,14 +4844,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360644",
+        "_id": "5906fb655bb6b949863c3198",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360645"
+          "_id": "5906fb655bb6b949863c3199"
         },
         "percent": 24.66,
         "type": "777-200LR",
@@ -4863,14 +4863,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360642",
+        "_id": "5906fb655bb6b949863c3196",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360643"
+          "_id": "5906fb655bb6b949863c3197"
         },
         "percent": 26.58,
         "type": "A350-900XWB",
@@ -4882,14 +4882,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360640",
+        "_id": "5906fb655bb6b949863c3194",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360641"
+          "_id": "5906fb655bb6b949863c3195"
         },
         "percent": 30.9,
         "type": "777-300ER",
@@ -4901,14 +4901,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236063e",
+        "_id": "5906fb655bb6b949863c3192",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f8236063f"
+          "_id": "5906fb655bb6b949863c3193"
         },
         "percent": 47.88,
         "type": "A380-800",
@@ -4973,14 +4973,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236065c",
+        "_id": "5906fb655bb6b949863c31b0",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f8236065d"
+          "_id": "5906fb655bb6b949863c31b1"
         },
         "percent": 5.81,
         "type": "Concorde",
@@ -4992,14 +4992,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236065a",
+        "_id": "5906fb655bb6b949863c31ae",
         "duration": {
           "asString": "16h00",
           "dec": 16,
           "sec": 0,
           "min": 0,
           "hours": 16,
-          "_id": "5905cb88db1d941f8236065b"
+          "_id": "5906fb655bb6b949863c31af"
         },
         "percent": 8.77,
         "type": "A320-200NEO",
@@ -5011,14 +5011,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360658",
+        "_id": "5906fb655bb6b949863c31ac",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f82360659"
+          "_id": "5906fb655bb6b949863c31ad"
         },
         "percent": 17.29,
         "type": "787-8",
@@ -5030,14 +5030,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360656",
+        "_id": "5906fb655bb6b949863c31aa",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f82360657"
+          "_id": "5906fb655bb6b949863c31ab"
         },
         "percent": 18.97,
         "type": "787-9",
@@ -5049,14 +5049,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360654",
+        "_id": "5906fb655bb6b949863c31a8",
         "duration": {
           "asString": "15h15",
           "dec": 15.25,
           "sec": 0,
           "min": 15,
           "hours": 15,
-          "_id": "5905cb88db1d941f82360655"
+          "_id": "5906fb655bb6b949863c31a9"
         },
         "percent": 19.87,
         "type": "777-200LR",
@@ -5068,14 +5068,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360652",
+        "_id": "5906fb655bb6b949863c31a6",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f82360653"
+          "_id": "5906fb655bb6b949863c31a7"
         },
         "percent": 21.42,
         "type": "A350-900XWB",
@@ -5087,14 +5087,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360650",
+        "_id": "5906fb655bb6b949863c31a4",
         "duration": {
           "asString": "15h15",
           "dec": 15.25,
           "sec": 0,
           "min": 15,
           "hours": 15,
-          "_id": "5905cb88db1d941f82360651"
+          "_id": "5906fb655bb6b949863c31a5"
         },
         "percent": 24.9,
         "type": "777-300ER",
@@ -5106,14 +5106,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236064e",
+        "_id": "5906fb655bb6b949863c31a2",
         "duration": {
           "asString": "15h00",
           "dec": 15,
           "sec": 0,
           "min": 0,
           "hours": 15,
-          "_id": "5905cb88db1d941f8236064f"
+          "_id": "5906fb655bb6b949863c31a3"
         },
         "percent": 38.58,
         "type": "A380-800",
@@ -5196,14 +5196,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236066c",
+        "_id": "5906fb655bb6b949863c31c0",
         "duration": {
           "asString": "3h00",
           "dec": 3,
           "sec": 0,
           "min": 0,
           "hours": 3,
-          "_id": "5905cb88db1d941f8236066d"
+          "_id": "5906fb655bb6b949863c31c1"
         },
         "percent": 10.11,
         "type": "Concorde",
@@ -5215,14 +5215,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236066a",
+        "_id": "5906fb655bb6b949863c31be",
         "duration": {
           "asString": "4h30",
           "dec": 4.5,
           "sec": 0,
           "min": 30,
           "hours": 4,
-          "_id": "5905cb88db1d941f8236066b"
+          "_id": "5906fb655bb6b949863c31bf"
         },
         "percent": 15.28,
         "type": "A320-200NEO",
@@ -5234,14 +5234,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360668",
+        "_id": "5906fb655bb6b949863c31bc",
         "duration": {
           "asString": "4h30",
           "dec": 4.5,
           "sec": 0,
           "min": 30,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360669"
+          "_id": "5906fb655bb6b949863c31bd"
         },
         "percent": 30.11,
         "type": "787-8",
@@ -5253,14 +5253,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360666",
+        "_id": "5906fb655bb6b949863c31ba",
         "duration": {
           "asString": "4h30",
           "dec": 4.5,
           "sec": 0,
           "min": 30,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360667"
+          "_id": "5906fb655bb6b949863c31bb"
         },
         "percent": 33.03,
         "type": "787-9",
@@ -5272,14 +5272,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360664",
+        "_id": "5906fb655bb6b949863c31b8",
         "duration": {
           "asString": "4h30",
           "dec": 4.5,
           "sec": 0,
           "min": 30,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360665"
+          "_id": "5906fb655bb6b949863c31b9"
         },
         "percent": 34.61,
         "type": "777-200LR",
@@ -5291,14 +5291,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360662",
+        "_id": "5906fb655bb6b949863c31b6",
         "duration": {
           "asString": "4h30",
           "dec": 4.5,
           "sec": 0,
           "min": 30,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360663"
+          "_id": "5906fb655bb6b949863c31b7"
         },
         "percent": 37.53,
         "type": "A350-900XWB",
@@ -5310,14 +5310,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360660",
+        "_id": "5906fb655bb6b949863c31b4",
         "duration": {
           "asString": "4h30",
           "dec": 4.5,
           "sec": 0,
           "min": 30,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360661"
+          "_id": "5906fb655bb6b949863c31b5"
         },
         "percent": 43.37,
         "type": "777-300ER",
@@ -5329,14 +5329,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236065e",
+        "_id": "5906fb655bb6b949863c31b2",
         "duration": {
           "asString": "4h30",
           "dec": 4.5,
           "sec": 0,
           "min": 30,
           "hours": 4,
-          "_id": "5905cb88db1d941f8236065f"
+          "_id": "5906fb655bb6b949863c31b3"
         },
         "percent": 67.19,
         "type": "A380-800",
@@ -5450,14 +5450,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236067c",
+        "_id": "5906fb655bb6b949863c31d0",
         "duration": {
           "asString": "4h15",
           "dec": 4.25,
           "sec": 0,
           "min": 15,
           "hours": 4,
-          "_id": "5905cb88db1d941f8236067d"
+          "_id": "5906fb655bb6b949863c31d1"
         },
         "percent": 6.47,
         "type": "Concorde",
@@ -5469,14 +5469,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236067a",
+        "_id": "5906fb655bb6b949863c31ce",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f8236067b"
+          "_id": "5906fb655bb6b949863c31cf"
         },
         "percent": 9.78,
         "type": "A320-200NEO",
@@ -5488,14 +5488,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360678",
+        "_id": "5906fb655bb6b949863c31cc",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360679"
+          "_id": "5906fb655bb6b949863c31cd"
         },
         "percent": 19.28,
         "type": "787-8",
@@ -5507,14 +5507,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360676",
+        "_id": "5906fb655bb6b949863c31ca",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360677"
+          "_id": "5906fb655bb6b949863c31cb"
         },
         "percent": 21.15,
         "type": "787-9",
@@ -5526,14 +5526,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360674",
+        "_id": "5906fb655bb6b949863c31c8",
         "duration": {
           "asString": "7h15",
           "dec": 7.25,
           "sec": 0,
           "min": 15,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360675"
+          "_id": "5906fb655bb6b949863c31c9"
         },
         "percent": 22.16,
         "type": "777-200LR",
@@ -5545,14 +5545,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360672",
+        "_id": "5906fb655bb6b949863c31c6",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360673"
+          "_id": "5906fb655bb6b949863c31c7"
         },
         "percent": 23.88,
         "type": "A350-900XWB",
@@ -5564,14 +5564,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360670",
+        "_id": "5906fb655bb6b949863c31c4",
         "duration": {
           "asString": "7h15",
           "dec": 7.25,
           "sec": 0,
           "min": 15,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360671"
+          "_id": "5906fb655bb6b949863c31c5"
         },
         "percent": 27.77,
         "type": "777-300ER",
@@ -5583,14 +5583,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236066e",
+        "_id": "5906fb655bb6b949863c31c2",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f8236066f"
+          "_id": "5906fb655bb6b949863c31c3"
         },
         "percent": 43.02,
         "type": "A380-800",
@@ -5654,14 +5654,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236068c",
+        "_id": "5906fb655bb6b949863c31e0",
         "duration": {
           "asString": "3h45",
           "dec": 3.75,
           "sec": 0,
           "min": 45,
           "hours": 3,
-          "_id": "5905cb88db1d941f8236068d"
+          "_id": "5906fb655bb6b949863c31e1"
         },
         "percent": 10.08,
         "type": "Concorde",
@@ -5673,14 +5673,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236068a",
+        "_id": "5906fb655bb6b949863c31de",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f8236068b"
+          "_id": "5906fb655bb6b949863c31df"
         },
         "percent": 15.23,
         "type": "A320-200NEO",
@@ -5692,14 +5692,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360688",
+        "_id": "5906fb655bb6b949863c31dc",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360689"
+          "_id": "5906fb655bb6b949863c31dd"
         },
         "percent": 30.01,
         "type": "787-8",
@@ -5711,14 +5711,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360686",
+        "_id": "5906fb655bb6b949863c31da",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360687"
+          "_id": "5906fb655bb6b949863c31db"
         },
         "percent": 32.92,
         "type": "787-9",
@@ -5730,14 +5730,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360684",
+        "_id": "5906fb655bb6b949863c31d8",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360685"
+          "_id": "5906fb655bb6b949863c31d9"
         },
         "percent": 34.49,
         "type": "777-200LR",
@@ -5749,14 +5749,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360682",
+        "_id": "5906fb655bb6b949863c31d6",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360683"
+          "_id": "5906fb655bb6b949863c31d7"
         },
         "percent": 37.4,
         "type": "A350-900XWB",
@@ -5768,14 +5768,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360680",
+        "_id": "5906fb655bb6b949863c31d4",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360681"
+          "_id": "5906fb655bb6b949863c31d5"
         },
         "percent": 43.23,
         "type": "777-300ER",
@@ -5787,14 +5787,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236067e",
+        "_id": "5906fb655bb6b949863c31d2",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f8236067f"
+          "_id": "5906fb655bb6b949863c31d3"
         },
         "percent": 66.97,
         "type": "A380-800",
@@ -5877,14 +5877,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236069c",
+        "_id": "5906fb655bb6b949863c31f0",
         "duration": {
           "asString": "3h00",
           "dec": 3,
           "sec": 0,
           "min": 0,
           "hours": 3,
-          "_id": "5905cb88db1d941f8236069d"
+          "_id": "5906fb655bb6b949863c31f1"
         },
         "percent": 7.8,
         "type": "Concorde",
@@ -5896,14 +5896,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236069a",
+        "_id": "5906fb655bb6b949863c31ee",
         "duration": {
           "asString": "4h00",
           "dec": 4,
           "sec": 0,
           "min": 0,
           "hours": 4,
-          "_id": "5905cb88db1d941f8236069b"
+          "_id": "5906fb655bb6b949863c31ef"
         },
         "percent": 11.79,
         "type": "A320-200NEO",
@@ -5915,14 +5915,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360698",
+        "_id": "5906fb655bb6b949863c31ec",
         "duration": {
           "asString": "4h00",
           "dec": 4,
           "sec": 0,
           "min": 0,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360699"
+          "_id": "5906fb655bb6b949863c31ed"
         },
         "percent": 23.22,
         "type": "787-8",
@@ -5934,14 +5934,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360696",
+        "_id": "5906fb655bb6b949863c31ea",
         "duration": {
           "asString": "4h00",
           "dec": 4,
           "sec": 0,
           "min": 0,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360697"
+          "_id": "5906fb655bb6b949863c31eb"
         },
         "percent": 25.48,
         "type": "787-9",
@@ -5953,14 +5953,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360694",
+        "_id": "5906fb655bb6b949863c31e8",
         "duration": {
           "asString": "4h00",
           "dec": 4,
           "sec": 0,
           "min": 0,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360695"
+          "_id": "5906fb655bb6b949863c31e9"
         },
         "percent": 26.69,
         "type": "777-200LR",
@@ -5972,14 +5972,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360692",
+        "_id": "5906fb655bb6b949863c31e6",
         "duration": {
           "asString": "4h00",
           "dec": 4,
           "sec": 0,
           "min": 0,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360693"
+          "_id": "5906fb655bb6b949863c31e7"
         },
         "percent": 28.77,
         "type": "A350-900XWB",
@@ -5991,14 +5991,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360690",
+        "_id": "5906fb655bb6b949863c31e4",
         "duration": {
           "asString": "4h00",
           "dec": 4,
           "sec": 0,
           "min": 0,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360691"
+          "_id": "5906fb655bb6b949863c31e5"
         },
         "percent": 33.45,
         "type": "777-300ER",
@@ -6010,14 +6010,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236068e",
+        "_id": "5906fb655bb6b949863c31e2",
         "duration": {
           "asString": "4h00",
           "dec": 4,
           "sec": 0,
           "min": 0,
           "hours": 4,
-          "_id": "5905cb88db1d941f8236068f"
+          "_id": "5906fb655bb6b949863c31e3"
         },
         "percent": 51.82,
         "type": "A380-800",
@@ -6097,14 +6097,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823606a8",
+        "_id": "5906fb655bb6b949863c31fc",
         "duration": {
           "asString": "20h45",
           "dec": 20.75,
           "sec": 0,
           "min": 45,
           "hours": 20,
-          "_id": "5905cb88db1d941f823606a9"
+          "_id": "5906fb655bb6b949863c31fd"
         },
         "percent": 21.09,
         "type": "787-8",
@@ -6116,14 +6116,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606a6",
+        "_id": "5906fb655bb6b949863c31fa",
         "duration": {
           "asString": "20h45",
           "dec": 20.75,
           "sec": 0,
           "min": 45,
           "hours": 20,
-          "_id": "5905cb88db1d941f823606a7"
+          "_id": "5906fb655bb6b949863c31fb"
         },
         "percent": 23.29,
         "type": "787-9",
@@ -6135,14 +6135,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606a4",
+        "_id": "5906fb655bb6b949863c31f8",
         "duration": {
           "asString": "21h15",
           "dec": 21.25,
           "sec": 0,
           "min": 15,
           "hours": 21,
-          "_id": "5905cb88db1d941f823606a5"
+          "_id": "5906fb655bb6b949863c31f9"
         },
         "percent": 24.45,
         "type": "777-200LR",
@@ -6154,14 +6154,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606a2",
+        "_id": "5906fb655bb6b949863c31f6",
         "duration": {
           "asString": "20h45",
           "dec": 20.75,
           "sec": 0,
           "min": 45,
           "hours": 20,
-          "_id": "5905cb88db1d941f823606a3"
+          "_id": "5906fb655bb6b949863c31f7"
         },
         "percent": 26.34,
         "type": "A350-900XWB",
@@ -6173,14 +6173,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606a0",
+        "_id": "5906fb655bb6b949863c31f4",
         "duration": {
           "asString": "21h15",
           "dec": 21.25,
           "sec": 0,
           "min": 15,
           "hours": 21,
-          "_id": "5905cb88db1d941f823606a1"
+          "_id": "5906fb655bb6b949863c31f5"
         },
         "percent": 30.54,
         "type": "777-300ER",
@@ -6192,14 +6192,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236069e",
+        "_id": "5906fb655bb6b949863c31f2",
         "duration": {
           "asString": "21h00",
           "dec": 21,
           "sec": 0,
           "min": 0,
           "hours": 21,
-          "_id": "5905cb88db1d941f8236069f"
+          "_id": "5906fb655bb6b949863c31f3"
         },
         "percent": 47.32,
         "type": "A380-800",
@@ -6298,14 +6298,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823606b4",
+        "_id": "5906fb655bb6b949863c3208",
         "duration": {
           "asString": "19h00",
           "dec": 19,
           "sec": 0,
           "min": 0,
           "hours": 19,
-          "_id": "5905cb88db1d941f823606b5"
+          "_id": "5906fb655bb6b949863c3209"
         },
         "percent": 18.98,
         "type": "787-8",
@@ -6317,14 +6317,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606b2",
+        "_id": "5906fb655bb6b949863c3206",
         "duration": {
           "asString": "19h00",
           "dec": 19,
           "sec": 0,
           "min": 0,
           "hours": 19,
-          "_id": "5905cb88db1d941f823606b3"
+          "_id": "5906fb655bb6b949863c3207"
         },
         "percent": 20.87,
         "type": "787-9",
@@ -6336,14 +6336,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606b0",
+        "_id": "5906fb655bb6b949863c3204",
         "duration": {
           "asString": "19h15",
           "dec": 19.25,
           "sec": 0,
           "min": 15,
           "hours": 19,
-          "_id": "5905cb88db1d941f823606b1"
+          "_id": "5906fb655bb6b949863c3205"
         },
         "percent": 21.86,
         "type": "777-200LR",
@@ -6355,14 +6355,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606ae",
+        "_id": "5906fb655bb6b949863c3202",
         "duration": {
           "asString": "19h00",
           "dec": 19,
           "sec": 0,
           "min": 0,
           "hours": 19,
-          "_id": "5905cb88db1d941f823606af"
+          "_id": "5906fb655bb6b949863c3203"
         },
         "percent": 23.66,
         "type": "A350-900XWB",
@@ -6374,14 +6374,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606ac",
+        "_id": "5906fb655bb6b949863c3200",
         "duration": {
           "asString": "19h15",
           "dec": 19.25,
           "sec": 0,
           "min": 15,
           "hours": 19,
-          "_id": "5905cb88db1d941f823606ad"
+          "_id": "5906fb655bb6b949863c3201"
         },
         "percent": 27.35,
         "type": "777-300ER",
@@ -6393,14 +6393,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606aa",
+        "_id": "5906fb655bb6b949863c31fe",
         "duration": {
           "asString": "19h00",
           "dec": 19,
           "sec": 0,
           "min": 0,
           "hours": 19,
-          "_id": "5905cb88db1d941f823606ab"
+          "_id": "5906fb655bb6b949863c31ff"
         },
         "percent": 42.47,
         "type": "A380-800",
@@ -6480,14 +6480,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823606c0",
+        "_id": "5906fb655bb6b949863c3214",
         "duration": {
           "asString": "19h45",
           "dec": 19.75,
           "sec": 0,
           "min": 45,
           "hours": 19,
-          "_id": "5905cb88db1d941f823606c1"
+          "_id": "5906fb655bb6b949863c3215"
         },
         "percent": 19.33,
         "type": "787-8",
@@ -6499,14 +6499,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606be",
+        "_id": "5906fb655bb6b949863c3212",
         "duration": {
           "asString": "19h45",
           "dec": 19.75,
           "sec": 0,
           "min": 45,
           "hours": 19,
-          "_id": "5905cb88db1d941f823606bf"
+          "_id": "5906fb655bb6b949863c3213"
         },
         "percent": 21.37,
         "type": "787-9",
@@ -6518,14 +6518,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606bc",
+        "_id": "5906fb655bb6b949863c3210",
         "duration": {
           "asString": "20h00",
           "dec": 20,
           "sec": 0,
           "min": 0,
           "hours": 20,
-          "_id": "5905cb88db1d941f823606bd"
+          "_id": "5906fb655bb6b949863c3211"
         },
         "percent": 22.38,
         "type": "777-200LR",
@@ -6537,14 +6537,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606ba",
+        "_id": "5906fb655bb6b949863c320e",
         "duration": {
           "asString": "19h45",
           "dec": 19.75,
           "sec": 0,
           "min": 45,
           "hours": 19,
-          "_id": "5905cb88db1d941f823606bb"
+          "_id": "5906fb655bb6b949863c320f"
         },
         "percent": 24.13,
         "type": "A350-900XWB",
@@ -6556,14 +6556,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606b8",
+        "_id": "5906fb655bb6b949863c320c",
         "duration": {
           "asString": "20h00",
           "dec": 20,
           "sec": 0,
           "min": 0,
           "hours": 20,
-          "_id": "5905cb88db1d941f823606b9"
+          "_id": "5906fb655bb6b949863c320d"
         },
         "percent": 28.05,
         "type": "777-300ER",
@@ -6575,14 +6575,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606b6",
+        "_id": "5906fb655bb6b949863c320a",
         "duration": {
           "asString": "19h45",
           "dec": 19.75,
           "sec": 0,
           "min": 45,
           "hours": 19,
-          "_id": "5905cb88db1d941f823606b7"
+          "_id": "5906fb655bb6b949863c320b"
         },
         "percent": 43.46,
         "type": "A380-800",
@@ -6665,14 +6665,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823606d0",
+        "_id": "5906fb655bb6b949863c3224",
         "duration": {
           "asString": "4h00",
           "dec": 4,
           "sec": 0,
           "min": 0,
           "hours": 4,
-          "_id": "5905cb88db1d941f823606d1"
+          "_id": "5906fb655bb6b949863c3225"
         },
         "percent": 9.16,
         "type": "Concorde",
@@ -6684,14 +6684,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606ce",
+        "_id": "5906fb655bb6b949863c3222",
         "duration": {
           "asString": "7h00",
           "dec": 7,
           "sec": 0,
           "min": 0,
           "hours": 7,
-          "_id": "5905cb88db1d941f823606cf"
+          "_id": "5906fb655bb6b949863c3223"
         },
         "percent": 13.84,
         "type": "A320-200NEO",
@@ -6703,14 +6703,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606cc",
+        "_id": "5906fb655bb6b949863c3220",
         "duration": {
           "asString": "6h45",
           "dec": 6.75,
           "sec": 0,
           "min": 45,
           "hours": 6,
-          "_id": "5905cb88db1d941f823606cd"
+          "_id": "5906fb655bb6b949863c3221"
         },
         "percent": 27.26,
         "type": "787-8",
@@ -6722,14 +6722,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606ca",
+        "_id": "5906fb655bb6b949863c321e",
         "duration": {
           "asString": "6h45",
           "dec": 6.75,
           "sec": 0,
           "min": 45,
           "hours": 6,
-          "_id": "5905cb88db1d941f823606cb"
+          "_id": "5906fb655bb6b949863c321f"
         },
         "percent": 29.91,
         "type": "787-9",
@@ -6741,14 +6741,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606c8",
+        "_id": "5906fb655bb6b949863c321c",
         "duration": {
           "asString": "6h45",
           "dec": 6.75,
           "sec": 0,
           "min": 45,
           "hours": 6,
-          "_id": "5905cb88db1d941f823606c9"
+          "_id": "5906fb655bb6b949863c321d"
         },
         "percent": 31.33,
         "type": "777-200LR",
@@ -6760,14 +6760,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606c6",
+        "_id": "5906fb655bb6b949863c321a",
         "duration": {
           "asString": "6h45",
           "dec": 6.75,
           "sec": 0,
           "min": 45,
           "hours": 6,
-          "_id": "5905cb88db1d941f823606c7"
+          "_id": "5906fb655bb6b949863c321b"
         },
         "percent": 33.98,
         "type": "A350-900XWB",
@@ -6779,14 +6779,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606c4",
+        "_id": "5906fb655bb6b949863c3218",
         "duration": {
           "asString": "6h45",
           "dec": 6.75,
           "sec": 0,
           "min": 45,
           "hours": 6,
-          "_id": "5905cb88db1d941f823606c5"
+          "_id": "5906fb655bb6b949863c3219"
         },
         "percent": 39.27,
         "type": "777-300ER",
@@ -6798,14 +6798,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606c2",
+        "_id": "5906fb655bb6b949863c3216",
         "duration": {
           "asString": "6h45",
           "dec": 6.75,
           "sec": 0,
           "min": 45,
           "hours": 6,
-          "_id": "5905cb88db1d941f823606c3"
+          "_id": "5906fb655bb6b949863c3217"
         },
         "percent": 60.83,
         "type": "A380-800",
@@ -6882,14 +6882,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823606dc",
+        "_id": "5906fb665bb6b949863c3230",
         "duration": {
           "asString": "20h30",
           "dec": 20.5,
           "sec": 0,
           "min": 30,
           "hours": 20,
-          "_id": "5905cb88db1d941f823606dd"
+          "_id": "5906fb665bb6b949863c3231"
         },
         "percent": 30.63,
         "type": "787-8",
@@ -6901,14 +6901,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606da",
+        "_id": "5906fb665bb6b949863c322e",
         "duration": {
           "asString": "20h30",
           "dec": 20.5,
           "sec": 0,
           "min": 30,
           "hours": 20,
-          "_id": "5905cb88db1d941f823606db"
+          "_id": "5906fb665bb6b949863c322f"
         },
         "percent": 33.73,
         "type": "787-9",
@@ -6920,14 +6920,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606d8",
+        "_id": "5906fb665bb6b949863c322c",
         "duration": {
           "asString": "21h00",
           "dec": 21,
           "sec": 0,
           "min": 0,
           "hours": 21,
-          "_id": "5905cb88db1d941f823606d9"
+          "_id": "5906fb665bb6b949863c322d"
         },
         "percent": 35.37,
         "type": "777-200LR",
@@ -6939,14 +6939,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606d6",
+        "_id": "5906fb665bb6b949863c322a",
         "duration": {
           "asString": "20h30",
           "dec": 20.5,
           "sec": 0,
           "min": 30,
           "hours": 20,
-          "_id": "5905cb88db1d941f823606d7"
+          "_id": "5906fb665bb6b949863c322b"
         },
         "percent": 38.29,
         "type": "A350-900XWB",
@@ -6958,14 +6958,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606d4",
+        "_id": "5906fb665bb6b949863c3228",
         "duration": {
           "asString": "21h00",
           "dec": 21,
           "sec": 0,
           "min": 0,
           "hours": 21,
-          "_id": "5905cb88db1d941f823606d5"
+          "_id": "5906fb665bb6b949863c3229"
         },
         "percent": 44.3,
         "type": "777-300ER",
@@ -6977,14 +6977,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606d2",
+        "_id": "5906fb665bb6b949863c3226",
         "duration": {
           "asString": "20h45",
           "dec": 20.75,
           "sec": 0,
           "min": 45,
           "hours": 20,
-          "_id": "5905cb88db1d941f823606d3"
+          "_id": "5906fb665bb6b949863c3227"
         },
         "percent": 68.55,
         "type": "A380-800",
@@ -7067,14 +7067,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823606ec",
+        "_id": "5906fb665bb6b949863c3240",
         "duration": {
           "asString": "4h30",
           "dec": 4.5,
           "sec": 0,
           "min": 30,
           "hours": 4,
-          "_id": "5905cb88db1d941f823606ed"
+          "_id": "5906fb665bb6b949863c3241"
         },
         "percent": 11.32,
         "type": "Concorde",
@@ -7086,14 +7086,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606ea",
+        "_id": "5906fb665bb6b949863c323e",
         "duration": {
           "asString": "8h00",
           "dec": 8,
           "sec": 0,
           "min": 0,
           "hours": 8,
-          "_id": "5905cb88db1d941f823606eb"
+          "_id": "5906fb665bb6b949863c323f"
         },
         "percent": 17.11,
         "type": "A320-200NEO",
@@ -7105,14 +7105,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606e8",
+        "_id": "5906fb665bb6b949863c323c",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f823606e9"
+          "_id": "5906fb665bb6b949863c323d"
         },
         "percent": 33.71,
         "type": "787-8",
@@ -7124,14 +7124,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606e6",
+        "_id": "5906fb665bb6b949863c323a",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f823606e7"
+          "_id": "5906fb665bb6b949863c323b"
         },
         "percent": 36.98,
         "type": "787-9",
@@ -7143,14 +7143,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606e4",
+        "_id": "5906fb665bb6b949863c3238",
         "duration": {
           "asString": "7h45",
           "dec": 7.75,
           "sec": 0,
           "min": 45,
           "hours": 7,
-          "_id": "5905cb88db1d941f823606e5"
+          "_id": "5906fb665bb6b949863c3239"
         },
         "percent": 38.74,
         "type": "777-200LR",
@@ -7162,14 +7162,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606e2",
+        "_id": "5906fb665bb6b949863c3236",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f823606e3"
+          "_id": "5906fb665bb6b949863c3237"
         },
         "percent": 42.01,
         "type": "A350-900XWB",
@@ -7181,14 +7181,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606e0",
+        "_id": "5906fb665bb6b949863c3234",
         "duration": {
           "asString": "7h45",
           "dec": 7.75,
           "sec": 0,
           "min": 45,
           "hours": 7,
-          "_id": "5905cb88db1d941f823606e1"
+          "_id": "5906fb665bb6b949863c3235"
         },
         "percent": 48.55,
         "type": "777-300ER",
@@ -7200,14 +7200,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606de",
+        "_id": "5906fb665bb6b949863c3232",
         "duration": {
           "asString": "7h45",
           "dec": 7.75,
           "sec": 0,
           "min": 45,
           "hours": 7,
-          "_id": "5905cb88db1d941f823606df"
+          "_id": "5906fb665bb6b949863c3233"
         },
         "percent": 75.22,
         "type": "A380-800",
@@ -7317,14 +7317,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823606fc",
+        "_id": "5906fb665bb6b949863c3250",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f823606fd"
+          "_id": "5906fb665bb6b949863c3251"
         },
         "percent": 5.71,
         "type": "Concorde",
@@ -7336,14 +7336,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606fa",
+        "_id": "5906fb665bb6b949863c324e",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f823606fb"
+          "_id": "5906fb665bb6b949863c324f"
         },
         "percent": 8.63,
         "type": "A320-200NEO",
@@ -7355,14 +7355,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606f8",
+        "_id": "5906fb665bb6b949863c324c",
         "duration": {
           "asString": "10h45",
           "dec": 10.75,
           "sec": 0,
           "min": 45,
           "hours": 10,
-          "_id": "5905cb88db1d941f823606f9"
+          "_id": "5906fb665bb6b949863c324d"
         },
         "percent": 17.01,
         "type": "787-8",
@@ -7374,14 +7374,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606f6",
+        "_id": "5906fb665bb6b949863c324a",
         "duration": {
           "asString": "10h45",
           "dec": 10.75,
           "sec": 0,
           "min": 45,
           "hours": 10,
-          "_id": "5905cb88db1d941f823606f7"
+          "_id": "5906fb665bb6b949863c324b"
         },
         "percent": 18.65,
         "type": "787-9",
@@ -7393,14 +7393,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606f4",
+        "_id": "5906fb665bb6b949863c3248",
         "duration": {
           "asString": "11h00",
           "dec": 11,
           "sec": 0,
           "min": 0,
           "hours": 11,
-          "_id": "5905cb88db1d941f823606f5"
+          "_id": "5906fb665bb6b949863c3249"
         },
         "percent": 19.54,
         "type": "777-200LR",
@@ -7412,14 +7412,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606f2",
+        "_id": "5906fb665bb6b949863c3246",
         "duration": {
           "asString": "10h45",
           "dec": 10.75,
           "sec": 0,
           "min": 45,
           "hours": 10,
-          "_id": "5905cb88db1d941f823606f3"
+          "_id": "5906fb665bb6b949863c3247"
         },
         "percent": 21.07,
         "type": "A350-900XWB",
@@ -7431,14 +7431,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606f0",
+        "_id": "5906fb665bb6b949863c3244",
         "duration": {
           "asString": "11h00",
           "dec": 11,
           "sec": 0,
           "min": 0,
           "hours": 11,
-          "_id": "5905cb88db1d941f823606f1"
+          "_id": "5906fb665bb6b949863c3245"
         },
         "percent": 24.49,
         "type": "777-300ER",
@@ -7450,14 +7450,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606ee",
+        "_id": "5906fb665bb6b949863c3242",
         "duration": {
           "asString": "11h00",
           "dec": 11,
           "sec": 0,
           "min": 0,
           "hours": 11,
-          "_id": "5905cb88db1d941f823606ef"
+          "_id": "5906fb665bb6b949863c3243"
         },
         "percent": 37.94,
         "type": "A380-800",
@@ -7507,14 +7507,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236070c",
+        "_id": "5906fb665bb6b949863c3260",
         "duration": {
           "asString": "7h15",
           "dec": 7.25,
           "sec": 0,
           "min": 15,
           "hours": 7,
-          "_id": "5905cb88db1d941f8236070d"
+          "_id": "5906fb665bb6b949863c3261"
         },
         "percent": 5.86,
         "type": "Concorde",
@@ -7526,14 +7526,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236070a",
+        "_id": "5906fb665bb6b949863c325e",
         "duration": {
           "asString": "15h15",
           "dec": 15.25,
           "sec": 0,
           "min": 15,
           "hours": 15,
-          "_id": "5905cb88db1d941f8236070b"
+          "_id": "5906fb665bb6b949863c325f"
         },
         "percent": 8.95,
         "type": "A320-200NEO",
@@ -7545,14 +7545,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360708",
+        "_id": "5906fb665bb6b949863c325c",
         "duration": {
           "asString": "14h15",
           "dec": 14.25,
           "sec": 0,
           "min": 15,
           "hours": 14,
-          "_id": "5905cb88db1d941f82360709"
+          "_id": "5906fb665bb6b949863c325d"
         },
         "percent": 17.36,
         "type": "787-8",
@@ -7564,14 +7564,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360706",
+        "_id": "5906fb665bb6b949863c325a",
         "duration": {
           "asString": "14h15",
           "dec": 14.25,
           "sec": 0,
           "min": 15,
           "hours": 14,
-          "_id": "5905cb88db1d941f82360707"
+          "_id": "5906fb665bb6b949863c325b"
         },
         "percent": 19.17,
         "type": "787-9",
@@ -7583,14 +7583,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360704",
+        "_id": "5906fb665bb6b949863c3258",
         "duration": {
           "asString": "14h30",
           "dec": 14.5,
           "sec": 0,
           "min": 30,
           "hours": 14,
-          "_id": "5905cb88db1d941f82360705"
+          "_id": "5906fb665bb6b949863c3259"
         },
         "percent": 20.13,
         "type": "777-200LR",
@@ -7602,14 +7602,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360702",
+        "_id": "5906fb665bb6b949863c3256",
         "duration": {
           "asString": "14h15",
           "dec": 14.25,
           "sec": 0,
           "min": 15,
           "hours": 14,
-          "_id": "5905cb88db1d941f82360703"
+          "_id": "5906fb665bb6b949863c3257"
         },
         "percent": 21.73,
         "type": "A350-900XWB",
@@ -7621,14 +7621,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360700",
+        "_id": "5906fb665bb6b949863c3254",
         "duration": {
           "asString": "14h30",
           "dec": 14.5,
           "sec": 0,
           "min": 30,
           "hours": 14,
-          "_id": "5905cb88db1d941f82360701"
+          "_id": "5906fb665bb6b949863c3255"
         },
         "percent": 25.13,
         "type": "777-300ER",
@@ -7640,14 +7640,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823606fe",
+        "_id": "5906fb665bb6b949863c3252",
         "duration": {
           "asString": "14h30",
           "dec": 14.5,
           "sec": 0,
           "min": 30,
           "hours": 14,
-          "_id": "5905cb88db1d941f823606ff"
+          "_id": "5906fb665bb6b949863c3253"
         },
         "percent": 38.98,
         "type": "A380-800",
@@ -7746,14 +7746,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236071c",
+        "_id": "5906fb665bb6b949863c3270",
         "duration": {
           "asString": "3h30",
           "dec": 3.5,
           "sec": 0,
           "min": 30,
           "hours": 3,
-          "_id": "5905cb88db1d941f8236071d"
+          "_id": "5906fb665bb6b949863c3271"
         },
         "percent": 7.5,
         "type": "Concorde",
@@ -7765,14 +7765,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236071a",
+        "_id": "5906fb665bb6b949863c326e",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f8236071b"
+          "_id": "5906fb665bb6b949863c326f"
         },
         "percent": 11.33,
         "type": "A320-200NEO",
@@ -7784,14 +7784,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360718",
+        "_id": "5906fb665bb6b949863c326c",
         "duration": {
           "asString": "5h30",
           "dec": 5.5,
           "sec": 0,
           "min": 30,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360719"
+          "_id": "5906fb665bb6b949863c326d"
         },
         "percent": 22.33,
         "type": "787-8",
@@ -7803,14 +7803,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360716",
+        "_id": "5906fb665bb6b949863c326a",
         "duration": {
           "asString": "5h30",
           "dec": 5.5,
           "sec": 0,
           "min": 30,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360717"
+          "_id": "5906fb665bb6b949863c326b"
         },
         "percent": 24.5,
         "type": "787-9",
@@ -7822,14 +7822,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360714",
+        "_id": "5906fb665bb6b949863c3268",
         "duration": {
           "asString": "5h30",
           "dec": 5.5,
           "sec": 0,
           "min": 30,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360715"
+          "_id": "5906fb665bb6b949863c3269"
         },
         "percent": 25.67,
         "type": "777-200LR",
@@ -7841,14 +7841,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360712",
+        "_id": "5906fb665bb6b949863c3266",
         "duration": {
           "asString": "5h30",
           "dec": 5.5,
           "sec": 0,
           "min": 30,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360713"
+          "_id": "5906fb665bb6b949863c3267"
         },
         "percent": 27.67,
         "type": "A350-900XWB",
@@ -7860,14 +7860,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360710",
+        "_id": "5906fb665bb6b949863c3264",
         "duration": {
           "asString": "5h30",
           "dec": 5.5,
           "sec": 0,
           "min": 30,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360711"
+          "_id": "5906fb665bb6b949863c3265"
         },
         "percent": 32.17,
         "type": "777-300ER",
@@ -7879,14 +7879,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236070e",
+        "_id": "5906fb665bb6b949863c3262",
         "duration": {
           "asString": "5h30",
           "dec": 5.5,
           "sec": 0,
           "min": 30,
           "hours": 5,
-          "_id": "5905cb88db1d941f8236070f"
+          "_id": "5906fb665bb6b949863c3263"
         },
         "percent": 49.83,
         "type": "A380-800",
@@ -7985,14 +7985,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236072c",
+        "_id": "5906fb665bb6b949863c3280",
         "duration": {
           "asString": "3h45",
           "dec": 3.75,
           "sec": 0,
           "min": 45,
           "hours": 3,
-          "_id": "5905cb88db1d941f8236072d"
+          "_id": "5906fb665bb6b949863c3281"
         },
         "percent": 7.48,
         "type": "Concorde",
@@ -8004,14 +8004,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236072a",
+        "_id": "5906fb665bb6b949863c327e",
         "duration": {
           "asString": "6h15",
           "dec": 6.25,
           "sec": 0,
           "min": 15,
           "hours": 6,
-          "_id": "5905cb88db1d941f8236072b"
+          "_id": "5906fb665bb6b949863c327f"
         },
         "percent": 11.3,
         "type": "A320-200NEO",
@@ -8023,14 +8023,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360728",
+        "_id": "5906fb665bb6b949863c327c",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f82360729"
+          "_id": "5906fb665bb6b949863c327d"
         },
         "percent": 22.09,
         "type": "787-8",
@@ -8042,14 +8042,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360726",
+        "_id": "5906fb665bb6b949863c327a",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f82360727"
+          "_id": "5906fb665bb6b949863c327b"
         },
         "percent": 24.42,
         "type": "787-9",
@@ -8061,14 +8061,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360724",
+        "_id": "5906fb665bb6b949863c3278",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f82360725"
+          "_id": "5906fb665bb6b949863c3279"
         },
         "percent": 25.58,
         "type": "777-200LR",
@@ -8080,14 +8080,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360722",
+        "_id": "5906fb665bb6b949863c3276",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f82360723"
+          "_id": "5906fb665bb6b949863c3277"
         },
         "percent": 27.57,
         "type": "A350-900XWB",
@@ -8099,14 +8099,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360720",
+        "_id": "5906fb665bb6b949863c3274",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f82360721"
+          "_id": "5906fb665bb6b949863c3275"
         },
         "percent": 31.89,
         "type": "777-300ER",
@@ -8118,14 +8118,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236071e",
+        "_id": "5906fb665bb6b949863c3272",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f8236071f"
+          "_id": "5906fb665bb6b949863c3273"
         },
         "percent": 49.5,
         "type": "A380-800",
@@ -8207,14 +8207,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236073c",
+        "_id": "5906fb665bb6b949863c3290",
         "duration": {
           "asString": "3h15",
           "dec": 3.25,
           "sec": 0,
           "min": 15,
           "hours": 3,
-          "_id": "5905cb88db1d941f8236073d"
+          "_id": "5906fb665bb6b949863c3291"
         },
         "percent": 7.38,
         "type": "Concorde",
@@ -8226,14 +8226,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236073a",
+        "_id": "5906fb665bb6b949863c328e",
         "duration": {
           "asString": "5h00",
           "dec": 5,
           "sec": 0,
           "min": 0,
           "hours": 5,
-          "_id": "5905cb88db1d941f8236073b"
+          "_id": "5906fb665bb6b949863c328f"
         },
         "percent": 11.16,
         "type": "A320-200NEO",
@@ -8245,14 +8245,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360738",
+        "_id": "5906fb665bb6b949863c328c",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360739"
+          "_id": "5906fb665bb6b949863c328d"
         },
         "percent": 21.99,
         "type": "787-8",
@@ -8264,14 +8264,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360736",
+        "_id": "5906fb665bb6b949863c328a",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360737"
+          "_id": "5906fb665bb6b949863c328b"
         },
         "percent": 24.12,
         "type": "787-9",
@@ -8283,14 +8283,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360734",
+        "_id": "5906fb665bb6b949863c3288",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360735"
+          "_id": "5906fb665bb6b949863c3289"
         },
         "percent": 25.27,
         "type": "777-200LR",
@@ -8302,14 +8302,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360732",
+        "_id": "5906fb665bb6b949863c3286",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360733"
+          "_id": "5906fb665bb6b949863c3287"
         },
         "percent": 27.4,
         "type": "A350-900XWB",
@@ -8321,14 +8321,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360730",
+        "_id": "5906fb665bb6b949863c3284",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f82360731"
+          "_id": "5906fb665bb6b949863c3285"
         },
         "percent": 31.67,
         "type": "777-300ER",
@@ -8340,14 +8340,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236072e",
+        "_id": "5906fb665bb6b949863c3282",
         "duration": {
           "asString": "4h45",
           "dec": 4.75,
           "sec": 0,
           "min": 45,
           "hours": 4,
-          "_id": "5905cb88db1d941f8236072f"
+          "_id": "5906fb665bb6b949863c3283"
         },
         "percent": 49.06,
         "type": "A380-800",
@@ -8472,14 +8472,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236074c",
+        "_id": "5906fb665bb6b949863c32a0",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f8236074d"
+          "_id": "5906fb665bb6b949863c32a1"
         },
         "percent": 5.86,
         "type": "Concorde",
@@ -8491,14 +8491,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236074a",
+        "_id": "5906fb665bb6b949863c329e",
         "duration": {
           "asString": "12h00",
           "dec": 12,
           "sec": 0,
           "min": 0,
           "hours": 12,
-          "_id": "5905cb88db1d941f8236074b"
+          "_id": "5906fb665bb6b949863c329f"
         },
         "percent": 8.85,
         "type": "A320-200NEO",
@@ -8510,14 +8510,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360748",
+        "_id": "5906fb665bb6b949863c329c",
         "duration": {
           "asString": "11h15",
           "dec": 11.25,
           "sec": 0,
           "min": 15,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360749"
+          "_id": "5906fb665bb6b949863c329d"
         },
         "percent": 17.44,
         "type": "787-8",
@@ -8529,14 +8529,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360746",
+        "_id": "5906fb665bb6b949863c329a",
         "duration": {
           "asString": "11h15",
           "dec": 11.25,
           "sec": 0,
           "min": 15,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360747"
+          "_id": "5906fb665bb6b949863c329b"
         },
         "percent": 19.13,
         "type": "787-9",
@@ -8548,14 +8548,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360744",
+        "_id": "5906fb665bb6b949863c3298",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360745"
+          "_id": "5906fb665bb6b949863c3299"
         },
         "percent": 20.04,
         "type": "777-200LR",
@@ -8567,14 +8567,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360742",
+        "_id": "5906fb665bb6b949863c3296",
         "duration": {
           "asString": "11h15",
           "dec": 11.25,
           "sec": 0,
           "min": 15,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360743"
+          "_id": "5906fb665bb6b949863c3297"
         },
         "percent": 21.73,
         "type": "A350-900XWB",
@@ -8586,14 +8586,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360740",
+        "_id": "5906fb665bb6b949863c3294",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360741"
+          "_id": "5906fb665bb6b949863c3295"
         },
         "percent": 25.11,
         "type": "777-300ER",
@@ -8605,14 +8605,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236073e",
+        "_id": "5906fb665bb6b949863c3292",
         "duration": {
           "asString": "11h15",
           "dec": 11.25,
           "sec": 0,
           "min": 15,
           "hours": 11,
-          "_id": "5905cb88db1d941f8236073f"
+          "_id": "5906fb665bb6b949863c3293"
         },
         "percent": 38.91,
         "type": "A380-800",
@@ -8767,14 +8767,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236074e",
+        "_id": "5906fb665bb6b949863c32a2",
         "duration": {
           "asString": "38h00",
           "dec": 38,
           "sec": 0,
           "min": 0,
           "hours": 38,
-          "_id": "5905cb88db1d941f8236074f"
+          "_id": "5906fb665bb6b949863c32a3"
         },
         "percent": 22.67,
         "type": "777-200LR",
@@ -8858,14 +8858,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236075e",
+        "_id": "5906fb665bb6b949863c32b2",
         "duration": {
           "asString": "4h30",
           "dec": 4.5,
           "sec": 0,
           "min": 30,
           "hours": 4,
-          "_id": "5905cb88db1d941f8236075f"
+          "_id": "5906fb665bb6b949863c32b3"
         },
         "percent": 7.92,
         "type": "Concorde",
@@ -8877,14 +8877,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236075c",
+        "_id": "5906fb665bb6b949863c32b0",
         "duration": {
           "asString": "8h00",
           "dec": 8,
           "sec": 0,
           "min": 0,
           "hours": 8,
-          "_id": "5905cb88db1d941f8236075d"
+          "_id": "5906fb665bb6b949863c32b1"
         },
         "percent": 11.96,
         "type": "A320-200NEO",
@@ -8896,14 +8896,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236075a",
+        "_id": "5906fb665bb6b949863c32ae",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f8236075b"
+          "_id": "5906fb665bb6b949863c32af"
         },
         "percent": 23.57,
         "type": "787-8",
@@ -8915,14 +8915,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360758",
+        "_id": "5906fb665bb6b949863c32ac",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360759"
+          "_id": "5906fb665bb6b949863c32ad"
         },
         "percent": 25.86,
         "type": "787-9",
@@ -8934,14 +8934,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360756",
+        "_id": "5906fb665bb6b949863c32aa",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360757"
+          "_id": "5906fb665bb6b949863c32ab"
         },
         "percent": 27.09,
         "type": "777-200LR",
@@ -8953,14 +8953,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360754",
+        "_id": "5906fb665bb6b949863c32a8",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360755"
+          "_id": "5906fb665bb6b949863c32a9"
         },
         "percent": 29.38,
         "type": "A350-900XWB",
@@ -8972,14 +8972,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360752",
+        "_id": "5906fb665bb6b949863c32a6",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360753"
+          "_id": "5906fb665bb6b949863c32a7"
         },
         "percent": 33.95,
         "type": "777-300ER",
@@ -8991,14 +8991,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360750",
+        "_id": "5906fb665bb6b949863c32a4",
         "duration": {
           "asString": "7h30",
           "dec": 7.5,
           "sec": 0,
           "min": 30,
           "hours": 7,
-          "_id": "5905cb88db1d941f82360751"
+          "_id": "5906fb665bb6b949863c32a5"
         },
         "percent": 52.59,
         "type": "A380-800",
@@ -9095,14 +9095,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f8236076a",
+        "_id": "5906fb665bb6b949863c32be",
         "duration": {
           "asString": "22h45",
           "dec": 22.75,
           "sec": 0,
           "min": 45,
           "hours": 22,
-          "_id": "5905cb88db1d941f8236076b"
+          "_id": "5906fb665bb6b949863c32bf"
         },
         "percent": 20.47,
         "type": "787-8",
@@ -9114,14 +9114,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360768",
+        "_id": "5906fb665bb6b949863c32bc",
         "duration": {
           "asString": "22h45",
           "dec": 22.75,
           "sec": 0,
           "min": 45,
           "hours": 22,
-          "_id": "5905cb88db1d941f82360769"
+          "_id": "5906fb665bb6b949863c32bd"
         },
         "percent": 22.44,
         "type": "787-9",
@@ -9133,14 +9133,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360766",
+        "_id": "5906fb665bb6b949863c32ba",
         "duration": {
           "asString": "23h15",
           "dec": 23.25,
           "sec": 0,
           "min": 15,
           "hours": 23,
-          "_id": "5905cb88db1d941f82360767"
+          "_id": "5906fb665bb6b949863c32bb"
         },
         "percent": 23.57,
         "type": "777-200LR",
@@ -9152,14 +9152,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360764",
+        "_id": "5906fb665bb6b949863c32b8",
         "duration": {
           "asString": "22h45",
           "dec": 22.75,
           "sec": 0,
           "min": 45,
           "hours": 22,
-          "_id": "5905cb88db1d941f82360765"
+          "_id": "5906fb665bb6b949863c32b9"
         },
         "percent": 25.41,
         "type": "A350-900XWB",
@@ -9171,14 +9171,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360762",
+        "_id": "5906fb665bb6b949863c32b6",
         "duration": {
           "asString": "23h15",
           "dec": 23.25,
           "sec": 0,
           "min": 15,
           "hours": 23,
-          "_id": "5905cb88db1d941f82360763"
+          "_id": "5906fb665bb6b949863c32b7"
         },
         "percent": 29.5,
         "type": "777-300ER",
@@ -9190,14 +9190,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360760",
+        "_id": "5906fb665bb6b949863c32b4",
         "duration": {
           "asString": "23h00",
           "dec": 23,
           "sec": 0,
           "min": 0,
           "hours": 23,
-          "_id": "5905cb88db1d941f82360761"
+          "_id": "5906fb665bb6b949863c32b5"
         },
         "percent": 45.73,
         "type": "A380-800",
@@ -9292,14 +9292,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360776",
+        "_id": "5906fb665bb6b949863c32ca",
         "duration": {
           "asString": "21h45",
           "dec": 21.75,
           "sec": 0,
           "min": 45,
           "hours": 21,
-          "_id": "5905cb88db1d941f82360777"
+          "_id": "5906fb665bb6b949863c32cb"
         },
         "percent": 17.31,
         "type": "787-8",
@@ -9311,14 +9311,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360774",
+        "_id": "5906fb665bb6b949863c32c8",
         "duration": {
           "asString": "21h45",
           "dec": 21.75,
           "sec": 0,
           "min": 45,
           "hours": 21,
-          "_id": "5905cb88db1d941f82360775"
+          "_id": "5906fb665bb6b949863c32c9"
         },
         "percent": 18.99,
         "type": "787-9",
@@ -9330,14 +9330,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360772",
+        "_id": "5906fb665bb6b949863c32c6",
         "duration": {
           "asString": "22h15",
           "dec": 22.25,
           "sec": 0,
           "min": 15,
           "hours": 22,
-          "_id": "5905cb88db1d941f82360773"
+          "_id": "5906fb665bb6b949863c32c7"
         },
         "percent": 19.9,
         "type": "777-200LR",
@@ -9349,14 +9349,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360770",
+        "_id": "5906fb665bb6b949863c32c4",
         "duration": {
           "asString": "21h45",
           "dec": 21.75,
           "sec": 0,
           "min": 45,
           "hours": 21,
-          "_id": "5905cb88db1d941f82360771"
+          "_id": "5906fb665bb6b949863c32c5"
         },
         "percent": 21.45,
         "type": "A350-900XWB",
@@ -9368,14 +9368,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236076e",
+        "_id": "5906fb665bb6b949863c32c2",
         "duration": {
           "asString": "22h15",
           "dec": 22.25,
           "sec": 0,
           "min": 15,
           "hours": 22,
-          "_id": "5905cb88db1d941f8236076f"
+          "_id": "5906fb665bb6b949863c32c3"
         },
         "percent": 24.94,
         "type": "777-300ER",
@@ -9387,14 +9387,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236076c",
+        "_id": "5906fb665bb6b949863c32c0",
         "duration": {
           "asString": "22h00",
           "dec": 22,
           "sec": 0,
           "min": 0,
           "hours": 22,
-          "_id": "5905cb88db1d941f8236076d"
+          "_id": "5906fb665bb6b949863c32c1"
         },
         "percent": 38.63,
         "type": "A380-800",
@@ -9500,14 +9500,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360786",
+        "_id": "5906fb665bb6b949863c32da",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360787"
+          "_id": "5906fb665bb6b949863c32db"
         },
         "percent": 5.82,
         "type": "Concorde",
@@ -9519,14 +9519,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360784",
+        "_id": "5906fb665bb6b949863c32d8",
         "duration": {
           "asString": "11h30",
           "dec": 11.5,
           "sec": 0,
           "min": 30,
           "hours": 11,
-          "_id": "5905cb88db1d941f82360785"
+          "_id": "5906fb665bb6b949863c32d9"
         },
         "percent": 8.8,
         "type": "A320-200NEO",
@@ -9538,14 +9538,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360782",
+        "_id": "5906fb665bb6b949863c32d6",
         "duration": {
           "asString": "10h45",
           "dec": 10.75,
           "sec": 0,
           "min": 45,
           "hours": 10,
-          "_id": "5905cb88db1d941f82360783"
+          "_id": "5906fb665bb6b949863c32d7"
         },
         "percent": 17.21,
         "type": "787-8",
@@ -9557,14 +9557,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360780",
+        "_id": "5906fb665bb6b949863c32d4",
         "duration": {
           "asString": "10h45",
           "dec": 10.75,
           "sec": 0,
           "min": 45,
           "hours": 10,
-          "_id": "5905cb88db1d941f82360781"
+          "_id": "5906fb665bb6b949863c32d5"
         },
         "percent": 18.89,
         "type": "787-9",
@@ -9576,14 +9576,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236077e",
+        "_id": "5906fb665bb6b949863c32d2",
         "duration": {
           "asString": "10h45",
           "dec": 10.75,
           "sec": 0,
           "min": 45,
           "hours": 10,
-          "_id": "5905cb88db1d941f8236077f"
+          "_id": "5906fb665bb6b949863c32d3"
         },
         "percent": 19.79,
         "type": "777-200LR",
@@ -9595,14 +9595,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236077c",
+        "_id": "5906fb665bb6b949863c32d0",
         "duration": {
           "asString": "10h45",
           "dec": 10.75,
           "sec": 0,
           "min": 45,
           "hours": 10,
-          "_id": "5905cb88db1d941f8236077d"
+          "_id": "5906fb665bb6b949863c32d1"
         },
         "percent": 21.35,
         "type": "A350-900XWB",
@@ -9614,14 +9614,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236077a",
+        "_id": "5906fb665bb6b949863c32ce",
         "duration": {
           "asString": "10h45",
           "dec": 10.75,
           "sec": 0,
           "min": 45,
           "hours": 10,
-          "_id": "5905cb88db1d941f8236077b"
+          "_id": "5906fb665bb6b949863c32cf"
         },
         "percent": 24.71,
         "type": "777-300ER",
@@ -9633,14 +9633,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360778",
+        "_id": "5906fb665bb6b949863c32cc",
         "duration": {
           "asString": "10h45",
           "dec": 10.75,
           "sec": 0,
           "min": 45,
           "hours": 10,
-          "_id": "5905cb88db1d941f82360779"
+          "_id": "5906fb665bb6b949863c32cd"
         },
         "percent": 38.42,
         "type": "A380-800",
@@ -9705,14 +9705,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f82360796",
+        "_id": "5906fb665bb6b949863c32ea",
         "duration": {
           "asString": "3h45",
           "dec": 3.75,
           "sec": 0,
           "min": 45,
           "hours": 3,
-          "_id": "5905cb88db1d941f82360797"
+          "_id": "5906fb665bb6b949863c32eb"
         },
         "percent": 7.6,
         "type": "Concorde",
@@ -9724,14 +9724,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360794",
+        "_id": "5906fb665bb6b949863c32e8",
         "duration": {
           "asString": "6h00",
           "dec": 6,
           "sec": 0,
           "min": 0,
           "hours": 6,
-          "_id": "5905cb88db1d941f82360795"
+          "_id": "5906fb665bb6b949863c32e9"
         },
         "percent": 11.49,
         "type": "A320-200NEO",
@@ -9743,14 +9743,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360792",
+        "_id": "5906fb665bb6b949863c32e6",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360793"
+          "_id": "5906fb665bb6b949863c32e7"
         },
         "percent": 22.64,
         "type": "787-8",
@@ -9762,14 +9762,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360790",
+        "_id": "5906fb665bb6b949863c32e4",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360791"
+          "_id": "5906fb665bb6b949863c32e5"
         },
         "percent": 24.83,
         "type": "787-9",
@@ -9781,14 +9781,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236078e",
+        "_id": "5906fb665bb6b949863c32e2",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f8236078f"
+          "_id": "5906fb665bb6b949863c32e3"
         },
         "percent": 26.01,
         "type": "777-200LR",
@@ -9800,14 +9800,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236078c",
+        "_id": "5906fb665bb6b949863c32e0",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f8236078d"
+          "_id": "5906fb665bb6b949863c32e1"
         },
         "percent": 28.21,
         "type": "A350-900XWB",
@@ -9819,14 +9819,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236078a",
+        "_id": "5906fb665bb6b949863c32de",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f8236078b"
+          "_id": "5906fb665bb6b949863c32df"
         },
         "percent": 32.6,
         "type": "777-300ER",
@@ -9838,14 +9838,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360788",
+        "_id": "5906fb665bb6b949863c32dc",
         "duration": {
           "asString": "5h45",
           "dec": 5.75,
           "sec": 0,
           "min": 45,
           "hours": 5,
-          "_id": "5905cb88db1d941f82360789"
+          "_id": "5906fb665bb6b949863c32dd"
         },
         "percent": 50.51,
         "type": "A380-800",
@@ -9912,14 +9912,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823607a2",
+        "_id": "5906fb665bb6b949863c32f6",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607a3"
+          "_id": "5906fb665bb6b949863c32f7"
         },
         "percent": 21.45,
         "type": "787-8",
@@ -9931,14 +9931,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607a0",
+        "_id": "5906fb665bb6b949863c32f4",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607a1"
+          "_id": "5906fb665bb6b949863c32f5"
         },
         "percent": 23.73,
         "type": "787-9",
@@ -9950,14 +9950,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236079e",
+        "_id": "5906fb665bb6b949863c32f2",
         "duration": {
           "asString": "24h15",
           "dec": 24.25,
           "sec": 0,
           "min": 15,
           "hours": 24,
-          "_id": "5905cb88db1d941f8236079f"
+          "_id": "5906fb665bb6b949863c32f3"
         },
         "percent": 24.87,
         "type": "777-200LR",
@@ -9969,14 +9969,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236079c",
+        "_id": "5906fb665bb6b949863c32f0",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f8236079d"
+          "_id": "5906fb665bb6b949863c32f1"
         },
         "percent": 26.81,
         "type": "A350-900XWB",
@@ -9988,14 +9988,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f8236079a",
+        "_id": "5906fb665bb6b949863c32ee",
         "duration": {
           "asString": "24h15",
           "dec": 24.25,
           "sec": 0,
           "min": 15,
           "hours": 24,
-          "_id": "5905cb88db1d941f8236079b"
+          "_id": "5906fb665bb6b949863c32ef"
         },
         "percent": 31.03,
         "type": "777-300ER",
@@ -10007,14 +10007,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f82360798",
+        "_id": "5906fb665bb6b949863c32ec",
         "duration": {
           "asString": "24h00",
           "dec": 24,
           "sec": 0,
           "min": 0,
           "hours": 24,
-          "_id": "5905cb88db1d941f82360799"
+          "_id": "5906fb665bb6b949863c32ed"
         },
         "percent": 48.15,
         "type": "A380-800",
@@ -10096,14 +10096,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823607ae",
+        "_id": "5906fb665bb6b949863c3302",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607af"
+          "_id": "5906fb665bb6b949863c3303"
         },
         "percent": 18.14,
         "type": "787-8",
@@ -10115,14 +10115,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607ac",
+        "_id": "5906fb665bb6b949863c3300",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607ad"
+          "_id": "5906fb665bb6b949863c3301"
         },
         "percent": 20.01,
         "type": "787-9",
@@ -10134,14 +10134,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607aa",
+        "_id": "5906fb665bb6b949863c32fe",
         "duration": {
           "asString": "24h15",
           "dec": 24.25,
           "sec": 0,
           "min": 15,
           "hours": 24,
-          "_id": "5905cb88db1d941f823607ab"
+          "_id": "5906fb665bb6b949863c32ff"
         },
         "percent": 20.95,
         "type": "777-200LR",
@@ -10153,14 +10153,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607a8",
+        "_id": "5906fb665bb6b949863c32fc",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607a9"
+          "_id": "5906fb665bb6b949863c32fd"
         },
         "percent": 22.65,
         "type": "A350-900XWB",
@@ -10172,14 +10172,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607a6",
+        "_id": "5906fb665bb6b949863c32fa",
         "duration": {
           "asString": "24h15",
           "dec": 24.25,
           "sec": 0,
           "min": 15,
           "hours": 24,
-          "_id": "5905cb88db1d941f823607a7"
+          "_id": "5906fb665bb6b949863c32fb"
         },
         "percent": 26.22,
         "type": "777-300ER",
@@ -10191,14 +10191,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607a4",
+        "_id": "5906fb665bb6b949863c32f8",
         "duration": {
           "asString": "24h00",
           "dec": 24,
           "sec": 0,
           "min": 0,
           "hours": 24,
-          "_id": "5905cb88db1d941f823607a5"
+          "_id": "5906fb665bb6b949863c32f9"
         },
         "percent": 40.61,
         "type": "A380-800",
@@ -10265,14 +10265,14 @@
     ],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823607ba",
+        "_id": "5906fb665bb6b949863c330e",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607bb"
+          "_id": "5906fb665bb6b949863c330f"
         },
         "percent": 24.31,
         "type": "787-8",
@@ -10284,14 +10284,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607b8",
+        "_id": "5906fb665bb6b949863c330c",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607b9"
+          "_id": "5906fb665bb6b949863c330d"
         },
         "percent": 26.76,
         "type": "787-9",
@@ -10303,14 +10303,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607b6",
+        "_id": "5906fb665bb6b949863c330a",
         "duration": {
           "asString": "24h15",
           "dec": 24.25,
           "sec": 0,
           "min": 15,
           "hours": 24,
-          "_id": "5905cb88db1d941f823607b7"
+          "_id": "5906fb665bb6b949863c330b"
         },
         "percent": 28.05,
         "type": "777-200LR",
@@ -10322,14 +10322,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607b4",
+        "_id": "5906fb665bb6b949863c3308",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607b5"
+          "_id": "5906fb665bb6b949863c3309"
         },
         "percent": 30.38,
         "type": "A350-900XWB",
@@ -10341,14 +10341,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607b2",
+        "_id": "5906fb665bb6b949863c3306",
         "duration": {
           "asString": "24h15",
           "dec": 24.25,
           "sec": 0,
           "min": 15,
           "hours": 24,
-          "_id": "5905cb88db1d941f823607b3"
+          "_id": "5906fb665bb6b949863c3307"
         },
         "percent": 35.16,
         "type": "777-300ER",
@@ -10360,14 +10360,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607b0",
+        "_id": "5906fb665bb6b949863c3304",
         "duration": {
           "asString": "24h00",
           "dec": 24,
           "sec": 0,
           "min": 0,
           "hours": 24,
-          "_id": "5905cb88db1d941f823607b1"
+          "_id": "5906fb665bb6b949863c3305"
         },
         "percent": 54.43,
         "type": "A380-800",
@@ -10401,14 +10401,14 @@
     "planes": [],
     "optis": [
       {
-        "_id": "5905cb88db1d941f823607c6",
+        "_id": "5906fb665bb6b949863c331a",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607c7"
+          "_id": "5906fb665bb6b949863c331b"
         },
         "percent": 22.45,
         "type": "787-8",
@@ -10420,14 +10420,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607c4",
+        "_id": "5906fb665bb6b949863c3318",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607c5"
+          "_id": "5906fb665bb6b949863c3319"
         },
         "percent": 24.69,
         "type": "787-9",
@@ -10439,14 +10439,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607c2",
+        "_id": "5906fb665bb6b949863c3316",
         "duration": {
           "asString": "24h15",
           "dec": 24.25,
           "sec": 0,
           "min": 15,
           "hours": 24,
-          "_id": "5905cb88db1d941f823607c3"
+          "_id": "5906fb665bb6b949863c3317"
         },
         "percent": 25.87,
         "type": "777-200LR",
@@ -10458,14 +10458,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607c0",
+        "_id": "5906fb665bb6b949863c3314",
         "duration": {
           "asString": "23h45",
           "dec": 23.75,
           "sec": 0,
           "min": 45,
           "hours": 23,
-          "_id": "5905cb88db1d941f823607c1"
+          "_id": "5906fb665bb6b949863c3315"
         },
         "percent": 28.01,
         "type": "A350-900XWB",
@@ -10477,14 +10477,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607be",
+        "_id": "5906fb665bb6b949863c3312",
         "duration": {
           "asString": "24h15",
           "dec": 24.25,
           "sec": 0,
           "min": 15,
           "hours": 24,
-          "_id": "5905cb88db1d941f823607bf"
+          "_id": "5906fb665bb6b949863c3313"
         },
         "percent": 32.39,
         "type": "777-300ER",
@@ -10496,14 +10496,14 @@
         }
       },
       {
-        "_id": "5905cb88db1d941f823607bc",
+        "_id": "5906fb665bb6b949863c3310",
         "duration": {
           "asString": "24h00",
           "dec": 24,
           "sec": 0,
           "min": 0,
           "hours": 24,
-          "_id": "5905cb88db1d941f823607bd"
+          "_id": "5906fb665bb6b949863c3311"
         },
         "percent": 50.24,
         "type": "A380-800",
@@ -10520,5 +10520,141 @@
     "to": "KBP",
     "from": "SFO",
     "_id": "59036a83c79c131c4f0d2d64"
+  },
+  {
+    "prices": {
+      "cargo": 5561,
+      "first": 7224,
+      "business": 4177,
+      "eco": 3141
+    },
+    "demand": {
+      "cargo": 40,
+      "first": 195,
+      "business": 483,
+      "eco": 1374
+    },
+    "planes": [],
+    "optis": [
+      {
+        "_id": "5906fb665bb6b949863c3326",
+        "duration": {
+          "asString": "23h30",
+          "dec": 23.5,
+          "sec": 0,
+          "min": 30,
+          "hours": 23,
+          "_id": "5906fb665bb6b949863c3327"
+        },
+        "percent": 24.89,
+        "type": "787-8",
+        "config": {
+          "cargo": 15,
+          "first": 24,
+          "business": 60,
+          "eco": 171
+        }
+      },
+      {
+        "_id": "5906fb665bb6b949863c3324",
+        "duration": {
+          "asString": "23h30",
+          "dec": 23.5,
+          "sec": 0,
+          "min": 30,
+          "hours": 23,
+          "_id": "5906fb665bb6b949863c3325"
+        },
+        "percent": 27.37,
+        "type": "787-9",
+        "config": {
+          "cargo": 10,
+          "first": 27,
+          "business": 66,
+          "eco": 188
+        }
+      },
+      {
+        "_id": "5906fb665bb6b949863c3322",
+        "duration": {
+          "asString": "24h00",
+          "dec": 24,
+          "sec": 0,
+          "min": 0,
+          "hours": 24,
+          "_id": "5906fb665bb6b949863c3323"
+        },
+        "percent": 28.68,
+        "type": "777-200LR",
+        "config": {
+          "cargo": 31,
+          "first": 28,
+          "business": 69,
+          "eco": 197
+        }
+      },
+      {
+        "_id": "5906fb665bb6b949863c3320",
+        "duration": {
+          "asString": "23h30",
+          "dec": 23.5,
+          "sec": 0,
+          "min": 30,
+          "hours": 23,
+          "_id": "5906fb665bb6b949863c3321"
+        },
+        "percent": 31,
+        "type": "A350-900XWB",
+        "config": {
+          "cargo": 12,
+          "first": 30,
+          "business": 75,
+          "eco": 213
+        }
+      },
+      {
+        "_id": "5906fb665bb6b949863c331e",
+        "duration": {
+          "asString": "24h00",
+          "dec": 24,
+          "sec": 0,
+          "min": 0,
+          "hours": 24,
+          "_id": "5906fb665bb6b949863c331f"
+        },
+        "percent": 35.81,
+        "type": "777-300ER",
+        "config": {
+          "cargo": 29,
+          "first": 35,
+          "business": 87,
+          "eco": 246
+        }
+      },
+      {
+        "_id": "5906fb665bb6b949863c331c",
+        "duration": {
+          "asString": "23h45",
+          "dec": 23.75,
+          "sec": 0,
+          "min": 45,
+          "hours": 23,
+          "_id": "5906fb665bb6b949863c331d"
+        },
+        "percent": 55.6,
+        "type": "A380-800",
+        "config": {
+          "cargo": 26,
+          "first": 54,
+          "business": 134,
+          "eco": 382
+        }
+      }
+    ],
+    "__v": 2,
+    "distance": 9748,
+    "to": "LJU",
+    "from": "SFO",
+    "_id": "5906fb3e56b9f7c4cdf0bb0d"
   }
 ]

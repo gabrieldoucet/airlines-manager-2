@@ -13,8 +13,8 @@ require('./services/algorithmic.js');
 require('./services/calc.js');
 require('./services/classService.js');
 require('./services/planeService.js');
-require('./services/hubsService.js');
-require('./services/linesService.js');
+require('./services/hubService.js');
+require('./services/lineService.js');
 require('./services/models.js');
 require('./services/planeSpecService.js');
 

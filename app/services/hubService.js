@@ -1,21 +1,18 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('hubsService', ['$http', function ($http) {
+  .factory('hubService', ['$http', function ($http) {
     let hubs;
 
     const getHubs = function () {
       return $http({method: 'POST', url: 'http://localhost:3000/data/hubs'})
         .then(function (res) {
+          hubs = res.data;
           return res;
         })
         .catch(function (data) {
           return $http.get('https://gdoucet-fr.github.io/am2/data/hubs.json');
         });
-    };
-
-    const setHubs = function (data) {
-      hubs = data;
     };
 
     const isHub = function (iataCode) {
@@ -42,11 +39,11 @@ angular.module('am2App')
       } else if (regexArray.length === 1) {
         regex = new RegExp(regexArray[0]);
       }
-      return new RandExp(regex).gen();
+      let name = new RandExp(regex).gen();
+      return name;
     };
 
     return {
-      setHubs: setHubs,
       getHubs: getHubs,
       isHub: isHub,
       randomName: randomName

@@ -98,7 +98,7 @@
                   ng-class="getPlaneClass(plane)"
                   ng-click="choosePlane(plane)">
             {{plane.name}}
-            <i class="material-icons">{{getPlaneIcon(plane)}}</i>
+            <i class="material-icons" ng-if="plane.config.cargo != undefined">done</i>
             <span for="lineplane-{{plane.name}}" class="mdl-tooltip">{{plane.type}}</span>
           </button>
         </div>
@@ -153,7 +153,7 @@
             <h2 class="mdl-card__title-text">{{selects.selectedPlane.name}} ({{selects.selectedPlane.hub}})</h2>
           </div>
           <div class="mdl-card__supporting-text">
-            <img src="./images/{{selects.selectedPlane.type}}.png" border="0"
+            <img ng-src="./images/{{selects.selectedPlane.type}}.png" border="0"
                  alt="Picture not available" style="padding:10px;">
           </div>
           <div class="mdl-card__supporting-text">
@@ -225,6 +225,19 @@
           </tr>
           </tbody>
         </table>
+        <h4>Générateur de nom</h4>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-{{hub.code}}"
+               ng-repeat="hub in selects.hubChoices">
+          <input type="radio" id="option-{{hub.code}}" class="mdl-radio__button" name="options" ng-value="hub.code"
+                 ng-model="selects.hub">
+          <span class="mdl-radio__label">{{hub.code}}</span>
+        </label>
+        <button class="mdl-button mdl-js-button" ng-click="getPlaneName()">
+          Générer
+        </button>
+        <div>
+          <span>{{results.planeName}}</span>
+        </div>
       </div>
     </div> <!-- End of thirs row -->
   </main>

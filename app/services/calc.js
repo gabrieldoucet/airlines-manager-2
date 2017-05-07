@@ -1,8 +1,8 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('calc', ['planeSpecService', 'linesService', 'planeService',
-    function (planeSpecService, linesService, planeService) {
+  .factory('calc', ['planeSpecService', 'lineService', 'planeService',
+    function (planeSpecService, lineService, planeService) {
 
       const coeffs = {eco: 1, business: 1.8, first: 4.23};
       const optiThreshold = 3;
@@ -20,7 +20,7 @@ angular.module('am2App')
       };
 
       const getOptiLines = function (plane) {
-        return linesService.getLines().then(function (res) {
+        return lineService.getLines().then(function (res) {
           let optiLines = [];
           _.forEach(res.data, function (line) {
             if (isOptimised(plane, line)) {

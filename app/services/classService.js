@@ -1,7 +1,7 @@
 var _ = require('lodash');
 
 angular.module('am2App')
-.factory('classService', ['calc', 'linesService', function (calc, linesService) {
+.factory('classService', ['calc', 'lineService', function (calc, lineService) {
   var getPlaneLineLabelClass = function (plane, line) {
     //if (calc.isOptimised(plane, line)) {
     if (true) {

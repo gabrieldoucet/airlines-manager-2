@@ -14,13 +14,13 @@ require('./services/algorithmic.js');
 require('./services/calc.js');
 require('./services/classService.js');
 require('./services/planeService.js');
-require('./services/hubsService.js');
-require('./services/linesService.js');
+require('./services/hubService.js');
+require('./services/lineService.js');
 require('./services/models.js');
 require('./services/planeSpecService.js');
 
 require('./views/mockup.js');
-},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/classService.js":5,"./services/hubsService.js":6,"./services/linesService.js":7,"./services/models.js":8,"./services/planeService.js":9,"./services/planeSpecService.js":10,"./views/mockup.js":11,"angular":14,"angular-ui-router":12,"jquery":15,"lodash":16,"material-design-lite":17}],2:[function(require,module,exports){
+},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/classService.js":5,"./services/hubService.js":6,"./services/lineService.js":7,"./services/models.js":8,"./services/planeService.js":9,"./services/planeSpecService.js":10,"./views/mockup.js":11,"angular":14,"angular-ui-router":12,"jquery":15,"lodash":16,"material-design-lite":17}],2:[function(require,module,exports){
 //
 // randexp v0.4.3
 // Create random strings that match a given regular expression.
@@ -146,8 +146,8 @@ angular.module('am2App')
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('calc', ['planeSpecService', 'linesService', 'planeService',
-    function (planeSpecService, linesService, planeService) {
+  .factory('calc', ['planeSpecService', 'lineService', 'planeService',
+    function (planeSpecService, lineService, planeService) {
 
       const coeffs = {eco: 1, business: 1.8, first: 4.23};
       const optiThreshold = 3;
@@ -165,7 +165,7 @@ angular.module('am2App')
       };
 
       const getOptiLines = function (plane) {
-        return linesService.getLines().then(function (res) {
+        return lineService.getLines().then(function (res) {
           let optiLines = [];
           _.forEach(res.data, function (line) {
             if (isOptimised(plane, line)) {
@@ -283,7 +283,7 @@ angular.module('am2App')
 var _ = require('lodash');
 
 angular.module('am2App')
-.factory('classService', ['calc', 'linesService', function (calc, linesService) {
+.factory('classService', ['calc', 'lineService', function (calc, lineService) {
   var getPlaneLineLabelClass = function (plane, line) {
     //if (calc.isOptimised(plane, line)) {
     if (true) {
@@ -322,21 +322,18 @@ angular.module('am2App')
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('hubsService', ['$http', function ($http) {
+  .factory('hubService', ['$http', function ($http) {
     let hubs;
 
     const getHubs = function () {
       return $http({method: 'POST', url: 'http://localhost:3000/data/hubs'})
         .then(function (res) {
+          hubs = res.data;
           return res;
         })
         .catch(function (data) {
           return $http.get('https://gdoucet-fr.github.io/am2/data/hubs.json');
         });
-    };
-
-    const setHubs = function (data) {
-      hubs = data;
     };
 
     const isHub = function (iataCode) {
@@ -363,11 +360,11 @@ angular.module('am2App')
       } else if (regexArray.length === 1) {
         regex = new RegExp(regexArray[0]);
       }
-      return new RandExp(regex).gen();
+      let name = new RandExp(regex).gen();
+      return name;
     };
 
     return {
-      setHubs: setHubs,
       getHubs: getHubs,
       isHub: isHub,
       randomName: randomName
@@ -377,7 +374,7 @@ angular.module('am2App')
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('linesService', ['$http', 'hubsService', function ($http, hubsService) {
+  .factory('lineService', ['$http', function ($http) {
     let lines;
     const similarProportions = function (x, y) {
       const variation = (x - y) / x * 100;
@@ -412,10 +409,9 @@ angular.module('am2App')
       return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
         .then(function (res) {
           return res;
-        });
-      /*        .catch(function (data) {
-       return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
-       });*/
+        }).catch(function (data) {
+        return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
+      });
     };
 
     const getLinesFromTo = function (origin, dest) {
@@ -502,9 +498,9 @@ angular.module('am2App')
         .then(function (res) {
           return res;
         })
-/*        .catch(function (data) {
+        .catch(function (data) {
           return $http.get('https://gdoucet-fr.github.io/am2/data/planes.json');
-        });*/
+        });
     };
 
     return {
@@ -570,8 +566,8 @@ angular.module('am2App')
 const _ = require('lodash');
 
 angular.module('am2App')
-  .controller('mockupController', ['$scope', 'calc', 'planeService', 'linesService', 'planeSpecService',
-    function ($scope, calc, planeService, lineService, planeSpecService) {
+  .controller('mockupController', ['$scope', 'calc', 'planeService', 'lineService', 'planeSpecService', 'hubService',
+    function ($scope, calc, planeService, lineService, planeSpecService, hubService) {
       $scope.selects = {manualInput: false};
       $scope.results = {};
 
@@ -603,6 +599,10 @@ angular.module('am2App')
 
       planeService.getPlanes().then(function (res) {
         $scope.selects.planeChoices = _.sortBy(res.data, ['name']);
+      });
+
+      hubService.getHubs().then(function (res) {
+        $scope.selects.hubChoices = _.sortBy(res.data, ['name']);
       });
 
       $scope.getPlaneIcon = function (plane) {
@@ -641,6 +641,22 @@ angular.module('am2App')
           $scope.selects.selectedLine = _.cloneDeep($scope.selects.selectedLineClone);
         }
         $scope.selects.manualInput = !$scope.selects.manualInput;
+      };
+
+      $scope.getPlaneName = function () {
+        console.log($scope.selects.hub);
+        let name;
+        let nameAlreadyUsed = true;
+        while (nameAlreadyUsed) {
+          nameAlreadyUsed = false;
+          name            = hubService.randomName($scope.selects.hub);
+          _.forEach($scope.selects.planeChoices, function (plane) {
+            if (_.isEqual(plane.name, name)) {
+              nameAlreadyExists = true;
+            }
+          });
+        }
+        $scope.results.planeName = name;
       };
 
       $scope.reset = function () {
