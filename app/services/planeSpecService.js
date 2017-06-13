@@ -9,12 +9,19 @@ angular.module('am2App')
     };
 
     const getPlaneSpecs = function (query) {
-      return $http({method: 'POST', url: 'http://localhost:3000/data/planespecs', data: query})
+      //return $http({method: 'POST', url: 'http://localhost:3000/data/planespecs', data: query})
+      //  .then(function (res) {
+      //    return res;
+      //  })
+      //  .catch(function (data) {
+      //    return $http.get('https://gdoucet-fr.github.io/am2/data/planespecs.json');
+      //  });
+
+      // TODO
+      return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/planespecs.json'})
         .then(function (res) {
+          hubs = res.data;
           return res;
-        })
-        .catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
         });
     };
 

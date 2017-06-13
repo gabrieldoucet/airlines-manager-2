@@ -5,13 +5,20 @@ angular.module('am2App')
     let hubs;
 
     const getHubs = function () {
-      return $http({method: 'POST', url: 'http://localhost:3000/data/hubs'})
+      //return $http({method: 'POST', url: 'http://localhost:3000/data/hubs'})
+      //  .then(function (res) {
+      //    hubs = res.data;
+      //    return res;
+      //  })
+      //  .catch(function (data) {
+      //    return $http.get('https://gdoucet-fr.github.io/am2/data/hubs.json');
+      //  });
+
+      // TODO
+      return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/hubs.json'})
         .then(function (res) {
           hubs = res.data;
           return res;
-        })
-        .catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/data/hubs.json');
         });
     };
 
