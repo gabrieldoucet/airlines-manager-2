@@ -35,6 +35,7 @@
     "gulp": "^3.9.1",
     "gulp-ruby-sass": "^2.1.1",
     "nodemon": "^1.11.0",
+    "pug-lint": "^2.4.0",
     "vinyl-source-stream": "^1.1.0"
   }
 }

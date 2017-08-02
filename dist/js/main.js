@@ -20,7 +20,9 @@ require('./services/models.js');
 require('./services/planeSpecService.js');
 
 require('./views/mockup.js');
-},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/classService.js":5,"./services/hubService.js":6,"./services/lineService.js":7,"./services/models.js":8,"./services/planeService.js":9,"./services/planeSpecService.js":10,"./views/mockup.js":11,"angular":14,"angular-ui-router":12,"jquery":15,"lodash":16,"material-design-lite":17}],2:[function(require,module,exports){
+require('./views/nameGen.js');
+require('./views/lineSelect.js');
+},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/classService.js":5,"./services/hubService.js":6,"./services/lineService.js":7,"./services/models.js":8,"./services/planeService.js":9,"./services/planeSpecService.js":10,"./views/lineSelect.js":11,"./views/mockup.js":12,"./views/nameGen.js":13,"angular":16,"angular-ui-router":14,"jquery":17,"lodash":18,"material-design-lite":19}],2:[function(require,module,exports){
 //
 // randexp v0.4.3
 // Create random strings that match a given regular expression.
@@ -142,7 +144,7 @@ angular.module('am2App')
     algo: algo
   };
 }]);
-},{"lodash":16}],4:[function(require,module,exports){
+},{"lodash":18}],4:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -279,7 +281,7 @@ angular.module('am2App')
         getOptimisation: getOptimisation
       };
     }]);
-},{"lodash":16}],5:[function(require,module,exports){
+},{"lodash":18}],5:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -318,7 +320,7 @@ angular.module('am2App')
     getLineLineLabelClass: getLineLineLabelClass
   };
 }]);
-},{"lodash":16}],6:[function(require,module,exports){
+},{"lodash":18}],6:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -334,6 +336,13 @@ angular.module('am2App')
         .catch(function (data) {
           return $http.get('https://gdoucet-fr.github.io/am2/data/hubs.json');
         });
+
+      // TODO
+      //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/hubs.json'})
+      //  .then(function (res) {
+      //    hubs = res.data;
+      //    return res;
+      //  });
     };
 
     const isHub = function (iataCode) {
@@ -370,11 +379,11 @@ angular.module('am2App')
       randomName: randomName
     };
   }]);
-},{"lodash":16}],7:[function(require,module,exports){
+},{"lodash":18}],7:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('lineService', ['$http', function ($http) {
+  .factory('lineService', ['$http', 'hubService', function ($http, hubService) {
     let lines;
     const similarProportions = function (x, y) {
       const variation = (x - y) / x * 100;
@@ -408,17 +417,24 @@ angular.module('am2App')
     const getLines = function (query) {
       return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
         .then(function (res) {
+          lines = res.data;
           return res;
         }).catch(function (data) {
-        return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
-      });
+          return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
+        });
+
+      // TODO
+      //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/lines.json'})
+      //  .then(function (res) {
+      //    lines = res.data;
+      //    return res;
+      //  });
     };
 
     const getLinesFromTo = function (origin, dest) {
       let resultLine    = null;
-      const originIsHub = hubsService.isHub(origin);
-      const destIsHub   = hubsService.isHub(dest);
-      //console.log(origin, hubsService.isHub(origin));
+      const originIsHub = hubService.isHub(origin);
+      const destIsHub   = hubService.isHub(dest);
       _.forEach(lines, function (line) {
         if (originIsHub && destIsHub) {
           if ((_.isEqual(origin, line.from) && _.isEqual(dest, line.to)) ||
@@ -432,6 +448,19 @@ angular.module('am2App')
         }
       });
       return resultLine;
+    };
+
+    const getLinesFromTo2 = function (origin, dest) {
+      let query = {from: origin, to: dest};
+      return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
+        .then(function (res) {
+          return res.data[0];
+        }).catch(function () {
+          let lines = _.map(lines, function (line) {
+            return _.isEqual(line.from, origin) && _.isEqual(line.to, dest);
+          });
+          return lines[0];
+        });
     };
 
     const getSimilarLines = function (sourceLine) {
@@ -448,11 +477,12 @@ angular.module('am2App')
       setLines: setLines,
       getLines: getLines,
       getLineFromTo: getLinesFromTo,
+      getLineFromTo2: getLinesFromTo2,
       getSimilarLines: getSimilarLines,
       isSimilar: isSimilar
     };
   }]);
-},{"lodash":16}],8:[function(require,module,exports){
+},{"lodash":18}],8:[function(require,module,exports){
 angular.module('am2App')
 .factory('models', [function () {
   
@@ -501,6 +531,13 @@ angular.module('am2App')
         .catch(function (data) {
           return $http.get('https://gdoucet-fr.github.io/am2/data/planes.json');
         });
+
+      //// TODO
+      //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/planes.json'})
+      //  .then(function (res) {
+      //    hubs = res.data;
+      //    return res;
+      //  })
     };
 
     return {
@@ -510,7 +547,7 @@ angular.module('am2App')
       getPlanes: getPlanes
     };
   }]);
-},{"lodash":16}],10:[function(require,module,exports){
+},{"lodash":18}],10:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -527,8 +564,15 @@ angular.module('am2App')
           return res;
         })
         .catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
+          return $http.get('https://gdoucet-fr.github.io/am2/data/planespecs.json');
         });
+
+      //// TODO
+      //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/planespecs.json'})
+      //  .then(function (res) {
+      //    hubs = res.data;
+      //    return res;
+      //  });
     };
 
     const getSeatsFromType = function (type) {
@@ -558,7 +602,30 @@ angular.module('am2App')
       getSpeedFromType: getSpeedFromType
     };
   }]);
-},{"lodash":16}],11:[function(require,module,exports){
+},{"lodash":18}],11:[function(require,module,exports){
+/**
+ * Created by Gabriel on 02/08/2017.
+ */
+
+const _ = require('lodash');
+
+angular.module('am2App')
+  .directive('lineSelect', function () {
+    return {
+      templateUrl: './templates/lineSelect',
+      transclude: true,
+      scope: {
+        select: '=',
+        disabled: '='
+      },
+      controller: ['$scope', 'lineService', function ($scope, lineService) {
+        lineService.getLines().then(function (res) {
+          $scope.lines = _.sortBy(res.data, ['from', 'to']);
+        });
+      }]
+    };
+  });
+},{"lodash":18}],12:[function(require,module,exports){
 /**
  * Created by Gabriel on 05/04/2017.
  */
@@ -630,6 +697,7 @@ angular.module('am2App')
             return calc.getOptimisation(planeSpec, $scope.selects.selectedLine);
           });
           optis            = _.sortBy(optis, ['percent']);
+          console.log(optis);
           _.set($scope.selects.selectedLine, 'optis', optis);
         });
       };
@@ -641,6 +709,14 @@ angular.module('am2App')
           $scope.selects.selectedLine = _.cloneDeep($scope.selects.selectedLineClone);
         }
         $scope.selects.manualInput = !$scope.selects.manualInput;
+        //MDL Text Input Cleanup
+        function mdlCleanUp() {
+          var mdlInputs = doc.querySelectorAll('.mdl-js-textfield');
+          for (var i = 0, l = mdlInputs.length; i < l; i++) {
+            console.log(mdlInputs[i]);
+            mdlInputs[i].MaterialTextfield.checkDirty();
+          }
+        }
       };
 
       $scope.getPlaneName = function () {
@@ -662,8 +738,70 @@ angular.module('am2App')
       $scope.reset = function () {
         $scope.selects.selectedLine = _.cloneDeep($scope.selects.selectedLineClone);
       };
+
+      $scope.clean = function () {
+        let targ;
+        let e;
+        if (!e) {
+          e = window.event;
+        }
+        if (e.target) {
+          targ = e.target;
+        }
+        else if (e.srcElement) {
+          targ = e.srcElement;
+        }
+        if (targ.nodeType === 3) {
+          targ = targ.parentNode;
+        }
+
+        let inputs = document.getElementsByTagName('input');
+        for (let i = 0; i < inputs.length; i++) {
+          let input = inputs.item(i);
+          if (input.parentElement.classList.contains('is-focused')) {
+            input.parentElement.classList.remove('is-focused');
+          }
+        }
+
+        targ.parentElement.classList.add('is-focused');
+      };
+
+      $scope.chooseDest = function (to) {
+        if ($scope.selects.selectedPlane) {
+          lineService.getLineFromTo2($scope.selects.selectedPlane.hub, to)
+            .then(function (line) {
+              $scope.selects.selectedLine = line;
+            });
+        }
+      };
     }]);
-},{"lodash":16}],12:[function(require,module,exports){
+},{"lodash":18}],13:[function(require,module,exports){
+/**
+ * Created by Gabriel on 02/08/2017.
+ */
+/**
+ * Created by Gabriel on 02/08/2017.
+ */
+
+const _ = require('lodash');
+
+angular.module('am2App')
+  .directive('nameGen', function () {
+    return {
+      templateUrl: './templates/nameGen',
+      transclude: true,
+      scope: {
+        select: '=',
+        disabled: '='
+      },
+      controller: ['$scope', 'hubService', function ($scope, hubService) {
+        hubService.getHubs().then(function (res) {
+          $scope.hubs = _.sortBy(res.data, ['code']);
+        });
+      }]
+    };
+  });
+},{"lodash":18}],14:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.4.2
@@ -5348,7 +5486,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.2
  * (c) 2010-2017 Google, Inc. http://angularjs.org
@@ -38483,11 +38621,11 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":13}],15:[function(require,module,exports){
+},{"./angular":15}],17:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.1.1
  * https://jquery.com/
@@ -48709,7 +48847,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -65797,7 +65935,7 @@ return jQuery;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],17:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 /**
  * material-design-lite - Material Design Components in CSS, JS and HTML
  * @version v1.3.0

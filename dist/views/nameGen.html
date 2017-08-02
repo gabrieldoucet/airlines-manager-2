@@ -1,1 +1,2 @@
-<div class="container-fluid col-lg-3"><h4>Générateur de nom par hub</h4><form class="form form-horizontal"><div class="form-group"><label class="control-label col-lg-3">Nom</label><div class="col-lg-6"><input class="form-control" type="text" ng-model="name"/></div></div><div class="form-group"><label class="control-label col-lg-3">Hub</label><div class="col-lg-6"><hub-select ng-model="hub"></hub-select></div></div></form></div>
+<!--Created by Gabriel on 02/08/2017.
+--><h4>Générateur de nom<button class="mdl-button mdl-js-button--raised" id="menu-hubs"></button></h4><ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-hubs"><li class="mdl-menu__item" ng-repeat="hub in hubs" ng-click="chooseLine(line)">{{hub.code}}</li></ul>

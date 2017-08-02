@@ -69,6 +69,7 @@ angular.module('am2App')
             return calc.getOptimisation(planeSpec, $scope.selects.selectedLine);
           });
           optis            = _.sortBy(optis, ['percent']);
+          console.log(optis);
           _.set($scope.selects.selectedLine, 'optis', optis);
         });
       };
@@ -80,6 +81,14 @@ angular.module('am2App')
           $scope.selects.selectedLine = _.cloneDeep($scope.selects.selectedLineClone);
         }
         $scope.selects.manualInput = !$scope.selects.manualInput;
+        //MDL Text Input Cleanup
+        function mdlCleanUp() {
+          var mdlInputs = doc.querySelectorAll('.mdl-js-textfield');
+          for (var i = 0, l = mdlInputs.length; i < l; i++) {
+            console.log(mdlInputs[i]);
+            mdlInputs[i].MaterialTextfield.checkDirty();
+          }
+        }
       };
 
       $scope.getPlaneName = function () {
@@ -100,5 +109,41 @@ angular.module('am2App')
 
       $scope.reset = function () {
         $scope.selects.selectedLine = _.cloneDeep($scope.selects.selectedLineClone);
+      };
+
+      $scope.clean = function () {
+        let targ;
+        let e;
+        if (!e) {
+          e = window.event;
+        }
+        if (e.target) {
+          targ = e.target;
+        }
+        else if (e.srcElement) {
+          targ = e.srcElement;
+        }
+        if (targ.nodeType === 3) {
+          targ = targ.parentNode;
+        }
+
+        let inputs = document.getElementsByTagName('input');
+        for (let i = 0; i < inputs.length; i++) {
+          let input = inputs.item(i);
+          if (input.parentElement.classList.contains('is-focused')) {
+            input.parentElement.classList.remove('is-focused');
+          }
+        }
+
+        targ.parentElement.classList.add('is-focused');
+      };
+
+      $scope.chooseDest = function (to) {
+        if ($scope.selects.selectedPlane) {
+          lineService.getLineFromTo2($scope.selects.selectedPlane.hub, to)
+            .then(function (line) {
+              $scope.selects.selectedLine = line;
+            });
+        }
       };
     }]);

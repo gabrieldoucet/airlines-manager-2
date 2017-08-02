@@ -1,7 +1,7 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('lineService', ['$http', function ($http) {
+  .factory('lineService', ['$http', 'hubService', function ($http, hubService) {
     let lines;
     const similarProportions = function (x, y) {
       const variation = (x - y) / x * 100;
@@ -33,26 +33,26 @@ angular.module('am2App')
     };
 
     const getLines = function (query) {
-      //     return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
-      //.then(function (res) {
-      //return res;
-      //}).catch(function (data) {
-      //return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
-      //});
-
-      // TODO
-      return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/lines.json'})
+      return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
         .then(function (res) {
           lines = res.data;
           return res;
+        }).catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
         });
+
+      // TODO
+      //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/lines.json'})
+      //  .then(function (res) {
+      //    lines = res.data;
+      //    return res;
+      //  });
     };
 
     const getLinesFromTo = function (origin, dest) {
       let resultLine    = null;
-      const originIsHub = hubsService.isHub(origin);
-      const destIsHub   = hubsService.isHub(dest);
-      //console.log(origin, hubsService.isHub(origin));
+      const originIsHub = hubService.isHub(origin);
+      const destIsHub   = hubService.isHub(dest);
       _.forEach(lines, function (line) {
         if (originIsHub && destIsHub) {
           if ((_.isEqual(origin, line.from) && _.isEqual(dest, line.to)) ||
@@ -66,6 +66,19 @@ angular.module('am2App')
         }
       });
       return resultLine;
+    };
+
+    const getLinesFromTo2 = function (origin, dest) {
+      let query = {from: origin, to: dest};
+      return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
+        .then(function (res) {
+          return res.data[0];
+        }).catch(function () {
+          let lines = _.map(lines, function (line) {
+            return _.isEqual(line.from, origin) && _.isEqual(line.to, dest);
+          });
+          return lines[0];
+        });
     };
 
     const getSimilarLines = function (sourceLine) {
@@ -82,6 +95,7 @@ angular.module('am2App')
       setLines: setLines,
       getLines: getLines,
       getLineFromTo: getLinesFromTo,
+      getLineFromTo2: getLinesFromTo2,
       getSimilarLines: getSimilarLines,
       isSimilar: isSimilar
     };

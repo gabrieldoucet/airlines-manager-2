@@ -1,0 +1,12 @@
+<h4>
+  <span>Choisir la ligne</span>
+  <button id="menu-lines" class="mdl-button mdl-js-button--raised">
+    <span ng-if="selects.selectedLine">{{selects.selectedLine.from}} - {{selects.selectedLine.to}}</span>
+    <span ng-if="!selects.selectedLine">Sélectionner</span></button>
+</h4>
+<ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-lines">
+  <li ng-repeat="line in lines" class="mdl-menu__item" ng-click="chooseLine(line)">
+    {{line.from}}
+    - {{line.to}}
+  </li>
+</ul>

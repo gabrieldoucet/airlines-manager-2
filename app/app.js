@@ -19,3 +19,5 @@ require('./services/models.js');
 require('./services/planeSpecService.js');
 
 require('./views/mockup.js');
+require('./views/nameGen.js');
+require('./views/lineSelect.js');

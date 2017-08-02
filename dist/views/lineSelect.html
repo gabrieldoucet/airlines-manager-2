@@ -1,1 +1,2 @@
-<select ng-disabled="disabled" ng-model="select" ng-options="line.from + ' - ' + line.to for line in lines"></select>
+<!--Created by Gabriel on 02/08/2017.
+--><h4><span>Choisir la ligne<button class="mdl-button mdl-js-button--raised" id="menu-lines2"><span ng-if="selects.selectedLine">{{selects.selectedLine.from}} - {{selects.selectedLine.to}}</span><span ng-if="!selects.selectedLine">Sélectionner</span></button></span></h4><ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-lines2"><li class="mdl-menu__item" ng-repeat="line in lines" ng-click="chooseLine(line)">{{line.from}} - {{line.to}}</li></ul>

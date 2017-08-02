@@ -23,20 +23,20 @@ angular.module('am2App')
     };
 
     const getPlanes = function (query) {
-      //return $http({method: 'POST', url: 'http://localhost:3000/data/planes', data: query})
-      //  .then(function (res) {
-      //    return res;
-      //  })
-      //  .catch(function (data) {
-      //    return $http.get('https://gdoucet-fr.github.io/am2/data/planes.json');
-      //  });
-
-      // TODO
-      return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/planes.json'})
+      return $http({method: 'POST', url: 'http://localhost:3000/data/planes', data: query})
         .then(function (res) {
-          hubs = res.data;
           return res;
         })
+        .catch(function (data) {
+          return $http.get('https://gdoucet-fr.github.io/am2/data/planes.json');
+        });
+
+      //// TODO
+      //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/planes.json'})
+      //  .then(function (res) {
+      //    hubs = res.data;
+      //    return res;
+      //  })
     };
 
     return {
