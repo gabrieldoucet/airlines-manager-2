@@ -15,7 +15,8 @@ const planeSchema = new mongoose.Schema({
   type: String,
   hub: String,
   dests: [String],
-  config: {eco: Number, business: Number, first: Number, cargo: Number}
+  config: {eco: Number, business: Number, first: Number, cargo: Number},
+  amID: Number
 });
 
 const durationSchema = new mongoose.Schema({
@@ -45,7 +46,8 @@ const lineSchema = new mongoose.Schema({
   prices: {eco: Number, business: Number, first: Number, cargo: Number},
   demand: {eco: Number, business: Number, first: Number, cargo: Number},
   planes: [planeSchema],
-  optis: [optiSchema]
+  optis: [optiSchema],
+  amID: Number
 });
 
 const planeSpecSchema = new mongoose.Schema({

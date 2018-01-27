@@ -32,6 +32,12 @@ angular.module('am2App')
         return false;
       };
 
+      $scope.chooseHub = function (hub) {
+        $scope.selects.selectedHub = hub;
+        $scope.results.planeName = getPlaneName(hub.code);
+        return false;
+      };
+
       lineService.getLines().then(function (res) {
         $scope.selects.lineChoices = _.sortBy(res.data, ['from', 'to']);
       });
@@ -41,7 +47,7 @@ angular.module('am2App')
       });
 
       hubService.getHubs().then(function (res) {
-        $scope.selects.hubChoices = _.sortBy(res.data, ['name']);
+        $scope.selects.hubChoices = _.sortBy(res.data, ['code']);
       });
 
       $scope.getPlaneIcon = function (plane) {
@@ -91,20 +97,20 @@ angular.module('am2App')
         }
       };
 
-      $scope.getPlaneName = function () {
-        console.log($scope.selects.hub);
+      const getPlaneName = function (hubCode) {
         let name;
         let nameAlreadyUsed = true;
         while (nameAlreadyUsed) {
           nameAlreadyUsed = false;
-          name            = hubService.randomName($scope.selects.hub);
+          name            = hubService.randomName(hubCode);
           _.forEach($scope.selects.planeChoices, function (plane) {
             if (_.isEqual(plane.name, name)) {
               nameAlreadyExists = true;
             }
           });
         }
-        $scope.results.planeName = name;
+        return name;
+//        $scope.results.planeName = name;
       };
 
       $scope.reset = function () {
@@ -136,14 +142,5 @@ angular.module('am2App')
         }
 
         targ.parentElement.classList.add('is-focused');
-      };
-
-      $scope.chooseDest = function (to) {
-        if ($scope.selects.selectedPlane) {
-          lineService.getLineFromTo2($scope.selects.selectedPlane.hub, to)
-            .then(function (line) {
-              $scope.selects.selectedLine = line;
-            });
-        }
       };
     }]);

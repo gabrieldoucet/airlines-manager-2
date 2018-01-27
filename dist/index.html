@@ -17,8 +17,22 @@
     <div class="mdl-layout__header-row">
       <!-- Title -->
       <span class="mdl-layout-title">AM2 App</span>
+
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
+
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <button id="actions1" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+          Ajouter
+        </button>
+
+        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+            for="actions1">
+          <li class="mdl-menu__item">Ajouter avion</li>
+          <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Ajouter ligne</li>
+        </ul>
+      </nav>
     </div>
   </header>
   <main class="mdl-layout__content">
@@ -39,7 +53,7 @@
             </li>
           </ul>
         </div>
-        <div class="mdl-cell--6-col" ng-if="selects.selectedLine">
+        <div class="mdl-cell--5-col" ng-if="selects.selectedLine">
           <h4>Demande
             <button ng-click="toggleManual()" class="mdl-button mdl-js-button--raised">
               <span>Saisie manuelle</span>
@@ -89,22 +103,21 @@
             </form>
           </div>
         </div>
-        <div class="mdl-cell--3-col">
+        <div class="mdl-cell--4-col">
           <h4>
             <span>Générateur de nom</span>
-            <button class="mdl-button mdl-js-button" ng-click="getPlaneName()">
-              Générer
-            </button>
+            <button id="menu-hubs" class="mdl-button mdl-js-ripple-effect mdl-js-button--raised">
+              <span ng-if="selects.selectedHub">{{selects.selectedHub.code}}</span>
+              <span ng-if="!selects.selectedHub">Sélectionner</span></button>
           </h4>
-          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-{{hub.code}}"
-                 ng-repeat="hub in selects.hubChoices">
-            <input type="radio" id="option-{{hub.code}}" class="mdl-radio__button" name="options" ng-value="hub.code"
-                   ng-model="selects.hub">
-            <span class="mdl-radio__label">{{hub.code}}</span>
-          </label>
-          <div>Nom généré :
+          <div>
             <span>{{results.planeName}}</span>
           </div>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-hubs">
+            <li ng-repeat="hub in selects.hubChoices" class="mdl-menu__item" ng-click="chooseHub(hub)">
+              {{hub.code}}
+            </li>
+          </ul>
         </div>
       </div> <!-- End of first row -->
 
@@ -164,91 +177,16 @@
       <div class="mdl-cell--8-col">
         <h4>Configurations optimales</h4>
         <h6 ng-if="!selects.selectedLine"><i>Aucune ligne sélectionnée</i></h6>
-
       </div>
 
       <div class="mdl-cell--4-col">
 
-        <!-- Card component for plane detail -->
-        <div class="mdl-card mdl-shadow--4dp" ng-if="selects.selectedPlane">
-          <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">{{selects.selectedPlane.name}} ({{selects.selectedPlane.hub}})</h2>
-          </div>
-          <div class="mdl-card__supporting-text">
-            <img ng-src="./images/{{selects.selectedPlane.type}}.png" border="0"
-                 alt="Picture not available" style="padding:10px;" height="90" width="275">
-          </div>
-          <div class="mdl-card__supporting-text">
-            <h6>Configuration</h6>
-            <span class="mdl-chip mdl-chip--contact">
-                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">E</span>
-                  <span class="mdl-chip__text">{{selects.selectedPlane.config.eco}} pax</span>
-                </span>
-            <span class="mdl-chip mdl-chip--contact">
-                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">B</span>
-                  <span class="mdl-chip__text">{{selects.selectedPlane.config.business}} pax</span>
-                </span>
-            <span class="mdl-chip mdl-chip--contact">
-                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">F</span>
-                  <span class="mdl-chip__text">{{selects.selectedPlane.config.first}} pax</span>
-                </span>
-            <span class="mdl-chip mdl-chip--contact">
-                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">C</span>
-                  <span class="mdl-chip__text">{{selects.selectedPlane.config.cargo}} T</span>
-                </span>
-          </div>
-          <div class="mdl-card__supporting-text">
-            <h6>Destinations</h6>
-            <button type="button" class="mdl-chip" ng-repeat="dest in selects.selectedPlane.dests"
-                    ng-click="chooseDest(dest)">
-              <span class="mdl-chip__text">{{dest}}</span></button>
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
-              <i class="material-icons">settings</i>
-            </button>
-          </div>
-        </div> <!-- End of card component -->
+        <plane-view plane="selects.selectedPlane" line="selects.selectedLine"></plane-view>
       </div>
 
-
       <div class="mdl-cell--8-col">
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" ng-if="selects.selectedLine">
-          <thead>
-          <tr>
-            <th class="mdl-data-table__cell--non-numeric">Type</th>
-            <th class="mdl-data-table__cell--non-numeric">Configuration</th>
-            <th>Durée</th>
-            <!--            <th>% demande <i class="material-icons">arrow_upward</i></th> -->
-            <th>% demande</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr ng-repeat="opti in selects.selectedLine.optis">
-            <td class="mdl-data-table__cell--non-numeric">{{opti.type}}</td>
-            <td>
-                <span class="mdl-chip mdl-chip--contact">
-                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">E</span>
-                  <span class="mdl-chip__text">{{opti.config.eco}} pax</span>
-                </span>
-              <span class="mdl-chip mdl-chip--contact">
-                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">B</span>
-                  <span class="mdl-chip__text">{{opti.config.business}} pax</span>
-                </span>
-              <span class="mdl-chip mdl-chip--contact">
-                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">F</span>
-                  <span class="mdl-chip__text">{{opti.config.first}} pax</span>
-                </span>
-              <span class="mdl-chip mdl-chip--contact">
-                  <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">C</span>
-                  <span class="mdl-chip__text">{{opti.config.cargo}} T</span>
-                </span>
-            </td>
-            <td class="mdl-data-table__cell--non-numeric">{{opti.duration.asString}}</td>
-            <td class="mdl-data-table__cell--non-numeric">{{opti.percent}}</td>
-          </tr>
-          </tbody>
-        </table>
+        <line-configs line="selects.selectedLine"></line-configs>
+      </div>
     </div> <!-- End of this row -->
   </main>
 </div>

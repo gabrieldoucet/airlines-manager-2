@@ -1,0 +1,28 @@
+.mdl-card.mdl-shadow--4dp(ng-if='plane')
+  .mdl-card__title
+    h2.mdl-card__title-text {{plane.name}} ({{plane.hub}})
+  .mdl-card__supporting-text
+    img(ng-src='./images/{{plane.type}}.png', border='0', alt='Picture not available', style='padding:10px;', height='90', width='275')
+  .mdl-card__actions.mdl-card--border
+    h6 Configuration
+    span.mdl-chip.mdl-chip--contact
+      span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white E
+      span.mdl-chip__text {{plane.config.eco}} pax
+    span.mdl-chip.mdl-chip--contact
+      span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white B
+      span.mdl-chip__text {{plane.config.business}} pax
+    span.mdl-chip.mdl-chip--contact
+      span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white F
+      span.mdl-chip__text {{plane.config.first}} pax
+    span.mdl-chip.mdl-chip--contact
+      span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white C
+      span.mdl-chip__text {{plane.config.cargo}} T
+  .mdl-card__actions.mdl-card--border
+    h6 Destinations
+    button.mdl-chip(type='button', ng-repeat='dest in plane.dests', ng-click='chooseDest(dest)')
+      span.mdl-chip__text {{dest}}
+  .mdl-card__menu
+    button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
+      i.material-icons settings
+// End of card component
+

@@ -26,7 +26,6 @@ async.series([
   },
   dbHelper.dump
 ], function (err) {
-  'use strict';
   let exitCode = 0;
   if (err) {
     exitCode = -1;

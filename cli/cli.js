@@ -9,4 +9,5 @@ program
   .command('debug', 'Debug script')
   .command('dump', 'Export the mongodb collections')
   .command('source', 'Import data from existing files')
+  .command('get-config', 'Import data from existing files')
   .parse(process.argv);

@@ -1,9 +1,6 @@
 /**
  * Created by Gabriel on 02/08/2017.
  */
-/**
- * Created by Gabriel on 02/08/2017.
- */
 
 const _ = require('lodash');
 

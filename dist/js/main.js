@@ -22,7 +22,9 @@ require('./services/planeSpecService.js');
 require('./views/mockup.js');
 require('./views/nameGen.js');
 require('./views/lineSelect.js');
-},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/classService.js":5,"./services/hubService.js":6,"./services/lineService.js":7,"./services/models.js":8,"./services/planeService.js":9,"./services/planeSpecService.js":10,"./views/lineSelect.js":11,"./views/mockup.js":12,"./views/nameGen.js":13,"angular":16,"angular-ui-router":14,"jquery":17,"lodash":18,"material-design-lite":19}],2:[function(require,module,exports){
+require('./views/planeView.js');
+require('./views/lineConfigs.js');
+},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/classService.js":5,"./services/hubService.js":6,"./services/lineService.js":7,"./services/models.js":8,"./services/planeService.js":9,"./services/planeSpecService.js":10,"./views/lineConfigs.js":11,"./views/lineSelect.js":12,"./views/mockup.js":13,"./views/nameGen.js":14,"./views/planeView.js":15,"angular":18,"angular-ui-router":16,"jquery":19,"lodash":20,"material-design-lite":21}],2:[function(require,module,exports){
 //
 // randexp v0.4.3
 // Create random strings that match a given regular expression.
@@ -144,7 +146,7 @@ angular.module('am2App')
     algo: algo
   };
 }]);
-},{"lodash":18}],4:[function(require,module,exports){
+},{"lodash":20}],4:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -281,7 +283,7 @@ angular.module('am2App')
         getOptimisation: getOptimisation
       };
     }]);
-},{"lodash":18}],5:[function(require,module,exports){
+},{"lodash":20}],5:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
@@ -320,7 +322,7 @@ angular.module('am2App')
     getLineLineLabelClass: getLineLineLabelClass
   };
 }]);
-},{"lodash":18}],6:[function(require,module,exports){
+},{"lodash":20}],6:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -379,7 +381,7 @@ angular.module('am2App')
       randomName: randomName
     };
   }]);
-},{"lodash":18}],7:[function(require,module,exports){
+},{"lodash":20}],7:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -482,7 +484,7 @@ angular.module('am2App')
       isSimilar: isSimilar
     };
   }]);
-},{"lodash":18}],8:[function(require,module,exports){
+},{"lodash":20}],8:[function(require,module,exports){
 angular.module('am2App')
 .factory('models', [function () {
   
@@ -547,7 +549,7 @@ angular.module('am2App')
       getPlanes: getPlanes
     };
   }]);
-},{"lodash":18}],10:[function(require,module,exports){
+},{"lodash":20}],10:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -602,7 +604,22 @@ angular.module('am2App')
       getSpeedFromType: getSpeedFromType
     };
   }]);
-},{"lodash":18}],11:[function(require,module,exports){
+},{"lodash":20}],11:[function(require,module,exports){
+const _ = require('lodash');
+
+angular.module('am2App')
+  .directive('lineConfigs', function () {
+    return {
+      templateUrl: './templates/lineConfigs',
+      transclude: true,
+      scope: {
+        line: '='
+      },
+      controller: ['$scope', function ($scope) {
+      }]
+    };
+  });
+},{"lodash":20}],12:[function(require,module,exports){
 /**
  * Created by Gabriel on 02/08/2017.
  */
@@ -625,7 +642,7 @@ angular.module('am2App')
       }]
     };
   });
-},{"lodash":18}],12:[function(require,module,exports){
+},{"lodash":20}],13:[function(require,module,exports){
 /**
  * Created by Gabriel on 05/04/2017.
  */
@@ -660,6 +677,12 @@ angular.module('am2App')
         return false;
       };
 
+      $scope.chooseHub = function (hub) {
+        $scope.selects.selectedHub = hub;
+        $scope.results.planeName = getPlaneName(hub.code);
+        return false;
+      };
+
       lineService.getLines().then(function (res) {
         $scope.selects.lineChoices = _.sortBy(res.data, ['from', 'to']);
       });
@@ -669,7 +692,7 @@ angular.module('am2App')
       });
 
       hubService.getHubs().then(function (res) {
-        $scope.selects.hubChoices = _.sortBy(res.data, ['name']);
+        $scope.selects.hubChoices = _.sortBy(res.data, ['code']);
       });
 
       $scope.getPlaneIcon = function (plane) {
@@ -719,20 +742,20 @@ angular.module('am2App')
         }
       };
 
-      $scope.getPlaneName = function () {
-        console.log($scope.selects.hub);
+      const getPlaneName = function (hubCode) {
         let name;
         let nameAlreadyUsed = true;
         while (nameAlreadyUsed) {
           nameAlreadyUsed = false;
-          name            = hubService.randomName($scope.selects.hub);
+          name            = hubService.randomName(hubCode);
           _.forEach($scope.selects.planeChoices, function (plane) {
             if (_.isEqual(plane.name, name)) {
               nameAlreadyExists = true;
             }
           });
         }
-        $scope.results.planeName = name;
+        return name;
+//        $scope.results.planeName = name;
       };
 
       $scope.reset = function () {
@@ -765,20 +788,9 @@ angular.module('am2App')
 
         targ.parentElement.classList.add('is-focused');
       };
-
-      $scope.chooseDest = function (to) {
-        if ($scope.selects.selectedPlane) {
-          lineService.getLineFromTo2($scope.selects.selectedPlane.hub, to)
-            .then(function (line) {
-              $scope.selects.selectedLine = line;
-            });
-        }
-      };
+      
     }]);
-},{"lodash":18}],13:[function(require,module,exports){
-/**
- * Created by Gabriel on 02/08/2017.
- */
+},{"lodash":20}],14:[function(require,module,exports){
 /**
  * Created by Gabriel on 02/08/2017.
  */
@@ -801,7 +813,31 @@ angular.module('am2App')
       }]
     };
   });
-},{"lodash":18}],14:[function(require,module,exports){
+},{"lodash":20}],15:[function(require,module,exports){
+const _ = require('lodash');
+
+angular.module('am2App')
+  .directive('planeView', function () {
+    return {
+      templateUrl: './templates/planeView',
+      transclude: true,
+      scope: {
+        plane: '=',
+        line: '='
+      },
+      controller: ['$scope', 'lineService', function ($scope, lineService) {
+        $scope.chooseDest = function (to) {
+          if ($scope.plane) {
+            lineService.getLineFromTo2($scope.plane.hub, to)
+              .then(function (line) {
+                $scope.line = line;
+              });
+          }
+        };
+      }]
+    };
+  });
+},{"lodash":20}],16:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.4.2
@@ -5486,7 +5522,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.2
  * (c) 2010-2017 Google, Inc. http://angularjs.org
@@ -38621,11 +38657,11 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":15}],17:[function(require,module,exports){
+},{"./angular":17}],19:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.1.1
  * https://jquery.com/
@@ -48847,7 +48883,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],18:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -65935,7 +65971,7 @@ return jQuery;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],19:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 /**
  * material-design-lite - Material Design Components in CSS, JS and HTML
  * @version v1.3.0
