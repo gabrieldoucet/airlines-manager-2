@@ -4,3 +4,5 @@ npm-debug.log
 .sass-cache/
 db/
 node_modules/
+dist/
+db_archive/
