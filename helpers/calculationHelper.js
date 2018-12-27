@@ -63,10 +63,10 @@ const getRotationDuration = function (speed, line) {
   return 2 * line.distance / speed + 2;
 };
 
-const getOptimisation = function (planeSpec, line) {
-  const seats      = _.get(planeSpec, 'seats');
-  const planeSpeed = _.get(planeSpec, 'speed');
-  const tonnage    = _.get(planeSpec, 'tonnage');
+const getOptimisation = function (planeType, line) {
+  const seats      = _.get(planeType, 'seats');
+  const planeSpeed = _.get(planeType, 'speed');
+  const tonnage    = _.get(planeType, 'tonnage');
 
   const demand    = line.demand.eco + line.demand.business + line.demand.first;
   const pEco      = line.demand.eco / demand;
@@ -81,7 +81,7 @@ const getOptimisation = function (planeSpec, line) {
 
   const duration = getRotationDuration(planeSpeed, line);
   return {
-    type: _.get(planeSpec, 'type'),
+    type: _.get(planeType, 'type'),
     config: {
       eco: optiEco,
       business: optiBusiness,

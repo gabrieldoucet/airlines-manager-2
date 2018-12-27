@@ -4,8 +4,8 @@
     "file": "lines.json"
   },
   {
-    "name": "planespecs",
-    "file": "planeSpecs.json"
+    "name": "planetypes",
+    "file": "planetypes.json"
   },
   {
     "name": "planes",

@@ -9,7 +9,7 @@ var _        = require('lodash');
 
 var coeffs = {eco: 1, business: 1.8, first: 4.23};
 
-var planeSpecs = [];
+var planeTypes = [];
 var lines      = [];
 var lineObjs   = [];
 

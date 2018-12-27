@@ -1,1 +1,1 @@
-<select ng-model="ngModel"><option ng-repeat="hub in hubs" value="{{hub.code}}">{{hub.code}}</option></select>
+<select class="browser-default custom-select" ng-model="selectedHub" ng-options="hub.code as hub.code for hub in hubs"></select>

@@ -4,38 +4,39 @@
   "scripts": {
     "dev": "./node_modules/.bin/nodemon ./bin/www",
     "build": "./node_modules/.bin/gulp dist",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "gulp-dev": "./node_modules/.bin/gulp dev"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/gdoucet-fr/am2.git"
   },
   "dependencies": {
-    "angular": "^1.6.2",
+    "acorn": "^6.0.0",
+    "angular": "^1.7.5",
     "angular-ui-router": "^0.4.2",
     "async": "^2.2.0",
-    "body-parser": "^1.16.1",
+    "body-parser": "^1.18.3",
     "bootstrap-sass": "^3.3.7",
     "commander": "^2.9.0",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.3",
     "debug": "^2.6.1",
-    "express": "^4.14.1",
+    "express": "^4.16.4",
     "gulp-pug": "^3.3.0",
+    "gulp-sass": "^4.0.2",
     "jquery": "^3.1.1",
-    "lodash": "^4.17.4",
-    "material-design-lite": "^1.3.0",
-    "mongoose": "^4.8.2",
-    "morgan": "^1.8.1",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.15",
+    "morgan": "^1.9.1",
     "pug": "^2.0.0-beta11",
-    "serve-favicon": "^2.3.2"
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "browserify": "^14.0.0",
-    "gulp": "^3.9.1",
-    "gulp-ruby-sass": "^2.1.1",
-    "nodemon": "^1.11.0",
+    "browserify": "^16.2.3",
+    "gulp": "^4.0.0",
+    "nodemon": "^1.18.8",
     "pug-lint": "^2.4.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^2.0.0"
   }
 }

@@ -1,26 +1,20 @@
-table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp(ng-if='line')
-  thead
+table.table.table-striped.table-hover(ng-if='line')
+  thead.thead-dark
     tr
-      th.mdl-data-table__cell--non-numeric Type
-      th.mdl-data-table__cell--non-numeric Configuration
-      th Durée
-      // <th>% demande <i class="material-icons">arrow_upward</i></th>
-      th % demande
+      th(scope="col") Type
+      th(scope="col", colspan="4") Configuration
+      th(scope="col") Durée
+      th(scope="col") % demande
+      th(scope="col") Actions
   tbody
     tr(ng-repeat='opti in line.optis')
       td.mdl-data-table__cell--non-numeric {{opti.type}}
+      td {{opti.config.eco}} pax
+      td {{opti.config.business}} pax
+      td {{opti.config.first}} pax
+      td {{opti.config.cargo}} T
+      td {{opti.duration.asString}}
+      td {{opti.percent}} %
       td
-        span.mdl-chip.mdl-chip--contact
-          span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white E
-          span.mdl-chip__text {{opti.config.eco}} pax
-        span.mdl-chip.mdl-chip--contact
-          span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white B
-          span.mdl-chip__text {{opti.config.business}} pax
-        span.mdl-chip.mdl-chip--contact
-          span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white F
-          span.mdl-chip__text {{opti.config.first}} pax
-        span.mdl-chip.mdl-chip--contact
-          span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white C
-          span.mdl-chip__text {{opti.config.cargo}} T
-      td.mdl-data-table__cell--non-numeric {{opti.duration.asString}}
-      td.mdl-data-table__cell--non-numeric {{opti.percent}}
+        a.btn.btn-outline-dark(role="button")
+          i.fas.fa-plus(aria-hidden="true", data-toggle="modal" data-target="#modalAddPlane")

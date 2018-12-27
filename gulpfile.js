@@ -1,5 +1,5 @@
 const gulp       = require('gulp');
-const sass       = require('gulp-ruby-sass');
+const sass       = require('gulp-sass');
 const browserify = require('browserify');
 const source     = require('vinyl-source-stream');
 const pug        = require('gulp-pug');
@@ -7,7 +7,8 @@ const async      = require('async');
 const fs         = require('fs');
 const path       = require('path');
 const _          = require('lodash');
-const dbHelper   = require(path.join(__dirname, 'database', 'dbHelper'));
+
+sass.compiler = require('node-sass');
 
 gulp.task('browserify', function () {
   return browserify('./app/app.js')
@@ -23,17 +24,22 @@ gulp.task('views', function () {
 });
 
 gulp.task('sass', function () {
-  return sass('./stylesheets/style.scss')
-    .on('error', sass.logError)
+  return gulp.src('./stylesheets/style.scss')
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./dist/stylesheets'));
 });
 
-gulp.task('watch', function () {
-  gulp.watch('app/**/*.js', ['browserify']);
-  gulp.watch('stylesheets/**/*.scss', ['sass']);
+gulp.task('watch-js', function() {
+    gulp.watch(['app/**/*.js'], ['browserify'])
 });
 
+gulp.task('watch-sass', function() {
+    gulp.watch(['stylesheets/**/*.scss'], ['sass'])
+});
+
+
 gulp.task('dbdump', function () {
+  const dbHelper   = require(path.join(__dirname, 'database', 'dbHelper'));
   async.series([
     function (callback) {
       fs.mkdir(path.join(__dirname, 'dist', 'data'), function (err) {
@@ -60,6 +66,6 @@ gulp.task('dbdump', function () {
   });
 });
 
-gulp.task('default', ['browserify', 'views', 'sass', 'watch']);
-gulp.task('dev', ['default']);
-gulp.task('dist', ['dbdump', 'browserify', 'views', 'sass']);
+gulp.task('default', gulp.series('browserify', 'views', 'sass', 'watch-js', 'watch-sass'));
+gulp.task('dev', gulp.series('browserify', 'views'));
+gulp.task('dist', gulp.series('dbdump', 'browserify', 'views', 'sass'));

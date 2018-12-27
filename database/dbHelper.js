@@ -11,13 +11,13 @@ const getModel = function (collection) {
   'use strict';
   let Model = null;
   if (_.isEqual(collection, 'lines')) {
-    Model = new connection.model('Line', schemas.lineSchema);
+    return connection.model('Line', schemas.lineSchema);
   } else if (_.isEqual(collection, 'planes')) {
-    Model = new connection.model('Plane', schemas.planeSchema);
+    return connection.model('Plane', schemas.planeSchema);
   } else if (_.isEqual(collection, 'hubs')) {
-    Model = new connection.model('Hub', schemas.hubSchema);
-  } else if (_.isEqual(collection, 'planespecs')) {
-    Model = new connection.model('PlaneSpec', schemas.planeSpecSchema);
+    return connection.model('Hub', schemas.hubSchema, 'hubs');
+  } else if (_.isEqual(collection, 'planetypes')) {
+    return connection.model('Planetype', schemas.planeTypeSchema);
   }
   return Model;
 };
@@ -39,7 +39,6 @@ const update = function (collection, query, update, options, callback) {
   Model.update(query, update, options, callback);
 };
 
-
 /**
  * Consolidates the database by adding the missing objects in the collections
  */
@@ -48,7 +47,7 @@ const consolidate = function (callback) {
   let planes     = [];
   let lines      = [];
   let hubs       = [];
-  let planeSpecs = [];
+  let planeTypes = [];
   let map        = {};
 
   async.series([
@@ -78,8 +77,8 @@ const consolidate = function (callback) {
 
     // Get the plane specifications
     function (callback) {
-      find('planespecs', {}, function (err, results) {
-        planeSpecs = results;
+      find('planetypes', {}, function (err, results) {
+        planeTypes = results;
         callback(err);
       });
     },
@@ -99,10 +98,10 @@ const consolidate = function (callback) {
       _.forEach(lines, function (line) {
         console.log('  -> ' + line.from + '-' + line.to);
         let optis = [];
-        _.forEach(planeSpecs, function (planeSpec) {
-          if (planeSpec.rayon > line.distance) {
-            console.log('    + ' + planeSpec.type);
-            let opti = calcHelper.getOptimisation(planeSpec, line);
+        _.forEach(planeTypes, function (planeType) {
+          if (planeType.rayon > line.distance) {
+            console.log('    + ' + planeType.type);
+            let opti = calcHelper.getOptimisation(planeType, line);
             optis.push(opti);
           }
         });
@@ -193,7 +192,7 @@ const dump = function (callback) {
 
 const closeConnection = function (callback) {
   console.log('Closing connection');
-  connection.disconnect(callback);
+  connection.close(callback);
 };
 
 module.exports = {

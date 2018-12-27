@@ -1,3 +1,2 @@
 #!/bin/bash
-
-mongod --dbpath=./db --bind_ip=localhost
+mongod  --config ./database/mongod_config.conf

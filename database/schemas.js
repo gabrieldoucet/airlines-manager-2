@@ -50,7 +50,7 @@ const lineSchema = new mongoose.Schema({
   amID: Number
 });
 
-const planeSpecSchema = new mongoose.Schema({
+const planeTypeSchema = new mongoose.Schema({
   type: String,
   seats: Number,
   rayon: Number,
@@ -63,5 +63,5 @@ module.exports = {
   hubSchema: hubSchema,
   lineSchema: lineSchema,
   planeSchema: planeSchema,
-  planeSpecSchema: planeSpecSchema
+  planeTypeSchema: planeTypeSchema
 };

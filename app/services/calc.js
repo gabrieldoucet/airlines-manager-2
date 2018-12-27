@@ -1,8 +1,8 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('calc', ['planeSpecService', 'lineService', 'planeService',
-    function (planeSpecService, lineService, planeService) {
+  .factory('calc', ['planeTypeService', 'lineService', 'planeService',
+    function (planeTypeService, lineService, planeService) {
 
       const coeffs = {eco: 1, business: 1.8, first: 4.23};
       const optiThreshold = 3;
@@ -31,7 +31,7 @@ angular.module('am2App')
         });
       };
 
-      const getOptiPlanes = function (line) {
+      const getCompatiblePlanes = function (line) {
         return planeService.getPlanes().then(function (res) {
 
           // Filter the compatible planes for a line
@@ -100,9 +100,9 @@ angular.module('am2App')
         return 2 * line.distance / speed + 2;
       };
 
-      const getOptimisation = function (planeSpec, line) {
-        const seats      = _.get(planeSpec, 'seats');
-        const planeSpeed = _.get(planeSpec, 'speed');
+      const getOptimisation = function (planeType, line) {
+        const seats      = _.get(planeType, 'seats');
+        const planeSpeed = _.get(planeType, 'speed');
 
         const demand    = line.demand.eco + line.demand.business + line.demand.first;
         const pEco      = line.demand.eco / demand;
@@ -116,7 +116,7 @@ angular.module('am2App')
 
         const duration = getRotationDuration(planeSpeed, line);
         return {
-          type: _.get(planeSpec, 'type'),
+          type: _.get(planeType, 'type'),
           config: {
             eco: optiEco,
             business: optiBusiness,
@@ -130,7 +130,7 @@ angular.module('am2App')
       return {
         isOptimised: isOptimised,
         getOptiLines: getOptiLines,
-        getOptiPlanes: getOptiPlanes,
+        getCompatiblePlanes: getCompatiblePlanes,
         getOptimisation: getOptimisation
       };
     }]);

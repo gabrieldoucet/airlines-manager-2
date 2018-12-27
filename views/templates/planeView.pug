@@ -1,28 +1,18 @@
-.mdl-card.mdl-shadow--4dp(ng-if='plane')
-  .mdl-card__title
-    h2.mdl-card__title-text {{plane.name}} ({{plane.hub}})
-  .mdl-card__supporting-text
-    img(ng-src='./images/{{plane.type}}.png', border='0', alt='Picture not available', style='padding:10px;', height='90', width='275')
-  .mdl-card__actions.mdl-card--border
-    h6 Configuration
-    span.mdl-chip.mdl-chip--contact
-      span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white E
-      span.mdl-chip__text {{plane.config.eco}} pax
-    span.mdl-chip.mdl-chip--contact
-      span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white B
-      span.mdl-chip__text {{plane.config.business}} pax
-    span.mdl-chip.mdl-chip--contact
-      span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white F
-      span.mdl-chip__text {{plane.config.first}} pax
-    span.mdl-chip.mdl-chip--contact
-      span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white C
-      span.mdl-chip__text {{plane.config.cargo}} T
-  .mdl-card__actions.mdl-card--border
-    h6 Destinations
-    button.mdl-chip(type='button', ng-repeat='dest in plane.dests', ng-click='chooseDest(dest)')
-      span.mdl-chip__text {{dest}}
-  .mdl-card__menu
-    button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
-      i.material-icons settings
+div.card.border.border-dark(ng-if='plane')
+  div.card-body
+    h4.card-title {{plane.name}}
+    h5.card-subtitle.text-muted {{plane.hub}}    
+  img.card-img-bottom(ng-src='./images/{{plane.type}}.png', border='0', alt='Picture not available', style='padding:10px;', height='90', width='275')
+  div.card-body
+    h6.card-subtitle Configuration
+    span.badge.badge-dark(style="margin-right: 2px") E: {{plane.config.eco}}
+    span.badge.badge-dark(style="margin-right: 2px") B: {{plane.config.business}}
+    span.badge.badge-dark(style="margin-right: 2px") F: {{plane.config.first}}
+    span.badge.badge-secondary(style="margin-right: 2px") C: {{plane.config.cargo}}
+  div.card-body
+    h6.card-subtitle Destinations
+    a.badge.badge-pill.badge-secondary(href="#", ng-repeat='dest in plane.dests' ng-click='chooseDest(dest)') {{dest}}
+  div.card-body
+    button.btn.btn-primary(type="button")
+      i.fas.fa-cog(aria-hidden="true")
 // End of card component
-

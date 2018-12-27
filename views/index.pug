@@ -1,6 +1,3 @@
-//
-   Created by Gabriel on 19/04/2017.
-
 doctype html
 html(lang='en', ng-app='am2App')
   head
@@ -8,10 +5,11 @@ html(lang='en', ng-app='am2App')
     title AM2 App - MDL
     link(rel='icon', href='favicon.ico', type='image/x-icon')
     // Material Design Lite
+    link(rel='stylesheet', href='https://code.getmdl.io/1.3.0/material.teal-pink.min.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
     link(rel='stylesheet', href='./stylesheets/style.css')
     script(src='./js/main.js')
-  body(ng-controller='mockupController')
+  body(ng-controller='mockupController', ng-cloak)
     .mdl-layout.mdl-js-layout
       header.mdl-layout__header.mdl-layout__header--scroll
         .mdl-layout__header-row
@@ -21,156 +19,118 @@ html(lang='en', ng-app='am2App')
           .mdl-layout-spacer
           // Navigation
           nav.mdl-navigation
-            a.mdl-navigation__link(href='') Link
-            a.mdl-navigation__link(href='') Link
-            a.mdl-navigation__link(href='') Link
-            a.mdl-navigation__link(href='') Link
-      .mdl-layout__drawer
-        span.mdl-layout-title Title
-        nav.mdl-navigation
-          a.mdl-navigation__link(href='') Link
-          a.mdl-navigation__link(href='') Link
-          a.mdl-navigation__link(href='') Link
-          a.mdl-navigation__link(href='') Link
+            button#actions1.mdl-button.mdl-js-button.mdl-js-ripple-effect
+              | Ajouter
+            ul.mdl-menu.mdl-menu--bottom-left.mdl-js-menu.mdl-js-ripple-effect(for='actions1')
+              li.mdl-menu__item Ajouter avion
+              li.mdl-menu__item.mdl-menu__item--full-bleed-divider Ajouter ligne
       main.mdl-layout__content
         .page-content
+          // First row
           .mdl-grid
-            .mdl-cell--12-col
-              .mdl-grid
-                // <h4 ng-if="false">Aucune ligne sélectionnée</h4>
-                // Simple Textfield
-                .mdl-cell--6-col
-                  h4
-                    span Détail d'une ligne
-                    button#menu-lines.mdl-button.mdl-js-button--raised
-                      span(ng-if='selects.selectedLine') {{selects.selectedLine.from}} - {{selects.selectedLine.to}}
-                      span(ng-if='!selects.selectedLine') Choisir la ligne
-                  ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect(for='menu-lines')
-                    li.mdl-menu__item(ng-repeat='line in selects.lineChoices', ng-click='chooseLine(line)')
-                      | {{line.from}}
-                      | - {{line.to}}
-
-                .mdl-cell--6-col(ng-if='selects.selectedLine')
-                  h5 Demande
-                  span.mdl-chip.mdl-chip--contact
-                    span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white E
-                    span.mdl-chip__text {{selects.selectedLine.demand.eco}} pax
-                  span.mdl-chip.mdl-chip--contact
-                    span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white B
-                    span.mdl-chip__text {{selects.selectedLine.demand.business}} pax
-                  span.mdl-chip.mdl-chip--contact
-                    span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white F
-                    span.mdl-chip__text {{selects.selectedLine.demand.first}} pax
-                  span.mdl-chip.mdl-chip--contact
-                    span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white C
-                    span.mdl-chip__text {{selects.selectedLine.demand.cargo}} T
-            .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
-              .mdl-tabs__tab-bar
-                a.mdl-tabs__tab.is-active(href='#line-detail') Informations sur la ligne
-                a.mdl-tabs__tab(href='#line-config') Configurations des appareils
-              #line-detail.mdl-tabs__panel.is-active
-                .mdl-grid
-                  .mdl-cell--3-col
-                    h5 Avions affectés
-                    h6(ng-if='!selects.selectedLine')
-                      i Aucune ligne sélectionnée
-                    button.mdl-chip(ng-repeat='plane in selects.selectedLine.planes', id='lineplane-{{plane.name}}', type='button', ng-click='choosePlane(plane)')
-                      span.mdl-chip__text
-                        | {{plane.name}}
-                        i.material-icons {{getPlaneIcon(plane)}}
-                      span.mdl-tooltip(for='lineplane-{{plane.name}}') {{plane.type}}
-                  .mdl-cell--6-col
-                    h5 Avions compatibles
-                    h6(ng-if='!selects.selectedLine')
-                      i Aucune ligne sélectionnée
-                    button.mdl-chip(ng-repeat='plane in results.optiPlanes', id='optiplane-{{plane.name}}', type='button', ng-click='choosePlane(plane)')
-                      span.mdl-chip__text {{plane.name}}
-                      span.mdl-tooltip(for='optiplane-{{plane.name}}')
-                        | {{plane.type}}
-                  .mdl-cell--3-col
-                    h5 Lignes similaires
-                    h6(ng-if='!selects.selectedLine')
-                      i Aucune ligne sélectionnée
-                    button.mdl-chip(ng-repeat='line in results.similarLines', type='button', ng-click='chooseLine(line)')
-                      span.mdl-chip__text {{line.from}} - {{line.to}}
-              #line-config.mdl-tabs__panel
-                .mdl-cell--6-col
-                  h5 Configurations optimales
-                  table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
-                    thead
-                      tr
-                        th.mdl-data-table__cell--non-numeric Type
-                        th.mdl-data-table__cell--non-numeric Config
-                        th Durée
-                        th % demande
-                    tbody
-                      tr(ng-repeat='opti in selects.selectedLine.optis')
-                        td.mdl-data-table__cell--non-numeric {{opti.type}}
-                        td
-                          span.mdl-chip.mdl-chip--contact
-                            span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white E
-                            span.mdl-chip__text {{opti.config.eco}} pax
-                          span.mdl-chip.mdl-chip--contact
-                            span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white B
-                            span.mdl-chip__text {{opti.config.business}} pax
-                          span.mdl-chip.mdl-chip--contact
-                            span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white F
-                            span.mdl-chip__text {{opti.config.first}} pax
-                        td.mdl-data-table__cell--non-numeric {{opti.duration.asString}}
-                        td.mdl-data-table__cell--non-numeric {{opti.percent}}
-            .mdl-cell--12-col(ng-if='true')
+            .mdl-cell--3-col
+              h4
+                span Choisir la ligne
+                button#menu-lines.mdl-button.mdl-js-button--raised
+                  span(ng-if='selects.selectedLine') {{selects.selectedLine.from}} - {{selects.selectedLine.to}}
+                  span(ng-if='!selects.selectedLine') Sélectionner
+              ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect(for='menu-lines')
+                li.mdl-menu__item(ng-repeat='line in selects.lineChoices', ng-click='chooseLine(line)')
+                  | {{line.from}}
+                  | - {{line.to}}
+            .mdl-cell--5-col(ng-if='selects.selectedLine')
+              h4
+                | Demande
+                button.mdl-button.mdl-js-button--raised(ng-click='toggleManual()')
+                  span Saisie manuelle
               div
+                span.mdl-chip.mdl-chip--contact
+                  span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white E
+                  span.mdl-chip__text {{selects.selectedLine.demand.eco}} pax
+                span.mdl-chip.mdl-chip--contact
+                  span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white B
+                  span.mdl-chip__text {{selects.selectedLine.demand.business}} pax
+                span.mdl-chip.mdl-chip--contact
+                  span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white F
+                  span.mdl-chip__text {{selects.selectedLine.demand.first}} pax
+                span.mdl-chip.mdl-chip--contact
+                  span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white C
+                  span.mdl-chip__text {{selects.selectedLine.demand.cargo}} T
+              div(ng-if='selects.manualInput')
                 form
-                  .mdl-textfield.mdl-js-textfield
-                    input#sample2.mdl-textfield__input(type='text', pattern='-?[0-9]*(\.[0-9]+)?', ng-model='manualLine.eco')
-                    label.mdl-textfield__label(for='sample2') Éco
+                  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.mdl-cell--4-col.is-focused
+                    input#input-eco.mdl-textfield__input(type='text', pattern='-?[0-9]*(\.[0-9]+)?', ng-model='selects.selectedLine.demand.eco')
+                    label.mdl-textfield__label(for='input-eco') Éco
                     span.mdl-textfield__error Input is not a number!
-                  .mdl-textfield.mdl-js-textfield
-                    input#sample2.mdl-textfield__input(type='text', pattern='-?[0-9]*(\.[0-9]+)?', ng-model='manualLine.business')
-                    label.mdl-textfield__label(for='sample2') Business
+                  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.mdl-cell--4-col.is-focused
+                    input#input-business.mdl-textfield__input(type='text', pattern='-?[0-9]*(\.[0-9]+)?', ng-model='selects.selectedLine.demand.business')
+                    label.mdl-textfield__label(for='input-business') Business
                     span.mdl-textfield__error Input is not a number!
-                  .mdl-textfield.mdl-js-textfield
-                    input#sample2.mdl-textfield__input(type='text', pattern='-?[0-9]*(\.[0-9]+)?', ng-model='manualLine.first')
-                    label.mdl-textfield__label(for='sample2') First
+                  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.mdl-cell--4-col.is-focused
+                    input#input-first.mdl-textfield__input(type='text', pattern='-?[0-9]*(\.[0-9]+)?', ng-model='selects.selectedLine.demand.first')
+                    label.mdl-textfield__label(for='input-first') First
                     span.mdl-textfield__error Input is not a number!
-                  .mdl-textfield.mdl-js-textfield
-                    input#sample2.mdl-textfield__input(type='text', pattern='-?[0-9]*(\.[0-9]+)?', ng-model='manualLine.distance')
-                    label.mdl-textfield__label(for='sample2') Distance de la ligne
-                    span.mdl-textfield__error Input is not a number!
-                  button#menu-speed.mdl-button.mdl-js-button--raised(ng-click='getAllOptis()') Ok
-        .mdl-cell--12-col
-          h4
-            span Détail d'un avion
-            button#menu-planes.mdl-button.mdl-js-button--raised
-              span(ng-if='selects.selectedPlane') {{selects.selectedPlane.name}}
-              span(ng-if='!selects.selectedPlane') Choisir l'appareil
-          ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect(for='menu-planes')
-            li.mdl-menu__item(ng-repeat='plane in selects.planeChoices', ng-click='choosePlane(plane)')
-              | {{plane.name}}
-        .mdl-card.mdl-shadow--4dp(ng-if='selects.selectedPlane')
-          .mdl-card__title
-            h2.mdl-card__title-text {{selects.selectedPlane.name}} ({{selects.selectedPlane.hub}})
-          .mdl-card__supporting-text
-            img(src='./images/{{selects.selectedPlane.type}}.png', border='0', alt='Picture not available', style='padding:10px;')
-          .mdl-card__supporting-text
-            h6 Configuration
-            span.mdl-chip.mdl-chip--contact
-              span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white E
-              span.mdl-chip__text {{selects.selectedPlane.config.eco}} pax
-            span.mdl-chip.mdl-chip--contact
-              span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white B
-              span.mdl-chip__text {{selects.selectedPlane.config.business}} pax
-            span.mdl-chip.mdl-chip--contact
-              span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white F
-              span.mdl-chip__text {{selects.selectedPlane.config.first}} pax
-            span.mdl-chip.mdl-chip--contact
-              span.mdl-chip__contact.mdl-color--teal.mdl-color-text--white C
-              span.mdl-chip__text {{selects.selectedPlane.config.cargo}} T
-          .mdl-card__supporting-text
-            h6 Destinations
-            button.mdl-chip(type='button', ng-repeat='dest in selects.selectedPlane.dests')
-              span.mdl-chip__text {{dest}}
-          .mdl-card__actions.mdl-card--border
-            button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect
-              i.material-icons settings
-
+                  button#btn-ok.mdl-button.mdl-js-button--raised(ng-click='getAllOptis()') Ok
+                  button#btn-reset.mdl-button.mdl-js-button--raised(ng-click='reset()') Reset
+            .mdl-cell--4-col
+              h4
+                span Générateur de nom
+                button#menu-hubs.mdl-button.mdl-js-ripple-effect.mdl-js-button--raised
+                  span(ng-if='selects.selectedHub') {{selects.selectedHub.code}}
+                  span(ng-if='!selects.selectedHub') Sélectionner
+              div
+                span {{results.planeName}}
+                
+              hub-select(select='selects.selectedHub')
+            
+          // End of first row
+          // Second row
+          .mdl-grid
+            .mdl-cell--3-col
+              h4 Avions affectés
+              h6(ng-if='!selects.selectedLine')
+                i Aucune ligne sélectionnée
+              h6(ng-if='selects.selectedLine && selects.selectedLine.planes == 0')
+                i Aucun avion affecté
+              button(ng-repeat='plane in selects.selectedLine.planes', id='lineplane-{{plane.name}}', ng-class='getPlaneClass(plane)', ng-click='choosePlane(plane)')
+                | {{plane.name}}
+                i.material-icons(ng-if='plane.config.cargo != undefined') done
+                span.mdl-tooltip(for='lineplane-{{plane.name}}') {{plane.type}}
+            .mdl-cell--6-col
+              h4 Avions compatibles
+              h6(ng-if='!selects.selectedLine')
+                i Aucune ligne sélectionnée
+              h6(ng-if='selects.selectedLine && results.optiPlanes.length == 0')
+                i Aucun autre avion compatible
+              button.mdl-button.mdl-js-button.mdl-js-ripple-effect(ng-repeat='plane in results.optiPlanes', id='optiplane-{{plane.name}}', type='button', ng-click='choosePlane(plane)')
+                | {{plane.name}}
+                span.mdl-tooltip(for='optiplane-{{plane.name}}') {{plane.type}}
+            .mdl-cell--3-col
+              h4 Lignes similaires
+              h6(ng-if='!selects.selectedLine')
+                i Aucune ligne sélectionnée
+              h6(ng-if='selects.selectedLine && results.similarLines.length == 0')
+                i Aucune ligne similaire
+              button.mdl-button.mdl-js-button.mdl-js-ripple-effect(ng-repeat='line in results.similarLines', type='button', ng-click='chooseLine(line)')
+                | {{line.from}} - {{line.to}}
+          // End of second row
+          // Third row
+          .mdl-grid
+            .mdl-cell--4-col
+              h4
+                | Détail d'un avion
+                button#menu-planes.mdl-button.mdl-js-button--raised
+                  span(ng-if='selects.selectedPlane') {{selects.selectedPlane.name}}
+                  span(ng-if='!selects.selectedPlane') Choisir l'appareil
+              ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect(for='menu-planes')
+                li.mdl-menu__item(ng-repeat='plane in selects.planeChoices', ng-click='choosePlane(plane)')
+                  | {{plane.name}}
+            .mdl-cell--8-col
+              h4 Configurations optimales
+              h6(ng-if='!selects.selectedLine')
+                i Aucune ligne sélectionnée
+            .mdl-cell--4-col
+              plane-view(plane='selects.selectedPlane', line='selects.selectedLine')
+            .mdl-cell--8-col
+              line-configs(line='selects.selectedLine')
+          // End of this row

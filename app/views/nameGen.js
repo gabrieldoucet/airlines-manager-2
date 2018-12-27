@@ -7,16 +7,17 @@ const _ = require('lodash');
 angular.module('am2App')
   .directive('nameGen', function () {
     return {
-      templateUrl: './templates/nameGen',
       transclude: true,
       scope: {
-        select: '=',
-        disabled: '='
+        hub: '=',
+        name: '='
       },
-      controller: ['$scope', 'hubService', function ($scope, hubService) {
-        hubService.getHubs().then(function (res) {
-          $scope.hubs = _.sortBy(res.data, ['code']);
-        });
+      controller: ['$scope', 'hubService', 'planeService', function ($scope, hubService, planeService) {
+        $scope.$watch('hub', function (newVal, oldVal) {
+          if (!_.isNil(newVal)) {
+            $scope.name = hubService.getRandomName($scope.hub.code);
+          }
+        }, true);
       }]
     };
   });

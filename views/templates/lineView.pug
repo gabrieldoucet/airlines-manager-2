@@ -1,0 +1,42 @@
+div.card.border.border-dark(ng-if="line")
+  div.card-body
+    div.row
+      div.col-sm-6
+        h4.card-title {{line.from}} to {{line.to}}
+      
+      div.col-sm-6
+        ul.nav.nav-pills(id="pills-tab", role="tablist")
+          li.nav-item
+            a.nav-link.active(id="pills-home-tab", data-toggle="pill", href="#pills-home", role="tab", aria-controls="pills-home", aria-selected="true") Info
+          li.nav-item
+            a.nav-link(id="pills-profile-tab", data-toggle="pill", href="#pills-profile", role="tab", aria-controls="pills-profile", aria-selected="false") Configuration
+          
+  // Tab panes
+  div.tab-content
+    div.tab-pane.active(id="pills-home" role="tabpanel" aria-labelledby="home-tab")
+
+      div.card-body
+        list-plane(line="line", plane="plane", planes="line.planes", title="'Assigned planes'", style="width 100%")
+
+      div.card-body
+        list-plane(line="line", plane="plane", planes="compatiblePlanes", title="'Compatible planes'", style="width 100%")
+
+      div.card-body
+        div.row.mb-1
+          div.col-sm-11
+            h6 Compatible planes
+            a.badge.badge-success(href="#", style="margin-right: 2px", ng-repeat="plane in compatiblePlanes", ng-click="choosePlane(plane)", ng-class="planeOptimised(plane) ? 'badge-success' : 'badge-dark'") {{plane.name}}
+          div.col-sm-1
+            i.fas.fa-chevron-right
+
+      div.card-body
+        div.row.pb-3
+          div.col-sm-11
+            h6 Similar lines
+            a.badge.badge-dark(href="#", style="margin-right: 2px", ng-repeat="line in similarLines", ng-click="chooseLine(line)") {{line.from}} - {{line.to}}
+          div.col-sm-1
+            i.fas.fa-chevron-right
+
+    div.tab-pane(id="pills-profile", role="tabpanel", aria-labelledby="profile-tab")
+      div.card-body
+        line-configs(line="line")

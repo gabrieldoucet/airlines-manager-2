@@ -1,0 +1,65 @@
+div.modal.fade(id="modalAddLine", tabindex="-1", role="dialog", aria-labelledby="modalAddLineLabel", aria-hidden="true")
+  div.modal-dialog(role="document")
+    div.modal-content
+      div.modal-header
+        h5.modal-title(id="modalAddLineLabel") New line
+        button.close(type="button", data-dismiss="modal", aria-label="Close")
+          span(aria-hidden="true") &times
+      
+      div.modal-body
+        form.text-center.p-5
+          p.h4.mb-4 Line details
+          div.form-row.mb-3
+            div.col
+              input.form-control(type="number", placeholder="Distance", ng-model="newLine.distance")
+          div.form-row.mb-3
+            div.col
+              select-hub(hub="hub")
+
+            div.col
+              input.form-control(type="text", placeholder="To", ng-model="newLine.to")
+
+          // Demand
+          div.form-row
+            div.col
+              label Demand
+
+          div.form-row.mb-3
+            // Economic
+            div.col
+              input.form-control(type="number", placeholder="Eco", ng-model="newLine.demand.eco")          
+            // Business
+            div.col
+              // Business
+              input.form-control(type="number", placeholder="Bus.", ng-model="newLine.demand.business")
+            // First
+            div.col
+              // First
+              input.form-control(type="number", placeholder="First", ng-model="newLine.demand.first")            
+            // Cargo
+            div.col
+              input.form-control(type="number", placeholder="Cargo", ng-model="newLine.demand.cargo")
+
+          div.form-row
+            div.col
+              label Prices
+
+          // Pricing
+          div.form-row
+            // Economic
+            div.col
+              input.form-control(type="number", placeholder="Eco", ng-model="newLine.price.eco")
+            // Business
+            div.col
+              input.form-control(type="number", placeholder="Bus.", ng-model="newLine.price.business")
+            // First
+            div.col
+              input.form-control(type="number", placeholder="First", ng-model="newLine.price.first")
+            // Cargo
+            div.col
+              input.form-control(type="number", placeholder="First", ng-model="newLine.price.cargo")
+            
+      div.modal-footer
+        button.btn.btn-secondary(type="button", data-dismiss="modal") Close
+        button.btn.btn-danger(type="button", ng-click="reset()") Reset
+        button.btn.btn-primary(type="button", ng-click="addLine()") Save changes

@@ -2,21 +2,17 @@ const _ = require('lodash');
 
 angular.module('am2App')
   .factory('planeService', ['$http', function ($http) {
-    let fleet;
+    let planes;
 
-    const setFleet = function (data) {
+    const setPlanes = function (data) {
       data  = _.sortBy(data, [function (plane) {
         return plane.name;
       }]);
-      fleet = data;
-    };
-
-    const getFleet = function () {
-      return fleet;
+      planes = data;
     };
 
     const getPlaneFromName = function (planeName) {
-      const selection = _.filter(fleet, function (plane) {
+      const selection = _.filter(planes, function (plane) {
         return _.isEqual(plane.name, planeName);
       });
       return selection[0];
@@ -25,6 +21,7 @@ angular.module('am2App')
     const getPlanes = function (query) {
       return $http({method: 'POST', url: 'http://localhost:3000/data/planes', data: query})
         .then(function (res) {
+          planes = res.data;
           return res;
         })
         .catch(function (data) {
@@ -39,10 +36,15 @@ angular.module('am2App')
       //  })
     };
 
+    const nameExists = function (planeName) {
+      let plane = getPlaneFromName(planeName);
+      return _.isNil(plane);
+    };
+
     return {
-      setFleet: setFleet,
-      getFleet: getFleet,
+      setPlanes: setPlanes,
+      getPlanes: getPlanes,
       getPlaneFromName: getPlaneFromName,
-      getPlanes: getPlanes
+      nameExists: nameExists
     };
   }]);

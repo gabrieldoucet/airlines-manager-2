@@ -9,7 +9,7 @@ angular.module('am2App')
         plane: '=',
         line: '='
       },
-      controller: ['$scope', 'lineService', function ($scope, lineService) {
+      controller: ['$scope', 'lineService', 'urlService', function ($scope, lineService, urlService) {
         $scope.chooseDest = function (to) {
           if ($scope.plane) {
             lineService.getLineFromTo2($scope.plane.hub, to)
@@ -18,6 +18,8 @@ angular.module('am2App')
               });
           }
         };
+
+        $scope.url = urlService.getPlaneUrl($scope.plane);
       }]
     };
   });
