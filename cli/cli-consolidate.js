@@ -11,21 +11,21 @@ program
   .parse(process.argv);
 
 // Handles the ctrl+c in the terminal
-process.on('SIGINT', function () {
-  dbHelper.closeConnection(function () {
+process.on('SIGINT', function() {
+  dbHelper.closeConnection(function() {
     process.exit(0);
   });
 });
 
 // Entry point
-dbHelper.consolidate(function (err) {
+dbHelper.consolidate(function(err) {
   'use strict';
   let exitCode = 0;
   if (err) {
     exitCode = -1;
     console.log('[ERROR]', err);
   }
-  dbHelper.closeConnection(function () {
+  dbHelper.closeConnection(function() {
     process.exit(exitCode);
   });
 });

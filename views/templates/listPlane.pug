@@ -1,9 +1,10 @@
 div.row
   div.col-sm-11
-    h6 {{title}}
+    h5 {{title}}
   div.col-sm-1
     i.fas(ng-click="toggle()", ng-class="show ? 'fa-chevron-down' : 'fa-chevron-right'")
 
 div.row
-  div.col-sm-12
-    a.badge(href="#", style="margin-right: 2px", ng-repeat="plane in planes", ng-click="choosePlane(plane)", ng-class="{'badge': true, 'badge-success': isPlaneOptimised(plane), 'badge-dark': !isPlaneOptimised(plane)}", ng-if="show") {{plane.name}}
+  div.col-sm-12(ng-if="show")
+    a.badge(href="#", style="margin-right: 2px", ng-repeat="plane in planes", ng-click="choosePlane(plane)", ng-class="{'badge': true, 'badge-success': isPlaneOptimised(plane), 'badge-dark': !isPlaneOptimised(plane)}") {{plane.name}}
+    h6.text-muted(ng-if="planes.length == 0") No planes to display

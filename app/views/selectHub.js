@@ -5,15 +5,15 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .directive('selectHub', function () {
+  .directive('selectHub', function() {
     return {
       templateUrl: './templates/selectHub',
       scope: {
         hub: '='
       },
-      controller: ['$scope', 'hubService', function ($scope, hubService) {
-        hubService.getHubs().then(function (res) {
-          $scope.hubs = _.sortBy(res.data, ['code']);
+      controller: ['$scope', 'dataService', function($scope, dataService) {
+        dataService.getHubs().then(function(hubs) {
+          $scope.hubs = hubs;
         });
       }]
     };

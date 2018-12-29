@@ -5,14 +5,22 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .controller('mockupController', ['$scope', 'calc', 'planeService', 'lineService', 'planeTypeService', 'hubService',
-    function ($scope, calc, planeService, lineService, planeTypeService, hubService) {
+  .controller('rootController', ['$scope', 'calc', 'dataService',
+    function($scope, calc, dataService) {
+
+      $scope.chooseLine = function(line) {
+        $scope.selects.line = line;
+      };
+
+      $scope.choosePlane = function(plane) {
+        $scope.selects.plane = plane;
+      };
+
       $scope.selects = {manualInput: false};
 
-      $scope.getAllOptis = function () {
-        planeTypeService.getPlaneTypes().then(function (res) {
-          const planeTypes = res.data;
-          let optis        = _.map(planeTypes, function (planeType) {
+      $scope.getAllOptis = function() {
+        dataService.getPlaneTypes().then(function(planeTypes) {
+          let optis        = _.map(planeTypes, function(planeType) {
             return calc.getOptimisation(planeType, $scope.selects.line);
           });
           optis            = _.sortBy(optis, ['percent']);
@@ -21,7 +29,7 @@ angular.module('am2App')
         });
       };
 
-      $scope.toggleManual = function () {
+      $scope.toggleManual = function() {
         if (!$scope.selects.manualInput) {
           $scope.selects.lineClone = _.cloneDeep($scope.selects.line);
         } else {
@@ -38,7 +46,7 @@ angular.module('am2App')
         }
       };
 
-      $scope.reset = function () {
+      $scope.reset = function() {
         $scope.selects.line = _.cloneDeep($scope.selects.lineClone);
       };
     }]);

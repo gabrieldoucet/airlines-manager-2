@@ -5,17 +5,21 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .directive('modalAddLine', function () {
+  .directive('modalAddLine', function() {
     return {
       templateUrl: './templates/modalAddLine',
-      controller: ['$scope', function ($scope) {
+      transclude: true,
+      scope: {},
+      controller: ['$scope', function($scope) {
 
-          $scope.addLine = function () {
+          $scope.newLine = {};
+
+          $scope.addLine = function() {
             $scope.newLine.from = $scope.hub.code;
             console.log($scope.newLine);
           };
 
-          $scope.reset = function () {
+          $scope.reset = function() {
             $scope.newLine = {};
           };
       }]

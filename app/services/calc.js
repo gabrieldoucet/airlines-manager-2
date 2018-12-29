@@ -1,59 +1,23 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('calc', ['planeTypeService', 'lineService', 'planeService',
-    function (planeTypeService, lineService, planeService) {
+  .factory('calc', [ function() {
 
       const coeffs = {eco: 1, business: 1.8, first: 4.23};
       const optiThreshold = 3;
 
-      const isOptimised = function (plane, line) {
-        const optis = _.get(line, 'optis');
-        const opti  = (_.filter(optis, function (opti) {
-          return _.isEqual(_.get(opti, 'type'), _.get(plane, 'type'));
-        }))[0];
-
-        const isOptiEco      = Math.abs(opti.config.eco - plane.config.eco) <= optiThreshold;
-        const isOptiBusiness = Math.abs(opti.config.business - plane.config.business) <= optiThreshold;
-        const isOptiFirst    = Math.abs(opti.config.first - plane.config.first) <= optiThreshold;
-        return isOptiEco && isOptiBusiness && isOptiFirst;
+      const compareToBestPlane = function(plane, bestPlane) {
+        if (_.isNil(bestPlane)) {
+          return false;
+        } else {
+          const isOptiEco      = Math.abs(bestPlane.config.eco - plane.config.eco) <= optiThreshold;
+          const isOptiBusiness = Math.abs(bestPlane.config.business - plane.config.business) <= optiThreshold;
+          const isOptiFirst    = Math.abs(bestPlane.config.first - plane.config.first) <= optiThreshold;
+          return isOptiEco && isOptiBusiness && isOptiFirst;
+        }
       };
 
-      const getOptiLines = function (plane) {
-        return lineService.getLines().then(function (res) {
-          let optiLines = [];
-          _.forEach(res.data, function (line) {
-            if (isOptimised(plane, line)) {
-              optiLines.push(line);
-            }
-          });
-          return optiLines;
-        });
-      };
-
-      const getCompatiblePlanes = function (line) {
-        return planeService.getPlanes().then(function (res) {
-
-          // Filter the compatible planes for a line
-          const planes = _.filter(res.data, function (plane) {
-            let compatiblePlaneTypes = _.map(line.optis, function (opti) {
-              return opti.type;
-            });
-            return _.includes(compatiblePlaneTypes, plane.type);
-          });
-
-          const linePlaneNames = _.map(_.get(line, 'planes'), function (plane) {
-            return _.get(plane, 'name');
-          });
-
-          const optiPlanes = _.filter(planes, function (plane) {
-            return isOptimised(plane, line) && !_.includes(linePlaneNames, _.get(plane, 'name'));
-          });
-          return _.sortBy(optiPlanes, ['name']);
-        });
-      };
-
-      const roundForDuration = function (num) {
+      const roundForDuration = function(num) {
         'use strict';
         let intPart     = Math.floor(num);
         let decimalPart = num - intPart;
@@ -70,7 +34,7 @@ angular.module('am2App')
         return intPart + decimalPart;
       };
 
-      const stringFormatNumber = function (num) {
+      const stringFormatNumber = function(num) {
         if (num < 10) {
           return '0' + num.toString();
         } else {
@@ -78,7 +42,7 @@ angular.module('am2App')
         }
       };
 
-      const decimalToHours = function (hoursDecimal) {
+      const decimalToHours = function(hoursDecimal) {
         'use strict';
         hoursDecimal       = roundForDuration(hoursDecimal);
         let hours          = Math.floor(hoursDecimal);
@@ -96,11 +60,11 @@ angular.module('am2App')
         };
       };
 
-      const getRotationDuration = function (speed, line) {
+      const getRotationDuration = function(speed, line) {
         return 2 * line.distance / speed + 2;
       };
 
-      const getOptimisation = function (planeType, line) {
+      const getOptimisation = function(planeType, line) {
         const seats      = _.get(planeType, 'seats');
         const planeSpeed = _.get(planeType, 'speed');
 
@@ -128,9 +92,7 @@ angular.module('am2App')
       };
 
       return {
-        isOptimised: isOptimised,
-        getOptiLines: getOptiLines,
-        getCompatiblePlanes: getCompatiblePlanes,
+        compareToBestPlane: compareToBestPlane,
         getOptimisation: getOptimisation
       };
     }]);

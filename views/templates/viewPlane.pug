@@ -4,15 +4,20 @@ div.card.border.border-dark(ng-if='plane')
     h5.card-subtitle.text-muted {{plane.hub}}    
   img.card-img-bottom(ng-src='./images/{{plane.type}}.png', border='0', alt='Picture not available', style='padding:10px;', height='90', width='275')
   div.card-body
-    h6.card-subtitle Configuration
+    h5.card-subtitle Configuration
     span.badge.badge-dark(style="margin-right: 2px") E: {{plane.config.eco}}
     span.badge.badge-dark(style="margin-right: 2px") B: {{plane.config.business}}
     span.badge.badge-dark(style="margin-right: 2px") F: {{plane.config.first}}
     span.badge.badge-secondary(style="margin-right: 2px") C: {{plane.config.cargo}}
   div.card-body
-    h6.card-subtitle Destinations
+    h5.card-subtitle Destinations
     a.badge.badge-pill.badge-secondary(href="#", ng-repeat='dest in plane.dests' ng-click='chooseDest(dest)') {{dest}}
   div.card-body
     button.btn.btn-primary(type="button")
       i.fas.fa-cog(aria-hidden="true")
+
+div.card(ng-if="!plane")
+  div.card-body
+    h6.card-subtitle.text-muted Select a plane
+
 // End of card component

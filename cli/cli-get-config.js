@@ -11,7 +11,7 @@ const dbHelper = require(path.join(__dirname, '..', 'database', 'dbHelper'));
 const params = {};
 program
   .arguments('<from> <to> <planeType>')
-  .action(function (from, to, planeType) {
+  .action(function(from, to, planeType) {
     params.from = from;
     params.to   = to;
     params.type = planeType;
@@ -19,14 +19,14 @@ program
   .parse(process.argv);
 
 // Handles the ctrl+c in the terminal
-process.on('SIGINT', function () {
-  dbHelper.closeConnection(function () {
+process.on('SIGINT', function() {
+  dbHelper.closeConnection(function() {
     process.exit(0);
   });
 });
 
 // Entry point
-dbHelper.find('lines', {from: params.from, to: params.to} , function (err, results) {
+dbHelper.find('lines', {from: params.from, to: params.to} , function(err, results) {
   let exitCode = 0;
   if (err) {
     exitCode = -1;
@@ -36,7 +36,7 @@ dbHelper.find('lines', {from: params.from, to: params.to} , function (err, resul
   if (_.isEmpty(line)) {
     console.log('Line not found');
   } else {
-    let optis = _.filter(line.optis, function (opti) {
+    let optis = _.filter(line.optis, function(opti) {
       return _.isEqual(opti.type, params.type);
     });
     let opti = optis[0];
@@ -51,7 +51,7 @@ dbHelper.find('lines', {from: params.from, to: params.to} , function (err, resul
     }
   }
 
-  dbHelper.closeConnection(function () {
+  dbHelper.closeConnection(function() {
     process.exit(exitCode);
   });
 });

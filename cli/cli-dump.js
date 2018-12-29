@@ -14,8 +14,8 @@ program
   .parse(process.argv);
 
 async.series([
-  function (callback) {
-    fs.mkdir(path.join(__dirname, '..', 'dist', 'data'), function (err) {
+  function(callback) {
+    fs.mkdir(path.join(__dirname, '..', 'dist', 'data'), function(err) {
       if (_.isEqual(err.code, 'EEXIST')) {
         console.log('Directory already exists. Creation was ignored.');
         callback();
@@ -25,14 +25,14 @@ async.series([
     });
   },
   dbHelper.dump
-], function (err) {
+], function(err) {
   let exitCode = 0;
   if (err) {
     exitCode = -1;
     console.log('An error occurred');
     console.log(err);
   }
-  dbHelper.closeConnection(function () {
+  dbHelper.closeConnection(function() {
     process.exit(exitCode);
   });
 });

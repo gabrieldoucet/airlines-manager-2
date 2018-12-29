@@ -5,10 +5,10 @@ const _             = require('lodash');
 const paxCoeffs     = {eco: 1, business: 1.8, first: 4.23, cargo: 10};
 const payloadCoeffs = {eco: 0.1, business: 0.125, first: 0.15, cargo: 1};
 
-const isHub = function (hubs, code) {
+const isHub = function(hubs, code) {
   'use strict';
   let found = false;
-  _.forEach(hubs, function (hub) {
+  _.forEach(hubs, function(hub) {
     if (_.isEqual(hub.code, code)) {
       found = true;
     }
@@ -16,7 +16,7 @@ const isHub = function (hubs, code) {
   return found;
 };
 
-const roundForDuration = function (num) {
+const roundForDuration = function(num) {
   'use strict';
   let intPart     = Math.floor(num);
   let decimalPart = num - intPart;
@@ -33,7 +33,7 @@ const roundForDuration = function (num) {
   return intPart + decimalPart;
 };
 
-const stringFormatNumber = function (num) {
+const stringFormatNumber = function(num) {
   if (num < 10) {
     return '0' + num.toString();
   } else {
@@ -41,7 +41,7 @@ const stringFormatNumber = function (num) {
   }
 };
 
-const decimalToHours = function (hoursDecimal) {
+const decimalToHours = function(hoursDecimal) {
   'use strict';
   hoursDecimal       = roundForDuration(hoursDecimal);
   let hours          = Math.floor(hoursDecimal);
@@ -59,11 +59,11 @@ const decimalToHours = function (hoursDecimal) {
   };
 };
 
-const getRotationDuration = function (speed, line) {
+const getRotationDuration = function(speed, line) {
   return 2 * line.distance / speed + 2;
 };
 
-const getOptimisation = function (planeType, line) {
+const getOptimisation = function(planeType, line) {
   const seats      = _.get(planeType, 'seats');
   const planeSpeed = _.get(planeType, 'speed');
   const tonnage    = _.get(planeType, 'tonnage');

@@ -1,0 +1,10 @@
+div.row
+  div.col-sm-11
+    h5 {{title}}
+  div.col-sm-1
+    i.fas(ng-click="toggle()", ng-class="show ? 'fa-chevron-down' : 'fa-chevron-right'")
+
+div.row
+  div.col-sm-12(ng-if="show")
+    a.badge.badge-dark(href="#", style="margin-right: 2px", ng-repeat="line in lines", ng-click="chooseLine(line)") {{line.from}} - {{line.to}}
+    h6.text-muted(ng-if="lines.length == 0") No lines to display

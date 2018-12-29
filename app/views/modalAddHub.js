@@ -8,13 +8,15 @@ angular.module('am2App')
   .directive('modalAddHub', function() {
     return {
       templateUrl: './templates/modalAddHub',
+      transclude: true,
+      scope: {},
       controller: ['$scope', function($scope) {
 
         $scope.addHub = function() {
           console.log($scope.newHub);
         };
 
-        $scope.reset = function () {
+        $scope.reset = function() {
           $scope.newHub = {};
         };
       }]

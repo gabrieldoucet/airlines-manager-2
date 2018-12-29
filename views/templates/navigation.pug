@@ -1,0 +1,17 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href="#") {{title}}
+  ul.navbar-nav
+    li.nav-item.dropdown
+      a.nav-link.dropdown-toggle(id="navbarDropdownMenuLink", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Add
+      div.dropdown-menu.nav-item
+        a.dropdown-item(data-toggle="modal", data-target="#modalAddPlane") Plane
+        a.dropdown-item(data-toggle="modal", data-target="#modalAddLine") Line
+        a.dropdown-item(data-toggle="modal", data-target="#modalAddHub") Hub
+        a.dropdown-item(href="#") Plane type
+    li.nav-item.dropdown
+      a.nav-link.dropdown-toggle(id="navbarDropdownMenuLink", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Explore
+      div.dropdown-menu
+        a.dropdown-item Planes
+        a.dropdown-item Lines
+        a.dropdown-item Hubs
+        a.dropdown-item Plane types

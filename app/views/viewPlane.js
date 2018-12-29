@@ -1,19 +1,19 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .directive('planeView', function () {
+  .directive('viewPlane', function() {
     return {
-      templateUrl: './templates/planeView',
+      templateUrl: './templates/viewPlane',
       transclude: true,
       scope: {
         plane: '=',
         line: '='
       },
-      controller: ['$scope', 'lineService', 'urlService', function ($scope, lineService, urlService) {
-        $scope.chooseDest = function (to) {
+      controller: ['$scope', 'lineService', 'urlService', function($scope, lineService, urlService) {
+        $scope.chooseDest = function(to) {
           if ($scope.plane) {
-            lineService.getLineFromTo2($scope.plane.hub, to)
-              .then(function (line) {
+            lineService.getLineFromTo($scope.plane.hub, to)
+              .then(function(line) {
                 $scope.line = line;
               });
           }

@@ -1,5 +1,5 @@
 angular.module('am2App')
-.factory('models', [function () {
+.factory('models', [function() {
   
   function Plane () {
     this.config = {eco: 0, business: 0, first: 0};

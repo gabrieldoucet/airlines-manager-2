@@ -5,15 +5,15 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .directive('selectLine', function () {
+  .directive('selectLine', function() {
     return {
       templateUrl: './templates/selectLine',
       scope: {
         line: '='
       },
-      controller: ['$scope', 'lineService', function ($scope, lineService) {
-        lineService.getLines().then(function (res) {
-          $scope.lines = _.sortBy(res.data, ['from', 'to']);
+      controller: ['$scope', 'dataService', function($scope, dataService) {
+        dataService.getLines().then(function(lines) {
+          $scope.lines = lines;
         });
       }]
     };

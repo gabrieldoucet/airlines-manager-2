@@ -5,18 +5,18 @@ angular.module('am2App')
   var maxWeight = 100;
   var tolerance = 0.01;
 
-  var matrixGet = function (matrix, i, j) {
+  var matrixGet = function(matrix, i, j) {
     return matrix[i][j];
   };
 
-  var matrixSet = function (matrix, i, j, value) {
+  var matrixSet = function(matrix, i, j, value) {
     if (_.isUndefined(matrix[i])) {
       matrix[i] = [];
     }
     matrix[i][j] = value;
   };
 
-  var print = function (matrix) {
+  var print = function(matrix) {
     for (i = 0; i < _.size(objects) + 1; i++) {
       var str = matrix[i].join(' ');
       str += '\n';
@@ -24,7 +24,7 @@ angular.module('am2App')
     }
   };
 
-  var knapsack = function (objects) {
+  var knapsack = function(objects) {
     var tab = [];
     var keep = [];
 
@@ -65,12 +65,12 @@ angular.module('am2App')
     return results;
   };
 
-  var algo = function (objects) {
-    objects = _.sortBy(objects, [function (obj) {return obj._weight}]);
+  var algo = function(objects) {
+    objects = _.sortBy(objects, [function(obj) {return obj._weight}]);
     var combinations = [];
     
     // Adding algorithm specific variables: _count and _maxCount
-    _.forEach(objects, function (obj) {
+    _.forEach(objects, function(obj) {
       var newObj = _.clone(obj);
       obj._maxCount = Math.floor(100 / obj._weight);
       obj._count = 0;
@@ -87,7 +87,7 @@ angular.module('am2App')
       }
 
       var total = 0;
-      _.forEach(objects, function (obj) {
+      _.forEach(objects, function(obj) {
         total += obj._weight * obj._count;
       });
 

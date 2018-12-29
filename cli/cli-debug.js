@@ -14,18 +14,18 @@ var lines      = [];
 var lineObjs   = [];
 
 // Handle the ctrl+c un the terminal
-process.on('SIGINT', function () {
-  dbHelper.closeConnection(function () {
+process.on('SIGINT', function() {
+  dbHelper.closeConnection(function() {
     process.exit(0);
   });
 });
 
 
 /*
-dbHelper.find('lines', {}, function (err, results) {
+dbHelper.find('lines', {}, function(err, results) {
   console.log(results);
 });
 
-dbHelper.find('lines', {to: 'SYD'}, function (err, results) {
+dbHelper.find('lines', {to: 'SYD'}, function(err, results) {
   console.log(results);
 });*/

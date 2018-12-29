@@ -8,7 +8,11 @@ angular.module('am2App')
   .directive('modalAddPlane', function() {
     return {
       templateUrl: './templates/modalAddPlane',
+      transclude: true,
+      scope: {},
       controller: ['$scope', function($scope) {
+
+        $scope.newPlane = {};
 
         $scope.addPlane = function() {
           $scope.newPlane.hub = $scope.hub.code;
@@ -16,7 +20,7 @@ angular.module('am2App')
           console.log($scope.newPlane);
         };
 
-        $scope.reset = function () {
+        $scope.reset = function() {
           $scope.newPlane = {};
         };
       }]

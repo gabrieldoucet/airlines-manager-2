@@ -1,14 +1,14 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .directive('lineConfigs', function () {
+  .directive('lineConfigs', function() {
     return {
       templateUrl: './templates/lineConfigs',
       transclude: true,
       scope: {
         line: '='
       },
-      controller: ['$scope', function ($scope) {
+      controller: ['$scope', function($scope) {
       }]
     };
   });

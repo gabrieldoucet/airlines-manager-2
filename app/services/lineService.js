@@ -1,20 +1,20 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('lineService', ['$http', 'hubService', function ($http, hubService) {
-    let lines;
-    const similarProportions = function (x, y) {
+  .factory('lineService', ['dataService', function(dataService) {
+
+    const similarProportions = function(x, y) {
       const variation = (x - y) / x * 100;
       return Math.abs(variation) <= 5;
     };
 
-    const isEqual = function (line1, line2) {
+    const isEqual = function(line1, line2) {
       const obj1 = _.pick(line1, ['from', 'to']);
       const obj2 = _.pick(line2, ['from', 'to']);
       return _.isEqual(obj1, obj2);
     };
 
-    const isSimilar = function (line1, line2) {
+    const isSimilar = function(line1, line2) {
       const demand1         = line1.demand.eco + line1.demand.business + line1.demand.first;
       const demand2         = line2.demand.eco + line2.demand.business + line2.demand.first;
       const similarEco      = similarProportions(line1.demand.eco / demand1, line2.demand.eco / demand2);
@@ -23,80 +23,51 @@ angular.module('am2App')
       return !isEqual(line1, line2) && similarEco && similarBusiness && similarFirst;
     };
 
-    const setLines = function (data) {
-      data  = _.sortBy(data, [function (line) {
-        return line.from;
-      }, function (line) {
-        return line.to;
-      }]);
-      lines = data;
-    };
-
-    const getLines = function (query) {
-      return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
-        .then(function (res) {
-          lines = res.data;
-          return res;
-        }).catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
-        });
-
-      // TODO
-      //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/lines.json'})
-      //  .then(function (res) {
-      //    lines = res.data;
-      //    return res;
-      //  });
-    };
-
-    const getLinesFromTo = function (origin, dest) {
-      let resultLine    = null;
-      const originIsHub = hubService.isHub(origin);
-      const destIsHub   = hubService.isHub(dest);
-      _.forEach(lines, function (line) {
-        if (originIsHub && destIsHub) {
-          if ((_.isEqual(origin, line.from) && _.isEqual(dest, line.to)) ||
-            (_.isEqual(origin, line.to) && _.isEqual(dest, line.from))) {
-            resultLine = line;
-          }
-        } else {
-          if (_.isEqual(origin, line.from) && _.isEqual(dest, line.to)) {
-            resultLine = line;
-          }
-        }
-      });
-      return resultLine;
-    };
-
-    const getLinesFromTo2 = function (origin, dest) {
+    const getLinesFromTo = function(origin, dest) {
       let query = {from: origin, to: dest};
-      return $http({method: 'POST', url: 'http://localhost:3000/data/lines', data: query})
-        .then(function (res) {
-          return res.data[0];
-        }).catch(function () {
-          let lines = _.map(lines, function (line) {
-            return _.isEqual(line.from, origin) && _.isEqual(line.to, dest);
-          });
+      return dataService.getLines(query).then(function(lines) {
           return lines[0];
-        });
+      }).catch(function() {
+        return null;
+      });
     };
 
-    const getSimilarLines = function (sourceLine) {
-      return getLines().then(function (res) {
-        const lines        = res.data;
-        const similarLines = _.filter(lines, function (line) {
+    const getSimilarLines = function(sourceLine) {
+      return dataService.getLines().then(function(lines) {
+        const similarLines = _.filter(lines, function(line) {
           return isSimilar(sourceLine, line);
         });
         return similarLines;
       });
     };
 
+    const getCompatiblePlanes = function(line) {
+
+      return dataService.getPlanes().then(function(planes) {
+
+        // Get the compatible plane types for the selected line
+        let typeMap = {};
+        _.forEach(_.get(line, 'optis'), function(bestPlane) {
+          _.set(typeMap, _.get(bestPlane, 'type'), true);
+        });
+
+        // Get all compatible planes for the line, even the ones not optimised
+        let compatiblePlanes = _.filter(planes, function(plane) {
+          return _.get(typeMap, _.get(plane, 'type'), false);
+        });
+
+        // Keep those who are not already assigned to the line
+        let compatiblePlanesNotAssigned = _.xorBy(compatiblePlanes, line.planes, 'name');
+
+        // Return the planes, sorted by name
+        return _.sortBy(compatiblePlanesNotAssigned, ['name']);
+      });
+    };
+
     return {
-      setLines: setLines,
-      getLines: getLines,
       getLineFromTo: getLinesFromTo,
-      getLineFromTo2: getLinesFromTo2,
       getSimilarLines: getSimilarLines,
-      isSimilar: isSimilar
+      isSimilar: isSimilar,
+      getCompatiblePlanes: getCompatiblePlanes
     };
   }]);

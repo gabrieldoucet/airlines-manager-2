@@ -1,50 +1,42 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('planeService', ['$http', function ($http) {
-    let planes;
+  .factory('planeService', ['dataService', 'calc', function(dataService, calc) {
 
-    const setPlanes = function (data) {
-      data  = _.sortBy(data, [function (plane) {
-        return plane.name;
-      }]);
-      planes = data;
-    };
-
-    const getPlaneFromName = function (planeName) {
-      const selection = _.filter(planes, function (plane) {
-        return _.isEqual(plane.name, planeName);
+    // Should return true is a plane is found
+    const nameExists = function(planeName) {
+      return dataService.getPlanes({name: planeName}).then(function(planes) {
+        return !_.isNil(planes[0]);
       });
-      return selection[0];
     };
 
-    const getPlanes = function (query) {
-      return $http({method: 'POST', url: 'http://localhost:3000/data/planes', data: query})
-        .then(function (res) {
-          planes = res.data;
-          return res;
-        })
-        .catch(function (data) {
-          return $http.get('https://gdoucet-fr.github.io/am2/data/planes.json');
+    const isOptimisedForLine = function(plane, line) {
+
+      const bestPlanes = _.get(line, 'optis');
+      const bestPlane = _.find(bestPlanes, function(bestPlane) {
+        return _.isEqual(_.get(plane, 'type'), _.get(bestPlane, 'type'));
+      });
+      if (!_.isNil(bestPlane)) {
+        let optimised = calc.compareToBestPlane(plane, bestPlane);
+        return optimised;
+      } else {
+        console.log('isOptimised:22', plane.type, plane.name, line.from + '-' + line.to);
+        return false;
+      }
+    };
+
+    const getOptiLines = function(plane) {
+      return dataService.getLines().then(function(lines) {
+        let optiLines = _.filter(lines, function(line) {
+          return isOptimisedForLine(plane, line);
         });
-
-      //// TODO
-      //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/planes.json'})
-      //  .then(function (res) {
-      //    hubs = res.data;
-      //    return res;
-      //  })
-    };
-
-    const nameExists = function (planeName) {
-      let plane = getPlaneFromName(planeName);
-      return _.isNil(plane);
+        return optiLines;
+      });
     };
 
     return {
-      setPlanes: setPlanes,
-      getPlanes: getPlanes,
-      getPlaneFromName: getPlaneFromName,
-      nameExists: nameExists
+      nameExists: nameExists,
+      isOptimisedForLine: isOptimisedForLine,
+      getOptiLines: getOptiLines
     };
   }]);

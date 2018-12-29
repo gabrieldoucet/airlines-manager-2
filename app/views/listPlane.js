@@ -5,33 +5,26 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .directive('listPlane', function () {
+  .directive('listPlane', function() {
     return {
       templateUrl: './templates/listPlane',
-      transclude: true,
       scope: {
-        plane: '=',
         planes: '=',
         title: '=',
-        line: '='
+        line: '=',
+        choosePlane: '='
       },
 
-      controller: ['$scope', 'calc', function ($scope, calc) {
+      controller: ['$scope', 'planeService', function($scope, planeService) {
 
         $scope.show = true;
 
-        $scope.toggle = function () {
+        $scope.toggle = function() {
           $scope.show = !$scope.show;
         };
 
-        $scope.choosePlane = function (plane) {
-          console.log($scope.plane);
-          $scope.plane = plane;
-          console.log($scope.plane);
-        };
-
-        $scope.isPlaneOptimised = function (plane) {
-          return calc.isOptimised(plane, $scope.line);
+        $scope.isPlaneOptimised = function(plane) {
+          return planeService.isOptimisedForLine(plane, $scope.line);
         };
 
       }]

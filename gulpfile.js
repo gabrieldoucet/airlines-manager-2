@@ -10,20 +10,20 @@ const _          = require('lodash');
 
 sass.compiler = require('node-sass');
 
-gulp.task('browserify', function () {
+gulp.task('browserify', function() {
   return browserify('./app/app.js')
     .bundle()
     .pipe(source('main.js'))
     .pipe(gulp.dest('./dist/js/'));
 });
 
-gulp.task('views', function () {
+gulp.task('views', function() {
   return gulp.src('views/templates/*.pug')
     .pipe(pug())
     .pipe(gulp.dest('dist/views/')); // tell gulp our output folder
 });
 
-gulp.task('sass', function () {
+gulp.task('sass', function() {
   return gulp.src('./stylesheets/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./dist/stylesheets'));
@@ -38,11 +38,11 @@ gulp.task('watch-sass', function() {
 });
 
 
-gulp.task('dbdump', function () {
+gulp.task('dbdump', function() {
   const dbHelper   = require(path.join(__dirname, 'database', 'dbHelper'));
   async.series([
-    function (callback) {
-      fs.mkdir(path.join(__dirname, 'dist', 'data'), function (err) {
+    function(callback) {
+      fs.mkdir(path.join(__dirname, 'dist', 'data'), function(err) {
         if (_.isEqual(err.code, 'EEXIST')) {
           console.log('Directory already exists. Creation was ignored.');
           callback();
@@ -52,7 +52,7 @@ gulp.task('dbdump', function () {
       });
     },
     dbHelper.dump
-  ], function (err) {
+  ], function(err) {
     'use strict';
     let exitCode = 0;
     if (err) {
@@ -60,7 +60,7 @@ gulp.task('dbdump', function () {
       console.log('An error occurred');
       console.log(err);
     }
-    dbHelper.closeConnection(function () {
+    dbHelper.closeConnection(function() {
       process.exit(exitCode);
     });
   });

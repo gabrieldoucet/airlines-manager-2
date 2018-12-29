@@ -5,17 +5,22 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .directive('nameGen', function () {
+  .directive('nameGen', function() {
     return {
       transclude: true,
       scope: {
         hub: '=',
         name: '='
       },
-      controller: ['$scope', 'hubService', 'planeService', function ($scope, hubService, planeService) {
-        $scope.$watch('hub', function (newVal, oldVal) {
+      controller: ['$scope', 'hubService', 'planeService', function($scope, hubService, planeService) {
+
+        $scope.newPlane = {};
+
+        $scope.$watch('hub', function(newVal, oldVal) {
           if (!_.isNil(newVal)) {
-            $scope.name = hubService.getRandomName($scope.hub.code);
+            hubService.getRandomName($scope.hub.code).then(function(name) {
+              $scope.name = name;
+            });
           }
         }, true);
       }]
