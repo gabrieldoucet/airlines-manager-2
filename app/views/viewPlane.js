@@ -7,19 +7,17 @@ angular.module('am2App')
       transclude: true,
       scope: {
         plane: '=',
-        line: '='
+        chooseLine: '='
       },
-      controller: ['$scope', 'lineService', 'urlService', function($scope, lineService, urlService) {
-        $scope.chooseDest = function(to) {
-          if ($scope.plane) {
-            lineService.getLineFromTo($scope.plane.hub, to)
-              .then(function(line) {
-                $scope.line = line;
-              });
+      controller: ['$scope', 'lineService', function($scope, lineService) {
+
+        $scope.chooseDestination = function(to) {
+          if (!_.isNil($scope.plane)) {
+            lineService.getLineFromTo($scope.plane.hub, to).then(function(line) {
+              $scope.chooseLine(line);
+            });
           }
         };
-
-        $scope.url = urlService.getPlaneUrl($scope.plane);
       }]
     };
   });

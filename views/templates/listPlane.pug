@@ -4,7 +4,7 @@ div.row
   div.col-sm-1
     i.fas(ng-click="toggle()", ng-class="show ? 'fa-chevron-down' : 'fa-chevron-right'")
 
-div.row
-  div.col-sm-12(ng-if="show")
-    a.badge(href="#", style="margin-right: 2px", ng-repeat="plane in planes", ng-click="choosePlane(plane)", ng-class="{'badge': true, 'badge-success': isPlaneOptimised(plane), 'badge-dark': !isPlaneOptimised(plane)}") {{plane.name}}
-    h6.text-muted(ng-if="planes.length == 0") No planes to display
+div.row(ng-show="show")
+  div.col-sm-12
+    a.badge(href="", style="margin-right: 2px", ng-repeat="plane in planes track by $index", ng-click="choosePlane(plane)", ng-class="isPlaneOptimised(plane, 'listPlane') ? 'badge-success' : 'badge-dark'") {{plane.name}}
+    h6.text-muted(ng-show="planes.length == 0") No planes to display

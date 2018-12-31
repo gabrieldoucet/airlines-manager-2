@@ -19,14 +19,13 @@ angular.module('am2App')
 
         $scope.show = true;
 
-        $scope.toggle = function() {
+        $scope.toggle = function () {
           $scope.show = !$scope.show;
-        };
+        }
 
         $scope.isPlaneOptimised = function(plane) {
           return planeService.isOptimisedForLine(plane, $scope.line);
         };
-
       }]
     };
   });

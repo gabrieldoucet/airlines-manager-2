@@ -15,13 +15,11 @@ angular.module('am2App')
       },
 
       controller: ['$scope', function($scope) {
-
         $scope.show = true;
 
-        $scope.toggle = function() {
+        $scope.toggle = function () {
           $scope.show = !$scope.show;
-        };
-
+        }
       }]
     };
   });

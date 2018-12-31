@@ -396,8 +396,7 @@ angular.module('am2App')
         return Promise.all([name, planeService.nameExists(name)]);
       }).then(function(results) {
         let name = results[0];
-        let nameExists = [results][1];
-        console.log('being called');
+        let nameExists = results[1];
         if (!nameExists) {
           return name;
         } else {
@@ -415,7 +414,7 @@ angular.module('am2App')
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('lineService', ['dataService', function(dataService) {
+  .factory('lineService', ['dataService', 'calc', function(dataService, calc) {
 
     const similarProportions = function(x, y) {
       const variation = (x - y) / x * 100;
@@ -460,14 +459,21 @@ angular.module('am2App')
       return dataService.getPlanes().then(function(planes) {
 
         // Get the compatible plane types for the selected line
-        let typeMap = {};
+        let typeMap = new Map();
         _.forEach(_.get(line, 'optis'), function(bestPlane) {
-          _.set(typeMap, _.get(bestPlane, 'type'), true);
+          _.set(typeMap, _.get(bestPlane, 'type'), bestPlane);
         });
 
         // Get all compatible planes for the line, even the ones not optimised
         let compatiblePlanes = _.filter(planes, function(plane) {
-          return _.get(typeMap, _.get(plane, 'type'), false);
+          let planeType = _.get(plane, 'type');
+          let bestPlane = _.get(typeMap, planeType);
+          if (!_.isNil(bestPlane)) {
+            let optimised = calc.compareToBestPlane(plane, bestPlane);
+            return optimised;
+          } else {
+            return false;
+          }
         });
 
         // Keep those who are not already assigned to the line
@@ -525,7 +531,6 @@ angular.module('am2App')
         let optimised = calc.compareToBestPlane(plane, bestPlane);
         return optimised;
       } else {
-        console.log('isOptimised:22', plane.type, plane.name, line.from + '-' + line.to);
         return false;
       }
     };
@@ -629,13 +634,11 @@ angular.module('am2App')
       },
 
       controller: ['$scope', function($scope) {
-
         $scope.show = true;
 
-        $scope.toggle = function() {
+        $scope.toggle = function () {
           $scope.show = !$scope.show;
-        };
-
+        }
       }]
     };
   });
@@ -662,14 +665,13 @@ angular.module('am2App')
 
         $scope.show = true;
 
-        $scope.toggle = function() {
+        $scope.toggle = function () {
           $scope.show = !$scope.show;
-        };
+        }
 
         $scope.isPlaneOptimised = function(plane) {
           return planeService.isOptimisedForLine(plane, $scope.line);
         };
-
       }]
     };
   });
@@ -690,7 +692,7 @@ angular.module('am2App')
       controller: ['$scope', function($scope) {
 
         $scope.addHub = function() {
-          console.log($scope.newHub);
+          console.log('New hub details:', $scope.newHub);
         };
 
         $scope.reset = function() {
@@ -719,7 +721,7 @@ angular.module('am2App')
 
           $scope.addLine = function() {
             $scope.newLine.from = $scope.hub.code;
-            console.log($scope.newLine);
+            console.log('New line details', $scope.newLine);
           };
 
           $scope.reset = function() {
@@ -749,7 +751,7 @@ angular.module('am2App')
         $scope.addPlane = function() {
           $scope.newPlane.hub = $scope.hub.code;
           $scope.newPlane.type = $scope.planeType.type;
-          console.log($scope.newPlane);
+          console.log('New plane details:', $scope.newPlane);
         };
 
         $scope.reset = function() {
@@ -976,7 +978,6 @@ angular.module('am2App')
             });
           }
         }, true);
-
       }]
     };
   });
@@ -991,19 +992,17 @@ angular.module('am2App')
       transclude: true,
       scope: {
         plane: '=',
-        line: '='
+        chooseLine: '='
       },
-      controller: ['$scope', 'lineService', 'urlService', function($scope, lineService, urlService) {
-        $scope.chooseDest = function(to) {
-          if ($scope.plane) {
-            lineService.getLineFromTo($scope.plane.hub, to)
-              .then(function(line) {
-                $scope.line = line;
-              });
+      controller: ['$scope', 'lineService', function($scope, lineService) {
+
+        $scope.chooseDestination = function(to) {
+          if (!_.isNil($scope.plane)) {
+            lineService.getLineFromTo($scope.plane.hub, to).then(function(line) {
+              $scope.chooseLine(line);
+            });
           }
         };
-
-        $scope.url = urlService.getPlaneUrl($scope.plane);
       }]
     };
   });

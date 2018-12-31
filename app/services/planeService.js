@@ -20,7 +20,6 @@ angular.module('am2App')
         let optimised = calc.compareToBestPlane(plane, bestPlane);
         return optimised;
       } else {
-        console.log('isOptimised:22', plane.type, plane.name, line.from + '-' + line.to);
         return false;
       }
     };

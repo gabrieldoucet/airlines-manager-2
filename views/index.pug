@@ -45,7 +45,7 @@ html(lang='en', ng-app='am2App')
           .col-sm-9
             view-line(line='selects.line', choose-line='chooseLine', choose-plane='choosePlane')
           .col-sm-3
-            view-plane(line='selects.line', plane='selects.plane')
+            view-plane(plane='selects.plane', choose-line='chooseLine')
     modal-add-hub
     modal-add-line
     modal-add-plane

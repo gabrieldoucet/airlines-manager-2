@@ -2,10 +2,12 @@
   "name": "airlines-manager-2",
   "version": "2.0.0",
   "scripts": {
-    "dev": "./node_modules/.bin/nodemon ./bin/www",
+    "dev": "NODE_ENV=dev ./node_modules/.bin/nodemon ./bin/www",
     "build": "./node_modules/.bin/gulp dist",
-    "start": "node ./bin/www",
-    "gulp-dev": "./node_modules/.bin/gulp dev"
+    "gulp-dev": "./node_modules/.bin/gulp dev",
+    "start": "NODE_ENV=prod node ./bin/www",
+    "run-db": "./run_db.sh",
+    "stop-db": "./stop_db.sh"
   },
   "repository": {
     "type": "git",
@@ -34,6 +36,7 @@
   },
   "devDependencies": {
     "browserify": "^16.2.3",
+    "cloc": "^2.3.4",
     "gulp": "^4.0.0",
     "nodemon": "^1.18.8",
     "pug-lint": "^2.4.0",

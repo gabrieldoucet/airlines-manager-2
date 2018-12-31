@@ -14,16 +14,6 @@ html(lang='en', ng-app='am2App')
         .page-content
           // First row
           .mdl-grid
-            .mdl-cell--3-col
-              h4
-                span Choisir la ligne
-                button#menu-lines.mdl-button.mdl-js-button--raised
-                  span(ng-if='selects.selectedLine') {{selects.selectedLine.from}} - {{selects.selectedLine.to}}
-                  span(ng-if='!selects.selectedLine') Sélectionner
-              ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect(for='menu-lines')
-                li.mdl-menu__item(ng-repeat='line in selects.lineChoices', ng-click='chooseLine(line)')
-                  | {{line.from}}
-                  | - {{line.to}}
             .mdl-cell--5-col(ng-if='selects.selectedLine')
               h4
                 | Demande
@@ -57,47 +47,5 @@ html(lang='en', ng-app='am2App')
                     label.mdl-textfield__label(for='input-first') First
                     span.mdl-textfield__error Input is not a number!
                   button#btn-ok.mdl-button.mdl-js-button--raised(ng-click='getAllOptis()') Ok
-                  button#btn-reset.mdl-button.mdl-js-button--raised(ng-click='reset()') Reset
-            .mdl-cell--4-col
-              h4
-                span Générateur de nom
-                button#menu-hubs.mdl-button.mdl-js-ripple-effect.mdl-js-button--raised
-                  span(ng-if='selects.selectedHub') {{selects.selectedHub.code}}
-                  span(ng-if='!selects.selectedHub') Sélectionner
-              div
-                span {{results.planeName}}
-                
-              hub-select(select='selects.selectedHub')
-            
+                  button#btn-reset.mdl-button.mdl-js-button--raised(ng-click='reset()') Reset  
           // End of first row
-          // Second row
-          .mdl-grid
-            .mdl-cell--3-col
-              h4 Avions affectés
-              h6(ng-if='!selects.selectedLine')
-                i Aucune ligne sélectionnée
-              h6(ng-if='selects.selectedLine && selects.selectedLine.planes == 0')
-                i Aucun avion affecté
-              button(ng-repeat='plane in selects.selectedLine.planes', id='lineplane-{{plane.name}}', ng-class='getPlaneClass(plane)', ng-click='choosePlane(plane)')
-                | {{plane.name}}
-                i.material-icons(ng-if='plane.config.cargo != undefined') done
-                span.mdl-tooltip(for='lineplane-{{plane.name}}') {{plane.type}}
-            .mdl-cell--6-col
-              h4 Avions compatibles
-              h6(ng-if='!selects.selectedLine')
-                i Aucune ligne sélectionnée
-              h6(ng-if='selects.selectedLine && results.optiPlanes.length == 0')
-                i Aucun autre avion compatible
-              button.mdl-button.mdl-js-button.mdl-js-ripple-effect(ng-repeat='plane in results.optiPlanes', id='optiplane-{{plane.name}}', type='button', ng-click='choosePlane(plane)')
-                | {{plane.name}}
-                span.mdl-tooltip(for='optiplane-{{plane.name}}') {{plane.type}}
-            .mdl-cell--3-col
-              h4 Lignes similaires
-              h6(ng-if='!selects.selectedLine')
-                i Aucune ligne sélectionnée
-              h6(ng-if='selects.selectedLine && results.similarLines.length == 0')
-                i Aucune ligne similaire
-              button.mdl-button.mdl-js-button.mdl-js-ripple-effect(ng-repeat='line in results.similarLines', type='button', ng-click='chooseLine(line)')
-                | {{line.from}} - {{line.to}}
-          // End of second row
-          // Third row

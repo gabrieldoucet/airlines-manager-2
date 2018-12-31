@@ -1,7 +1,7 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('lineService', ['dataService', function(dataService) {
+  .factory('lineService', ['dataService', 'calc', function(dataService, calc) {
 
     const similarProportions = function(x, y) {
       const variation = (x - y) / x * 100;
@@ -46,14 +46,21 @@ angular.module('am2App')
       return dataService.getPlanes().then(function(planes) {
 
         // Get the compatible plane types for the selected line
-        let typeMap = {};
+        let typeMap = new Map();
         _.forEach(_.get(line, 'optis'), function(bestPlane) {
-          _.set(typeMap, _.get(bestPlane, 'type'), true);
+          _.set(typeMap, _.get(bestPlane, 'type'), bestPlane);
         });
 
         // Get all compatible planes for the line, even the ones not optimised
         let compatiblePlanes = _.filter(planes, function(plane) {
-          return _.get(typeMap, _.get(plane, 'type'), false);
+          let planeType = _.get(plane, 'type');
+          let bestPlane = _.get(typeMap, planeType);
+          if (!_.isNil(bestPlane)) {
+            let optimised = calc.compareToBestPlane(plane, bestPlane);
+            return optimised;
+          } else {
+            return false;
+          }
         });
 
         // Keep those who are not already assigned to the line

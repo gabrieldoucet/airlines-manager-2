@@ -5,4 +5,4 @@ npm-debug.log
 db/
 node_modules/
 dist/
-db_archive/
+database/pid.txt

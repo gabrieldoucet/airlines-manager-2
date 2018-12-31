@@ -16,7 +16,7 @@ angular.module('am2App')
 
           $scope.addLine = function() {
             $scope.newLine.from = $scope.hub.code;
-            console.log($scope.newLine);
+            console.log('New line details', $scope.newLine);
           };
 
           $scope.reset = function() {

@@ -13,7 +13,7 @@ angular.module('am2App')
       controller: ['$scope', function($scope) {
 
         $scope.addHub = function() {
-          console.log($scope.newHub);
+          console.log('New hub details:', $scope.newHub);
         };
 
         $scope.reset = function() {

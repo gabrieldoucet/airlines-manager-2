@@ -25,7 +25,6 @@ angular.module('am2App')
             });
           }
         }, true);
-
       }]
     };
   });

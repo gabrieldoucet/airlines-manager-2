@@ -38,8 +38,7 @@ angular.module('am2App')
         return Promise.all([name, planeService.nameExists(name)]);
       }).then(function(results) {
         let name = results[0];
-        let nameExists = [results][1];
-        console.log('being called');
+        let nameExists = results[1];
         if (!nameExists) {
           return name;
         } else {

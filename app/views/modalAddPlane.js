@@ -17,7 +17,7 @@ angular.module('am2App')
         $scope.addPlane = function() {
           $scope.newPlane.hub = $scope.hub.code;
           $scope.newPlane.type = $scope.planeType.type;
-          console.log($scope.newPlane);
+          console.log('New plane details:', $scope.newPlane);
         };
 
         $scope.reset = function() {
