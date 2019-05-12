@@ -1,0 +1,33 @@
+div.card.border.border-dark(ng-show="line")
+  div.card-body
+    div.row
+      div.col-sm-6
+        h4.card-title {{line.from}} to {{line.to}}
+      
+      div.col-sm-6
+        ul.nav.nav-pills(id="pills-tab", role="tablist")
+          li.nav-item
+            a.nav-link.active(id="pills-home-tab", data-toggle="pill", href="#pills-home", role="tab", aria-controls="pills-home", aria-selected="true") Info
+          li.nav-item
+            a.nav-link(id="pills-profile-tab", data-toggle="pill", href="#pills-profile", role="tab", aria-controls="pills-profile", aria-selected="false") Configuration
+          
+  // Tab panes
+  div.tab-content
+    div.tab-pane.active(id="pills-home" role="tabpanel" aria-labelledby="home-tab")
+
+      div.card-body(ng-show="line")
+        list-plane(title="'Assigned planes'", line="line", planes="line.planes", choose-plane="choosePlane", style="width 100%", ng-cloak)
+
+      div.card-body(ng-show="line")
+        list-plane(title="'Other optimised planes'", line="line", planes="compatiblePlanes", choose-plane="choosePlane", style="width 100%")
+
+      div.card-body(ng-show="line")
+        list-line(title="'Similar lines'", lines="similarLines", choose-line="chooseLine", style="width 100%")
+
+    div.tab-pane(id="pills-profile", role="tabpanel", aria-labelledby="profile-tab")
+      div.card-body
+        line-configs(line="line")
+
+div.card(ng-show="!line")
+  div.card-body
+    h6.card-subtitle.text-muted Select a line

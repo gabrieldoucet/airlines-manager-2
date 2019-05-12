@@ -1,0 +1,18 @@
+[
+  {
+    "name": "lines",
+    "file": "lines.json"
+  },
+  {
+    "name": "planetypes",
+    "file": "planetypes.json"
+  },
+  {
+    "name": "planes",
+    "file": "planes.json"
+  },
+  {
+    "name": "hubs",
+    "file": "hubs.json"
+  }
+]

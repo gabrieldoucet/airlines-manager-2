@@ -1,0 +1,56 @@
+doctype html
+html(lang='en', ng-app='am2App')
+  head
+    meta(charset='utf-8')
+    title AM2 Console
+    meta(name='description', content='AM2 Console')
+    meta(name='author', content='Gabriel Doucet')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    
+    //Favicon  
+    link(rel='shortcut icon', type='image/png', href='./favicon.png')
+    
+    // Font Awesome
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css', integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/', crossorigin='anonymous')
+
+    // Bootstrap core CSS
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css')
+
+    // JQuery
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+
+    // Bootstrap tooltips
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js')
+
+    // Main javascript
+    script(src='./js/main.js')
+  body(ng-controller='rootController as ctrl', ng-cloak='')
+    header
+      navigation(title="'AM2 Console'")
+    main.mt-2.pt-2
+      div.alert.alert-warning.alert-dismissible.fade.show(role="alert") Holy guacamole! You should check in on some of those fields below.
+        button.close(type="button", data-dismiss="alert", aria-label="Close") &times;
+      .container.mb-4
+        // Selects
+        .row
+          .col-sm-9
+            .row.mb-4
+              .col-sm-3
+                select-line(line='selects.line')
+          .col-sm-3
+            .row.mb-4
+              .col-sm-9
+                select-plane(plane='selects.plane')
+                  
+        // Second row - Line card and Plane card
+        .row
+          .col-sm-9
+            view-line(line='selects.line', choose-line='chooseLine', choose-plane='choosePlane')
+          .col-sm-3
+            view-plane(plane='selects.plane', choose-line='chooseLine')
+    modal-add-hub
+    modal-add-line
+    modal-new-plane-type
