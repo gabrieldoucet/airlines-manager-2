@@ -1,17 +1,25 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('hubService', ['dataService', 'planeService', function(dataService, planeService) {
+  .factory('hubService', ['$http', 'dataService', 'planeService', function($http, dataService, planeService) {
+
+    const getHubByCode = function(code) {
+      return $http({
+          method: 'GET',
+          url: dataService.HUB_URL + '/' + code
+        }).then(function(res) {
+          let hub = res.data;
+          return hub;
+        }).catch(function(error) {
+          return {};
+        });
+    };
 
     const generateName = function(hubCode) {
 
-      return dataService.getHubs().then(function(hubs) {
+      return getHubByCode(hubCode).then(function(hubObject) {
         // Get all the registration regular expressions for the country of the hub
-        hubObject = _.find(hubs, function(hub) {
-          return _.isEqual(hub.code, hubCode)
-        });
         let regexArray = _.get(hubObject, 'immat');
-
         let regex;
         let index = 0;
         let name = '';
@@ -20,7 +28,10 @@ angular.module('am2App')
         }
         regex = new RegExp(regexArray[index]);
         name = new RandExp(regex).gen();
+        console.log(regex, name);
         return name;
+      }).catch(function(error) {
+        console.log(error);
       });
     };
 
@@ -48,6 +59,7 @@ angular.module('am2App')
     };
 
     return {
-      getRandomName: getRandomName
+      getRandomName: getRandomName,
+      getHubByCode: getHubByCode
     };
   }]);

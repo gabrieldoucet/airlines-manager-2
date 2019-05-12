@@ -13,7 +13,7 @@ angular.module('am2App')
       },
       controller: ['$scope', 'dataService', function($scope, dataService) {
         dataService.getHubs().then(function(hubs) {
-          $scope.hubs = hubs;
+          $scope.hubs = _.map(hubs, function(hub) {return hub.code});
         });
       }]
     };

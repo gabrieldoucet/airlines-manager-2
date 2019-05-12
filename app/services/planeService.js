@@ -1,11 +1,12 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('planeService', ['dataService', 'calc', function(dataService, calc) {
+  .factory('planeService', ['$http', 'dataService', 'calc', function($http, dataService, calc) {
 
     // Should return true is a plane is found
     const nameExists = function(planeName) {
-      return dataService.getPlanes({name: planeName}).then(function(planes) {
+      console.log(planeName);
+      return dataService.getPlaneByName(planeName).then(function(planes) {
         return !_.isNil(planes[0]);
       });
     };

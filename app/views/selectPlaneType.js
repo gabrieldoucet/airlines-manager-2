@@ -13,7 +13,7 @@ angular.module('am2App')
       },
       controller: ['$scope', 'dataService', function($scope, dataService) {
         dataService.getPlaneTypes().then(function(planeTypes) {
-          $scope.planeTypes = planeTypes;
+          $scope.planeTypes = _.map(planeTypes, function(planeType) {return planeType.type;});
         });
       }]
     };

@@ -3,71 +3,63 @@ var _ = require('lodash');
 angular.module('am2App')
 .factory('dataService', ['$http', function($http) {
 
-  const DATA_URL = 'http://localhost:3000/data'
+  const HUB_URL = 'http://localhost:8002/hub'
+  const LINE_URL = 'http://localhost:8002/line'
+  const PLANE_URL = 'http://localhost:8002/plane'
+  const PLANETYPE_URL = 'http://localhost:8002/planetype'
 
   const getHubs = function() {
     return $http({
-        method: 'POST',
-        url: DATA_URL + '/hubs'
+        method: 'GET',
+        url: HUB_URL
       }).then(function(res) {
         let hubs = _.sortBy(res.data, ['code']);
         return hubs;
-      }).catch(function(data) {
-        return $http.get('https://gdoucet-fr.github.io/am2/data/hubs.json');
+      }).catch(function(error) {
+        return [];
       });
-
-    // TODO
-    //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/hubs.json'})
-    //  .then(function(res) {
-    //    hubs = res.data;
-    //    return res;
-    //  });
   };
 
-  const getLines = function(query) {
+  const getLines = function() {
     return $http({
-      method: 'POST',
-      url: DATA_URL + '/lines',
-      data: query
+      method: 'GET',
+      url: LINE_URL,
     }).then(function(res) {
       let lines = _.sortBy(res.data, ['from', 'to']);
       return lines;
-    }).catch(function(data) {
-      return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
+    }).catch(function(error) {
+      return [];
     });
-
-    // TODO
-    //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/lines.json'})
-    //  .then(function(res) {
-    //    lines = res.data;
-    //    return res;
-    //  });
   };
 
-  const getPlanes = function(query) {
+  const getPlanes = function() {
     return $http({
-      method: 'POST',
-      url: DATA_URL + '/planes',
-      data: query
+      method: 'GET',
+      url: PLANE_URL,
     }).then(function(res) {
       let planes = _.sortBy(res.data, ['name']);
       return planes;
-    }).catch(function(data) {
-      return $http.get('https://gdoucet-fr.github.io/am2/data/planes.json');
+    }).catch(function(error) {
+      return [];
     });
+  };
 
-    //// TODO
-    //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/planes.json'})
-    //  .then(function(res) {
-    //    hubs = res.data;
-    //    return res;
-    //  })
+  const getPlaneByName = function(planeName) {
+    return $http({
+      method: 'GET',
+      url: PLANE_URL + '/' + planeName
+    }).then(function(res) {
+      let planes = _.sortBy(res.data, ['name']);
+      return planes;
+    }).catch(function(error) {
+      return [];
+    });
   };
 
   const getPlaneTypes = function(query) {
     return $http({
-      method: 'POST',
-      url: DATA_URL + '/planetypes',
+      method: 'GET',
+      url: PLANETYPE_URL,
       data: query
     }).then(function(res) {
       planeTypes = _.sortBy(res.data, ['type']);
@@ -75,21 +67,49 @@ angular.module('am2App')
     }).catch(function(err) {
       console.error(err);
       return [];
-//      return $http.get('https://gdoucet-fr.github.io/am2/data/planespecs.json');
     });
+  };
 
-    //// TODO
-    //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/planespecs.json'})
-    //  .then(function(res) {
-    //    hubs = res.data;
-    //    return res;
-    //  });
+  const addNewLine = function(newLine) {
+    console.log('Details of the new line to add:', newLine);
+    return $http({
+      method: 'POST',
+      url: LINE_URL + '/' + newLine.from + '/' + newLine.to,
+      data: newLine
+    }).then(function(res) {
+      console.log(res.data);
+      return res.data;
+    }).catch(function(err) {
+      console.error(err);
+      return false;
+    });
+  };
+
+
+  const addNewPlane = function(newPlane) {
+    console.log('Details of the new plane to add:', newPlane);
+    return $http({
+      method: 'POST',
+      url: PLANE_URL + '/' + newPlane.name,
+      data: newPlane
+    }).then(function(res) {
+      console.log(res.data);
+      return res.data;
+    }).catch(function(err) {
+      console.error(err);
+      return false;
+    });
   };
 
   return {
     getHubs: getHubs,
     getLines: getLines,
+    addNewLine: addNewLine,
     getPlanes: getPlanes,
-    getPlaneTypes: getPlaneTypes
+    addNewPlane: addNewPlane,
+    getPlaneByName: getPlaneByName,
+    getPlaneTypes: getPlaneTypes,
+    HUB_URL: HUB_URL,
+    PLANE_URL: PLANE_URL
   };
 }]);

@@ -35,7 +35,7 @@ angular.module('am2App')
       for (var w = 0; w <= maxWeight; w++) {
         keep[i][w] = false;
         tab[i][w] = 0; // includes the case tab[0][w] = 0
-      }  
+      }
     }
 
     for (i = 1; i <= _.size(objects); i++) {
@@ -68,7 +68,7 @@ angular.module('am2App')
   var algo = function(objects) {
     objects = _.sortBy(objects, [function(obj) {return obj._weight}]);
     var combinations = [];
-    
+
     // Adding algorithm specific variables: _count and _maxCount
     _.forEach(objects, function(obj) {
       var newObj = _.clone(obj);
@@ -92,7 +92,7 @@ angular.module('am2App')
       });
 
       if (total <= maxWeight * (1 + tolerance)) {
-        combinations.push({objects: _.cloneDeep(objects), total: total});          
+        combinations.push({objects: _.cloneDeep(objects), total: total});
       }
     }
 

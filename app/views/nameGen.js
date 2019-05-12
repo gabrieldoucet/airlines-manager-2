@@ -18,8 +18,10 @@ angular.module('am2App')
 
         $scope.$watch('hub', function(newVal, oldVal) {
           if (!_.isNil(newVal)) {
-            hubService.getRandomName($scope.hub.code).then(function(name) {
+            hubService.getRandomName($scope.hub).then(function(name) {
               $scope.name = name;
+            }).catch(function(error) {
+              console.log(error);
             });
           }
         }, true);

@@ -10,6 +10,12 @@ angular.module('am2App')
       templateUrl: './templates/navigation',
       scope: {
         title: '='
-      }
+      },
+      controller: ['$scope', 'modalService', function($scope, modalService) {
+        $scope.showNewPlaneModal = function() {
+          modalService.showNewPlaneModal();
+        };
+
+      }]
     };
   });

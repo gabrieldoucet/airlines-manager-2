@@ -13,7 +13,8 @@ angular.module('am2App')
 
         $scope.chooseDestination = function(to) {
           if (!_.isNil($scope.plane)) {
-            lineService.getLineFromTo($scope.plane.hub, to).then(function(line) {
+            lineService.getLineFromOriginAndDest($scope.plane.hub, to).then(function(line) {
+              console.log('Will select line:', line);
               $scope.chooseLine(line);
             });
           }

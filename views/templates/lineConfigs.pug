@@ -1,3 +1,5 @@
+modal-add-plane(new-plane="newPlane")
+
 table.table.table-striped.table-hover(ng-show='line')
   thead.thead-dark
     tr
@@ -16,5 +18,5 @@ table.table.table-striped.table-hover(ng-show='line')
       td {{opti.duration.asString}}
       td {{opti.percent}} %
       td
-        a.btn.btn-outline-dark(role="button")
-          i.fas.fa-plus(aria-hidden="true", data-toggle="modal" data-target="#modalAddPlane")
+        a.btn.btn-outline-dark(role="button", ng-click="addNewPlane(opti)")
+          i.fas.fa-plus(aria-hidden="true")

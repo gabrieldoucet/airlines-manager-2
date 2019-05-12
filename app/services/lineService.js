@@ -1,7 +1,7 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('lineService', ['dataService', 'calc', function(dataService, calc) {
+  .factory('lineService', ['dataService', 'apiService', 'calc', function(dataService, apiService, calc) {
 
     const similarProportions = function(x, y) {
       const variation = (x - y) / x * 100;
@@ -23,10 +23,9 @@ angular.module('am2App')
       return !isEqual(line1, line2) && similarEco && similarBusiness && similarFirst;
     };
 
-    const getLinesFromTo = function(origin, dest) {
-      let query = {from: origin, to: dest};
-      return dataService.getLines(query).then(function(lines) {
-          return lines[0];
+    const getLineFromOriginAndDest = function(origin, dest) {
+      return apiService.getLineFromOriginAndDest(origin, dest).then(function(lines) {
+        return lines[0];
       }).catch(function() {
         return null;
       });
@@ -72,7 +71,7 @@ angular.module('am2App')
     };
 
     return {
-      getLineFromTo: getLinesFromTo,
+      getLineFromOriginAndDest: getLineFromOriginAndDest,
       getSimilarLines: getSimilarLines,
       isSimilar: isSimilar,
       getCompatiblePlanes: getCompatiblePlanes

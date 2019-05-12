@@ -8,7 +8,6 @@ const cors         = require('cors');
 
 const index     = require('./routes/index');
 const templates = require('./routes/templates');
-const data      = require('./routes/data');
 
 const app = express();
 
@@ -28,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/', index);
 app.use('/templates', templates);
-app.use('/data', data);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

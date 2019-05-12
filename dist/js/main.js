@@ -13,12 +13,14 @@ require('./services/algorithmic.js');
 require('./services/calc.js');
 //require('./services/classService.js'); Not needed at the moment
 require('./services/dataService.js');
+require('./services/apiService.js');
 require('./services/hubService.js');
 require('./services/lineService.js');
 require('./services/models.js');
 require('./services/planeService.js');
 require('./services/planeTypeService.js');
 require('./services/urlService.js');
+require('./services/modalService.js');
 
 require('./views/rootController.js');
 require('./views/modalAddHub.js');
@@ -36,7 +38,7 @@ require('./views/selectPlaneType.js');
 require('./views/viewLine.js');
 require('./views/viewPlane.js');
 
-},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/calc.js":4,"./services/dataService.js":5,"./services/hubService.js":6,"./services/lineService.js":7,"./services/models.js":8,"./services/planeService.js":9,"./services/planeTypeService.js":10,"./services/urlService.js":11,"./views/lineConfigs.js":12,"./views/listLine.js":13,"./views/listPlane.js":14,"./views/modalAddHub.js":15,"./views/modalAddLine.js":16,"./views/modalAddPlane.js":17,"./views/nameGen.js":18,"./views/navigation.js":19,"./views/rootController.js":20,"./views/selectHub.js":21,"./views/selectLine.js":22,"./views/selectPlane.js":23,"./views/selectPlaneType.js":24,"./views/viewLine.js":25,"./views/viewPlane.js":26,"angular":29,"angular-ui-router":27,"jquery":30,"lodash":31}],2:[function(require,module,exports){
+},{"./lib/randexp.min.js":2,"./services/algorithmic.js":3,"./services/apiService.js":4,"./services/calc.js":5,"./services/dataService.js":6,"./services/hubService.js":7,"./services/lineService.js":8,"./services/modalService.js":9,"./services/models.js":10,"./services/planeService.js":11,"./services/planeTypeService.js":12,"./services/urlService.js":13,"./views/lineConfigs.js":14,"./views/listLine.js":15,"./views/listPlane.js":16,"./views/modalAddHub.js":17,"./views/modalAddLine.js":18,"./views/modalAddPlane.js":19,"./views/nameGen.js":20,"./views/navigation.js":21,"./views/rootController.js":22,"./views/selectHub.js":23,"./views/selectLine.js":24,"./views/selectPlane.js":25,"./views/selectPlaneType.js":26,"./views/viewLine.js":27,"./views/viewPlane.js":28,"angular":31,"angular-ui-router":29,"jquery":32,"lodash":33}],2:[function(require,module,exports){
 //
 // randexp v0.4.3
 // Create random strings that match a given regular expression.
@@ -84,7 +86,7 @@ angular.module('am2App')
       for (var w = 0; w <= maxWeight; w++) {
         keep[i][w] = false;
         tab[i][w] = 0; // includes the case tab[0][w] = 0
-      }  
+      }
     }
 
     for (i = 1; i <= _.size(objects); i++) {
@@ -117,7 +119,7 @@ angular.module('am2App')
   var algo = function(objects) {
     objects = _.sortBy(objects, [function(obj) {return obj._weight}]);
     var combinations = [];
-    
+
     // Adding algorithm specific variables: _count and _maxCount
     _.forEach(objects, function(obj) {
       var newObj = _.clone(obj);
@@ -141,7 +143,7 @@ angular.module('am2App')
       });
 
       if (total <= maxWeight * (1 + tolerance)) {
-        combinations.push({objects: _.cloneDeep(objects), total: total});          
+        combinations.push({objects: _.cloneDeep(objects), total: total});
       }
     }
 
@@ -158,7 +160,36 @@ angular.module('am2App')
     algo: algo
   };
 }]);
-},{"lodash":31}],4:[function(require,module,exports){
+
+},{"lodash":33}],4:[function(require,module,exports){
+const _ = require('lodash');
+
+angular.module('am2App')
+.factory('apiService', ['$http', function($http) {
+
+  const API_URL = 'http://localhost:8002/api'
+
+  const getLineFromOriginAndDest = function(origin, destination) {
+    let data = {from: origin, to: destination};
+    console.log('Will POST the following data:', data);
+    return $http({
+      method: 'POST',
+      url: API_URL + '/get-line-from-origin-dest',
+      data: data
+    }).then(function(res) {
+      let line = res.data;
+      return line;
+    }).catch(function(error) {
+      return {};
+    });
+  };
+
+  return {
+    getLineFromOriginAndDest: getLineFromOriginAndDest
+  };
+}]);
+
+},{"lodash":33}],5:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -258,77 +289,69 @@ angular.module('am2App')
       };
     }]);
 
-},{"lodash":31}],5:[function(require,module,exports){
+},{"lodash":33}],6:[function(require,module,exports){
 var _ = require('lodash');
 
 angular.module('am2App')
 .factory('dataService', ['$http', function($http) {
 
-  const DATA_URL = 'http://localhost:3000/data'
+  const HUB_URL = 'http://localhost:8002/hub'
+  const LINE_URL = 'http://localhost:8002/line'
+  const PLANE_URL = 'http://localhost:8002/plane'
+  const PLANETYPE_URL = 'http://localhost:8002/planetype'
 
   const getHubs = function() {
     return $http({
-        method: 'POST',
-        url: DATA_URL + '/hubs'
+        method: 'GET',
+        url: HUB_URL
       }).then(function(res) {
         let hubs = _.sortBy(res.data, ['code']);
         return hubs;
-      }).catch(function(data) {
-        return $http.get('https://gdoucet-fr.github.io/am2/data/hubs.json');
+      }).catch(function(error) {
+        return [];
       });
-
-    // TODO
-    //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/hubs.json'})
-    //  .then(function(res) {
-    //    hubs = res.data;
-    //    return res;
-    //  });
   };
 
-  const getLines = function(query) {
+  const getLines = function() {
     return $http({
-      method: 'POST',
-      url: DATA_URL + '/lines',
-      data: query
+      method: 'GET',
+      url: LINE_URL,
     }).then(function(res) {
       let lines = _.sortBy(res.data, ['from', 'to']);
       return lines;
-    }).catch(function(data) {
-      return $http.get('https://gdoucet-fr.github.io/am2/data/lines.json');
+    }).catch(function(error) {
+      return [];
     });
-
-    // TODO
-    //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/lines.json'})
-    //  .then(function(res) {
-    //    lines = res.data;
-    //    return res;
-    //  });
   };
 
-  const getPlanes = function(query) {
+  const getPlanes = function() {
     return $http({
-      method: 'POST',
-      url: DATA_URL + '/planes',
-      data: query
+      method: 'GET',
+      url: PLANE_URL,
     }).then(function(res) {
       let planes = _.sortBy(res.data, ['name']);
       return planes;
-    }).catch(function(data) {
-      return $http.get('https://gdoucet-fr.github.io/am2/data/planes.json');
+    }).catch(function(error) {
+      return [];
     });
+  };
 
-    //// TODO
-    //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/planes.json'})
-    //  .then(function(res) {
-    //    hubs = res.data;
-    //    return res;
-    //  })
+  const getPlaneByName = function(planeName) {
+    return $http({
+      method: 'GET',
+      url: PLANE_URL + '/' + planeName
+    }).then(function(res) {
+      let planes = _.sortBy(res.data, ['name']);
+      return planes;
+    }).catch(function(error) {
+      return [];
+    });
   };
 
   const getPlaneTypes = function(query) {
     return $http({
-      method: 'POST',
-      url: DATA_URL + '/planetypes',
+      method: 'GET',
+      url: PLANETYPE_URL,
       data: query
     }).then(function(res) {
       planeTypes = _.sortBy(res.data, ['type']);
@@ -336,40 +359,76 @@ angular.module('am2App')
     }).catch(function(err) {
       console.error(err);
       return [];
-//      return $http.get('https://gdoucet-fr.github.io/am2/data/planespecs.json');
     });
+  };
 
-    //// TODO
-    //return $http({method: 'GET', url: 'https://gdoucet-fr.github.io/am2/data/planespecs.json'})
-    //  .then(function(res) {
-    //    hubs = res.data;
-    //    return res;
-    //  });
+  const addNewLine = function(newLine) {
+    console.log('Details of the new line to add:', newLine);
+    return $http({
+      method: 'POST',
+      url: LINE_URL + '/' + newLine.from + '/' + newLine.to,
+      data: newLine
+    }).then(function(res) {
+      console.log(res.data);
+      return res.data;
+    }).catch(function(err) {
+      console.error(err);
+      return false;
+    });
+  };
+
+
+  const addNewPlane = function(newPlane) {
+    console.log('Details of the new plane to add:', newPlane);
+    return $http({
+      method: 'POST',
+      url: PLANE_URL + '/' + newPlane.name,
+      data: newPlane
+    }).then(function(res) {
+      console.log(res.data);
+      return res.data;
+    }).catch(function(err) {
+      console.error(err);
+      return false;
+    });
   };
 
   return {
     getHubs: getHubs,
     getLines: getLines,
+    addNewLine: addNewLine,
     getPlanes: getPlanes,
-    getPlaneTypes: getPlaneTypes
+    addNewPlane: addNewPlane,
+    getPlaneByName: getPlaneByName,
+    getPlaneTypes: getPlaneTypes,
+    HUB_URL: HUB_URL,
+    PLANE_URL: PLANE_URL
   };
 }]);
 
-},{"lodash":31}],6:[function(require,module,exports){
+},{"lodash":33}],7:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('hubService', ['dataService', 'planeService', function(dataService, planeService) {
+  .factory('hubService', ['$http', 'dataService', 'planeService', function($http, dataService, planeService) {
+
+    const getHubByCode = function(code) {
+      return $http({
+          method: 'GET',
+          url: dataService.HUB_URL + '/' + code
+        }).then(function(res) {
+          let hub = res.data;
+          return hub;
+        }).catch(function(error) {
+          return {};
+        });
+    };
 
     const generateName = function(hubCode) {
 
-      return dataService.getHubs().then(function(hubs) {
+      return getHubByCode(hubCode).then(function(hubObject) {
         // Get all the registration regular expressions for the country of the hub
-        hubObject = _.find(hubs, function(hub) {
-          return _.isEqual(hub.code, hubCode)
-        });
         let regexArray = _.get(hubObject, 'immat');
-
         let regex;
         let index = 0;
         let name = '';
@@ -378,7 +437,10 @@ angular.module('am2App')
         }
         regex = new RegExp(regexArray[index]);
         name = new RandExp(regex).gen();
+        console.log(regex, name);
         return name;
+      }).catch(function(error) {
+        console.log(error);
       });
     };
 
@@ -406,15 +468,16 @@ angular.module('am2App')
     };
 
     return {
-      getRandomName: getRandomName
+      getRandomName: getRandomName,
+      getHubByCode: getHubByCode
     };
   }]);
 
-},{"lodash":31}],7:[function(require,module,exports){
+},{"lodash":33}],8:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('lineService', ['dataService', 'calc', function(dataService, calc) {
+  .factory('lineService', ['dataService', 'apiService', 'calc', function(dataService, apiService, calc) {
 
     const similarProportions = function(x, y) {
       const variation = (x - y) / x * 100;
@@ -436,10 +499,9 @@ angular.module('am2App')
       return !isEqual(line1, line2) && similarEco && similarBusiness && similarFirst;
     };
 
-    const getLinesFromTo = function(origin, dest) {
-      let query = {from: origin, to: dest};
-      return dataService.getLines(query).then(function(lines) {
-          return lines[0];
+    const getLineFromOriginAndDest = function(origin, dest) {
+      return apiService.getLineFromOriginAndDest(origin, dest).then(function(lines) {
+        return lines[0];
       }).catch(function() {
         return null;
       });
@@ -485,14 +547,44 @@ angular.module('am2App')
     };
 
     return {
-      getLineFromTo: getLinesFromTo,
+      getLineFromOriginAndDest: getLineFromOriginAndDest,
       getSimilarLines: getSimilarLines,
       isSimilar: isSimilar,
       getCompatiblePlanes: getCompatiblePlanes
     };
   }]);
 
-},{"lodash":31}],8:[function(require,module,exports){
+},{"lodash":33}],9:[function(require,module,exports){
+const _ = require('lodash');
+
+angular.module('am2App')
+.factory('modalService', ['$http', function($http) {
+
+  const showNewPlaneModal = function() {
+    $("#modalAddPlane").modal({show: true, focus: true});
+  };
+
+  const hideNewPlaneModal = function() {
+    $("#modalAddPlane").modal('hide');
+  };
+
+  const showNewLineModal = function() {
+    $("#modalAddLine").modal({show: true, focus: true});
+  };
+
+  const hideNewLineModal = function() {
+    $("#modalAddLine").modal('hide');
+  };
+
+  return {
+    showNewPlaneModal: showNewPlaneModal,
+    hideNewPlaneModal: hideNewPlaneModal,
+    showNewLineModal: showNewLineModal,
+    hideNewLineModal: hideNewLineModal
+  };
+}]);
+
+},{"lodash":33}],10:[function(require,module,exports){
 angular.module('am2App')
 .factory('models', [function() {
   
@@ -508,15 +600,16 @@ angular.module('am2App')
     Plane: Plane
   };
 }]);
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
-  .factory('planeService', ['dataService', 'calc', function(dataService, calc) {
+  .factory('planeService', ['$http', 'dataService', 'calc', function($http, dataService, calc) {
 
     // Should return true is a plane is found
     const nameExists = function(planeName) {
-      return dataService.getPlanes({name: planeName}).then(function(planes) {
+      console.log(planeName);
+      return dataService.getPlaneByName(planeName).then(function(planes) {
         return !_.isNil(planes[0]);
       });
     };
@@ -551,7 +644,7 @@ angular.module('am2App')
     };
   }]);
 
-},{"lodash":31}],10:[function(require,module,exports){
+},{"lodash":33}],12:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -583,7 +676,7 @@ angular.module('am2App')
     };
   }]);
 
-},{"lodash":31}],11:[function(require,module,exports){
+},{"lodash":33}],13:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -601,7 +694,7 @@ angular.module('am2App')
       };
   }]);
 
-},{"lodash":31}],12:[function(require,module,exports){
+},{"lodash":33}],14:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -612,11 +705,27 @@ angular.module('am2App')
       scope: {
         line: '='
       },
-      controller: ['$scope', function($scope) {
+      controller: ['$scope', 'hubService', 'modalService', function($scope, hubService, modalService) {
+
+        $scope.newPlane = {
+          config: {}
+        };
+
+        $scope.addNewPlane = function(opti) {
+          $scope.newPlane.config.eco = opti.config.eco;
+          $scope.newPlane.config.business = opti.config.business;
+          $scope.newPlane.config.first = opti.config.first ;
+          $scope.newPlane.config.cargo = opti.config.cargo;
+          $scope.newPlane.dests = [$scope.line.to];
+          $scope.newPlane.hub = $scope.line.from;
+          $scope.newPlane.type = opti.type;
+          modalService.showNewPlaneModal();
+        };
       }]
     };
   });
-},{"lodash":31}],13:[function(require,module,exports){
+
+},{"lodash":33}],15:[function(require,module,exports){
 /**
  * Created by Gabriel on 26/12/2018.
  */
@@ -643,7 +752,7 @@ angular.module('am2App')
     };
   });
 
-},{"lodash":31}],14:[function(require,module,exports){
+},{"lodash":33}],16:[function(require,module,exports){
 /**
  * Created by Gabriel on 26/12/2018.
  */
@@ -676,7 +785,7 @@ angular.module('am2App')
     };
   });
 
-},{"lodash":31}],15:[function(require,module,exports){
+},{"lodash":33}],17:[function(require,module,exports){
 /**
  * Created by Gabriel on 16/12/2018.
  */
@@ -702,7 +811,7 @@ angular.module('am2App')
     };
   });
 
-},{"lodash":31}],16:[function(require,module,exports){
+},{"lodash":33}],18:[function(require,module,exports){
 /**
  * Created by Gabriel on 16/12/2018.
  */
@@ -715,23 +824,53 @@ angular.module('am2App')
       templateUrl: './templates/modalAddLine',
       transclude: true,
       scope: {},
-      controller: ['$scope', function($scope) {
+      controller: ['$scope', 'dataService', 'modalService', function($scope, dataService, modalService) {
 
-          $scope.newLine = {};
+          var fields = ['distance', 'amID', 'from', 'to', 'demand.eco', 'demand.business',
+                        'demand.first', 'demand.cargo', 'price.eco', 'price.business', 'price.first', 'price.cargo'];
+          $scope.newLine = {demand: {}, prices: {}};
+          $scope.invalidFeedback = {};
 
-          $scope.addLine = function() {
-            $scope.newLine.from = $scope.hub.code;
-            console.log('New line details', $scope.newLine);
+          var isNilOrEmpty = function(value) {
+            return _.isNil(value) || _.isEqual(value, '');
+           };
+
+          var checkLine = function() {
+            var booleans = [];
+            _.forEach(fields, function(field) {
+              var newLineAttribute = _.get($scope.newLine, field);
+              var val = isNilOrEmpty(newLineAttribute);
+              _.set($scope.invalidFeedback, field, val);
+              booleans.push(!val);
+            });
+            var finalVal = _.reduce(booleans, function(accu, bool) {
+              return accu && bool;
+            }, booleans[0]);
+            return finalVal;
           };
 
-          $scope.reset = function() {
+          $scope.addLine = function() {
+            var check = checkLine();
+            if (check) {
+              dataService.addNewLine($scope.newLine).then(function(newLine) {
+                modalService.hideNewLineModal();
+                $scope.clear();
+                console.log('New line has been succesfully added.', newLine);
+              }).catch(function(error) {
+                console.error('An error occurred while trying to add the line');
+                console.log(error);
+              });
+            }
+          };
+
+          $scope.clear = function() {
             $scope.newLine = {};
           };
       }]
     };
   });
 
-},{"lodash":31}],17:[function(require,module,exports){
+},{"lodash":33}],19:[function(require,module,exports){
 /**
  * Created by Gabriel on 16/12/2018.
  */
@@ -743,25 +882,42 @@ angular.module('am2App')
     return {
       templateUrl: './templates/modalAddPlane',
       transclude: true,
-      scope: {},
-      controller: ['$scope', function($scope) {
+      scope: {
+        newPlane:  '='
+      },
+      controller: ['$scope', 'dataService', 'modalService', function($scope, dataService, modalService) {
 
-        $scope.newPlane = {};
+        $scope.newPlane = $scope.newPlane || {};
+        $scope.invalidFeedback = {};
 
         $scope.addPlane = function() {
-          $scope.newPlane.hub = $scope.hub.code;
-          $scope.newPlane.type = $scope.planeType.type;
-          console.log('New plane details:', $scope.newPlane);
+          var amId = $scope.newPlane.amID;
+          if (_.isNil(amId) || _.isEqual(amId, '')) {
+            $scope.invalidFeedback.amID = true;
+          } else {
+            $scope.invalidFeedback.amID = false;
+            modalService.hideNewPlaneModal();
+            dataService.addNewPlane($scope.newPlane).then(function(newPlane) {
+              modalService.hideNewPlaneModal();
+              $scope.clear();
+              console.log('New plane has been succesfully added.', newPlane);
+            }).catch(function(error) {
+              console.error('An error occurred while trying to add the plane');
+              console.log(error);
+            });
+          }
         };
 
-        $scope.reset = function() {
-          $scope.newPlane = {};
+        $scope.clear = function() {
+          $scope.newPlane = {config: {}};
+          $scope.invalidFeedback = {};
         };
+
       }]
     };
   });
 
-},{"lodash":31}],18:[function(require,module,exports){
+},{"lodash":33}],20:[function(require,module,exports){
 /**
  * Created by Gabriel on 02/08/2017.
  */
@@ -782,8 +938,10 @@ angular.module('am2App')
 
         $scope.$watch('hub', function(newVal, oldVal) {
           if (!_.isNil(newVal)) {
-            hubService.getRandomName($scope.hub.code).then(function(name) {
+            hubService.getRandomName($scope.hub).then(function(name) {
               $scope.name = name;
+            }).catch(function(error) {
+              console.log(error);
             });
           }
         }, true);
@@ -791,7 +949,7 @@ angular.module('am2App')
     };
   });
 
-},{"lodash":31}],19:[function(require,module,exports){
+},{"lodash":33}],21:[function(require,module,exports){
 /**
  * Created by Gabriel on 29/12/2018.
  */
@@ -804,11 +962,17 @@ angular.module('am2App')
       templateUrl: './templates/navigation',
       scope: {
         title: '='
-      }
+      },
+      controller: ['$scope', 'modalService', function($scope, modalService) {
+        $scope.showNewPlaneModal = function() {
+          modalService.showNewPlaneModal();
+        };
+
+      }]
     };
   });
 
-},{"lodash":31}],20:[function(require,module,exports){
+},{"lodash":33}],22:[function(require,module,exports){
 /**
  * Created by Gabriel on 05/04/2017.
  */
@@ -862,7 +1026,7 @@ angular.module('am2App')
       };
     }]);
 
-},{"lodash":31}],21:[function(require,module,exports){
+},{"lodash":33}],23:[function(require,module,exports){
 /**
  * Created by Gabriel on 16/12/2018.
  */
@@ -878,13 +1042,13 @@ angular.module('am2App')
       },
       controller: ['$scope', 'dataService', function($scope, dataService) {
         dataService.getHubs().then(function(hubs) {
-          $scope.hubs = hubs;
+          $scope.hubs = _.map(hubs, function(hub) {return hub.code});
         });
       }]
     };
   });
 
-},{"lodash":31}],22:[function(require,module,exports){
+},{"lodash":33}],24:[function(require,module,exports){
 /**
  * Created by Gabriel on 02/08/2017.
  */
@@ -906,7 +1070,7 @@ angular.module('am2App')
     };
   });
 
-},{"lodash":31}],23:[function(require,module,exports){
+},{"lodash":33}],25:[function(require,module,exports){
 /**
  * Created by Gabriel on 26/12/2018.
  */
@@ -928,7 +1092,7 @@ angular.module('am2App')
     };
   });
 
-},{"lodash":31}],24:[function(require,module,exports){
+},{"lodash":33}],26:[function(require,module,exports){
 /**
  * Created by Gabriel on 26/12/2018.
  */
@@ -944,13 +1108,13 @@ angular.module('am2App')
       },
       controller: ['$scope', 'dataService', function($scope, dataService) {
         dataService.getPlaneTypes().then(function(planeTypes) {
-          $scope.planeTypes = planeTypes;
+          $scope.planeTypes = _.map(planeTypes, function(planeType) {return planeType.type;});
         });
       }]
     };
   });
 
-},{"lodash":31}],25:[function(require,module,exports){
+},{"lodash":33}],27:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -982,7 +1146,7 @@ angular.module('am2App')
     };
   });
 
-},{"lodash":31}],26:[function(require,module,exports){
+},{"lodash":33}],28:[function(require,module,exports){
 const _ = require('lodash');
 
 angular.module('am2App')
@@ -998,7 +1162,8 @@ angular.module('am2App')
 
         $scope.chooseDestination = function(to) {
           if (!_.isNil($scope.plane)) {
-            lineService.getLineFromTo($scope.plane.hub, to).then(function(line) {
+            lineService.getLineFromOriginAndDest($scope.plane.hub, to).then(function(line) {
+              console.log('Will select line:', line);
               $scope.chooseLine(line);
             });
           }
@@ -1007,7 +1172,7 @@ angular.module('am2App')
     };
   });
 
-},{"lodash":31}],27:[function(require,module,exports){
+},{"lodash":33}],29:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.4.2
@@ -5692,7 +5857,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],28:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 /**
  * @license AngularJS v1.7.5
  * (c) 2010-2018 Google, Inc. http://angularjs.org
@@ -41914,11 +42079,11 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],29:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":28}],30:[function(require,module,exports){
+},{"./angular":30}],32:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.1.1
  * https://jquery.com/
@@ -52140,7 +52305,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],31:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 (function (global){
 /**
  * @license
