@@ -13,6 +13,7 @@ angular.module('am2App')
       },
       controller: ['$scope', 'modalService', function($scope, modalService) {
         $scope.showNewPlaneModal = function() {
+          console.log('Ok');
           modalService.showNewPlaneModal();
         };
 

@@ -5813,3 +5813,9 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+
+.visible {
+  visibility: visible; }
+
+.invisible {
+  visibility: hidden; }

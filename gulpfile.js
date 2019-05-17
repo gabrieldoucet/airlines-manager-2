@@ -24,7 +24,7 @@ function html() {
 };
 
 function css() {
-  return gulp.src('./stylesheets/style.scss')
+  return gulp.src('./app/stylesheets/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./dist/stylesheets'));
 };
@@ -34,7 +34,7 @@ function watchJs() {
 };
 
 function watchCss() {
-  gulp.watch(['stylesheets/**/*.scss'], css);
+  gulp.watch(['app/stylesheets/**/*.scss'], css);
 };
 
 function watchHtml() {
@@ -77,7 +77,7 @@ function watchTest() {
 
 module.exports = {
   default: gulp.series(js, html, css),
-  dev: gulp.parallel(watchJs, watchHtml, watchCss),
+  dev: gulp.series(js, html, css, gulp.parallel(watchJs, watchHtml, watchCss)),
   build: gulp.series(js, html, css),
   test: gulp.series(watchTest)
 }

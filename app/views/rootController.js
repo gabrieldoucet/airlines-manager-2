@@ -5,8 +5,8 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .controller('rootController', ['$scope', 'calc', 'dataService',
-    function($scope, calc, dataService) {
+  .controller('rootController', ['$scope', 'calc', 'dataService', 'alertService',
+    function($scope, calc, dataService, alertService) {
 
       $scope.chooseLine = function(line) {
         $scope.selects.line = line;

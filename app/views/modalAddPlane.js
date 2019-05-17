@@ -12,7 +12,7 @@ angular.module('am2App')
       scope: {
         newPlane:  '='
       },
-      controller: ['$scope', 'dataService', 'modalService', function($scope, dataService, modalService) {
+      controller: ['$scope', 'dataService', 'modalService', 'alertService', function($scope, dataService, modalService, alertService) {
 
         $scope.newPlane = $scope.newPlane || {};
         $scope.invalidFeedback = {};
@@ -27,7 +27,9 @@ angular.module('am2App')
             dataService.addNewPlane($scope.newPlane).then(function(newPlane) {
               modalService.hideNewPlaneModal();
               $scope.clear();
-              console.log('New plane has been succesfully added.', newPlane);
+              let alertMessage = 'Plane ' + newPlane.name + ' has successfully been added';
+              console.log(alertMessage, newPlane);
+              alertService.alertSuccess(alertMessage);
             }).catch(function(error) {
               console.error('An error occurred while trying to add the plane');
               console.log(error);

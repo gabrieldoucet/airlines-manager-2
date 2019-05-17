@@ -10,10 +10,10 @@ angular.module('am2App')
       templateUrl: './templates/modalAddLine',
       transclude: true,
       scope: {},
-      controller: ['$scope', 'dataService', 'modalService', function($scope, dataService, modalService) {
+      controller: ['$scope', 'dataService', 'modalService', 'alertService', function($scope, dataService, modalService, alertService) {
 
           var fields = ['distance', 'amID', 'from', 'to', 'demand.eco', 'demand.business',
-                        'demand.first', 'demand.cargo', 'price.eco', 'price.business', 'price.first', 'price.cargo'];
+                        'demand.first', 'demand.cargo', 'prices.eco', 'prices.business', 'prices.first', 'prices.cargo'];
           $scope.newLine = {demand: {}, prices: {}};
           $scope.invalidFeedback = {};
 
@@ -42,6 +42,8 @@ angular.module('am2App')
                 modalService.hideNewLineModal();
                 $scope.clear();
                 console.log('New line has been succesfully added.', newLine);
+                var alertMessage = 'The line ' + newLine.from + '-' + newLine.to + ' has successfully been added';
+                alertService.alertSuccess(alertMessage);
               }).catch(function(error) {
                 console.error('An error occurred while trying to add the line');
                 console.log(error);

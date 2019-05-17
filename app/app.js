@@ -20,6 +20,7 @@ require('./services/planeService.js');
 require('./services/planeTypeService.js');
 require('./services/urlService.js');
 require('./services/modalService.js');
+require('./services/alertService.js');
 
 require('./views/rootController.js');
 require('./views/modalAddHub.js');
@@ -36,3 +37,4 @@ require('./views/selectPlane.js');
 require('./views/selectPlaneType.js');
 require('./views/viewLine.js');
 require('./views/viewPlane.js');
+require('./views/alertBanner.js');

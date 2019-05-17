@@ -1,22 +1,23 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-.factory('modalService', ['$http', function($http) {
+.factory('modalService', [function() {
 
   const showNewPlaneModal = function() {
-    $("#modalAddPlane").modal({show: true, focus: true});
+    console.log('Yes');
+    $('#modalAddPlane').modal('show');
   };
 
   const hideNewPlaneModal = function() {
-    $("#modalAddPlane").modal('hide');
+    $('#modalAddPlane').modal('hide');
   };
 
   const showNewLineModal = function() {
-    $("#modalAddLine").modal({show: true, focus: true});
+    $('#modalAddLine').modal({show: true, focus: true});
   };
 
   const hideNewLineModal = function() {
-    $("#modalAddLine").modal('hide');
+    $('#modalAddLine').modal('hide');
   };
 
   return {
