@@ -6,13 +6,13 @@ var connectOptions = {
   loggerLevel: 'warn'
 };
 
-if (_.isEqual(process.env.NODE_ENV, 'prod')) {
-  _.set(connectOptions,'dbName', 'am2-prod');
-} else {
-  _.set(connectOptions,'dbName', 'am2-dev');
-}
+const DB_SERVER_IP = process.env.DB_SERVER_IP;
+const DB_SERVER_PORT = process.env.DB_SERVER_PORT;
+const DB_NAME = process.env.DB_NAME;
 
-mongoose.connect('mongodb://127.0.0.1:27017', connectOptions, function(err) {
+let uri = `mongodb://${DB_SERVER_IP}:${DB_SERVER_PORT}/${DB_NAME}`;
+
+mongoose.connect(uri, connectOptions, function(err) {
   if (err) {
     console.error(err);
   } else {

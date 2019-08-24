@@ -1,8 +1,8 @@
 **/.DS_Store
 npm-debug.log
 .idea/
+.vscode/
 .sass-cache/
-db/
 node_modules/
 dist/
-database/pid.txt
+.env
