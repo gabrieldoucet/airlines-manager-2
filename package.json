@@ -5,9 +5,7 @@
     "start": "NODE_ENV=prod node ./bin/www",
     "dev": "NODE_ENV=dev ./node_modules/.bin/nodemon ./bin/www",
     "build": "./node_modules/.bin/gulp build",
-    "gulp": "./node_modules/.bin/gulp",
-    "gulp-dev": "./node_modules/.bin/gulp dev",
-    "gulp-test": "./node_modules/.bin/gulp test"
+    "gulp": "./node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",
@@ -15,32 +13,32 @@
   },
   "dependencies": {
     "acorn": "^6.0.0",
-    "angular": "^1.7.5",
-    "angular-ui-router": "^0.4.2",
     "async": "^2.2.0",
     "body-parser": "^1.18.3",
-    "bootstrap-sass": "^3.3.7",
     "commander": "^2.9.0",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.3",
     "debug": "^2.6.1",
     "dotenv": "^8.1.0",
     "express": "^4.16.4",
-    "gulp-pug": "^3.3.0",
-    "gulp-sass": "^4.0.2",
-    "jquery": "^3.4.1",
-    "lodash": "^4.17.15",
-    "mongoose": "^4.13.18",
+    "mongoose": "^5.8.4",
     "morgan": "^1.9.1",
     "pug": "^2.0.4",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "browserify": "^16.2.3",
+    "angular": "^1.7.9",
+    "angular-ui-router": "^0.4.2",
+    "bootstrap-sass": "^3.3.7",
     "cloc": "^2.3.4",
+    "eslint": "^6.4.0",
     "gulp": "^4.0.1",
+    "gulp-bro": "^2.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
     "nodemon": "^1.18.8",
-    "pug-lint": "^2.4.0",
-    "vinyl-source-stream": "^2.0.0"
+    "pug-lint": "^2.4.0"
   }
 }

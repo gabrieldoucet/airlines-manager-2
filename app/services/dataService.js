@@ -3,10 +3,10 @@ var _ = require('lodash');
 angular.module('am2App')
 .factory('dataService', ['$http', function($http) {
 
-  const HUB_URL = 'http://localhost:3000/hub'
-  const LINE_URL = 'http://localhost:3000/line'
-  const PLANE_URL = 'http://localhost:3000/plane'
-  const PLANETYPE_URL = 'http://localhost:3000/planetype'
+  const HUB_URL = '/hub'
+  const LINE_URL = '/line'
+  const PLANE_URL = '/plane'
+  const PLANETYPE_URL = '/planetype'
 
   const getHubs = function() {
     return $http({

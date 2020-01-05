@@ -7,7 +7,7 @@ const _ = require('lodash');
 angular.module('am2App')
   .directive('selectHub', function() {
     return {
-      templateUrl: './templates/selectHub',
+      templateUrl: './directives/selectHub/select-hub.html',
       scope: {
         hub: '='
       },

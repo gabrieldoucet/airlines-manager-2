@@ -5,7 +5,7 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .directive('navigation', function() {
+  .directive('navbar', function() {
     return {
       templateUrl: './templates/navigation',
       scope: {

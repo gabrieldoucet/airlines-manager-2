@@ -1,28 +1,28 @@
-const gulp       = require('gulp');
-const sass       = require('gulp-sass');
-const browserify = require('browserify');
-const source     = require('vinyl-source-stream');
-const pug        = require('gulp-pug');
+const path = require('path');
+const gulp = require('gulp');
+const bro = require('gulp-bro');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
 
 sass.compiler = require('node-sass');
 
 function js() {
-  return browserify('./app/app.js')
-    .bundle()
-    .pipe(source('main.js'))
-    .pipe(gulp.dest('./dist/js/'));
+  return gulp
+    .src(path.join(__dirname, 'app', 'app.js'))
+    .pipe(bro())
+    .pipe(rename(path.join(__dirname, 'dist', 'main.js')))
+    .pipe(gulp.dest(path.join(__dirname, 'dist')));
 };
 
 function html() {
-  return gulp.src('views/templates/*.pug')
-    .pipe(pug())
-    .pipe(gulp.dest('dist/views/')); // tell gulp our output folder
+  return gulp.src('app/**/*.html')
+    .pipe(gulp.dest(path.join(__dirname, 'dist')));
 };
 
 function css() {
-  return gulp.src('./app/stylesheets/style.scss')
+  return gulp.src(path.join(__dirname, 'app', 'stylesheets', 'style.scss'))
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./dist/stylesheets'));
+    .pipe(gulp.dest(path.join(__dirname, 'dist', 'stylesheets')));
 };
 
 function watchJs() {
@@ -34,7 +34,7 @@ function watchCss() {
 };
 
 function watchHtml() {
-  gulp.watch(['views/**/*.pug'], html);
+  gulp.watch(['app/**/*.html'], html);
 };
 
 module.exports = {
