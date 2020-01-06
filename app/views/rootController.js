@@ -5,48 +5,53 @@
 const _ = require('lodash');
 
 angular.module('am2App')
-  .controller('rootController', ['$scope', 'calc', 'dataService', 'alertService',
-    function($scope, calc, dataService, alertService) {
+  .controller('RootController', rootController);
 
-      $scope.chooseLine = function(line) {
-        $scope.selects.line = line;
-      };
+rootController.$inject = ['calc', 'dataService'];
 
-      $scope.choosePlane = function(plane) {
-        $scope.selects.plane = plane;
-      };
+function rootController(calc, dataService) {
+  const vm = this;
+  vm.chooseLine = function (line) {
+    vm.selects.line = line;
+  };
 
-      $scope.selects = {manualInput: false};
+  vm.choosePlane = function (plane) {
+    vm.selects.plane = plane;
+  };
 
-      $scope.getAllOptis = function() {
-        dataService.getPlaneTypes().then(function(planeTypes) {
-          let optis        = _.map(planeTypes, function(planeType) {
-            return calc.getOptimisation(planeType, $scope.selects.line);
-          });
-          optis            = _.sortBy(optis, ['percent']);
-          console.log(optis);
-          _.set($scope.selects.line, 'optis', optis);
-        });
-      };
+  vm.selects = {
+    manualInput: false
+  };
 
-      $scope.toggleManual = function() {
-        if (!$scope.selects.manualInput) {
-          $scope.selects.lineClone = _.cloneDeep($scope.selects.line);
-        } else {
-          $scope.selects.line = _.cloneDeep($scope.selects.lineClone);
-        }
-        $scope.selects.manualInput = !$scope.selects.manualInput;
-        //MDL Text Input Cleanup
-        function mdlCleanUp() {
-          var mdlInputs = doc.querySelectorAll('.mdl-js-textfield');
-          for (var i = 0, l = mdlInputs.length; i < l; i++) {
-            console.log(mdlInputs[i]);
-            mdlInputs[i].MaterialTextfield.checkDirty();
-          }
-        }
-      };
+  vm.getAllOptis = function () {
+    dataService.getPlaneTypes().then(function (planeTypes) {
+      let optis = _.map(planeTypes, function (planeType) {
+        return calc.getOptimisation(planeType, vm.selects.line);
+      });
+      optis = _.sortBy(optis, ['percent']);
+      console.log(optis);
+      _.set(vm.selects.line, 'optis', optis);
+    });
+  };
 
-      $scope.reset = function() {
-        $scope.selects.line = _.cloneDeep($scope.selects.lineClone);
-      };
-    }]);
+  vm.toggleManual = function () {
+    if (!vm.selects.manualInput) {
+      vm.selects.lineClone = _.cloneDeep(vm.selects.line);
+    } else {
+      vm.selects.line = _.cloneDeep(vm.selects.lineClone);
+    }
+    vm.selects.manualInput = !vm.selects.manualInput;
+    //MDL Text Input Cleanup
+    function mdlCleanUp() {
+      var mdlInputs = doc.querySelectorAll('.mdl-js-textfield');
+      for (var i = 0, l = mdlInputs.length; i < l; i++) {
+        console.log(mdlInputs[i]);
+        mdlInputs[i].MaterialTextfield.checkDirty();
+      }
+    }
+  };
+
+  vm.reset = function () {
+    vm.selects.line = _.cloneDeep(vm.selects.lineClone);
+  };
+};

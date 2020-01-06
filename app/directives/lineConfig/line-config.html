@@ -1,0 +1,27 @@
+<table class="table table-striped table-hover" ng-show="vm.line">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col" colspan="4">Configuration</th>
+      <th scope="col">Durée</th>
+      <th scope="col">% demande</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="opti in vm.line.optis">
+      <td>{{opti.type}}</td>
+      <td>{{opti.config.eco}} pax</td>
+      <td>{{opti.config.business}} pax</td>
+      <td>{{opti.config.first}} pax</td>
+      <td>{{opti.config.cargo}} T</td>
+      <td>{{opti.duration.asString}}</td>
+      <td>{{opti.percent}} %</td>
+      <td>
+        <a class="btn btn-outline-dark" role="button" ng-click="vm.addNewPlane(opti)">
+          <i class="fas fa-plus" aria-hidden="true"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

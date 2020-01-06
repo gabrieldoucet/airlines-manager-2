@@ -27,11 +27,17 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
     "angular": "^1.7.9",
+    "angular-animate": "^1.7.9",
+    "angular-popeye": "^1.0.5",
     "angular-ui-router": "^0.4.2",
+    "bootstrap": "^4.4.1",
     "bootstrap-sass": "^3.3.7",
     "cloc": "^2.3.4",
-    "eslint": "^6.4.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-angular": "^4.0.1",
+    "gd-bootstrap": "file:../gd-bootstrap",
     "gulp": "^4.0.1",
     "gulp-bro": "^2.0.0",
     "gulp-rename": "^2.0.0",
@@ -39,6 +45,7 @@
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "nodemon": "^1.18.8",
+    "popper.js": "^1.16.0",
     "pug-lint": "^2.4.0"
   }
 }

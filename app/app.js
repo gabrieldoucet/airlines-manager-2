@@ -1,13 +1,13 @@
 require('jquery');
 require('angular');
 require('angular-ui-router');
-
-const _ = require('lodash');
-
-angular.module('am2App', []);
-
+require('angular-popeye');
+require('popper.js');
+require('bootstrap');
 require('./lib/randexp.min.js');
+angular.module('am2App', ['pathgather.popeye']);
 
+/* -- Services -- */
 require('./services/algorithmic.js');
 require('./services/calc.js');
 //require('./services/classService.js'); Not needed at the moment
@@ -22,10 +22,13 @@ require('./services/urlService.js');
 require('./services/modalService.js');
 require('./services/alertService.js');
 
-require('./views/rootController.js');
-require('./views/modalAddHub.js');
-require('./views/modalAddLine.js');
-require('./views/modalAddPlane.js');
+/* -- Controllers -- */
+require('./views/RootController.js');
+require('./views/modals/modalAddLineController.js');
+require('./views/modals/ModalAddPlaneController.js');
+require('./views/modals/ModalAddHubController.js');
+
+/* -- Directives -- */
 require('./directives/nameGen/nameGen.js');
 require('./directives/lineConfig/lineConfig.js');
 require('./directives/listLine/listLine.js');

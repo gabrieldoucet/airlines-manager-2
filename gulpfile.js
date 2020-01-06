@@ -6,12 +6,22 @@ const sass = require('gulp-sass');
 
 sass.compiler = require('node-sass');
 
+function externalCss() {
+  const popeyeCss = path.join(__dirname, 'node_modules', 'angular-popeye', 'release', 'popeye.css');
+//  const fontAwesomeCss = path.join(__dirname, 'node_modules', '@fortawesome', 'fontawesome-free', 'css', 'all.css');
+  const customBootstrap = path.join(__dirname, 'node_modules', 'gd-bootstrap', 'dist', 'css', 'gd-bootstrap.css');
+  const cssFiles = [popeyeCss, customBootstrap];
+  return gulp
+    .src(cssFiles)
+    .pipe(gulp.dest(path.join(__dirname, 'dist', 'stylesheets')));
+}
+
 function js() {
   return gulp
     .src(path.join(__dirname, 'app', 'app.js'))
     .pipe(bro())
-    .pipe(rename(path.join(__dirname, 'dist', 'main.js')))
-    .pipe(gulp.dest(path.join(__dirname, 'dist')));
+    .pipe(rename('main.js'))
+    .pipe(gulp.dest('dist/scripts'));
 };
 
 function html() {
@@ -38,7 +48,7 @@ function watchHtml() {
 };
 
 module.exports = {
-  default: gulp.series(js, html, css),
-  dev: gulp.series(js, html, css, gulp.parallel(watchJs, watchHtml, watchCss)),
-  build: gulp.series(js, html, css)
+  default: gulp.series(externalCss, js, html, css),
+  dev: gulp.series(js, html, externalCss, css, gulp.parallel(watchJs, watchHtml, watchCss)),
+  build: gulp.series(externalCss, js, html, css)
 }

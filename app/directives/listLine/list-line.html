@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-sm-11">
+    <h5>{{vm.title}}</h5>
+  </div>
+  <div class="col-sm-1"><i class="fas" ng-class="vm.show ? 'fa-chevron-down' : 'fa-chevron-right'"
+      ng-click="toggle()"></i>
+  </div>
+</div>
+<div class="row" ng-show="vm.show">
+  <div class="col-sm-12"><a class="badge badge-pill badge-secondary" href="" style="margin-right: 2px;"
+      ng-repeat="line in vm.lines" ng-click="vm.chooseLine(line)">{{line.from}} - {{line.to}}</a>
+    <h6 class="text-muted" ng-show="lines.length == 0">No lines to display</h6>
+  </div>
+</div>

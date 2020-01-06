@@ -1,67 +1,63 @@
-<div class="modal fade" id="modalAddPlane" tabindex="-1" role="dialog" aria-labelledby="modalAddPlaneLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalAddPlaneLabel">Add new plane</h5><button class="close" type="button"
-          data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times</span></button>
+<div class="row text-center modal-title">
+  <p class="h3 col-12" id="modalAddPlaneLabel">Add new plane</p>
+</div>
+
+<div class="row">
+  <form class="text-center p-5">
+    <div class="form-row mb-3">
+      <p class="h5 col-12 mb-2">Plane details</p>
+      <div class="col">
+        <select-plane-type plane-type="vm.newPlane.type"></select-plane-type>
       </div>
-      <div class="modal-body">
-        <form class="text-center p-5">
-          <p class="h4 mb-4">Plane details</p>
-          <div class="form-row mb-3">
-            <div class="col">
-              <select-plane-type plane-type="newPlane.type"></select-plane-type>
-            </div>
-            <div class="col"><input class="form-control" type="text" ng-class="{'is-invalid': invalidFeedback.amID}"
-                placeholder="AM2 ID" ng-model="newPlane.amID" required="required" />
-              <div class="invalid-feedback" ng-if="invalidFeedback.amID">This field cannot be empty</div>
-            </div>
-          </div>
-          <div class="form-row mb-3">
-            <div class="col">
-              <select-hub hub="newPlane.hub"></select-hub>
-            </div>
-            <div class="col"><input class="form-control" type="text" placeholder="Name" ng-model="newPlane.name"
-                disabled="disabled" />
-              <name-gen hub="newPlane.hub" name="newPlane.name"></name-gen>
-            </div>
-          </div>
-          <!-- Configuration-->
-          <div class="form-row">
-            <div class="col"><label>Configuration </label></div>
-          </div>
-          <div class="form-row mb-3">
-            <!-- Economic-->
-            <div class="col"><input class="form-control" type="number" placeholder="Eco"
-                ng-model="newPlane.config.eco" /></div>
-            <!-- Business          -->
-            <div class="col"><input class="form-control" type="number" placeholder="Bus."
-                ng-model="newPlane.config.business" /></div>
-            <!-- First            -->
-            <div class="col"><input class="form-control" type="number" placeholder="First"
-                ng-model="newPlane.config.first" /></div>
-            <!-- First              -->
-            <div class="col"><input class="form-control" type="number" placeholder="Cargo"
-                ng-model="newPlane.config.cargo" /></div>
-          </div>
-          <!-- Destinations-->
-          <div class="form-row">
-            <div class="col"><label>Destinations</label></div>
-          </div>
-          <div class="form-row">
-            <!-- Destinations-->
-            <div class="col-12 mb-1"><a class="badge badge-pill badge-secondary mr-1"
-                ng-repeat="dest in newPlane.dests">{{dest}}</a></div>
-            <div class="col-12"><input class="form-control" type="text" placeholder="Add new lines: ARN,CDG,..."
-                ng-model="otherDestinations" /></div>
-          </div>
-        </form>
+      <div class="col"><input class="form-control" type="text" ng-class="{'is-invalid': vm.invalidFeedback.amID}"
+          placeholder="AM2 ID" ng-model="vm.newPlane.amID" required="required" />
+        <div class="invalid-feedback" ng-if="vm.invalidFeedback.amID">This field cannot be empty</div>
       </div>
-      <div class="modal-footer"><button class="btn btn-secondary" type="button"
-          data-dismiss="modal">Close</button><button class="btn btn-danger" type="button"
-          ng-click="clear()">Clear</button><button class="btn btn-primary" type="submit" c="c"
-          ng-click="addPlane()">Submit</button></div>
     </div>
+    <div class="form-row mb-4">
+      <div class="col">
+        <select-hub hub="vm.newPlane.hub"></select-hub>
+      </div>
+      <div class="col"><input class="form-control" type="text" placeholder="Name" ng-model="vm.newPlane.name"
+          disabled="disabled" />
+        <name-gen hub="vm.newPlane.hub" name="vm.newPlane.name"></name-gen>
+      </div>
+    </div>
+
+    <!-- Configuration-->
+    <div class="form-row mb-4">
+      <p class="h5 col-12 mb-2">Configuration</p>
+      <!-- Economic-->
+      <div class="col"><input class="form-control" type="number" placeholder="Eco" ng-model="vm.newPlane.config.eco" />
+      </div>
+      <!-- Business          -->
+      <div class="col"><input class="form-control" type="number" placeholder="Bus."
+          ng-model="vm.newPlane.config.business" /></div>
+      <!-- First            -->
+      <div class="col"><input class="form-control" type="number" placeholder="First"
+          ng-model="vm.newPlane.config.first" />
+      </div>
+      <!-- First              -->
+      <div class="col"><input class="form-control" type="number" placeholder="Cargo"
+          ng-model="vm.newPlane.config.cargo" />
+      </div>
+    </div>
+
+    <!-- Destinations-->
+    <div class="form-row">
+      <p class="h5 col-12 mb-2">Destinations</p>
+      <div class="col-12 mb-1"><a class="badge badge-pill badge-secondary mr-1"
+          ng-repeat="dest in vm.newPlane.dests">{{dest}}</a></div>
+      <div class="col-12"><input class="form-control" type="text" placeholder="Add new lines: ARN,CDG,..."
+          ng-model="vm.otherDestinations" /></div>
+    </div>
+  </form>
+</div>
+
+<div class="row">
+  <div class="offset-8 col-4">
+    <button class="btn btn-primary" type="submit" ng-click="vm.addPlane()">Submit</button>
+    <button class="btn btn-primary" type="button" ng-click="vm.clear()">Clear</button>
+    <button class="btn btn-primary" type="button">Close</button>
   </div>
 </div>
