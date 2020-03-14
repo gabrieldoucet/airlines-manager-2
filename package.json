@@ -12,7 +12,7 @@
     "url": "https://github.com/gdoucet-fr/am2.git"
   },
   "dependencies": {
-    "acorn": "^6.0.0",
+    "acorn": "^6.4.1",
     "async": "^2.2.0",
     "body-parser": "^1.18.3",
     "commander": "^2.9.0",
